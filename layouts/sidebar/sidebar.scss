@@ -1,0 +1,129 @@
+.app-sidebar-wrap {
+  .user-info-box {
+    padding-left: 58px;
+    padding-right: 10px;
+    padding-bottom: 20px;
+    font-size: 12px;
+    .welcome-message {
+      font-size: 20px;
+    }
+    .txt span {
+      color: #9B64E6 !important;
+    }
+  }
+  width: 265px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  background-color: #1F063E;
+
+  #app-sidebar-logo {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    a {
+      display: block;
+      width: 150px;
+      margin: 0 auto;
+      cursor: pointer;
+      img {
+        display: block;
+        width: 100%;
+      }
+    }
+
+    > svg {
+      display: none;
+      cursor: pointer;
+    }
+  }
+
+  #app-sidebar-tabs {
+    flex: 1;
+    overflow-y: auto;
+
+    ul {
+      list-style: none;
+    }
+
+    > ul {
+      > li {
+        > a {
+          display: block;
+          cursor: pointer;
+          padding: 9px 58px;
+        }
+
+        &.active {
+          > a {
+            background-color: #7A48B9;
+          }
+        }
+
+        ul {
+          li {
+            a {
+              display: flex;
+              align-items: center;
+              padding: 9px 40px 9px 57px;
+              cursor: pointer;
+
+              > div {
+                margin-right: 20px;
+                width: 27px;
+                text-align: center;
+              }
+            }
+
+            &.active {
+              a {
+                background-color: #7A48B9;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media all and (max-width: 1199px) {
+    transform: translate3D(-100%, 0, 0);
+    transition: all .3s ease;
+  }
+
+  @media all and (max-width: 767px) {
+    width: 100%;
+
+    #app-sidebar-logo {
+      display: flex;
+      align-items: center;
+
+      a {
+        margin-left: 15px;
+      }
+
+      > svg {
+        display: block;
+        margin-left: auto;
+        margin-right: 15px;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 1199px) {
+  .app.app-sidebar-open {
+    .app-sidebar-wrap {
+      transform: translate3d(0px, 0px, 0px);
+    }
+  }
+}
+
+.app.theme-metal {
+  .txt span {
+    color: #1cb0bb !important;
+  }
+}

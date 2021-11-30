@@ -1,0 +1,50 @@
+#app-proposals-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  #app-active-proposals-section, #app-completed-proposals-section {
+    height: 100%;
+    .infinite-content {
+      height: 100%;
+    }
+  }
+
+  ul#app-proposals-pageHeader {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+
+    li {
+      width: 155px;
+      border-bottom: 2px solid rgba(81, 25, 160, 0.3);
+      margin-right: 36px;
+      padding-bottom: 5px;
+      cursor: pointer;
+      
+      &.active {
+        border-bottom: 2px solid rgb(81, 25, 160);
+      }
+    }
+
+    @media all and (max-width: 767px) {
+      display: block;
+
+      li {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+
+  #app-proposals-page__buttons {
+    display: flex;
+    align-items: center;  
+    margin-bottom: 10px;
+    
+    .btn-primary {
+      margin-right: 20px;
+    }
+  }
+}

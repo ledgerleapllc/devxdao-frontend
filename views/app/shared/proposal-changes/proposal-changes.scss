@@ -1,0 +1,110 @@
+#app-proposal-changes-list-section {
+  #proposal-change-btn-wrap {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 45px;
+    margin-bottom: 15px;
+  }
+
+  .app-proposal-changes-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(114, 46, 209, 0.5);
+    padding: 1rem 10px;
+    cursor: pointer;
+
+    &:hover {
+      background: #3F196E;
+    }
+
+    * {
+      cursor: pointer;
+    }
+
+    > label {
+      // flex: 0 0 calc(100% - 400px);
+      flex: 1;
+      padding-left: 15px;
+      padding-right: 20px;
+      position: relative;
+
+      > span {
+        display: block;
+        width: 7px;
+        height: 7px;
+        border-radius: 500rem;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+
+        &.active-pc {
+          background: #33C333;
+        }
+
+        &.inactive-pc {
+          background: #EA5454;
+        }
+      }
+    }
+
+    .custom-badge {
+      flex: 0 0 200px;
+      padding-right: 20px;
+
+      .btn {
+        display: block;
+        width: 100%;
+        font-size: 1rem;
+      }
+    }
+
+    .app-proposal-changes-item__comments {
+      margin-left: auto;
+      margin-right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex: 0 0 100px;
+
+      > svg {
+        margin-right: 10px;
+      }
+    }
+
+    .app-proposal-changes-item__support {
+      font-size: 12px;
+      text-align: right;
+      flex: 0 0 100px;
+
+      > span:first-child {
+        color: #00FFB1;
+      }
+      > span:last-child {
+        color: #FF6F6F;
+      }
+    }
+  }
+
+  @media all and (max-width: 767px) {
+    .app-proposal-changes-item {
+      display: block;
+
+      > label {
+        flex: auto;
+        padding-right: 0;
+      }
+
+      .custom-badge {
+        margin-top: 0.5rem;
+        padding-right: 0;
+      }
+      
+      .app-proposal-changes-item__comments,
+      .app-proposal-changes-item__support {
+        margin-top: 0.5rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+#app-comments-section {
+  margin-top: 70px;
+
+  #app-comments-title {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #722ED1;
+    padding-bottom: 25px;
+    margin-bottom: 50px;
+
+    > label {
+      margin-right: 20px;
+    }
+  }
+
+  #app-comments-body {
+    ul {
+      list-style: none;
+
+      li {
+        margin-bottom: 50px;
+        p {
+          margin-top: 5px;
+        }
+      }
+    }
+    form {
+      textarea {
+        display: block;
+        width: 100%;
+        height: 150px;
+        resize: none;
+        background: #1F063E;
+        border: 1px solid #270A4B;
+        border-radius: 10px;
+        color: white;
+        padding: 1rem;
+      }
+
+      #app-comments-btn-wrap {
+        margin-top: 30px;
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
+  }
+}

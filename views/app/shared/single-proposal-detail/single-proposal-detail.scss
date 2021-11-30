@@ -1,0 +1,222 @@
+#app-single-proposal-detail-section {
+  
+  #c-dropzone {
+    width: 100%;
+    height: 70px;
+    border: 6px dashed #9B64E6;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+
+    > div {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+  }
+
+  .proposal-toggle-btn {
+    text-decoration: underline !important;
+    cursor: pointer;
+  }
+
+  .c-simple-checkbox-item-group {
+    display: flex;
+    align-items: center;
+
+    .c-simple-checkbox-item {
+      display: flex;
+      align-items: center;
+
+      label {
+        margin: 0 !important;
+      }
+
+      .c-simple-checkbox-itemSymbol {
+        width: 40px;
+        cursor: pointer;
+      }
+
+      &:first-child {
+        label {
+          margin: 0 150px 0 0 !important;
+        }
+      }
+
+      &:last-child {
+        flex: 1;
+        label {
+          margin: 0 30px 0 0 !important;
+        }
+        input {
+          max-width: 300px;
+        }
+      }
+    }
+  }
+
+  #c-proposal-tags {
+    ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      
+      li {
+        margin-right: 0.8rem;
+      }
+    }
+  }
+
+  .app-simple-section {
+    margin-bottom: 20px;
+    &__titleInner {
+      label {
+        margin-right: 20px;
+      }
+    }
+    .app-simple-section__body {
+      p {
+        margin: 25px 0 30px 0;
+      }
+      .app-spd-relation-item {
+        margin-top: 40px;
+        display: flex;
+        align-items: flex-start;
+
+        > svg {
+          margin-right: 35px;
+        }
+
+        label {
+          flex: 1;
+        }
+      }
+
+      .app-spd-grant-item {
+        margin-top: 40px;
+        display: flex;
+        align-items: flex-start;
+
+        > svg {
+          margin-right: 35px;
+        }
+
+        label {
+          width: 370px;
+        }
+
+        span {
+          flex: 1;
+        }
+      }
+
+      #app-spd-fileList {
+        list-style: none;
+        li {
+          margin-bottom: 10px;
+          a {
+            color: #9B64E6;
+          }
+        }
+      }
+    }
+  }
+  .c-form-row {
+    margin: 25px 0 30px 0;
+    label {
+      margin-bottom: 10px;
+      display: block;
+    }
+    input[type="text"], input[type="number"], select {
+      background: #291455;
+      border: 1px solid #270A4B;
+      border-radius: 10px;
+      display: block;
+      width: 100%;
+      color: white;
+      padding: 12px 10px;
+    }
+    select {
+      height: 50px;
+      appearance: none;
+      -webkit-appearance: none;
+    } 
+    textarea {
+      display: block;
+      width: 100%;
+      height: 150px;
+      background: #291455;
+      border: 1px solid #270A4B;
+      border-radius: 10px;
+      color: white;
+      padding: 12px 10px;
+      resize: none;
+    }
+  }
+  .c-form-row-deadline {
+    margin: 25px 0 30px 0;
+    label {
+      margin-bottom: 10px;
+      display: block;
+    }
+    .dob-picker-wrap {
+      width: 100%;
+      height: 50px;
+      background: #291455;
+      border: 1px solid #270A4B;
+      border-radius: 10px;
+      display: block;
+      width: 100%;
+      color: white;
+      padding: 0 5px;
+      .dob-picker {
+        width: 100%;
+        height: 100%;
+        .react-date-picker__inputGroup {
+          input[type="date"] {
+            width: 100%;
+            height: 100%;
+          }
+          .react-date-picker__inputGroup__divider {
+            margin: 0 5px;
+          }
+        }
+      }
+    }
+  }
+  .new-proposal-button-wrap {
+    margin-top: 50px;
+    .btn {
+      margin-right: 1rem;
+      margin-bottom: 1rem;
+    }
+  }
+  .c-checkbox-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    .c-checkbox-itemSymbol {
+      width: 40px;
+    }
+    > label {
+      cursor: pointer;
+    }
+  }
+}
+.pr-20 {
+  padding-right: 20px;
+}
+.mr-30 {
+  margin-right: 30px;
+}
+.pdf-link {
+  border-bottom: 1px solid white;
+  font-weight: 500;
+  cursor: pointer;
+}
+

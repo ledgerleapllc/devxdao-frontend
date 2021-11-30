@@ -1,0 +1,51 @@
+#shuftipro-wrap {
+  .shuftipro-loading {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .shuftipro-iframe-wrap {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-top: 127%;
+    
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  #shuftipro-wrap__buttons {
+    margin-top: 30px;
+    margin-left: -5px;
+    margin-right: -5px;
+    display: flex;
+
+    .btn {
+      flex: 0 0 calc(50% - 10px) !important;
+      width: calc(50% - 10px) !important;
+      margin: 0 5px !important;
+    }
+  }
+
+  @media all and (max-width: 767px) {
+    #shuftipro-wrap__buttons {
+      display: block;
+      margin-left: 0;
+      margin-right: 0;
+
+      .btn {
+        flex: auto;
+        width: 100% !important;
+        display: block !important;
+        margin: 0 0 20px 0 !important;
+      }
+    }
+  }
+}

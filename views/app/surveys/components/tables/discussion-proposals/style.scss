@@ -1,0 +1,54 @@
+.discussion-proposals-table {
+  ul {
+    list-style: none;
+  }
+  .infinite-body {
+    padding-left: 80px;
+    padding-right: 30px;
+  }
+  #infinite-no-result {
+    width: 100%;
+    height: 200px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .c-col-1 {
+    flex: 0 0 15%;
+    width: 15%;
+  }
+  .c-col-2 {
+    flex: 0 0 20%;
+    width: 20%;
+  }
+  .c-col-3 {
+    flex: 0 0 45%;
+    width: 45%;
+  }
+  .c-col-4 {
+    flex: 0 0 20%;
+    width: 20%;
+  }
+}
+.hide-won-column {
+  .c-col-1 {
+    flex: 0 0 20%;
+    width: 20%;
+  }
+  .c-col-2 {
+    flex: 0 0 20%;
+    width: 20%;
+  }
+  .c-col-3 {
+    flex: 0 0 60%;
+    width: 60%;
+  }
+  .c-col-4 {
+    display: none !important;
+    flex: 0 0 0%;
+    width: 0%;
+  }
+}
+.custom {
+  padding: 10px 20px !important;
+}

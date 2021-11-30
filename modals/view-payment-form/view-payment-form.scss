@@ -1,0 +1,38 @@
+#view-payment-form-modal {
+  width: 762px;
+  max-width: 100%;
+  background-color: #ffffff;
+  border-radius: 12px;
+  position: relative;
+  padding: 90px 50px;
+  margin: 70px auto;
+
+  h2 {
+    margin-bottom: 3rem;
+  }
+
+  .c-form-row {
+    margin-bottom: 1rem;
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    .custom-form-control {
+      padding: 5px 10px;
+      height: 40px;
+      box-shadow: none;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      font-weight: 400;
+      border-radius: 7px;
+    }
+  }
+
+  @media all and (max-width: 767px) {
+    margin: 100px auto;
+    padding: 30px 15px;
+
+    h2 {
+      margin-top: 50px;
+    }
+  }
+}

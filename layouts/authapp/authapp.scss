@@ -1,0 +1,118 @@
+.app-page-wrap {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  background-color: #180431;
+  color: #ffffff;
+
+  .app-content-wrap {
+    width: 100%;
+    height: 100%;
+    padding-left: 265px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    
+    #app-canvas {
+      display: none;
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    .app-content-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      padding: 35px 50px 30px 50px;
+      
+      #app-content__header {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin-bottom: 40px;
+        
+        > svg {
+          display: none;
+          cursor: pointer;
+        }
+
+        div {
+          text-align: right;
+          p {
+            font-size: 18px;
+          }
+          label {
+            display: block;
+            font-size: 10px;
+            span, a {
+              color: #9B64E6;
+            }
+          }
+        }
+      }
+    }
+
+    #app-content__footer {
+      text-align: center;
+      padding: 20px 10px 10px 10px;
+      font-size: 14px;
+    }
+  }
+
+  @media all and (max-width: 1199px) {
+    .app-content-wrap {
+      padding-left: 0;
+      .app-content-body {
+        #app-content__header {
+          justify-content: flex-start;
+          > svg {
+            display: block;
+            margin-right: auto;
+          }
+        }
+      }
+    }
+  }
+
+  @media all and (min-width: 1200px) {
+    .app-content-wrap {
+      .app-content-body {
+        #app-content__header {
+          display: none;
+        }
+      }
+    }
+  }
+
+  @media all and (max-width: 767px) {
+    .app-content-wrap {
+      overflow-x: hidden;
+      overflow-y: auto;
+      .app-content-body {
+        flex: auto;
+        overflow-y: initial;
+        padding: 35px 15px 30px 15px;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 1199px) {
+  .app.app-sidebar-open {
+    .app-page-wrap {
+      .app-content-wrap {
+        #app-canvas {
+          display: block;
+        }
+      }
+    }
+  }
+}

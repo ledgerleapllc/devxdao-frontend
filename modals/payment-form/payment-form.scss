@@ -1,0 +1,74 @@
+#payment-form-modal {
+  width: 762px;
+  max-width: 100%;
+  background-color: #ffffff;
+  border-radius: 12px;
+  position: relative;
+  padding: 90px 50px;
+  margin: 70px auto;
+
+  h2 {
+    margin-bottom: 3rem;
+  }
+
+  .c-form-row {
+    margin-bottom: 1rem;
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    .custom-form-control {
+      padding: 5px 10px;
+      height: 40px;
+      box-shadow: none;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      font-weight: 400;
+      border-radius: 7px;
+    }
+  }
+
+  #final-checkbox-wrap {
+    display: flex;
+    align-items: flex-start;
+
+    input {
+      margin-right: 10px;
+      margin-top: 5px;
+    }
+  }
+
+  #payment-form-modal__buttons {
+    margin-left: -5px;
+    margin-right: -5px;
+    margin-top: 3rem;
+    display: flex;
+
+    .btn {
+      flex: 0 0 calc(50% - 10px) !important;
+      width: calc(50% - 10px) !important;
+      margin: 0 5px !important;
+    }
+  }
+
+  @media all and (max-width: 767px) {
+    margin: 100px auto;
+    padding: 30px 15px;
+
+    h2 {
+      margin-top: 50px;
+    }
+
+    #payment-form-modal__buttons {
+      display: block;
+      margin-left: 0;
+      margin-right: 0;
+
+      .btn {
+        flex: auto;
+        width: 100% !important;
+        display: block !important;
+        margin: 0 0 20px 0 !important;
+      }
+    }
+  }
+}

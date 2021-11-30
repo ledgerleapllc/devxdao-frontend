@@ -1,0 +1,24 @@
+.input-base-custom {
+  background: #1F063E;
+  border: 1px solid #270A4B;
+  border-radius: 10px;
+  display: block;
+  width: 100%;
+  color: white;
+  padding: 0 10px;
+  max-width: 300px;
+  .MuiInputBase-input {
+    padding: 12px 10px;
+    color: white;
+  }
+}
+.input-base-custom.MuiInputBase-root {
+  color: white;
+}
+.input-money {
+  display: flex;
+  align-items: center;
+  .MuiTypography-colorTextSecondary {
+    color: inherit
+  }
+}

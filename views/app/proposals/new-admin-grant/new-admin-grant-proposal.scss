@@ -1,0 +1,102 @@
+#app-new-admin-grant-proposal-page {
+  .dob-picker-wrap {
+    width: 100%;
+    height: 50px;
+    background: #1F063E;
+    border: 1px solid #270A4B;
+    border-radius: 10px;
+    display: block;
+    width: 100%;
+    color: white;
+    padding: 0 5px;
+    .react-date-picker__inputGroup {
+      display: flex;
+      align-items: center;
+    }
+  }
+  .total-grant {
+    max-width: 300px;
+  }
+
+  .c-form-row {
+    margin-bottom: 20px;
+    label {
+      margin-bottom: 10px;
+      display: block;
+    }
+    input[type="text"], input[type="number"], select {
+      background: #1F063E;
+      border: 1px solid #270A4B;
+      border-radius: 10px;
+      display: block;
+      width: 100%;
+      color: white;
+      padding: 12px 10px;
+    }
+    select {
+      height: 50px;
+      appearance: none;
+      -webkit-appearance: none;
+    } 
+    textarea {
+      display: block;
+      width: 100%;
+      height: 150px;
+      background: #1F063E;
+      border: 1px solid #270A4B;
+      border-radius: 10px;
+      color: white;
+      padding: 12px 10px;
+      resize: none;
+    }
+  }
+
+  #c-dropzone {
+    width: 100%;
+    height: 300px;
+    background: #1F063E 0% 0% no-repeat padding-box;
+    border: 6px dashed #9B64E6;
+    border-radius: 10px;
+    cursor: pointer;
+
+    > div {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+  }
+
+  #files-wrap {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 1rem;
+    
+    > label {
+      margin-right: 10px;
+    }
+
+    ul {
+      list-style: none;
+
+      li {
+        display: flex;
+        align-items: center;
+
+        p {
+          width: 150px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          margin-right: 10px;
+        }
+
+        svg {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

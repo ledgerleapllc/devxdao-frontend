@@ -1,0 +1,71 @@
+#app-pending-users-section {
+  height: auto;
+  max-height: 440px;
+  margin-bottom: 10px;
+  
+  .infinite-contentInner {
+    min-width: 1000px;
+  }
+
+  .c-col-1 {
+    flex: 0 0 calc(100% - 750px);
+    width: calc(100% - 750px);
+  }
+  .c-col-2 {
+    flex: 0 0 200px;
+    width: 200px;
+  }
+  .c-col-3 {
+    flex: 0 0 200px;
+    width: 200px;
+  }
+  .c-col-4 {
+    flex: 0 0 150px;
+    width: 150px;
+  }
+  .c-col-5 {
+    flex: 0 0 200px;
+    width: 200px;
+  }
+
+  .infinite-body {
+    #infinite-no-result {
+      width: 100%;
+      height: 250px !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        cursor: pointer;
+        padding: 0 30px 0 80px;
+        
+        * {
+          cursor: pointer;
+        }
+
+        .infinite-row {
+          display: flex;
+          padding-top: 10px;
+          padding-bottom: 10px;
+
+          .c-col-1 {
+            padding-right: 20px;
+            label {
+              display: block;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
+          }
+        }
+      }
+    }
+  }
+}

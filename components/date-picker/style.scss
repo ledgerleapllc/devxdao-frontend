@@ -1,0 +1,35 @@
+.basic-calendar {
+  .MuiInputBase-root {
+    background: #1F063E;
+    border: 1px solid #270A4B;
+    border-radius: 10px;
+  }
+  .MuiIconButton-label {
+    color: white;
+  }
+}
+.app.theme-light {
+  .basic-calendar {
+    .MuiInputBase-root {
+      background: white !important;
+      border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    }
+    .MuiInput-input {
+      border: 0 !important;
+    }
+    .MuiIconButton-label {
+      color: black;
+    }
+  }
+}
+.app.theme-metal {
+  .basic-calendar {
+    .MuiInputBase-root {
+      background: transparent !important;
+      border: 1px solid #666 !important;
+    }
+    .MuiInputBase-input {
+      border: 0 !important;
+    }
+  }
+}
