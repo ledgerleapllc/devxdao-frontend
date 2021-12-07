@@ -1,0 +1,55 @@
+#app-firstgrant-box {
+  padding: 18px 20px;
+  background: rgb(50, 19, 91);
+  max-width: 100%;
+  width: 100%;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  
+  img {
+    margin-right: 30px;
+  }
+
+  > div {
+    margin-right: auto;
+    padding-right: 80px;
+    flex: 1;
+  }
+
+  > label {
+    color: #9B64E6;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  @media all and (max-width: 767px) {
+    flex-direction: column;
+
+    img {
+      margin-right: 0;
+    }
+
+    > div {
+      margin: 20px auto;
+      text-align: center;
+    }
+
+    .btn {
+      width: 100%;
+    }
+  }
+}
+
+.new-member {
+  .actions {
+    flex: 0 !important;
+    width: 150px !important;
+    padding-right: 0 !important;
+    button, a {
+      padding: 5px 7px;
+      font-size: 0.75rem;
+    }
+  }
+}

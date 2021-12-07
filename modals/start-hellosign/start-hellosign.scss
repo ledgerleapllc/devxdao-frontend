@@ -1,0 +1,43 @@
+#start-hellosign-modal {
+  width: 762px;
+  max-width: 100%;
+  background-color: #ffffff;
+  border-radius: 12px;
+  position: relative;
+  padding: 90px 100px;
+  margin: 160px auto;
+
+  #start-hellosign-modal__buttons {
+    margin-left: -5px;
+    margin-right: -5px;
+    display: flex;
+
+    a {
+      flex: 0 0 calc(50% - 10px) !important;
+      width: calc(50% - 10px) !important;
+      margin: 0 5px !important;
+    }
+  }
+
+  @media all and (max-width: 767px) {
+    margin: 100px auto;
+    padding: 30px 15px;
+
+    h2 {
+      margin-top: 50px;
+    }
+
+    #start-hellosign-modal__buttons {
+      display: block;
+      margin-left: 0;
+      margin-right: 0;
+
+      a {
+        flex: auto;
+        width: 100% !important;
+        display: block !important;
+        margin: 0 0 20px 0 !important;
+      }
+    }
+  }
+}

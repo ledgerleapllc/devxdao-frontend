@@ -1,0 +1,82 @@
+#signup-admin-page {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  .custom-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    #back-btn-wrap {
+      position: absolute;
+      top: 55px;
+      left: 15px;
+    }
+
+    form {
+      width: 1140px;
+      max-width: 100%;
+      margin-top: 3rem;
+      margin-bottom: 8rem;
+      position: relative;
+
+      h5 {
+        margin-top: 5px;
+        margin-bottom: 90px;
+      }
+
+      .c-form-row {
+        width: 100%;
+        margin-bottom: 40px;
+      }
+
+      #forum-part {
+        margin-bottom: 40px;
+        .custom-form-control {
+          margin-bottom: 10px;
+        }
+      }
+
+      .c-checkbox-wrap {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 40px;
+        cursor: pointer;
+
+        > svg {
+          margin-right: 20px;
+        }
+
+        > div {
+          flex: 1;
+        }
+      }
+
+      #btn-wrap {
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 3rem;
+
+        @media all and (max-width: 767px) {
+          display: block;
+
+          .btn {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  @media all and (max-width: 1359px) {
+    .custom-container {
+      #back-btn-wrap {
+        display: none;
+      }
+    }
+  }
+}

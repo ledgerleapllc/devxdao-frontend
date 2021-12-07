@@ -1,0 +1,32 @@
+#thank-you-page {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+
+  .custom-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    h1 {
+      margin-top: 3rem;
+    }
+
+    p {
+      max-width: 879px;
+      margin-top: 1rem;
+      margin-bottom: 60px;
+    }
+
+    .btn {
+      margin-bottom: 8rem;
+
+      @media all and (max-width: 767px) {
+        width: 100%;
+      }
+    }
+  }
+}

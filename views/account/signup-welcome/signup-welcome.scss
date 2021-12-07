@@ -1,0 +1,24 @@
+#signup-welcome-page {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  .custom-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    .btn#begin-btn {
+      margin-bottom: 20px;
+      @media all and (max-width: 767px) {
+        width: 100%;
+      }
+    }
+  }
+}

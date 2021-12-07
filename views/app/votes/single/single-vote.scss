@@ -1,0 +1,134 @@
+#app-single-vote-page {
+  display: flex;
+  flex-direction: column;
+
+  .app-simple-section {
+    ul {
+      list-style: none;
+      li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        label {
+          width: 200px;
+        }
+      }
+    }
+  }
+
+  #app-single-vote-results-section {
+    // max-height: 440px;
+
+    .c-col-1 {
+      flex: 0 0 25%;
+      width: 25%;
+    }
+    .c-col-2 {
+      flex: 0 0 25%;
+      width: 25%;
+    }
+    .c-col-3 {
+      flex: 0 0 25%;
+      width: 25%;
+    }
+    .c-col-4 {
+      flex: 0 0 25%;
+      width: 25%;
+    }
+
+    .infinite-contentInner {
+      min-width: 800px;
+    }
+
+    .infinite-body {
+      .global-relative-canvas {
+        height: 200px !important;
+      }
+  
+      #infinite-no-result {
+        width: 100%;
+        height: 200px !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+  
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+  
+        li {
+          cursor: pointer;
+          padding: 0 30px 0 80px;
+          
+          * {
+            cursor: pointer;
+          }
+  
+          .infinite-row {
+            display: flex;
+            padding-top: 10px;
+            padding-bottom: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  #app-single-note-vote-section {
+    max-height: 440px;
+
+    .c-col-1 {
+      flex: 0 0 33%;
+      width: 33%;
+    }
+    .c-col-2 {
+      flex: 0 0 33%;
+      width: 33%;
+    }
+    .c-col-3 {
+      flex: 0 0 34%;
+      width: 34%;
+    }
+    
+    .infinite-contentInner {
+      min-width: 800px;
+    }
+
+    .infinite-body {
+      .global-relative-canvas {
+        height: 200px !important;
+      }
+  
+      #infinite-no-result {
+        width: 100%;
+        height: 200px !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+  
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+  
+        li {
+          cursor: pointer;
+          padding: 0 30px 0 80px;
+          
+          * {
+            cursor: pointer;
+          }
+  
+          .infinite-row {
+            display: flex;
+            padding-top: 10px;
+            padding-bottom: 10px;
+          }
+        }
+      }
+    }
+  }
+}

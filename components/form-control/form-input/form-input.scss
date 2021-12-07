@@ -1,0 +1,58 @@
+.custom-form-control {
+  display: block;
+  width: 100%;
+  height: 64px;
+  min-height: 28px;
+  border: none;
+  font-size: 1.125rem;
+  font-weight: 700;
+  background-color: white;
+  padding-left: 30px;
+  border-radius: 12px;
+  -webkit-box-shadow: 1px 3px 11px 0px rgba(0,0,0,0.4);
+  -moz-box-shadow: 1px 3px 11px 0px rgba(0,0,0,0.4);
+  box-shadow: 1px 3px 11px 0px rgba(0,0,0,0.4);
+
+  &.custom-form-control-checkbox {
+    border-bottom: none;
+    display: flex;
+    align-items: flex-start;
+
+    input {
+      margin-right: 8px;
+      margin-top: 7px;
+    }
+  }
+
+  &.underlined {
+    box-shadow: none;
+    background-color: transparent;
+    color: white;
+    font-size: 15px;
+    font-weight: 400;
+    border-bottom: 1px solid #ffffff;
+    height: auto;
+    padding-bottom: 4px;
+    padding-left: 0;
+    border-radius: 0;
+  }
+}
+.custom-form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgba(0, 0, 0, 0.2);
+}
+.custom-form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: rgba(0, 0, 0, 0.2);
+}
+.custom-form-control::-ms-input-placeholder { /* Microsoft Edge */
+  color: rgba(0, 0, 0, 0.2);
+}
+
+.custom-form-control.underlined::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgba(255, 255, 255, 0.5);
+}
+.custom-form-control.underlined:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: rgba(255, 255, 255, 0.5);
+}
+.custom-form-control.underlined::-ms-input-placeholder { /* Microsoft Edge */
+  color: rgba(255, 255, 255, 0.5);
+}

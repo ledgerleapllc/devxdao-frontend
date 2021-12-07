@@ -1,0 +1,160 @@
+.app-tooltip-wrap {
+  display: flex;
+  align-items: center;
+
+  > label {
+    margin-right: 1rem;
+  }
+
+  > svg {
+    cursor: pointer;
+  }
+}
+
+// Simple Section
+.app-simple-section {
+  border-radius: 10px;
+  background: #1F063E;
+  border: 1px solid #270A4B;
+  padding: 30px 10px 30px 40px;
+
+  .app-simple-section__title {
+    font-weight: 700;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #722ED1;
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    > label {
+      margin-right: 20px;
+    }
+
+    &.with-children {
+      display: block;
+
+      .app-simple-section__titleInner {
+        display: flex;
+        align-items: center;
+
+        > label {
+          margin-right: 20px;
+        }
+      }
+
+      > ul {
+        list-style: none;
+        font-size: 14px;
+        margin-top: 1rem;
+
+        li {
+          margin-bottom: 5px;
+          display: flex;
+          align-items: center;
+
+          label {
+            font-weight: 400;
+            width: 150px;
+          }
+        }
+      }
+    }
+  }
+
+  .app-simple-section__body {
+    padding-top: 50px;
+    padding-right: 30px;
+  }
+}
+
+// Infinite Box
+.app-infinite-box {
+  background: #1F063E;
+  border: 1px solid #270A4B;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  .app-infinite-search-wrap {
+    padding: 30px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    input {
+      background: transparent;
+      box-shadow: none;
+      border: 1px solid #3F196E;
+      color: white;
+      padding: 5px;
+      border-radius: 7px;
+      font-size: 14px;
+    }
+  }
+
+  .c-cols {
+    padding-right: 10px;
+  }
+
+  .infinite-content {
+    overflow-x: auto;
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: column;
+
+    .infinite-contentInner {
+      display: flex;
+      flex-direction: column;
+      overflow-y: hidden;
+      overflow-x: hidden;
+    }
+  }
+
+  .infinite-header {
+    padding-left: 80px;
+    padding-right: 30px;
+    
+    .infinite-headerInner {
+      display: flex;
+      border-bottom: 1px solid #3F196E;
+      padding-bottom: 8px;
+      width: 100%;
+    
+      .c-cols {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+
+        * {
+          cursor: pointer;
+        }
+        span {
+          font-size: 10px;
+          margin-left: 5px;
+          &.inactive {
+            opacity: 0.2;
+          }
+        }
+      }
+    }
+  }
+
+  .infinite-body {
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-bottom: 30px;
+
+    ul {
+      li {
+        &:hover {
+          background-color: #381760;
+        }
+
+        .infinite-row {
+          border-bottom: 1px solid #3F196E;
+        }
+      }
+    }
+  }
+}

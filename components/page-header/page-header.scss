@@ -1,0 +1,24 @@
+.global-page-header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 20px;
+
+  a {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    > svg {
+      margin-right: 1rem;
+    }
+
+    > label {
+      font-size: 20px;
+    }
+  }
+
+  .btn {
+    margin-left: auto;
+    margin-right: 0;
+  }
+}

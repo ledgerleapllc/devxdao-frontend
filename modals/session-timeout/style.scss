@@ -1,0 +1,28 @@
+#session-timeout-modal {
+  width: 500px;
+  max-width: 100%;
+  background-color: #ffffff;
+  border-radius: 12px;
+  position: relative;
+  padding: 50px;
+  margin: 160px auto;
+  text-align: center;
+  ul {
+    padding: 0;
+    list-style: none;
+    li {
+      padding: 10px;
+      text-align: center;
+    }
+  }
+  .actions {
+    padding-top: 20px;
+    display: flex;
+    gap: 10px;
+    .btn {
+      height: auto;
+      padding: 5px 10px;
+      font-size: 1rem;
+    }
+  }
+}

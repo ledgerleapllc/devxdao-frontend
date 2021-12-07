@@ -1,0 +1,77 @@
+
+.milestones-all-table {
+  .infinite-header {
+    padding-right: 38px;
+  }
+  ul {
+    list-style: none;
+  }
+  height: 400px;
+  .infinite-body {
+    padding-left: 80px;
+    padding-right: 30px;
+  }
+  .infinite-contentInner {
+    min-width: 2000px;
+  }
+  
+  #infinite-no-result {
+    width: 100%;
+    height: 200px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .c-col-1 {
+    flex: 0 0 8%;
+    width: 8%;
+  }
+  .c-col-2 {
+    flex: 0 0 8%;
+    width: 8%;
+  }
+  .c-col-3 {
+    flex: 0 0 10%;
+    width: 10%;
+  }
+  .c-col-4 {
+    flex: 0 0 5%;
+    width: 5%;
+  }
+  .c-col-5 {
+    flex: 0 0 10%;
+    width: 10%;
+  } 
+  .c-col-6 {
+    flex: 0 0 7%;
+    width: 7%;
+  }
+  .c-col-7 {
+    flex: 0 0 7%;
+    width: 7%;
+  }
+  .c-col-8 {
+    flex: 0 0 8%;
+    width: 8%;
+  }
+  .c-col-9 {
+    flex: 0 0 8%;
+    width: 8%;
+  }
+  .c-col-10 {
+    flex: 0 0 8%;
+    width: 8%;
+  }
+  .c-col-11 {
+    flex: 0 0 7%;
+    width: 7%;
+  }
+  .c-col-12 {
+    flex: 0 0 5%;
+    width: 5%;
+  }
+  .c-col-13 {
+    flex: 0 0 9%;
+    width: 9%;
+  }
+}

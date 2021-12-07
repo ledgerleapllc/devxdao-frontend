@@ -1,0 +1,11 @@
+.app-infinite-box {
+  height: 100%;
+}
+.va-page {
+  flex: 1;
+  min-height: 0;
+  .content {
+    flex: 1;
+    min-height: 0;
+  }
+}

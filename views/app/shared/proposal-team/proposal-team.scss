@@ -1,0 +1,15 @@
+#proposal-team-section {
+  display: block;
+
+  .c-checkbox-item {
+    display: flex;
+    align-items: flex-start;
+    .c-checkbox-itemSymbol {
+      width: 40px;
+      cursor: pointer;
+    }
+  }
+}
+.pr-20 {
+  padding-right: 20px;
+}

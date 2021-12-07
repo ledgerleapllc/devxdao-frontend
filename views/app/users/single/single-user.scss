@@ -1,0 +1,57 @@
+#app-single-user-page {
+  .app-simple-section {
+    padding: 30px;
+
+    .app-sup-header {
+      display: block;
+    }
+
+    > section {
+      padding: 50px 50px 0 50px;
+      margin-bottom: 1.5rem;
+
+      .app-sup-section {
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid #3F196E;
+
+        .app-sup-row {
+          display: flex;
+          align-items: center;
+          max-width: 900px;
+          margin-bottom: 1.5rem;
+
+          label {
+            font-size: 14px;
+            font-weight: 700;
+            width: 300px;
+          }
+          span {
+            font-size: 14px;
+          }
+          .btn {
+            margin-left: auto;
+            margin-right: 0;
+          }
+        }
+
+        .app-sup-section-button-row {
+          display: flex;
+          align-items: center;
+
+          .btn {
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+
+    .app-infinite-box {
+      border: none !important;
+
+      .infinite-header {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+    }
+  }
+}

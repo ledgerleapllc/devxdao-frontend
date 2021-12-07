@@ -1,0 +1,242 @@
+.app.theme-metal {
+  .input-base-custom {
+    background: transparent !important;
+    border: 1px solid #666;
+    color: white;
+  }
+  #get-help-btn {
+    border: 2px solid #51acb8 !important;
+    color: #51acb8 !important;
+  }
+  .app-page-wrap {
+    background-color: #2f3336 !important;
+    .app-content-wrap .app-content-body #app-content__header div label span {
+      color: rgb(28, 176, 187) !important;
+    }
+  }
+  .app-sidebar-wrap {
+    background-color: #3c3f46 !important;
+    #app-sidebar-tabs > ul > li.active > a,
+    #app-sidebar-tabs > ul > li ul li.active a {
+      background-color: rgb(28, 176, 187) !important;
+    }
+  }
+  .app-simple-section {
+    background: #3c3f46 !important;
+    border: 1px solid #666 !important;
+
+    .app-simple-section__title {
+      border-bottom: 1px solid #666 !important;
+    }
+  }
+  .app-infinite-box {
+    background: #3c3f46 !important;
+    border: 1px solid #666 !important;
+
+    .infinite-header {
+      .infinite-headerInner {
+        border-bottom: 1px solid #666 !important;
+      }
+    }
+
+    .app-infinite-search-wrap {
+      input {
+        background: transparent !important;
+        box-shadow: none !important;
+        border: 1px solid #666 !important;
+        color: white !important;
+        padding: 5px !important;
+        border-radius: 7px !important;
+        font-size: 14px !important;
+      }
+    }
+
+    .infinite-body {
+      ul {
+        li {
+          &:hover {
+            background-color: #666 !important;
+          }
+          .infinite-row {
+            border-bottom: 1px solid #666 !important;
+          }
+        }
+      }
+    }
+  }
+
+  #app-settings-page,
+  #app-global-settings-page,
+  #app-new-proposal-page,
+  #app-new-simple-proposal-page,
+  #app-new-admin-grant-proposal-page,
+  #app-single-proposal-detail-section,
+  #app-new-advance-payment-request-page,
+  #app-edit-proposal-page {
+    .app-page-header {
+      border-bottom: 1px solid #666 !important;
+    }
+
+    .c-form-row {
+      input, select, textarea {
+        background: transparent !important;
+        border: 1px solid #666 !important;
+        color: white !important;
+      }
+    }
+    .c-form-row {
+      .input-base-custom {
+        input.MuiInputBase-input {
+          border: 0 !important;
+        }
+      }
+    }
+
+    #c-dropzone {
+      background: transparent 0% 0% no-repeat padding-box !important;
+    }
+  }
+
+  #app-comments-section {
+    #app-comments-title {
+      border-bottom: 1px solid #666 !important;
+    }
+  
+    #app-comments-body {
+      form {
+        textarea {
+          background: transparent !important;
+          border: 1px solid #666 !important;
+          color: white !important;
+        }
+      }
+    }
+  }
+
+  #app-membership-box,
+  #app-newgrant-box,
+  #app-dos-alert-box,
+  #app-kyc-box {
+    background: #3c3f46 !important;
+  }
+
+  #app-proposal-change-form-section {
+    form {
+      .app-readonly-box {
+        background: transparent !important;
+        border: 1px solid #666 !important;
+        color: white !important;
+      }
+  
+      #app-single-proposal-formTitle {
+        border-bottom: 1px solid #666 !important;
+      }
+  
+      .c-form-row {
+        select,
+        input,
+        textarea {
+          background: transparent !important;
+          border: 1px solid #666 !important;
+          color: white !important;
+        }
+      }
+    }
+  }
+
+  #app-proposal-changes-list-section {
+    .app-proposal-changes-item {
+      border-bottom: 1px solid #666 !important;
+      &:hover {
+        background: #666 !important;
+      }
+    }
+  }
+
+  #app-single-change-detail-section {
+    #app-single-change-title {
+      border-bottom: 1px solid #666 !important;
+    }
+  
+    #app-single-change-body {
+      p {
+        background: #3c3f46 !important;
+        border: 1px solid #666 !important;
+      }
+    }
+  }
+
+  #app-single-proposal-detail-section {
+    .proposal-toggle-btn {
+      color: white !important;
+    }
+  }
+
+  #dashboard-emailer-page {
+    .d-emailer-item-section {
+      .d-emailer-item {
+        p, textarea {
+          background: transparent !important;
+          border: 1px solid #666 !important;
+          color: white !important;
+        }
+      }
+    }
+  }
+
+  #app-single-proposal-vote-section {
+    #app-spd-informal-process-wrap,
+    #app-spd-formal-process-wrap {
+      form {
+        background: #3c3f46 !important;
+        border: 1px solid #666 !important;
+        .spacer {
+          background: #666 !important;
+        }
+      }
+    }
+  }
+
+  ::-webkit-scrollbar-track {
+    width: 8px !important;
+    border-radius: 10px !important;
+    &:hover {
+      background: #333 !important;
+    }
+  }
+  ::-webkit-scrollbar-thumb {
+    width: 8px !important;
+    border-radius: 10px !important;
+    background: rgb(28, 176, 187) 0% 0% no-repeat padding-box;
+    box-shadow: 0px 2px 1px #00000072;
+  }
+
+  #app-discussions-page {
+    ul#app-discussions-pageHeader {
+      li {
+        border-bottom: 2px solid rgba(28, 176, 187, 0.3);
+        &.active {
+          border-bottom: 2px solid rgb(28, 176, 187);
+        }
+      }
+    }
+  }
+
+  #app-votes-page {
+    ul#app-votes-pageHeader {
+      li {
+        border-bottom: 2px solid rgba(28, 176, 187, 0.3);
+        &.active {
+          border-bottom: 2px solid rgb(28, 176, 187);
+        }
+      }
+    }
+  }
+
+  .c-form-row-deadline {
+    .dob-picker-wrap {
+      background: transparent !important;
+      border: 1px solid #666 !important;
+    }
+  }
+}

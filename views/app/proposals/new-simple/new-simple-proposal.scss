@@ -1,0 +1,120 @@
+#app-new-simple-proposal-page {
+  flex: 1;
+  min-height: fit-content;
+  
+  form {
+    width: 100%;
+  }
+
+  .app-page-header {
+    border-bottom: 1px solid rgba(114, 46, 209, 0.5);
+    display: flex;
+    align-items: center;
+    margin-top: 80px;
+    margin-bottom: 50px;
+    padding-bottom: 27px;
+
+    > label {
+      margin-right: 1rem;
+    }
+
+    .app-page-headerIcon {
+      margin-left: auto;
+      margin-right: 0;
+    }
+  }
+
+  .c-form-row {
+    margin-bottom: 20px;
+    label {
+      margin-bottom: 10px;
+      display: block;
+    }
+    input[type="text"], input[type="number"], select {
+      background: #1F063E;
+      border: 1px solid #270A4B;
+      border-radius: 10px;
+      display: block;
+      width: 100%;
+      color: white;
+      padding: 12px 10px;
+    }
+    select {
+      height: 50px;
+      appearance: none;
+      -webkit-appearance: none;
+    } 
+    textarea {
+      display: block;
+      width: 100%;
+      height: 150px;
+      background: #1F063E;
+      border: 1px solid #270A4B;
+      border-radius: 10px;
+      color: white;
+      padding: 12px 10px;
+      resize: none;
+    }
+  }
+
+  #c-dropzone {
+    width: 100%;
+    height: 300px;
+    background: #1F063E 0% 0% no-repeat padding-box;
+    border: 6px dashed #9B64E6;
+    border-radius: 10px;
+    cursor: pointer;
+
+    > div {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+  }
+
+  #c-submit-wrap {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #c-button-wrap {
+    margin-top: 3rem;
+    margin-bottom: 100px;
+  }
+
+  #files-wrap {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 1rem;
+    
+    > label {
+      margin-right: 10px;
+    }
+
+    ul {
+      list-style: none;
+
+      li {
+        display: flex;
+        align-items: center;
+
+        p {
+          width: 150px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          margin-right: 10px;
+        }
+
+        svg {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

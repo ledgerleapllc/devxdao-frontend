@@ -1,0 +1,134 @@
+.btn {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 1.125rem;
+  padding: 1.157rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  font-family: 'Metropolis', Arial, Helvetica, sans-serif !important;
+  width: 264px;
+  max-width: 100%;
+
+  img {
+    margin-right: 8px;
+  }
+
+  &:hover {
+    box-shadow: inset 0 0 0 99999px rgba(0,0,0,.1);
+  }
+
+  svg {
+    vertical-align: middle;
+  }
+
+  &.large {
+    width: 331px;
+  }
+  &.small {
+    width: 176px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+  &.less-small {
+    padding: 0.5rem 1rem;
+  }
+  &.extra-small {
+    width: 100px;
+    padding: 3px 1rem;
+    font-size: 12px;
+    border-radius: 6px;
+  }
+
+  &.btn-success {
+    background: #33C333;
+    color: white;
+    border: 2px solid #33C333;
+  }
+  &.btn-success-outline {
+    background: transparent;
+    color: #33C333;
+    border: 2px solid #33C333;
+    
+    &:active, &:focus {
+      background: transparent !important;
+      outline: none !important;
+      border: 2px solid #33C333 !important;
+      box-shadow: none !important;
+    }
+  }
+  &.btn-primary {
+    background: rgb(113, 55, 206);
+    color: white;
+    border: 2px solid rgb(113, 55, 206);
+
+    &:active, &:focus {
+      background: #571aac !important;
+      outline: none !important;
+      border: 2px solid #571aac !important;
+      box-shadow: none !important;
+    }
+  }
+  &.btn-default {
+    background: #c7c7c7;
+    color: white;
+    border: 2px solid #c7c7c7;
+
+    &:active, &:focus {
+      background: #a9a9a9 !important;
+      outline: none !important;
+      border: 2px solid #a9a9a9 !important;
+      box-shadow: none !important;
+    }
+  }
+  &.btn-primary-outline {
+    background: transparent;
+    color: rgb(113, 55, 206);
+    border: 2px solid rgb(113, 55, 206);
+
+    &:active, &:focus {
+      background: transparent !important;
+      outline: none !important;
+      border: 2px solid rgb(113, 55, 206) !important;
+      box-shadow: none !important;
+    }
+  }
+  &.btn-danger {
+    background: rgb(232, 85, 88);
+    color: white;
+    border: 2px solid rgb(232, 85, 88);
+  }
+  &.btn-orange {
+    background: #f68100;
+    color: white;
+    border: 2px solid #f68100;
+  }
+  &.btn-danger-outline {
+    background: transparent;
+    color: rgb(232, 85, 88);
+    border: 2px solid rgb(232, 85, 88);
+  }
+  &.btn-fluid {
+    width: auto;
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+  &.btn-fluid-small {
+    width: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  &.btn-icon {
+    display: flex;
+    align-items: center;
+
+    > svg {
+      margin-right: 0.5rem;
+    }
+  }
+  &.btn-round {
+    border-radius: 500rem;
+  }
+}
