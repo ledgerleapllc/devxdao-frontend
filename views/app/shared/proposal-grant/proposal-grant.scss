@@ -1,0 +1,65 @@
+#proposal-grant-section {
+  .c-checkbox-item {
+    display: flex;
+    // align-items: center;
+    margin-bottom: 20px;
+
+    .c-checkbox-itemSymbol {
+      width: 40px;
+      cursor: pointer;
+    }
+
+    .c-checkbox-itemContent {
+      .c-checkbox-itemContentInner {
+        margin-top: 1rem;
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    input[type="text"] {
+      width: 270px !important;
+      flex: 0 0 270px;
+      &.grant-percentage {
+        margin-left: 1rem;
+        margin-right: 1rem;
+        width: 80px !important;
+        flex: 0 0 80px;
+      }
+    }
+
+    label {
+      margin: 0 !important;
+    }
+
+    &.other {
+      .c-checkbox-itemOther {
+        width: 370px;
+        display: flex;
+        align-items: center;
+
+        label {
+          margin: 0 30px 0 0 !important;
+        }
+      }
+    }
+  }
+
+  @media all and (max-width: 767px) {
+    .c-checkbox-item {
+      flex-wrap: wrap;
+      
+      input[type="text"] {
+        width: 100%;
+        flex: auto;
+        margin-top: 10px;
+      }
+
+      &.other {
+        .c-checkbox-itemOther {
+          padding-right: 0;
+        }
+      }
+    }
+  }
+}

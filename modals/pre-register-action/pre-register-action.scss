@@ -1,0 +1,43 @@
+#pre-register-action-modal {
+  width: 762px;
+  max-width: 100%;
+  background-color: #ffffff;
+  border-radius: 12px;
+  position: relative;
+  padding: 50px 30px;
+  margin: 160px auto;
+
+  h2 {
+    margin-top: 20px;
+  }
+
+  #pre-register-action-modal__buttons {
+    margin-top: 3rem;
+    margin-left: -5px;
+    margin-right: -5px;
+    display: flex;
+
+    .btn {
+      flex: 0 0 calc(50% - 10px) !important;
+      width: calc(50% - 10px) !important;
+      margin: 0 5px !important;
+    }
+  }
+
+  @media all and (max-width: 767px) {
+    margin: 100px auto;
+
+    #pre-register-action-modal__buttons {
+      display: block;
+      margin-left: 0;
+      margin-right: 0;
+
+      .btn {
+        flex: auto;
+        width: 100% !important;
+        display: block !important;
+        margin: 0 0 20px 0 !important;
+      }
+    }
+  }
+}

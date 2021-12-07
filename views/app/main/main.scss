@@ -1,0 +1,30 @@
+#app-main-page {
+  display: flex;
+  flex-direction: column;
+  #app-ballots-wrap {
+    display: flex;
+    overflow: hidden;
+    margin-right: -6px !important;
+    margin-left: -6px !important;
+    .col {
+      padding: 0 6px;
+    }
+  }
+
+  @media all and (max-width: 991px) {
+    flex: auto;
+    display: block;
+    
+    #app-ballots-wrap {
+      display: block;
+    }
+  }
+  .infinite-header {
+    padding-left: 30px;
+    padding-right: 30px; 
+  }
+  .infinite-body ul li {
+    padding-left: 30px;
+    padding-right: 30px; 
+  }
+}

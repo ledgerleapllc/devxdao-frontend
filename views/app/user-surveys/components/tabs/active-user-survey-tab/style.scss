@@ -1,0 +1,13 @@
+.survey-page {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  .active-section {
+    height: auto;
+  }
+  .discussion-table {
+    flex: 1;
+    min-height: 0;
+  }
+}

@@ -1,0 +1,75 @@
+#app-global-settings-page {
+  padding: 30px;
+
+  #app-global-settings-pageHeader {
+    display: block;
+  }
+
+  form {
+    margin-top: 70px;
+    width: 100%;
+    display: block;
+    padding-left: 40px;
+
+    .c-form-row {
+      margin-bottom: 50px;
+      > label {
+        font-size: 14px;
+        display: block;
+        margin-bottom: 15px;
+      }
+      > div {
+        display: flex;
+        align-items: center;
+
+        input, select {
+          border: none;
+          background: #362052;
+          border-radius: 6px;
+          display: block;
+          width: 117px;
+          height: 40px;
+          padding: 12px 16px;
+          font-size: 14px;
+          color: white;
+        }
+
+        input {
+          margin-right: 10px;
+        }
+
+        select {
+          appearance: none;
+        }
+      }
+
+      .c-form-check {
+        display: flex;
+        align-items: center;
+        margin-right: 100px;
+        cursor: pointer;
+
+        * {
+          cursor: pointer;
+        }
+
+        > svg {
+          margin-right: 10px;
+        }
+        > label {
+          font-size: 14px;
+        }
+      }
+    }
+
+    #c-button-wrap {
+      margin-top: 70px;
+      display: flex;
+      align-items: center;
+      
+      .btn {
+        margin-right: 1rem;
+      }
+    }
+  }
+}

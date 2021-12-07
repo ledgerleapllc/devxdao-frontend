@@ -1,0 +1,17 @@
+#proposal-relation-section {
+  .c-checkbox-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+
+    .c-checkbox-itemSymbol {
+      width: 40px;
+      cursor: pointer;
+    }
+
+    label {
+      margin: 0 !important;
+      flex: 1;
+    }
+  }
+}

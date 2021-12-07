@@ -1,0 +1,35 @@
+#app-dos-alert-box {
+  padding: 18px 20px;
+  background: rgb(50, 19, 91);
+  max-width: 1025px;
+  width: 100%;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+
+  > div {
+    margin-right: auto;
+    padding-right: 80px;
+    flex: 1;
+  }
+
+  > label {
+    color: #9B64E6;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  @media all and (max-width: 767px) {
+    flex-direction: column;
+
+    > div {
+      margin: 20px auto;
+      text-align: center;
+    }
+
+    .btn {
+      width: 100%;
+    }
+  }
+}

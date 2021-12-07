@@ -1,0 +1,28 @@
+.winner-page {
+  .react-date-picker__wrapper {
+    border: 1px solid #3F196E !important;
+    padding-bottom: 8px;
+    height: 55px;
+    border-radius: 7px;
+    input {
+      border: 0;
+    }
+  }
+  .btn-download {
+    max-height: 40px;
+  }
+  .c-form-row {
+    select {
+      padding: 0 20px;
+      height: 50px;
+      appearance: none;
+      -webkit-appearance: none;
+      background: transparent;
+      border: 1px solid #3F196E !important;
+      border-radius: 10px;
+      display: block;
+      width: 200px;
+      color: white;
+    } 
+  }
+}

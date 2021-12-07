@@ -1,0 +1,44 @@
+.bid-ranks-table {
+  max-height: 300px;
+  a {
+    cursor: pointer;
+  }
+  .infinite-contentInner {
+    min-width: 1000px;
+    overflow-x: scroll;
+  }
+  ul {
+    list-style: none;
+  }
+  .infinite-body {
+    padding-left: 80px;
+    padding-right: 30px;
+  }
+  #infinite-no-result {
+    height: 200px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  // 50
+  .c-col-1 {
+    flex: 0 0 20%;
+    width: 20%;
+  }
+  .c-col-2 {
+    flex: 0 0 20%;
+    width: 20%;
+  }
+  .c-col-3 {
+    flex: 0 0 20%;
+    width: 20%;
+  }
+  .c-col-4 {
+    flex: 0 0 20%;
+    width: 20%;
+  }
+  .c-col-5 {
+    flex: 0 0 20%;
+    width: 20%;
+  }
+}

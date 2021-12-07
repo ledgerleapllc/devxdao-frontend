@@ -1,0 +1,16 @@
+#proposal-milestone-section {
+  display: block;
+
+  .c-checkbox-item {
+    display: flex;
+    align-items: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    .c-checkbox-itemSymbol {
+      width: 40px;
+    }
+    > label {
+      cursor: pointer;
+    }
+  }
+}

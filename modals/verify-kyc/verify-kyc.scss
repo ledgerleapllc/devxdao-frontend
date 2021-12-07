@@ -1,0 +1,17 @@
+#verify-kyc-modal {
+  width: 762px;
+  max-width: 100%;
+  background-color: #ffffff;
+  border-radius: 12px;
+  position: relative;
+  padding: 50px 30px;
+  margin: 80px auto;
+
+  h2 {
+    margin-top: 20px;
+  }
+
+  @media all and (max-width: 767px) {
+    margin: 100px auto;
+  }
+}

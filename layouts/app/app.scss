@@ -1,0 +1,92 @@
+.outer-page-wrap {
+  width: 100%;
+  overflow-x: hidden;
+  background-color: #180431;
+  position: relative;
+  color: #ffffff;
+
+  .page-wrap {
+    width: 100%;
+    min-height: calc(100vh - 90px);
+    height: auto;
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &.white-scheme {
+    background-color: #ffffff;
+    color: #000000;
+  }
+
+  #bg-narrow, #bg-wide, #bg-square, #bg-wave {
+    position: absolute;
+  }
+
+  &.bg-1 {
+    #bg-narrow {
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+    }
+  
+    #bg-wide {
+      bottom: 90px;
+      left: 0;
+      z-index: 2;
+    }
+  
+    #bg-square {
+      top: 50%;
+      right: 200px;
+      transform: translateY(-50%);
+      z-index: 2;
+    }
+  
+    #bg-wave {
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+      width: 100%;
+      height: 60vh;
+      background-image: url("/wave-min.png");
+      background-repeat: no-repeat;
+      background-position: top;
+      background-size: cover;
+    }
+  }
+  &.bg-2 {
+    #bg-narrow {
+      bottom: 0;
+      right: 30%;
+      z-index: 2;
+    }
+
+    #bg-wide {
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      z-index: 2;
+    }
+
+    #bg-square {
+      top: 200px;
+      right: 200px;
+      z-index: 2;
+    }
+
+    #bg-wave {
+      z-index: 1;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 80vh;
+      background-image: url("/wavewhite-min.png");
+      background-repeat: no-repeat;
+      background-position: bottom;
+      background-size: cover;
+    }
+  }
+}
