@@ -14,6 +14,14 @@ Project Management portal: https://github.com/ledgerleapllc/devxdao-pm
 
 Compliance portal: https://github.com/ledgerleapllc/devxdao-compliance
 
+### Prerequesites
+
+Relies on NextJS/Vercel, and NodeJS version 14+
+
+You can find documentation on NextJS here https://github.com/vercel/next.js/
+
+You can find documentation on NodeJS here https://github.com/nodejs/help
+
 ### Install and Deploy
 
 First we need a server to use. Apache/Nginx
@@ -38,7 +46,6 @@ You will need to add the following code to your server configuration under the V
 
 ```
 RewriteEngine On
-RewriteBase /
 RewriteRule ^index\.html$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
