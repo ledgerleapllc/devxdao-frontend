@@ -97,7 +97,7 @@ const generateTimelineMilestones = (proposal, trackings) => {
           ...findTrackingItem(trackings, `milestone_${index + 1}_submitted`),
         },
         {
-          title: `Milestone ${index + 1} approved by CRDAO`,
+          title: `Milestone ${index + 1} approved by CR DAO`,
           ...findTrackingItem(
             trackings,
             `milestone_${index + 1}_approved_crdao`
@@ -527,14 +527,16 @@ class SingleProposal extends Component {
                                 ).format("M/D/YYYY")}`}
                                 readOnly
                               />
-                              <h6 className="mt-5">CRdao checklist:</h6>
+                              <h6 className="mt-5">
+                                Expert Dao (CR Dao) checklist:
+                              </h6>
                               <div className="my-3">
                                 <CheckboxX
                                   value={
                                     +item?.milestone_check_list
                                       ?.crdao_acknowledged_project
                                   }
-                                  text={`CRDAO has acknowledged the project Definition of Done? ${moment(
+                                  text={`Expert Dao (CR Dao) has acknowledged the project Definition of Done? ${moment(
                                     item?.milestone_check_list?.created_at
                                   ).format("M/D/YYYY")}`}
                                   readOnly
@@ -553,7 +555,7 @@ class SingleProposal extends Component {
                                     +item?.milestone_check_list
                                       ?.crdao_accepted_pm
                                   }
-                                  text={`CRDAO has accepted the Program Management T&C? ${moment(
+                                  text={`Expert Dao (CR Dao) has accepted the Program Management T&C? ${moment(
                                     item?.milestone_check_list?.created_at
                                   ).format("M/D/YYYY")}`}
                                   readOnly
@@ -572,7 +574,7 @@ class SingleProposal extends Component {
                                     +item?.milestone_check_list
                                       ?.crdao_acknowledged_receipt
                                   }
-                                  text={`CRDAO has acknowledged receipt of the corprus of work? ${moment(
+                                  text={`Expert Dao (CR Dao) has acknowledged receipt of the corpus of work? ${moment(
                                     item?.milestone_check_list?.created_at
                                   ).format("M/D/YYYY")}`}
                                   readOnly
@@ -586,12 +588,34 @@ class SingleProposal extends Component {
                                 </p>
                               </div>
                               <div className="my-3">
+                                <label className="padding-notes">
+                                  Program management has valid response from
+                                  Expert Dao?
+                                  <b className="pr-2">
+                                    {
+                                      item?.milestone_check_list
+                                        ?.crdao_valid_respone
+                                    }
+                                  </b>
+                                  {moment(
+                                    item?.milestone_check_list?.created_at
+                                  ).format("M/D/YYYY")}
+                                </label>
+                                <p className="padding-notes">
+                                  Notes:{" "}
+                                  {
+                                    item?.milestone_check_list
+                                      ?.crdao_valid_respone_note
+                                  }
+                                </p>
+                              </div>
+                              <div className="my-3">
                                 <CheckboxX
                                   value={
                                     +item?.milestone_check_list
                                       ?.crdao_submitted_review
                                   }
-                                  text={`CRDAO has submitted a review of the corprus of work? ${moment(
+                                  text={`Expert Dao (CR Dao) has submitted a review of the corpus of work? ${moment(
                                     item?.milestone_check_list?.created_at
                                   ).format("M/D/YYYY")}`}
                                   readOnly
@@ -610,7 +634,7 @@ class SingleProposal extends Component {
                                     +item?.milestone_check_list
                                       ?.crdao_submitted_subs
                                   }
-                                  text={`CRDAO has acknowledged the project Definition of Done? ${moment(
+                                  text={`Expert Dao (CR Dao) has acknowledged the project Definition of Done? ${moment(
                                     item?.milestone_check_list?.created_at
                                   ).format("M/D/YYYY")}`}
                                   readOnly
@@ -632,7 +656,7 @@ class SingleProposal extends Component {
                                     +item?.milestone_check_list
                                       ?.pm_submitted_evidence
                                   }
-                                  text={`CRDAO Program Management has submitted the Evidence of Work location? ${moment(
+                                  text={`Expert Dao (CR Dao) Program Management has submitted the Evidence of Work location? ${moment(
                                     item?.milestone_check_list?.created_at
                                   ).format("M/D/YYYY")}`}
                                   readOnly
@@ -651,7 +675,7 @@ class SingleProposal extends Component {
                                     +item?.milestone_check_list
                                       ?.pm_submitted_admin
                                   }
-                                  text={`CRDAO Program Management has submitted Administrator notes? ${moment(
+                                  text={`Expert Dao (CR Dao) Program Management has submitted Administrator notes? ${moment(
                                     item?.milestone_check_list?.created_at
                                   ).format("M/D/YYYY")}`}
                                   readOnly
@@ -670,7 +694,7 @@ class SingleProposal extends Component {
                                     +item?.milestone_check_list
                                       ?.pm_verified_crdao
                                   }
-                                  text={`Program Management has verified corprus existence? ${moment(
+                                  text={`Program Management has verified corpus existence? ${moment(
                                     item?.milestone_check_list?.created_at
                                   ).format("M/D/YYYY")}`}
                                   readOnly
@@ -689,7 +713,7 @@ class SingleProposal extends Component {
                                     +item?.milestone_check_list
                                       ?.pm_verified_crdao
                                   }
-                                  text={`Program Management has verified CRDAO's review exists? ${moment(
+                                  text={`Program Management has verified Expert Dao (CR Dao)'s review exists? ${moment(
                                     item?.milestone_check_list?.created_at
                                   ).format("M/D/YYYY")}`}
                                   readOnly
@@ -708,7 +732,7 @@ class SingleProposal extends Component {
                                     +item?.milestone_check_list
                                       ?.pm_verified_subs
                                   }
-                                  text={`Program Management has verified CRDAO substantiation (voting record) existence? ${moment(
+                                  text={`Program Management has verified Expert Dao (CR Dao) substantiation (voting record) existence? ${moment(
                                     item?.milestone_check_list?.created_at
                                   ).format("M/D/YYYY")}`}
                                   readOnly
