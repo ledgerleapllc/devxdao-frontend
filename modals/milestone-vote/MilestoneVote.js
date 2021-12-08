@@ -301,7 +301,7 @@ class MilestoneVote extends Component {
             <Checkbox
               value={attest_accept_crdao}
               onChange={(e) => this.checkField(e, "attest_accept_crdao")}
-              text="I attest that I will accept the review of the CRdao or another associated work reviewer assigned by the ETA/DxD."
+              text="I attest that I will accept the review of the Expert Dao (CR Dao) or another associated work reviewer assigned by the ETA/DxD."
             />
           </div>
 
