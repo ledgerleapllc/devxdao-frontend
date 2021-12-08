@@ -42,17 +42,6 @@ git clone https://github.com/ledgerleapllc/devxdao-frontend
 cd devxdao-frontend
 ```
 
-You will need to add the following code to your server configuration under the VHOST path.
-
-```
-RewriteEngine On
-RewriteRule ^index\.html$ - [L]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} !-l
-RewriteRule . /index.html [L]
-```
-
 If you do not have Node installed yet, we use v14.x. Script below
 
 ```bash

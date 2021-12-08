@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "eslint . && next build",
-    "build-export": "eslint . && next build && next export && ./build-htaccess",
+    "build-export": "eslint . && next build && next export && DOMAIN=$(if [ -f .env.production ]; then cat .env.production | grep NEXT_PUBLIC_FRONTEND_URL | awk -F '//' '{print $2}' | sed 's|/||'; else echo 'portal.devxdao.com'; fi); sudo chmod +x build-htaccess && ./build-htaccess $DOMAIN",
     "start": "next start",
     "lint": "eslint ."
   },
