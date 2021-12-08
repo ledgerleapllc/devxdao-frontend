@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "eslint . && next build",
-    "build-export": "eslint . && next build && next export && ./build-htaccess",
+    "build-export": "eslint . && next build && next export && sudo chmod +x build-htaccess && ./build-htaccess",
     "start": "next start",
     "lint": "eslint ."
   },
