@@ -2306,6 +2306,49 @@ export function denyComplianceReview(params, start, completion) {
   };
 }
 
+// Get All Proposal Milestones - Admin
+export function getReportOnboarding(params, start, completion) {
+  return function (dispatch) {
+    if (start) start();
+    API.getReportOnboarding(params).then((res) => {
+      if (completion) completion(res);
+      if (!res.success) dispatch(showAlert(res.message));
+    });
+  };
+}
+
+// Get All Proposal Milestones - Admin
+export function getReportReputation(params, start, completion) {
+  return function (dispatch) {
+    if (start) start();
+    API.getReportReputation(params).then((res) => {
+      if (completion) completion(res);
+      if (!res.success) dispatch(showAlert(res.message));
+    });
+  };
+}
+
+// Get All Proposal Milestones - Admin
+export function getReportTotalRep(params, start, completion) {
+  return function (dispatch) {
+    if (start) start();
+    API.getReportTotalRep(params).then((res) => {
+      if (completion) completion(res);
+      if (!res.success) dispatch(showAlert(res.message));
+    });
+  };
+}
+
+// Get All Proposal CSV - Admin
+export function downloadReport(params, start, completion) {
+  return function () {
+    if (start) start();
+    API.downloadReport(params).then((res) => {
+      if (completion) completion(res);
+    });
+  };
+}
+
 // Get All Proposal CSV - Admin
 export function downloadCSVAllProposals(params, start, completion) {
   return function () {

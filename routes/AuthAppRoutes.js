@@ -62,6 +62,7 @@ const GlobalSettingsView = lazy(() =>
 const AccountingView = lazy(() => import("../views/app/accounting/Accounting"));
 const AdminTeamView = lazy(() => import("../views/app/admin-team/AdminTeam"));
 const EmailerView = lazy(() => import("../views/app/emailer/Emailer"));
+const ReportView = lazy(() => import("../views/app/report/Report"));
 const UsersView = lazy(() => import("../views/app/users/Users"));
 const PreRegisterUsersView = lazy(() =>
   import("../views/app/pre-register-users/PreRegisterUsers")
@@ -237,6 +238,7 @@ export default function AuthAppRoutes() {
           <Route path="/app/va-directory" component={VADirectoryView} exact />
           <Route path="/app/admin-team" component={AdminTeamView} exact />
           <Route path="/app/emailer" component={EmailerView} exact />
+          <Route path="/app/report" component={ReportView} exact />
           <Route component={AuthAppErrorView} />
         </Switch>
       </Suspense>
