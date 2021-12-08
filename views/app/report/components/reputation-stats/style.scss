@@ -1,0 +1,28 @@
+.reputation-stats-table {
+  max-height: 300px;
+  a {
+    cursor: pointer;
+  }
+  ul {
+    list-style: none;
+  }
+  .infinite-contentInner {
+    min-width: 1500px;
+    overflow-x: scroll;
+  }
+  .infinite-body {
+    padding-left: 80px;
+    padding-right: 30px;
+  }
+  #infinite-no-result {
+    height: 200px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  // 50
+  .c-col-1 {
+    flex: 0 0 15%;
+    width: 15%;
+  }
+}

@@ -1,0 +1,32 @@
+.onboarding-stats-table {
+  max-height: 300px;
+  a {
+    cursor: pointer;
+  }
+  ul {
+    list-style: none;
+  }
+  .infinite-body {
+    padding-left: 80px;
+    padding-right: 30px;
+  }
+  #infinite-no-result {
+    height: 200px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  // 50
+  .c-col-1 {
+    flex: 0 0 33%;
+    width: 33%;
+  }
+  .c-col-2 {
+    flex: 0 0 33%;
+    width: 33%;
+  }
+  .c-col-3 {
+    flex: 0 0 34%;
+    width: 34%;
+  }
+}
