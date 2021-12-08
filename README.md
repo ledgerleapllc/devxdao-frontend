@@ -1,34 +1,92 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<p align="center" padding-top="100">
+	<img src="https://ledgerleap.com/web/images/devxdao-logo.png" width="400">
+</p>
 
-## Getting Started
+## DevxDao Grant Portal Frontend
 
-First, run the development server:
+The DevxDao's grant and voting associates portal hosted at http://portal.devxdao.com
+
+This is the frontend repo of the portal. Backend repo for this project is located here, https://github.com/ledgerleapllc/devxdao-backend
+
+This project also has the following portal repos associated with it:
+
+Project Management portal: https://github.com/ledgerleapllc/devxdao-pm
+
+Compliance portal: https://github.com/ledgerleapllc/devxdao-compliance
+
+### Prerequesites
+
+Relies on NextJS/Vercel, and NodeJS version 14+
+
+You can find documentation on NextJS here https://github.com/vercel/next.js/
+
+You can find documentation on NodeJS here https://github.com/nodejs/help
+
+### Install and Deploy
+
+First we need a server to use. Apache/Nginx
 
 ```bash
-npm run dev
-# or
-yarn dev
+sudo apt -y install apache2
+sudo a2enmod rewrite
+sudo a2enmod headers
+sudo a2enmod ssl
+sudo apt-get update
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Setup the repo according to our VHOST path. Note, the actual VHOST path in this case should be set to **/var/www/devxdao-frontend/out**
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```bash
+cd /var/www/
+git clone https://github.com/ledgerleapllc/devxdao-frontend
+cd devxdao-frontend
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+You will need to add the following code to your server configuration under the VHOST path.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```
+RewriteEngine On
+RewriteRule ^index\.html$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteRule . /index.html [L]
+```
 
-## Learn More
+If you do not have Node installed yet, we use v14.x. Script below
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+curl -sL https://deb.nodesource.com/setup_14.x | sudo bash -
+sudo apt install nodejs -y
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Install packages
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```bash
+npm install
+```
 
-## Deploy on Vercel
+You will need to copy over **.env.example** to **.env.production** and specify variables to fit the server on which you're deploying. You can also cp to .env.development for local dev testing.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+cp .env.example .env.production
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Build the project
+
+```bash
+npm run build-export
+```
+
+The above commands will build to **out/** on site using the variables from your .env.production file.
+
+### Default user/passwords
+
+Default user/admin logins are created in the portal during initial install. 
+All the default logins that are created on install are given random hash passwords that can be found printed in your backend laravel log file that will look something like this:
+
+```
+[2021-11-30 18:13:51] production.INFO:  Created <type> admin
+[2021-11-30 18:13:51] production.INFO:  Email: <email>
+[2021-11-30 18:13:51] production.INFO:  Password: <random_password>
+```
