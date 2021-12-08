@@ -12,6 +12,7 @@ import IconTeam from "../../public/icons/team.svg";
 import IconSurvey from "../../public/icons/survey.svg";
 import IconInfo from "../../public/icons/info.svg";
 import IconVA from "../../public/icons/va.svg";
+import IconReport from "../../public/icons/report.svg";
 
 import "./sidebar.scss";
 
@@ -188,6 +189,13 @@ class Sidebar extends Component {
                 authUser.is_super_admin ||
                 (!authUser.is_super_admin &&
                   this.checkPermission(authUser.permissions, "accounting")),
+            },
+            {
+              link: "/app/report",
+              label: "Report",
+              icon: <IconReport size={20} />,
+              isShow:
+                authUser.is_super_admin || authUser.is_admin
             },
             {
               link: "/app/emailer",

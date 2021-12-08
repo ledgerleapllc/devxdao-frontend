@@ -237,6 +237,25 @@ class API {
     );
   }
 
+  static downloadReport(params = {}) {
+    return sendRequest(`/admin/export-report`, params, "GET", true, "blob");
+  }
+
+  // Create Payment Intent - User
+  static getReportOnboarding(params = {}) {
+    return sendRequest(`/admin/report-onboarding`, params, "GET", true);
+  }
+
+  // Create Payment Intent - User
+  static getReportReputation(params = {}) {
+    return sendRequest(`/admin/report-reputation`, params, "GET", true);
+  }
+
+  // Create Payment Intent - User
+  static getReportTotalRep(params = {}) {
+    return sendRequest(`/admin/report-total-rep`, params, "GET", true);
+  }
+
   // Update Payment Proposal - User
   static updatePaymentProposal(proposalId, params = {}) {
     return sendRequest(
