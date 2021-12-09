@@ -269,7 +269,7 @@ class SurveyDetail extends Component {
                     <div className="app-infinite-search-wrap">
                       <h4>Rank of bids</h4>
                     </div>
-                    <RankOfBidsTable />
+                    <RankOfBidsTable surveyId={surveyId} />
                   </>
                 )}
               </>
