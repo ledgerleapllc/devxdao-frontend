@@ -601,43 +601,62 @@ class SubmitSurvey extends Component {
                       </Link>
                     </div>
                   )}
-                {currentSurvey?.status === "completed" && (
-                  <div className="pb-3 pl-3 pr-3">
-                    <p>The winners are listed below.</p>
-                    <div className="my-3">
-                      {currentSurvey?.survey_ranks
-                        ?.filter((x) => x.is_winner)
-                        .map((x, i) => (
-                          <p className="py-2" key={i}>
-                            {Helper.ordinalSuffixOf(i + 1)} Place -{" "}
-                            <Link to={`/app/proposal/${x.proposal?.id}`}>
-                              {x.proposal?.title}
-                            </Link>
-                          </p>
-                        ))}
+                {currentSurvey?.status === "completed" &&
+                  currentSurvey?.type === "grant" && (
+                    <div className="pb-3 pl-3 pr-3">
+                      <p>The winners are listed below.</p>
+                      <div className="my-3">
+                        {currentSurvey?.survey_ranks
+                          ?.filter((x) => x.is_winner)
+                          .map((x, i) => (
+                            <p className="py-2" key={i}>
+                              {Helper.ordinalSuffixOf(i + 1)} Place -{" "}
+                              <Link to={`/app/proposal/${x.proposal?.id}`}>
+                                {x.proposal?.title}
+                              </Link>
+                            </p>
+                          ))}
+                      </div>
+                      {+currentSurvey?.downvote === 1 && (
+                        <>
+                          <p>The downvotes are listed below.</p>
+                          <div className="my-3">
+                            {currentSurvey?.survey_downvote_ranks
+                              ?.filter((x) => x.is_winner)
+                              .map((x, i) => (
+                                <p className="py-2" key={i}>
+                                  {Helper.ordinalSuffixOf(i + 1)} Place -{" "}
+                                  <Link to={`/app/proposal/${x.proposal?.id}`}>
+                                    {x.proposal?.title}
+                                  </Link>
+                                </p>
+                              ))}
+                          </div>
+                        </>
+                      )}
+                      <Link to="/app" className="btn btn-primary less-small">
+                        Back to dashboard
+                      </Link>
                     </div>
-                    {+currentSurvey?.downvote === 1 && (
-                      <>
-                        <p>The downvotes are listed below.</p>
-                        <div className="my-3">
-                          {currentSurvey?.survey_downvote_ranks
-                            ?.filter((x) => x.is_winner)
-                            .map((x, i) => (
-                              <p className="py-2" key={i}>
-                                {Helper.ordinalSuffixOf(i + 1)} Place -{" "}
-                                <Link to={`/app/proposal/${x.proposal?.id}`}>
-                                  {x.proposal?.title}
-                                </Link>
-                              </p>
-                            ))}
-                        </div>
-                      </>
-                    )}
-                    <Link to="/app" className="btn btn-primary less-small">
-                      Back to dashboard
-                    </Link>
-                  </div>
-                )}
+                  )}
+                {currentSurvey?.status === "completed" &&
+                  currentSurvey?.type === "rfp" && (
+                    <div className="pb-3 pl-3 pr-3">
+                      <p>The winners are listed below.</p>
+                      <div className="my-3">
+                        {currentSurvey?.survey_rfp_ranks
+                          ?.filter((x) => x.is_winner)
+                          .map((x, i) => (
+                            <p className="py-2" key={i}>
+                              Rank {x.rank} - {x.survey_rfp_bid?.forum}
+                            </p>
+                          ))}
+                      </div>
+                      <Link to="/app" className="btn btn-primary less-small">
+                        Back to dashboard
+                      </Link>
+                    </div>
+                  )}
                 {currentSurvey?.status === "cancel" && (
                   <div className="pb-3 pl-3 pr-3">
                     <Link to="/app" className="btn btn-primary less-small">

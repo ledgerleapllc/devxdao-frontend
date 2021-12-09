@@ -7,7 +7,8 @@ import {
   forceReloadActiveSurveyTable,
   setActiveModal,
 } from "../../../../../../redux/actions";
-import { getRFPSurveys } from "../../../../../../utils/Thunk";
+import Helper from "../../../../../../utils/Helper";
+import { getSurveyDetail } from "../../../../../../utils/Thunk";
 import "./style.scss";
 
 const mapStateToProps = (state) => {
@@ -75,7 +76,7 @@ class RankOfBidsTable extends Component {
 
   startTracking() {
     // IntersectionObserver - We can consider using it later
-    this.$elem = document.getElementById("active-rfp-scroll-track");
+    this.$elem = document.getElementById("bid-scroll-track");
     if (this.$elem) this.$elem.addEventListener("scroll", this.trackScroll);
   }
 
@@ -99,36 +100,18 @@ class RankOfBidsTable extends Component {
   }
 
   getData(showLoading = true) {
-    let {
-      calling,
-      loading,
-      finished,
-      sort_key,
-      sort_direction,
-      search,
-      page_id,
-      data,
-    } = this.state;
+    let { calling, loading, finished, data } = this.state;
     if (loading || calling || finished) return;
 
-    const params = {
-      sort_key,
-      sort_direction,
-      search,
-      page_id,
-      limit: 1,
-      status: "active",
-    };
-
     this.props.dispatch(
-      getRFPSurveys(
-        params,
+      getSurveyDetail(
+        this.props.surveyId,
         () => {
           if (showLoading) this.setState({ loading: true, calling: true });
           else this.setState({ loading: false, calling: true });
         },
         (res) => {
-          const result = res.surveys || [];
+          const result = res.survey?.survey_rfp_ranks || [];
           const finished = res.finished || false;
           this.setState({
             loading: false,
@@ -171,36 +154,27 @@ class RankOfBidsTable extends Component {
           <div className="infinite-row align-items-center d-flex py-3 font-size-14 font-weight-700">
             <div className="c-col-1 c-cols">
               <Link to={`/app/surveys/${item.id}`}>
-                <p>RFP{item.id}</p>
+                <p>{item.rank}</p>
               </Link>
             </div>
             <div className="c-col-2 c-cols">
-              <p>{item.job_title}</p>
+              <p>{item.bid}</p>
             </div>
             <div className="c-col-3 c-cols">
-              <p>{item.survey_rfp_bids?.length || 0}</p>
+              <p>{item.survey_rfp_bid?.forum}</p>
             </div>
             <div className="c-col-4 c-cols">
               <p>
-                {moment(item.start_date).local().format("M/D/YYYY HH:mm A")}
+                {Helper.formatPriceNumber(
+                  item.survey_rfp_bid?.amount_of_bid || "",
+                  "€"
+                )}
               </p>
             </div>
             <div className="c-col-5 c-cols">
-              <p>{this.renderHours(item)}</p>
-            </div>
-            <div className="c-col-6 c-cols">
-              <p>{item.hours_left}</p>
-            </div>
-            <div className="c-col-7 c-cols">
-              <p>{item.user_responded}</p>
-            </div>
-            <div className="c-col-8 c-cols">
-              <button
-                className="btn btn-primary-outline extra-small btn-fluid-small"
-                onClick={() => this.doCancel(item.id)}
-              >
-                Cancel Survey
-              </button>
+              <p>
+                {moment(item.delivery_date).local().format("M/D/YYYY HH:mm A")}
+              </p>
             </div>
           </div>
         </li>
@@ -233,7 +207,7 @@ class RankOfBidsTable extends Component {
               </div>
             </div>
           </div>
-          <div className="infinite-body" id="active-rfp-scroll-track">
+          <div className="infinite-body" id="bid-scroll-track">
             {loading ? <GlobalRelativeCanvasComponent /> : this.renderResult()}
           </div>
         </div>
