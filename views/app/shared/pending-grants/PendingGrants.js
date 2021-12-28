@@ -546,7 +546,10 @@ class PendingGrants extends Component {
           onClick={() => this.clickStartFormal(item, true)}
           className="font-size-14 dynamic-color"
         >
-          <u>Force Start Formal Voting</u>
+          <u>
+            {item.compliance_status === "approved" ? "" : "Force"} Start Formal
+            Voting
+          </u>
         </a>
       );
     }
