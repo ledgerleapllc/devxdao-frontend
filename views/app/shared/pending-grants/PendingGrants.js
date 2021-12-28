@@ -547,8 +547,11 @@ class PendingGrants extends Component {
           className="font-size-14 dynamic-color"
         >
           <u>
-            {item.compliance_status === "approved" ? "" : "Force"} Start Formal
-            Voting
+            {item.user?.shuftipro?.status === "approved" &&
+            item.compliance_status === "approved"
+              ? ""
+              : "Force"}{" "}
+            Start Formal Voting
           </u>
         </a>
       );
