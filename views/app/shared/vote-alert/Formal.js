@@ -283,7 +283,7 @@ class Formal extends Component {
       return (
         <form>
           <div className="ml-3" id="app-spd-informal-process-body">
-            <label className="mb-2">Active tightly coupled vote</label>
+            <label className="mb-2">Active loosely coupled vote</label>
             <br />
             <b>{`You are not able to vote in this ballot vote because this is your own proposal. You cannot vote for your own proposal.`}</b>
           </div>
