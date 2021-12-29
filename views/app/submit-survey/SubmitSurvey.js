@@ -12,8 +12,14 @@ import {
   getUserSurveyDetail,
   submitSurvey,
   submitRFPSurvey,
+  getMe,
 } from "../../../utils/Thunk";
-import { hideCanvas, showAlert, showCanvas } from "../../../redux/actions";
+import {
+  hideCanvas,
+  saveUser,
+  showAlert,
+  showCanvas,
+} from "../../../redux/actions";
 import DiscussionProposalsTable from "../surveys/components/tables/discussion-proposals";
 import BidRanksTable from "./components/tables/bid-ranks";
 import Helper from "../../../utils/Helper";
@@ -127,7 +133,7 @@ class SubmitSurvey extends Component {
   };
 
   submitResponse = () => {
-    // const { authUser } = this.props;
+    const { authUser } = this.props;
     const { currentSurvey, responses, downvoteResponses } = this.state;
     let body = {
       upvote_responses: responses.filter((x) => !!x),
@@ -143,15 +149,27 @@ class SubmitSurvey extends Component {
           this.props.dispatch(showCanvas());
         },
         (res) => {
-          this.props.dispatch(hideCanvas());
           if (res.success) {
             currentSurvey.is_submitted = true;
             this.setState({ currentSurvey });
-            // authUser.has_survey = 0;
-            // this.props.dispatch(saveUser({ ...authUser }));
+            this.props.dispatch(
+              getMe(
+                () => {},
+                (res) => {
+                  this.props.dispatch(hideCanvas());
+                  if (res.me && res.me.id) {
+                    authUser.has_survey = res.me?.has_survey;
+                    this.props.dispatch(saveUser({ ...authUser }));
+                  }
+                },
+                true
+              )
+            );
             this.props.dispatch(
               showAlert("Submit Responses successfully!", "success")
             );
+          } else {
+            this.props.dispatch(hideCanvas());
           }
         }
       )
@@ -182,7 +200,7 @@ class SubmitSurvey extends Component {
   };
 
   submitRFPResponse = () => {
-    // const { authUser } = this.props;
+    const { authUser } = this.props;
     const { currentSurvey, bidRankResponses } = this.state;
     const temp = [...bidRankResponses].map((x) => {
       delete x.info;
@@ -199,15 +217,27 @@ class SubmitSurvey extends Component {
           this.props.dispatch(showCanvas());
         },
         (res) => {
-          this.props.dispatch(hideCanvas());
           if (res.success) {
             currentSurvey.is_submitted = true;
             this.setState({ currentSurvey });
-            // authUser.has_survey = 0;
-            // this.props.dispatch(saveUser({ ...authUser }));
+            this.props.dispatch(
+              getMe(
+                () => {},
+                (res) => {
+                  this.props.dispatch(hideCanvas());
+                  if (res.me && res.me.id) {
+                    authUser.has_survey = res.me?.has_survey;
+                    this.props.dispatch(saveUser({ ...authUser }));
+                  }
+                },
+                true
+              )
+            );
             this.props.dispatch(
               showAlert("Submit RFP Responses successfully!", "success")
             );
+          } else {
+            this.props.dispatch(hideCanvas());
           }
         }
       )
