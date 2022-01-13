@@ -2,9 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect, withRouter } from "react-router";
 import { LineChart, PieChart } from "../../../components";
-import { hideCanvas, showCanvas } from "../../../redux/actions";
+import { hideCanvas, showCanvas, setActiveModal } from "../../../redux/actions";
 import {
-  downloadReport,
   getReportOnboarding,
   getReportReputation,
   getReportTotalRep,
@@ -12,7 +11,7 @@ import {
 import OnboardingStats from "./components/onboarding-stats";
 import ReputationStats from "./components/reputation-stats";
 import "./style.scss";
-
+import { FROM_YEAR } from "../../../utils/Constant";
 const mapStateToProps = (state) => {
   return {
     authUser: state.global.authUser,
@@ -20,7 +19,7 @@ const mapStateToProps = (state) => {
     customModalData: state.global.customModalData,
   };
 };
-const FROM_YEAR = 2021;
+
 class Report extends Component {
   constructor(props) {
     super(props);
@@ -118,23 +117,7 @@ class Report extends Component {
   };
 
   download = () => {
-    this.props.dispatch(
-      downloadReport(
-        {},
-        () => {
-          this.props.dispatch(showCanvas());
-        },
-        (res) => {
-          const url = window.URL.createObjectURL(new Blob([res]));
-          const link = document.createElement("a");
-          link.href = url;
-          link.setAttribute("download", "report.pdf");
-          document.body.appendChild(link);
-          link.click();
-          this.props.dispatch(hideCanvas());
-        }
-      )
-    );
+    this.props.dispatch(setActiveModal("export-report-selection"));
   };
 
   handleChangeOnboarding = (e) => {

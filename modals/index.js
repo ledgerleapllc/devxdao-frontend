@@ -34,9 +34,11 @@ import KycGrantModal from "./kyc-grant/KycGrant";
 import ShowDeniedComplianceModal from "./show-denied-compliance/ShowDeniedCompliance";
 import ShuftiRefChangeModal from "./shufti-ref-change/ShuftiRefChange";
 import MultipleMilestoneSubmitModal from "./multiple-milestone-submit/MultipleMilestoneSubmit";
+import ExportReportSelectionModal from "./export-report-selection/ExportReportSelection";
 
 export {
   UserReviewModal,
+  ExportReportSelectionModal,
   DenyProposalModal,
   AddAdminBoxModal,
   EditDenyModal,

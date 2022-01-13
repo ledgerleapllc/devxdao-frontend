@@ -19,6 +19,7 @@ import {
   HelpModal,
   MilestoneVoteModal,
   KycErrorModal,
+  ExportReportSelectionModal,
   KycGrantModal,
   StartCheckSystemModal,
   ConfirmKYCLinkModal,
@@ -120,6 +121,8 @@ class Global extends Component {
               <DenyProposalModal />
             ) : activeModal == "edit-deny" ? (
               <EditDenyModal />
+            ) : activeModal == "export-report-selection" ? (
+              <ExportReportSelectionModal />
             ) : activeModal == "custom-global-modal" ? (
               <CustomGlobalModal />
             ) : activeModal == "start-guest" ? (

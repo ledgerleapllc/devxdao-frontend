@@ -1,3 +1,4 @@
+export const FROM_YEAR = 2021;
 export const COUNTRYLIST = [
   "Afghanistan",
   "Albania",

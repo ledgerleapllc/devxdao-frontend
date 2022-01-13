@@ -1,0 +1,22 @@
+#export-report-select-modal {
+  text-align: center;
+  width: 762px;
+  max-width: 100%;
+  background-color: #ffffff;
+  border-radius: 12px;
+  position: relative;
+  padding: 50px;
+  margin: 160px auto;
+  button {
+    &:disabled {
+      background: #c7c7c7;
+      color: white;
+      border: 2px solid #c7c7c7;
+      cursor: not-allowed;
+    }
+  }
+  .select-box {
+    width: 50%;
+    margin: 0 auto;
+  }
+}
