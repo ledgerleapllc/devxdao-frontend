@@ -8,12 +8,6 @@ The DevxDao's grant and voting associates portal hosted at http://portal.devxdao
 
 This is the frontend repo of the portal. Backend repo for this project is located here, https://github.com/ledgerleapllc/devxdao-backend
 
-This project also has the following portal repos associated with it:
-
-Project Management portal: https://github.com/ledgerleapllc/devxdao-pm
-
-Compliance portal: https://github.com/ledgerleapllc/devxdao-compliance
-
 ### Prerequesites
 
 Relies on NextJS/Vercel, and NodeJS version 14+
