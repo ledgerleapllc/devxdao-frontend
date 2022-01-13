@@ -929,7 +929,7 @@ export function approvePreRegister(recordId, start, completion) {
 
 // Deny Pre Register - Admin
 export function denyPreRegister(recordId, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.denyPreRegister(recordId).then((res) => {
       if (!res.success) dispatch(showAlert(res.message));
@@ -940,7 +940,7 @@ export function denyPreRegister(recordId, start, completion) {
 
 // Approve KYC - Admin
 export function approveKYC(userId, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.approveKYC(userId).then((res) => {
       if (!res.success) dispatch(showAlert(res.message));
@@ -951,7 +951,7 @@ export function approveKYC(userId, start, completion) {
 
 // Approve KYC - Admin
 export function getNotSubmitMilestones(proposalId, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.getNotSubmitMilestones(proposalId).then((res) => {
       if (!res.success) dispatch(showAlert(res.message));
@@ -962,7 +962,7 @@ export function getNotSubmitMilestones(proposalId, start, completion) {
 
 // Deny KYC - Admin
 export function denyKYC(userId, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.denyKYC(userId).then((res) => {
       if (!res.success) dispatch(showAlert(res.message));
@@ -973,7 +973,7 @@ export function denyKYC(userId, start, completion) {
 
 // Reset KYC - Admin
 export function resetKYC(userId, params, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.resetKYC(userId, params).then((res) => {
       if (!res.success) dispatch(showAlert(res.message));
@@ -984,7 +984,7 @@ export function resetKYC(userId, params, start, completion) {
 
 // Update Account Info - Shared
 export function updateAccountInfo(params, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.updateAccountInfo(params).then((res) => {
       if (!res.success) {
@@ -1006,7 +1006,7 @@ export function updateAccountInfo(params, start, completion) {
 
 // Update Profile Info - Shared
 export function updateProfileInfo(params, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.updateProfileInfo(params).then((res) => {
       if (!res.success) {
@@ -1028,7 +1028,7 @@ export function updateProfileInfo(params, start, completion) {
 
 // Update Profile - Shared
 export function updateProfile(params, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.updateProfile(params).then((res) => {
       if (!res.success) dispatch(showAlert(res.message));
@@ -1039,7 +1039,7 @@ export function updateProfile(params, start, completion) {
 
 // Add Emailer Admin - Admin
 export function addEmailerAdmin(params, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.addEmailerAdmin(params).then((res) => {
       if (!res.success) dispatch(showAlert(res.message));
@@ -1050,7 +1050,7 @@ export function addEmailerAdmin(params, start, completion) {
 
 // Update Emailer Trigger Admin - Admin
 export function updateEmailerTriggerAdmin(id, params, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.updateEmailerTriggerAdmin(id, params).then((res) => {
       if (!res.success) dispatch(showAlert(res.message));
@@ -1061,7 +1061,7 @@ export function updateEmailerTriggerAdmin(id, params, start, completion) {
 
 // Update Emailer Trigger User - Admin
 export function updateEmailerTriggerUser(id, params, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.updateEmailerTriggerUser(id, params).then((res) => {
       if (!res.success) dispatch(showAlert(res.message));
@@ -1072,7 +1072,7 @@ export function updateEmailerTriggerUser(id, params, start, completion) {
 
 // Update Emailer Trigger Member - Admin
 export function updateEmailerTriggerMember(id, params, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.updateEmailerTriggerMember(id, params).then((res) => {
       if (!res.success) dispatch(showAlert(res.message));
@@ -1083,7 +1083,7 @@ export function updateEmailerTriggerMember(id, params, start, completion) {
 
 // Delete Emailer Admin - Admin
 export function deleteEmailerAdmin(adminId, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.deleteEmailerAdmin(adminId).then((res) => {
       if (!res.success) dispatch(showAlert(res.message));
@@ -1094,7 +1094,7 @@ export function deleteEmailerAdmin(adminId, start, completion) {
 
 // Add Reputation - Admin
 export function addReputation(params, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.addReputation(params).then((res) => {
       if (!res.success) dispatch(showAlert(res.message));
@@ -1105,7 +1105,7 @@ export function addReputation(params, start, completion) {
 
 // Subtract Reputation - Admin
 export function subtractReputation(params, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.subtractReputation(params).then((res) => {
       if (!res.success) dispatch(showAlert(res.message));
@@ -1116,7 +1116,7 @@ export function subtractReputation(params, start, completion) {
 
 // Change User Type - Admin
 export function changeUserType(params, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.changeUserType(params).then((res) => {
       if (!res.success) dispatch(showAlert(res.message));
@@ -1127,7 +1127,7 @@ export function changeUserType(params, start, completion) {
 
 // Change User Type - Admin
 export function changeUserAML(id, params, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.changeUserAML(id, params).then((res) => {
       if (!res.success) dispatch(showAlert(res.message));
@@ -1138,7 +1138,7 @@ export function changeUserAML(id, params, start, completion) {
 
 // Reset User Password - Admin
 export function resetUserPassword(params, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.resetUserPassword(params).then((res) => {
       if (!res.success) dispatch(showAlert(res.message));
@@ -1149,7 +1149,7 @@ export function resetUserPassword(params, start, completion) {
 
 // Change Password - Shared
 export function changePassword(params, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.changePassword(params).then((res) => {
       if (!res.success) dispatch(showAlert(res.message));
@@ -1160,7 +1160,7 @@ export function changePassword(params, start, completion) {
 
 // Submit Simple Proposal
 export function submitSimpleProposal(params, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.submitSimpleProposal(params).then((res) => {
       if (!res.success) {
@@ -1182,7 +1182,7 @@ export function submitSimpleProposal(params, start, completion) {
 
 // Submit Simple Proposal
 export function submitAdminGrantProposal(params, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.submitAdminGrantProposal(params).then((res) => {
       if (!res.success) {
@@ -1204,7 +1204,7 @@ export function submitAdminGrantProposal(params, start, completion) {
 
 // Submit Payment Proposal
 export function submitPaymentProposal(params, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.submitPaymentProposal(params).then((res) => {
       if (!res.success) {
@@ -1226,7 +1226,7 @@ export function submitPaymentProposal(params, start, completion) {
 
 // Submit Milestone
 export function submitMilestone(params, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.submitMilestone(params).then((res) => {
       if (!res.success) {
@@ -1248,7 +1248,7 @@ export function submitMilestone(params, start, completion) {
 
 // Submit Proposal
 export function submitProposal(params, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.submitProposal(params).then((res) => {
       if (!res.success) {
@@ -1275,7 +1275,7 @@ export function submitProposalChange(
   completion,
   preventAlert = false
 ) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.submitProposalChange(params).then((res) => {
       if (!res.success && !preventAlert) dispatch(showAlert(res.message));
@@ -1286,7 +1286,7 @@ export function submitProposalChange(
 
 // Submit Proposal Change Comment
 export function submitProposalChangeComment(params, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.submitProposalChangeComment(params).then((res) => {
       if (!res.success) dispatch(showAlert(res.message));
@@ -1297,7 +1297,7 @@ export function submitProposalChangeComment(params, start, completion) {
 
 // Submit Vote - User
 export function submitVote(params, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.submitVote(params).then((res) => {
       if (!res.success) {
@@ -1319,7 +1319,7 @@ export function submitVote(params, start, completion) {
 
 // Support UP Proposal Change
 export function supportUpProposalChange(proposalChangeId, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.supportUpProposalChange(proposalChangeId).then((res) => {
       if (!res.success) dispatch(showAlert(res.message));
@@ -1330,7 +1330,7 @@ export function supportUpProposalChange(proposalChangeId, start, completion) {
 
 // Support DOWN Proposal Change
 export function supportDownProposalChange(proposalChangeId, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.supportDownProposalChange(proposalChangeId).then((res) => {
       if (!res.success) dispatch(showAlert(res.message));
@@ -1341,7 +1341,7 @@ export function supportDownProposalChange(proposalChangeId, start, completion) {
 
 // Approve Proposal Change - User
 export function approveProposalChange(proposalChangeId, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.approveProposalChange(proposalChangeId).then((res) => {
       if (!res.success) {
@@ -1367,7 +1367,7 @@ export function forceApproveProposalChange(
   start,
   completion
 ) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.forceApproveProposalChange(proposalChangeId).then((res) => {
       if (!res.success) dispatch(showAlert(res.message));
@@ -1378,7 +1378,7 @@ export function forceApproveProposalChange(
 
 // Deny Proposal Change - User
 export function denyProposalChange(proposalChangeId, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.denyProposalChange(proposalChangeId).then((res) => {
       if (!res.success) dispatch(showAlert(res.message));
@@ -1389,7 +1389,7 @@ export function denyProposalChange(proposalChangeId, start, completion) {
 
 // Force Deny Proposal Change - Admin
 export function forceDenyProposalChange(proposalChangeId, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.forceDenyProposalChange(proposalChangeId).then((res) => {
       if (!res.success) dispatch(showAlert(res.message));
@@ -1400,7 +1400,7 @@ export function forceDenyProposalChange(proposalChangeId, start, completion) {
 
 // Withdraw Proposal Change
 export function withdrawProposalChange(proposalChangeId, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.withdrawProposalChange(proposalChangeId).then((res) => {
       if (!res.success) dispatch(showAlert(res.message));
@@ -1415,7 +1415,7 @@ export function forceWithdrawProposalChange(
   start,
   completion
 ) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.forceWithdrawProposalChange(proposalChangeId).then((res) => {
       if (!res.success) dispatch(showAlert(res.message));
@@ -1426,7 +1426,7 @@ export function forceWithdrawProposalChange(
 
 // Upload File for Proposal - Shared
 export function uploadFile(formData, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.uploadFile(formData).then((res) => {
       if (!res.success) dispatch(showAlert(res.message));
@@ -1437,7 +1437,7 @@ export function uploadFile(formData, start, completion) {
 
 // uploadDraftFile for Proposal - Shared
 export function uploadDraftFile(formData, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.uploadDraftFile(formData).then((res) => {
       if (!res.success) dispatch(showAlert(res.message));
@@ -1453,7 +1453,7 @@ export function startFormalMilestoneVoting(
   start,
   completion
 ) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.startFormalMilestoneVoting(proposalId, voteId).then((res) => {
       if (!res.success) dispatch(showAlert(res.message));
@@ -1469,7 +1469,7 @@ export function startFormalMilestoneVotingUser(
   start,
   completion
 ) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.startFormalMilestoneVotingUser(proposalId, voteId).then((res) => {
       if (!res.success) dispatch(showAlert(res.message));
@@ -1480,7 +1480,7 @@ export function startFormalMilestoneVotingUser(
 
 // Start Formal Voting - Admin
 export function startFormalVoting(proposalId, force, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.startFormalVoting(proposalId, force).then((res) => {
       if (!res.success) dispatch(showAlert(res.message));
@@ -1491,7 +1491,7 @@ export function startFormalVoting(proposalId, force, start, completion) {
 
 // Get Metrics - Admin
 export function getMetrics(start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.getMetrics().then((res) => {
       if (!res.success) dispatch(showAlert(res.message));
@@ -1502,7 +1502,7 @@ export function getMetrics(start, completion) {
 
 // Check Active Grant - User
 export function checkUserActiveGrant(start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.checkUserActiveGrant().then((res) => {
       if (!res.success) dispatch(showAlert(res.message));
@@ -1513,7 +1513,7 @@ export function checkUserActiveGrant(start, completion) {
 
 // Start Formal Voting - Shared
 export function startFormalVotingShared(proposalId, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.startFormalVotingShared(proposalId).then((res) => {
       if (!res.success) dispatch(showAlert(res.message));
@@ -1524,7 +1524,7 @@ export function startFormalVotingShared(proposalId, start, completion) {
 
 // Start Informal Voting - Shared
 export function startInformalVotingShared(proposalId, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.startInformalVotingShared(proposalId).then((res) => {
       if (!res.success) dispatch(showAlert(res.message));
@@ -1535,7 +1535,7 @@ export function startInformalVotingShared(proposalId, start, completion) {
 
 // Restart Voting - Shared
 export function restartVoting(voteId, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.restartVoting(voteId).then((res) => {
       if (!res.success) dispatch(showAlert(res.message));
@@ -1546,7 +1546,7 @@ export function restartVoting(voteId, start, completion) {
 
 // Approve Proposal Payment - Admin
 export function approveProposalPayment(proposalId, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.approveProposalPayment(proposalId).then((res) => {
       if (!res.success) dispatch(showAlert(res.message));
@@ -1557,7 +1557,7 @@ export function approveProposalPayment(proposalId, start, completion) {
 
 // Deny Proposal Payment - Admin
 export function denyProposalPayment(proposalId, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.denyProposalPayment(proposalId).then((res) => {
       if (!res.success) dispatch(showAlert(res.message));
@@ -1568,7 +1568,7 @@ export function denyProposalPayment(proposalId, start, completion) {
 
 // Approve Proposal - Admin
 export function approveProposal(proposalId, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.approveProposal(proposalId).then((res) => {
       if (completion) completion(res);
@@ -1578,7 +1578,7 @@ export function approveProposal(proposalId, start, completion) {
 
 // Deny Proposal - Admin
 export function denyProposal(proposalId, reason, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.denyProposal(proposalId, reason).then((res) => {
       if (!res.success) dispatch(showAlert(res.message));
@@ -1589,7 +1589,7 @@ export function denyProposal(proposalId, reason, start, completion) {
 
 // Force Withdraw Proposal - Shared
 export function forceWithdrawProposal(proposalId, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.forceWithdrawProposal(proposalId).then((res) => {
       if (!res.success) dispatch(showAlert(res.message));
@@ -1600,7 +1600,7 @@ export function forceWithdrawProposal(proposalId, start, completion) {
 
 // Withdraw Proposal - Shared
 export function withdrawProposal(proposalId, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.withdrawProposal(proposalId).then((res) => {
       if (!res.success) dispatch(showAlert(res.message));
@@ -1611,7 +1611,7 @@ export function withdrawProposal(proposalId, start, completion) {
 
 // Activate Associate to Voting Associate
 export function activateParticipant(userId, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.activateParticipant(userId).then((res) => {
       if (completion) completion(res);
@@ -1621,7 +1621,7 @@ export function activateParticipant(userId, start, completion) {
 
 // Deny Associate - Admin
 export function denyParticipant(userId, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.denyParticipant(userId).then((res) => {
       if (completion) completion(res);
@@ -1631,7 +1631,7 @@ export function denyParticipant(userId, start, completion) {
 
 // Allow Access User - Admin
 export function allowAccessUser(userId, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.allowAccessUser(userId).then((res) => {
       if (!res.success) dispatch(showAlert(res.message));
@@ -1642,7 +1642,7 @@ export function allowAccessUser(userId, start, completion) {
 
 // Deny Access User - Admin
 export function denyAccessUser(userId, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.denyAccessUser(userId).then((res) => {
       if (!res.success) dispatch(showAlert(res.message));
@@ -1653,7 +1653,7 @@ export function denyAccessUser(userId, start, completion) {
 
 // Activate Grant - Admin
 export function activateGrant(grantId, formData, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.activateGrant(grantId, formData).then((res) => {
       if (!res.success) dispatch(showAlert(res.message));
@@ -1664,7 +1664,7 @@ export function activateGrant(grantId, formData, start, completion) {
 
 // Begin Grant - Admin
 export function beginGrant(grantId, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.beginGrant(grantId).then((res) => {
       if (!res.success) dispatch(showAlert(res.message));
@@ -1675,7 +1675,7 @@ export function beginGrant(grantId, start, completion) {
 
 // Ban User - Admin
 export function banUser(userId, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.banUser(userId).then((res) => {
       if (!res.success) dispatch(showAlert(res.message));
@@ -1686,7 +1686,7 @@ export function banUser(userId, start, completion) {
 
 // Unban User - Admin
 export function unbanUser(userId, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.unbanUser(userId).then((res) => {
       if (!res.success) dispatch(showAlert(res.message));
@@ -1697,7 +1697,7 @@ export function unbanUser(userId, start, completion) {
 
 // Remind Hellosign Grant
 export function remindHellosignGrant(grantId, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.remindHellosignGrant(grantId).then((res) => {
       if (!res.success) dispatch(showAlert(res.message));
@@ -1708,7 +1708,7 @@ export function remindHellosignGrant(grantId, start, completion) {
 
 // resend Hellosign Grant
 export function resendHellosignGrant(grantId, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.resendHellosignGrant(grantId).then((res) => {
       if (!res.success) dispatch(showAlert(res.message));
@@ -1719,7 +1719,7 @@ export function resendHellosignGrant(grantId, start, completion) {
 
 // view signed Grant
 export function viewSignedGrant(grantId, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.viewSignedGrant(grantId).then((res) => {
       if (!res.success) dispatch(showAlert(res.message));
@@ -1730,7 +1730,7 @@ export function viewSignedGrant(grantId, start, completion) {
 
 // Get All Review Milestones - Admin
 export function getAllReviewMilestones(params, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.getReviewMilestones(params).then((res) => {
       if (completion) completion(res);
@@ -1740,7 +1740,7 @@ export function getAllReviewMilestones(params, start, completion) {
 
 // Get All Review Milestones - Admin
 export function getVADirectory(params, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.getVADirectory(params).then((res) => {
       if (completion) completion(res);
@@ -1750,7 +1750,7 @@ export function getVADirectory(params, start, completion) {
 
 // getSurveys - Admin
 export function getSurveys(params, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.getSurveys(params).then((res) => {
       if (completion) completion(res);
@@ -1760,7 +1760,7 @@ export function getSurveys(params, start, completion) {
 
 // getSurveys - User
 export function getUserSurveys(params, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.getUserSurveys(params).then((res) => {
       if (completion) completion(res);
@@ -1770,7 +1770,7 @@ export function getUserSurveys(params, start, completion) {
 
 // getWinners - Admin
 export function getWinners(params, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.getWinners(params).then((res) => {
       if (completion) completion(res);
@@ -1780,7 +1780,7 @@ export function getWinners(params, start, completion) {
 
 // approveDownVote - Admin
 export function approveDownVote(params, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.approveDownVote(params).then((res) => {
       if (completion) completion(res);
@@ -1790,7 +1790,7 @@ export function approveDownVote(params, start, completion) {
 
 // getLosers - Admin
 export function getLosers(params, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.getLosers(params).then((res) => {
       if (completion) completion(res);
@@ -1800,7 +1800,7 @@ export function getLosers(params, start, completion) {
 
 // getSurveyVotes - Admin
 export function getSurveyVotes(id, params, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.getSurveyVotes(id, params).then((res) => {
       if (completion) completion(res);
@@ -1810,7 +1810,7 @@ export function getSurveyVotes(id, params, start, completion) {
 
 // getRFPSurveyVotes - Admin
 export function getRFPSurveyVotes(id, params, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.getRFPSurveyVotes(id, params).then((res) => {
       if (completion) completion(res);
@@ -1820,7 +1820,7 @@ export function getRFPSurveyVotes(id, params, start, completion) {
 
 // getSurveyVotes - Admin
 export function getSurveyDownvotes(id, params, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.getSurveyDownvotes(id, params).then((res) => {
       if (completion) completion(res);
@@ -1830,7 +1830,7 @@ export function getSurveyDownvotes(id, params, start, completion) {
 
 // getSurveyEmailVoter - Admin
 export function getSurveyEmailVoter(id, params, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.getSurveyEmailVoter(id, params).then((res) => {
       if (completion) completion(res);
@@ -1840,7 +1840,7 @@ export function getSurveyEmailVoter(id, params, start, completion) {
 
 // getSurveyVoters - Admin
 export function getSurveyVoters(id, params, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.getSurveyVoters(id, params).then((res) => {
       if (completion) completion(res);
@@ -1850,7 +1850,7 @@ export function getSurveyVoters(id, params, start, completion) {
 
 // getRFPSurveyVoters - Admin
 export function getRFPSurveyVoters(id, params, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.getRFPSurveyVoters(id, params).then((res) => {
       if (completion) completion(res);
@@ -1860,7 +1860,7 @@ export function getRFPSurveyVoters(id, params, start, completion) {
 
 // getVoterResponse - Admin
 export function getVoterResponse(id, userId, params, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.getVoterResponse(id, userId, params).then((res) => {
       if (completion) completion(res);
@@ -1869,7 +1869,7 @@ export function getVoterResponse(id, userId, params, start, completion) {
 }
 
 export function getVoterBidResponse(id, userId, params, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.getVoterBidResponse(id, userId, params).then((res) => {
       if (completion) completion(res);
@@ -1879,7 +1879,7 @@ export function getVoterBidResponse(id, userId, params, start, completion) {
 
 // getUserNotVoteSurvey - Admin
 export function getUserNotVoteSurvey(id, params, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.getUserNotVoteSurvey(id, params).then((res) => {
       if (completion) completion(res);
@@ -1889,7 +1889,7 @@ export function getUserNotVoteSurvey(id, params, start, completion) {
 
 // getUserNotVoteSurvey - Admin
 export function getUserNotVoteRFPSurvey(id, params, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.getUserNotVoteRFPSurvey(id, params).then((res) => {
       if (completion) completion(res);
@@ -1899,7 +1899,7 @@ export function getUserNotVoteRFPSurvey(id, params, start, completion) {
 
 // getSurveyDetail - Admin
 export function getSurveyDetail(params, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.getSurveyDetail(params).then((res) => {
       if (completion) completion(res);
@@ -1909,7 +1909,7 @@ export function getSurveyDetail(params, start, completion) {
 
 // getUserSurveyDetail - User
 export function getUserSurveyDetail(params, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.getUserSurveyDetail(params).then((res) => {
       if (completion) completion(res);
@@ -1919,7 +1919,7 @@ export function getUserSurveyDetail(params, start, completion) {
 
 // sendReminderForSurvey - Admin
 export function sendReminderForSurvey(params, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.sendReminderForSurvey(params).then((res) => {
       if (completion) completion(res);
@@ -1929,7 +1929,7 @@ export function sendReminderForSurvey(params, start, completion) {
 
 // sendReminderForRFPSurvey - Admin
 export function sendReminderForRFPSurvey(params, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.sendReminderForRFPSurvey(params).then((res) => {
       if (completion) completion(res);
@@ -1939,7 +1939,7 @@ export function sendReminderForRFPSurvey(params, start, completion) {
 
 // cancelSurvey - Admin
 export function cancelSurvey(params, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.cancelSurvey(params).then((res) => {
       if (completion) completion(res);
@@ -1949,7 +1949,7 @@ export function cancelSurvey(params, start, completion) {
 
 // Get Milestone Logs - Admin
 export function getMilestoneLogs(id, params, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.getMilestoneLogs(id, params).then((res) => {
       if (completion) completion(res);
@@ -1959,7 +1959,7 @@ export function getMilestoneLogs(id, params, start, completion) {
 
 // Get All Review Milestones - Admin
 export function getAllMilestones(params, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.getAllMilestones(params).then((res) => {
       if (completion) completion(res);
@@ -1969,7 +1969,7 @@ export function getAllMilestones(params, start, completion) {
 
 // Get Teams List - Admin
 export function getAdminTeams(params, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.getAdminTeams(params).then((res) => {
       if (completion) completion(res);
@@ -1979,7 +1979,7 @@ export function getAdminTeams(params, start, completion) {
 
 // Get Dos Fee - Admin
 export function getDosFee(params, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.getDosFee(params).then((res) => {
       if (completion) completion(res);
@@ -1989,7 +1989,7 @@ export function getDosFee(params, start, completion) {
 
 // Get Dos Fee - Admin
 export function checkMasterPassword(params, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.checkMasterPassword(params).then((res) => {
       if (completion) completion(res);
@@ -1999,7 +1999,7 @@ export function checkMasterPassword(params, start, completion) {
 
 // Get Dos Fee - Admin
 export function getShuftiStatus(params, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.getShuftiStatus(params).then((res) => {
       if (completion) completion(res);
@@ -2009,7 +2009,7 @@ export function getShuftiStatus(params, start, completion) {
 
 // Get Dos Fee - Admin
 export function regeneratePDF(params, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.regeneratePDF(params).then((res) => {
       if (completion) completion(res);
@@ -2019,7 +2019,7 @@ export function regeneratePDF(params, start, completion) {
 
 // Change Admin Permissions - Admin
 export function changeAdminPermission(params, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.changeAdminPermission(params).then((res) => {
       if (completion) completion(res);
@@ -2029,7 +2029,7 @@ export function changeAdminPermission(params, start, completion) {
 
 // resetPasswordAdmin - Admin
 export function resetPasswordAdmin(params, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.resetPasswordAdmin(params).then((res) => {
       if (completion) completion(res);
@@ -2039,7 +2039,7 @@ export function resetPasswordAdmin(params, start, completion) {
 
 // resendInvitedEmail - Admin
 export function resendInvitedEmail(params, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.resendInvitedEmail(params).then((res) => {
       if (completion) completion(res);
@@ -2049,7 +2049,7 @@ export function resendInvitedEmail(params, start, completion) {
 
 // Get All OP Milestones - Admin
 export function getAllOPMilestones(params, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.getAllOPMilestones(params).then((res) => {
       if (completion) completion(res);
@@ -2059,7 +2059,7 @@ export function getAllOPMilestones(params, start, completion) {
 
 // Get All Proposal Milestones - Admin
 export function getAllProposalMilestones(params, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.getAllProposalMilestones(params).then((res) => {
       if (completion) completion(res);
@@ -2069,7 +2069,7 @@ export function getAllProposalMilestones(params, start, completion) {
 
 // Get All Proposal Milestones - Admin
 export function downloadCSVMilestones(params, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.downloadCSVMilestones(params).then((res) => {
       if (completion) completion(res);
@@ -2079,7 +2079,7 @@ export function downloadCSVMilestones(params, start, completion) {
 
 // Get All Proposal Milestones - Admin
 export function downloadCSVAccounting(params, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.downloadCSVAccounting(params).then((res) => {
       if (completion) completion(res);
@@ -2089,7 +2089,7 @@ export function downloadCSVAccounting(params, start, completion) {
 
 // Get All Proposal Milestones - Admin
 export function downloadCSVMyRep(params, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.downloadCSVMyRep(params).then((res) => {
       if (completion) completion(res);
@@ -2099,7 +2099,7 @@ export function downloadCSVMyRep(params, start, completion) {
 
 // Get All Proposal Milestones - Admin
 export function postRepDailyCsv(params, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.postRepDailyCsv(params).then((res) => {
       if (completion) completion(res);
@@ -2109,7 +2109,7 @@ export function postRepDailyCsv(params, start, completion) {
 
 // Get All Proposal Milestones - Admin
 export function sendKycKangaroo(params, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.sendKycKangaroo(params).then((res) => {
       if (!res.success) dispatch(showAlert(res.message));
@@ -2120,7 +2120,7 @@ export function sendKycKangaroo(params, start, completion) {
 
 // Get All Proposal Milestones - User
 export function dismissStartKyc(params, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.dismissStartKyc(params).then((res) => {
       if (!res.success) dispatch(showAlert(res.message));
@@ -2131,7 +2131,7 @@ export function dismissStartKyc(params, start, completion) {
 
 // Get All Proposal Milestones - Admin
 export function sendKycKangarooByAdmin(params, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.sendKycKangarooByAdmin(params).then((res) => {
       if (!res.success) dispatch(showAlert(res.message));
@@ -2142,7 +2142,7 @@ export function sendKycKangarooByAdmin(params, start, completion) {
 
 // Get All Proposal Milestones - Admin
 export function resendKycKangaroo(params, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.resendKycKangaroo(params).then((res) => {
       if (!res.success) dispatch(showAlert(res.message));
@@ -2153,7 +2153,7 @@ export function resendKycKangaroo(params, start, completion) {
 
 // Get All Proposal Milestones - Admin
 export function getTimelineProposal(proposalId, params, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.getTimelineProposal(proposalId, params).then((res) => {
       if (completion) completion(res);
@@ -2163,7 +2163,7 @@ export function getTimelineProposal(proposalId, params, start, completion) {
 
 // Get All Proposal Milestones - Admin
 export function downloadCSVUserRep(userId, params, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.downloadCSVUserRep(userId, params).then((res) => {
       if (completion) completion(res);
@@ -2173,7 +2173,7 @@ export function downloadCSVUserRep(userId, params, start, completion) {
 
 // Get All Proposal Milestones - Admin
 export function downloadSurveyWinner(params, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.downloadSurveyWinner(params).then((res) => {
       if (completion) completion(res);
@@ -2189,7 +2189,7 @@ export function downloadVoteResultCSV(
   start,
   completion
 ) {
-  return function () {
+  return () => {
     if (start) start();
     API.downloadVoteResultCSV(propsalId, voteId, params).then((res) => {
       if (completion) completion(res);
@@ -2204,7 +2204,7 @@ export function downloadVoteResultPDF(
   start,
   completion
 ) {
-  return function () {
+  return () => {
     if (start) start();
     API.downloadVoteResultPDF(propsalId, voteId, params).then((res) => {
       if (completion) completion(res);
@@ -2214,7 +2214,7 @@ export function downloadVoteResultPDF(
 
 // Get All Proposal Milestones - Admin
 export function downloadSurveyLoser(params, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.downloadSurveyLoser(params).then((res) => {
       if (completion) completion(res);
@@ -2224,7 +2224,7 @@ export function downloadSurveyLoser(params, start, completion) {
 
 // Get All Proposal Milestones - Admin
 export function downloadCurrentVoteByProposal(id, params, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.downloadCurrentVoteByProposal(id, params).then((res) => {
       if (completion) completion(res);
@@ -2234,7 +2234,7 @@ export function downloadCurrentVoteByProposal(id, params, start, completion) {
 
 // Get All Proposal Milestones - Admin
 export function downloadCurrentBidVote(id, params, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.downloadCurrentBidVote(id, params).then((res) => {
       if (completion) completion(res);
@@ -2249,7 +2249,7 @@ export function downloadCurrentDownvoteByProposal(
   start,
   completion
 ) {
-  return function () {
+  return () => {
     if (start) start();
     API.downloadCurrentDownvoteByProposal(id, params).then((res) => {
       if (completion) completion(res);
@@ -2259,7 +2259,7 @@ export function downloadCurrentDownvoteByProposal(
 
 // Get All Proposal Milestones - Admin
 export function approveComplianceReview(params, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.approveComplianceReview(params).then((res) => {
       if (completion) completion(res);
@@ -2268,7 +2268,7 @@ export function approveComplianceReview(params, start, completion) {
 }
 
 export function saveUnvotedInformal(params, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.saveUnvotedInformal(params).then((res) => {
       if (completion) completion(res);
@@ -2277,7 +2277,7 @@ export function saveUnvotedInformal(params, start, completion) {
 }
 
 export function saveUnvotedFormal(params, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.saveUnvotedFormal(params).then((res) => {
       if (completion) completion(res);
@@ -2287,7 +2287,7 @@ export function saveUnvotedFormal(params, start, completion) {
 
 // Get All Proposal Milestones - Admin
 export function resendComplianceReview(params, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.resendComplianceReview(params).then((res) => {
       if (completion) completion(res);
@@ -2297,7 +2297,7 @@ export function resendComplianceReview(params, start, completion) {
 
 // Get All Proposal Milestones - Admin
 export function denyComplianceReview(params, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.denyComplianceReview(params).then((res) => {
       if (completion) completion(res);
@@ -2308,7 +2308,7 @@ export function denyComplianceReview(params, start, completion) {
 
 // Get All Proposal Milestones - Admin
 export function getReportOnboarding(params, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.getReportOnboarding(params).then((res) => {
       if (completion) completion(res);
@@ -2319,7 +2319,7 @@ export function getReportOnboarding(params, start, completion) {
 
 // Get All Proposal Milestones - Admin
 export function getReportReputation(params, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.getReportReputation(params).then((res) => {
       if (completion) completion(res);
@@ -2330,7 +2330,7 @@ export function getReportReputation(params, start, completion) {
 
 // Get All Proposal Milestones - Admin
 export function getReportTotalRep(params, start, completion) {
-  return function (dispatch) {
+  return (dispatch) => {
     if (start) start();
     API.getReportTotalRep(params).then((res) => {
       if (completion) completion(res);
@@ -2341,7 +2341,7 @@ export function getReportTotalRep(params, start, completion) {
 
 // Get All Proposal CSV - Admin
 export function downloadReport(params, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.downloadReport(params).then((res) => {
       if (completion) completion(res);
@@ -2351,7 +2351,7 @@ export function downloadReport(params, start, completion) {
 
 // Get All Proposal CSV - Admin
 export function downloadCSVAllProposals(params, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.downloadCSVAllProposals(params).then((res) => {
       if (completion) completion(res);
@@ -2361,7 +2361,7 @@ export function downloadCSVAllProposals(params, start, completion) {
 
 // Get All Proposal CSV - Admin
 export function downloadCSVActiveGrants(params, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.downloadCSVActiveGrants(params).then((res) => {
       if (completion) completion(res);
@@ -2371,7 +2371,7 @@ export function downloadCSVActiveGrants(params, start, completion) {
 
 // Get All Proposal CSV - Admin
 export function downloadCSVUsers(params, start, completion) {
-  return function () {
+  return () => {
     if (start) start();
     API.downloadCSVUsers(params).then((res) => {
       if (completion) completion(res);
