@@ -72,7 +72,7 @@ class Report extends Component {
   fetchReportReputation = () => {
     this.props.dispatch(
       getReportReputation(
-        { year: 2021 },
+        { year: this.state.yearReputation },
         () => {
           this.props.dispatch(showCanvas());
         },
@@ -97,7 +97,7 @@ class Report extends Component {
   fetchReportTotalRep = () => {
     this.props.dispatch(
       getReportTotalRep(
-        { year: 2021 },
+        { year: this.state.yearTotalRep },
         () => {
           this.props.dispatch(showCanvas());
         },
