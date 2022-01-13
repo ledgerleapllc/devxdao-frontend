@@ -71,9 +71,6 @@ export default function AppRoutes({ auth }) {
         <Route exact path="/compliance-deny-grant/:proposalId">
           <ComplianceDenyView />
         </Route>
-        <PublicRoute auth={auth} exact path="/register/form">
-          <SignupView />
-        </PublicRoute>
         <Route>
           <h2 className="text-center mt-4 mb-3">Not Found</h2>
         </Route>
