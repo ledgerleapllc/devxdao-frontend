@@ -69,7 +69,6 @@ const sendRequest = (
           Helper.removeUser();
           window.location.href = "/login";
         }
-
         resolve({
           success: false,
           message: "Please try again later",

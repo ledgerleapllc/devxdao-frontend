@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Switch, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { AppRoutes } from "../../routes";
 import HeaderLayout from "../header/Header";
 
@@ -31,9 +31,7 @@ class App extends Component {
         <HeaderLayout type={headerType} />
 
         <div className="page-wrap">
-          <Switch>
-            <AppRoutes auth={auth} />
-          </Switch>
+          <AppRoutes auth={auth} />
         </div>
       </div>
     );
