@@ -73,7 +73,7 @@ class CreateTopic extends Component {
               <textarea
                 ref={this.rawInputRef}
                 defaultValue={raw}
-                placeholder="What are your toughts?"
+                placeholder="What are your thoughts?"
               ></textarea>
             </div>
             <button className="post-btn" type="submit" disabled={loading}>
