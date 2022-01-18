@@ -30,6 +30,7 @@ import IconEmptyDot from "../../../../public/icons/empty-dot.svg";
 import IconCheckDot from "../../../../public/icons/check-dot.svg";
 import "./single-proposal.scss";
 import Helper from "../../../../utils/Helper";
+import ProposalPosts from "../../shared/proposal-posts/ProposalPosts";
 
 const mapStateToProps = (state) => {
   return {
@@ -314,6 +315,13 @@ class SingleProposal extends Component {
     return <PageHeaderComponent title={title} />;
   }
 
+  // Render Posts
+  renderPosts() {
+    const { proposal } = this.state;
+
+    return <ProposalPosts proposal={proposal} />;
+  }
+
   // Render Detail
   renderDetail() {
     const { proposal } = this.state;
@@ -461,7 +469,7 @@ class SingleProposal extends Component {
           proposal={proposal}
           onRefresh={() => this.getProposal()}
         />
-        <div className="d-flex gap-box">
+        <div className="d-flex flex-column flex-lg-row gap-box">
           <div className="proposal-detail-box">
             {this.renderDetail()}
             {this.renderComplianceCheck()}
@@ -780,51 +788,60 @@ class SingleProposal extends Component {
               )}
             </>
           </div>
-          {proposal.type === "grant" && (
-            <div
-              className={classNames(
-                "sidebar-timeline",
-                expandTimeline ? "expand" : ""
-              )}
-            >
-              <div className="app-simple-section">
-                <div
-                  className="d-flex"
-                  // onClick={() =>
-                  //   this.setState({ expandTimeline: !expandTimeline })
-                  // }
-                  style={{ cursor: "pointer" }}
-                >
-                  <b className="title-timeline pl-2">Proposal Timeline</b>
+          <div className="right-side">
+            {authUser.is_admin || authUser.is_member ? (
+              <div className="mb-3">{this.renderPosts()}</div>
+            ) : (
+              ""
+            )}
+            {proposal.type === "grant" && (
+              <div
+                className={classNames(
+                  "sidebar-timeline",
+                  expandTimeline ? "expand" : ""
+                )}
+              >
+                <div className="app-simple-section">
+                  <div
+                    className="d-flex"
+                    // onClick={() =>
+                    //   this.setState({ expandTimeline: !expandTimeline })
+                    // }
+                    style={{ cursor: "pointer" }}
+                  >
+                    <b className="title-timeline pl-2">Proposal Timeline</b>
+                  </div>
+                  <ul className="h-100 content-timeline">
+                    {this.state.timelineList.map((x, index) => (
+                      <li className="timeline-item" key={index}>
+                        <div className="preview d-flex align-items-center">
+                          <div className="pb-3 dot">
+                            {index === 0 && <IconDot />}
+                            {index !== 0 && !x.status && <IconEmptyDot />}
+                            {index !== 0 && x.status && <IconCheckDot />}
+                            <div className="line" />
+                          </div>
+                          <p className="date-timeline pb-3 pl-2">
+                            {x.datetime}
+                          </p>
+                        </div>
+                        <div className="full d-flex">
+                          <p className="date-timeline">{x.datetime}</p>
+                          <div className="pb-3 dot">
+                            {index === 0 && <IconDot />}
+                            {index !== 0 && !x.status && <IconEmptyDot />}
+                            {index !== 0 && x.status && <IconCheckDot />}
+                            <div className="line" />
+                          </div>
+                          <p>{x.title}</p>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <ul className="h-100 content-timeline">
-                  {this.state.timelineList.map((x, index) => (
-                    <li className="timeline-item" key={index}>
-                      <div className="preview d-flex align-items-center">
-                        <div className="pb-3 dot">
-                          {index === 0 && <IconDot />}
-                          {index !== 0 && !x.status && <IconEmptyDot />}
-                          {index !== 0 && x.status && <IconCheckDot />}
-                          <div className="line" />
-                        </div>
-                        <p className="date-timeline pb-3 pl-2">{x.datetime}</p>
-                      </div>
-                      <div className="full d-flex">
-                        <p className="date-timeline">{x.datetime}</p>
-                        <div className="pb-3 dot">
-                          {index === 0 && <IconDot />}
-                          {index !== 0 && !x.status && <IconEmptyDot />}
-                          {index !== 0 && x.status && <IconCheckDot />}
-                          <div className="line" />
-                        </div>
-                        <p>{x.title}</p>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
               </div>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </div>
     );

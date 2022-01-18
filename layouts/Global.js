@@ -41,6 +41,7 @@ import {
   ShowSurveyVoterAnswerModal,
   ListVoterSurveyModal,
   ShowDeniedComplianceModal,
+  TopicFlagModal,
 } from "../modals";
 
 const mapStateToProps = (state) => {
@@ -189,6 +190,8 @@ class Global extends Component {
               <HelpModal />
             ) : activeModal == "milestone-vote" ? (
               <MilestoneVoteModal data={this.props.modalData} />
+            ) : activeModal == "topic-flag" ? (
+              <TopicFlagModal data={this.props.modalData} />
             ) : null}
           </div>
         ) : null}
