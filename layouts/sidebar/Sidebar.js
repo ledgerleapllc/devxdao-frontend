@@ -3,6 +3,7 @@ import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import * as Icon from "react-feather";
+import ForumIcon from "@material-ui/icons/Forum";
 import { Fade } from "react-reveal";
 import Helper from "../../utils/Helper";
 import { saveUser, hideSidebar, setActiveModal } from "../../redux/actions";
@@ -64,6 +65,12 @@ class Sidebar extends Component {
               link: "/app/discussions",
               label: "Discussions",
               icon: <Icon.FileText size={20} />,
+              isShow: true,
+            },
+            {
+              link: "/app/topics",
+              label: "Topics",
+              icon: <ForumIcon size={20} />,
               isShow: true,
             },
             {
@@ -194,8 +201,7 @@ class Sidebar extends Component {
               link: "/app/report",
               label: "Report",
               icon: <IconReport size={20} />,
-              isShow:
-                authUser.is_super_admin || authUser.is_admin
+              isShow: authUser.is_super_admin || authUser.is_admin,
             },
             {
               link: "/app/emailer",
@@ -254,6 +260,12 @@ class Sidebar extends Component {
               link: "/app/discussions",
               label: "Discussions",
               icon: <Icon.FileText size={20} />,
+              isShow: true,
+            },
+            {
+              link: "/app/topics",
+              label: "Topics",
+              icon: <ForumIcon size={20} />,
               isShow: true,
             },
             {
@@ -415,49 +427,47 @@ class Sidebar extends Component {
 
     const items = [];
     tabs.forEach((tab, index) => {
-        const subItems = [];
-  
-        if (tab.tabs && tab.tabs.length) {
-          tab.tabs.forEach((subTab, subIndex) => {
-            subItems.push(
-              <li
-                key={`subTabItem_${subIndex}`}
-                className={this.getClassName(path, subTab)}
-                hidden={!subTab.isShow}
+      const subItems = [];
+
+      if (tab.tabs && tab.tabs.length) {
+        tab.tabs.forEach((subTab, subIndex) => {
+          subItems.push(
+            <li
+              key={`subTabItem_${subIndex}`}
+              className={this.getClassName(path, subTab)}
+              hidden={!subTab.isShow}
+            >
+              <a
+                className="position-relative"
+                onClick={(e) => this.clickTab(e, subTab.link)}
+                style={{ color: "inherit" }}
               >
-                <a
-                  className="position-relative"
-                  onClick={(e) => this.clickTab(e, subTab.link)}
-                  style={{ color: "inherit" }}
-                >
-                  {
-                   ((subTab.label === "My Grants" && !!authUser.check_active_grant) ||
-                    (subTab.label === "Survey" && !!authUser.has_survey))
-                    && (
-                      <div className="position-absolute" style={{ left: "29px" }}>
-                        <IconInfo />
-                      </div>
-                    )
-                  }
-                  <div>{subTab.icon}</div>
-                  <span>{subTab.label}</span>
-                </a>
-              </li>
-            );
-          });
-        }
-  
-        items.push(
-          <li key={`tabItem_${index}`} className={this.getClassName(path, tab)}>
-            {tab.link ? (
-              <a onClick={(e) => this.clickTab(e, tab.link)}>{tab.label}</a>
-            ) : (
-              <a>{tab.label}</a>
-            )}
-  
-            <ul>{subItems}</ul>
-          </li>
-        );
+                {((subTab.label === "My Grants" &&
+                  !!authUser.check_active_grant) ||
+                  (subTab.label === "Survey" && !!authUser.has_survey)) && (
+                  <div className="position-absolute" style={{ left: "29px" }}>
+                    <IconInfo />
+                  </div>
+                )}
+                <div>{subTab.icon}</div>
+                <span>{subTab.label}</span>
+              </a>
+            </li>
+          );
+        });
+      }
+
+      items.push(
+        <li key={`tabItem_${index}`} className={this.getClassName(path, tab)}>
+          {tab.link ? (
+            <a onClick={(e) => this.clickTab(e, tab.link)}>{tab.label}</a>
+          ) : (
+            <a>{tab.label}</a>
+          )}
+
+          <ul>{subItems}</ul>
+        </li>
+      );
     });
 
     items.push(
@@ -498,7 +508,6 @@ class Sidebar extends Component {
     else if (authUser.is_guest) return "Guest";
     return "";
   }
-
 
   renderKycStatus() {
     const { authUser } = this.props;
@@ -560,12 +569,21 @@ class Sidebar extends Component {
               <>
                 <label className="txt">
                   User Type: <span>{this.renderRole()}</span>
-                </label><br/>
+                </label>
+                <br />
                 {!authUser?.is_super_admin && !authUser?.is_admin && (
                   <>
-                    <label className="txt">KYC status: {this.renderKycStatus()}</label><br/>
-                    <label className="txt">Forum name: <span>{authUser?.profile?.forum_name}</span></label><br/>
-                    <label className="txt">User ID: <span>{authUser?.id}</span></label>
+                    <label className="txt">
+                      KYC status: {this.renderKycStatus()}
+                    </label>
+                    <br />
+                    <label className="txt">
+                      Forum name: <span>{authUser?.profile?.forum_name}</span>
+                    </label>
+                    <br />
+                    <label className="txt">
+                      User ID: <span>{authUser?.id}</span>
+                    </label>
                   </>
                 )}
               </>

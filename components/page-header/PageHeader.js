@@ -11,7 +11,7 @@ class PageHeader extends Component {
   };
 
   render() {
-    const { title, buttonData } = this.props;
+    const { title, buttonData, children } = this.props;
     if (buttonData && buttonData.link && buttonData.text) {
       return (
         <div className="global-page-header">
@@ -36,6 +36,7 @@ class PageHeader extends Component {
           <Icon.ArrowLeft size={20} />
           <label>{title}</label>
         </a>
+        {children || ""}
       </div>
     );
   }

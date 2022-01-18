@@ -29,13 +29,20 @@
             top: 0;
             left: 50%;
             transform: translate(-50%, 0);
-          } 
+          }
         }
       }
     }
   }
+  .right-side {
+    width: 650px;
+
+    @media (max-width: 992px) {
+      width: 100%;
+    }
+  }
   .expand {
-    width: 450px;
+    width: inherit;
     .dot {
       margin: 0 25px;
     }
@@ -75,15 +82,15 @@
   height: 0;
   border-top: 8px solid transparent;
   border-bottom: 8px solid transparent;
-  border-left: 15px solid #722ED1;
+  border-left: 15px solid #722ed1;
 }
 
 .triangle-left {
   width: 0;
   height: 0;
   border-top: 8px solid transparent;
-  border-bottom: 8px solid transparent; 
-  border-right: 15px solid #722ED1; 
+  border-bottom: 8px solid transparent;
+  border-right: 15px solid #722ed1;
 }
 
 @media all and (max-width: 767px) {
