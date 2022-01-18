@@ -1,4 +1,4 @@
-import { Component } from "react";
+import React, { Component } from "react";
 import API from "../../../../utils/API";
 import { offsetPostIds, isLastPage } from "../../../../utils/Discourse";
 import SinglePost from "../single-post/SinglePost";
