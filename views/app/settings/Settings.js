@@ -446,6 +446,7 @@ class Settings extends Component {
                 type="text"
                 placeholder="Forum Name/Pseudonym"
                 value={forum_name}
+                disabled
                 onChange={(e) => this.inputField(e, "forum_name")}
               />
             </div>
