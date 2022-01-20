@@ -64,7 +64,7 @@ class TopicPosts extends Component {
     }
 
     return (
-      <div className="discourse">
+      <div className="discourse fd-overflow">
         <div className="write-post">
           <WritePost topicId={topic.id} promise={this.handlePost} />
         </div>

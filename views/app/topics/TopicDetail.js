@@ -10,12 +10,9 @@ import {
 import TopicPosts from "../shared/topic-posts/TopicPosts";
 import API from "../../../utils/API";
 import { connect } from "react-redux";
-import { setActiveModal, showAlert } from "../../../redux/actions";
+import { setActiveModal } from "../../../redux/actions";
 import { Flag } from "react-feather";
-import { CircularProgressbar } from "react-circular-progressbar";
-import "./circular-progressbar.scss";
-
-// #4c3865
+import TopicConfirmation from "../shared/topic-confirmation/TopicConfirmation";
 
 const mapStateToProps = (state) => {
   return {
@@ -30,7 +27,6 @@ class TopicDetail extends Component {
     this.state = {
       topic: {},
       loading: true,
-      readTopicLoading: false,
     };
   }
 
@@ -51,31 +47,6 @@ class TopicDetail extends Component {
         topic: this.state.topic,
       })
     );
-  };
-
-  handleReadTopic = () => {
-    const { topic } = this.state;
-    if (!topic || !topic.id) return;
-
-    this.setState({ readTopicLoading: true });
-
-    API.readTopic(topic.id).then((res) => {
-      if (res?.failed) {
-        this.props.dispatch(showAlert(res.message));
-        return;
-      }
-
-      this.setState({
-        topic: {
-          ...topic,
-          ready_to_vote: true,
-          ready_va_rate: res.data.ready_va_rate,
-        },
-        readTopicLoading: false,
-      });
-
-      this.props.dispatch(showAlert("Confirmed", "success"));
-    });
   };
 
   // Render Header
@@ -119,8 +90,7 @@ class TopicDetail extends Component {
 
   // Render Content
   render() {
-    const { loading, readTopicLoading, topic } = this.state;
-    const { authUser } = this.props;
+    const { loading, topic } = this.state;
 
     if (loading) return <GlobalRelativeCanvasComponent />;
     if (!topic || !topic.id) return <div>{`We can't find any details`}</div>;
@@ -138,29 +108,7 @@ class TopicDetail extends Component {
             </Card>
           </div>
           <div className="fd-topic-reads">
-            {authUser.is_member && topic.ready_to_vote === false && (
-              <div className="app-simple-section topic-confirmation mb-3">
-                <span className="text">
-                  I attest and certify that I have read this grant and the
-                  entire body of comments in the threat. Based on my knowledge
-                  of the facts stipulated therein, I am ready to vote on this
-                  particular matter.
-                </span>
-                <button
-                  onClick={this.handleReadTopic}
-                  className="btn btn-primary btn-fulid less-small"
-                  disabled={readTopicLoading}
-                >
-                  Confirm
-                </button>
-              </div>
-            )}
-            <div className="app-simple-section topic-reads-chart">
-              <CircularProgressbar
-                value={topic.ready_va_rate}
-                text={`${topic.ready_va_rate?.toFixed()}%`}
-              />
-            </div>
+            <TopicConfirmation topic={topic} />
           </div>
         </div>
       </section>

@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import * as Icon from "react-feather";
@@ -7,6 +7,7 @@ import { Card, CardHeader, CardBody } from "../../../../components/card";
 import API from "../../../../utils/API";
 import SinglePost from "../single-post/SinglePost";
 import TopicPosts from "../topic-posts/TopicPosts";
+import TopicConfirmation from "../topic-confirmation/TopicConfirmation";
 
 const mapStateToProps = (state) => {
   return {
@@ -43,43 +44,48 @@ class ProposalPosts extends Component {
     if (!proposal || !proposal.id) return null;
 
     return (
-      <section id="app-proposal-posts-section">
-        <div>
-          <Card extraAction={this.toggle}>
-            <CardHeader>
-              <>
-                {!expanded && (
-                  <div
-                    className="app-simple-section__titleInner w-100"
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                    }}
-                  >
-                    <div>
-                      <label>Posts</label>
-                      <Icon.Info size={16} className="ml-3" />
+      <>
+        <section id="app-proposal-posts-section">
+          <div>
+            <Card extraAction={this.toggle}>
+              <CardHeader>
+                <>
+                  {!expanded && (
+                    <div
+                      className="app-simple-section__titleInner w-100"
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                      }}
+                    >
+                      <div>
+                        <label>Posts</label>
+                        <Icon.Info size={16} className="ml-3" />
+                      </div>
                     </div>
-                  </div>
-                )}
-              </>
-            </CardHeader>
-            {!loading && topic.post_stream.posts.length > 0 && (
-              <div className="discourse mt-3">
-                <SinglePost
-                  post={topic.post_stream.posts[0]}
-                  topicId={proposal.discourse_topic_id}
-                />
-              </div>
-            )}
-            {!loading && (
-              <CardBody>
-                <TopicPosts topic={topic} />
-              </CardBody>
-            )}
-          </Card>
+                  )}
+                </>
+              </CardHeader>
+              {!loading && topic.post_stream.posts.length > 0 && (
+                <div className="discourse mt-3">
+                  <SinglePost
+                    post={topic.post_stream.posts[0]}
+                    topicId={proposal.discourse_topic_id}
+                  />
+                </div>
+              )}
+              {!loading && (
+                <CardBody>
+                  <TopicPosts topic={topic} />
+                </CardBody>
+              )}
+            </Card>
+          </div>
+        </section>
+        <div className="mt-3">
+          <TopicConfirmation topic={topic} />
         </div>
-      </section>
+      </>
     );
   }
 }
