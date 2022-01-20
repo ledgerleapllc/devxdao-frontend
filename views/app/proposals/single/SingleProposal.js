@@ -315,13 +315,6 @@ class SingleProposal extends Component {
     return <PageHeaderComponent title={title} />;
   }
 
-  // Render Posts
-  renderPosts() {
-    const { proposal } = this.state;
-
-    return <ProposalPosts proposal={proposal} />;
-  }
-
   // Render Detail
   renderDetail() {
     const { proposal } = this.state;
@@ -790,7 +783,9 @@ class SingleProposal extends Component {
           </div>
           <div className="right-side">
             {authUser.is_admin || authUser.is_member ? (
-              <div className="mb-3">{this.renderPosts()}</div>
+              <div className="mb-3">
+                <ProposalPosts proposal={proposal} />
+              </div>
             ) : (
               ""
             )}

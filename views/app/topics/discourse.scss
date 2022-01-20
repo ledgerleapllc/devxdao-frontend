@@ -1,6 +1,10 @@
 @import "~easymde/dist/easymde.min.css";
 
 .discourse {
+  &.fd-overflow {
+    overflow: auto;
+  }
+  
   .write-post {
     padding: 1rem 0;
     margin-bottom: 1rem;
@@ -393,22 +397,6 @@
       &::placeholder {
         color: #fff;
       }
-    }
-  }
-
-  .topic-confirmation {
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-
-    .text {
-      font-size: 14pt;
-      color: #a773ef;
-    }
-
-    .btn {
-      width: auto;
     }
   }
 

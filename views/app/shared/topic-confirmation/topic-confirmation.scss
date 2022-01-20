@@ -1,0 +1,15 @@
+.topic-confirmation {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  .text {
+    font-size: 14pt;
+    color: #a773ef;
+  }
+
+  .btn {
+    width: auto;
+  }
+}

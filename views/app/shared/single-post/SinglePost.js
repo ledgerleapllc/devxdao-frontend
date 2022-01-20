@@ -237,7 +237,7 @@ class SinglePost extends Component {
                   <div className="post-writer">{post.username}</div>
                   {post.devxdao_user?.reputation > 0 && (
                     <div className="user-reputation">
-                      {post.devxdao_user.reputation}
+                      {post.devxdao_user.reputation.toFixed()}
                     </div>
                   )}
                 </div>
