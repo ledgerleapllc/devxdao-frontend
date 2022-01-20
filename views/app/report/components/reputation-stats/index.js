@@ -34,11 +34,14 @@ class ReputationStats extends Component {
               <div className="c-col-1 c-cols">
                 <label className="font-size-14">User</label>
               </div>
+              <div className="c-col-2 c-cols">
+                <label className="font-size-14">Total</label>
+              </div>
               {columns.map((y, index) => (
                 <div
                   className="c-col-custom c-cols"
                   key={index}
-                  style={{ width: `${85 / columns.length}%` }}
+                  style={{ width: `${80 / columns.length}%` }}
                 >
                   <label className="font-size-14">{y}</label>
                 </div>
@@ -51,13 +54,18 @@ class ReputationStats extends Component {
                 <li key={`rep_stats_${ind}`}>
                   <div className="infinite-row align-items-center d-flex py-3 font-size-14 font-weight-700">
                     <div className="c-col-1 c-cols">
-                      <p>{user.username}</p>
+                      <p>
+                        {user.username} {!user.is_member && "*"}
+                      </p>
+                    </div>
+                    <div className="c-col-2 c-cols">
+                      <p>{parseFloat(user.total_rep)?.toFixed?.(DECIMALS)}</p>
                     </div>
                     {user.rep_results.map((x, index) => (
                       <div
                         className="c-col-custom c-cols"
                         key={index}
-                        style={{ width: `${85 / columns.length}%` }}
+                        style={{ width: `${80 / columns.length}%` }}
                       >
                         <p>{parseFloat(x.total)?.toFixed?.(DECIMALS)}</p>
                       </div>

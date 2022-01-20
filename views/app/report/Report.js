@@ -184,7 +184,7 @@ class Report extends Component {
           </div>
           <div className="custom-border" />
           <div className="app-infinite-search-wrap">
-            <b>Reputation by User</b>
+            <b>Total reputation by User</b>
             <div className="d-flex">
               <select
                 value={this.state.yearReputation}
@@ -203,7 +203,7 @@ class Report extends Component {
           </div>
           <div style={{ height: "500px" }}>
             <LineChart
-              name="Reputation Counts plus Projections"
+              name=""
               xAxis={this.state.reportReputation?.xAxis}
               data={this.state.reportReputation?.data}
               strokeWidth={1}
