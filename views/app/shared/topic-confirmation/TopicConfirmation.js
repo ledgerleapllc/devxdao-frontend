@@ -66,7 +66,7 @@ class TopicConfirmation extends Component {
           <div className="app-simple-section topic-confirmation mb-3">
             <span className="text">
               I attest and certify that I have read this grant and the entire
-              body of comments in the threat. Based on my knowledge of the facts
+              body of comments in the thread. Based on my knowledge of the facts
               stipulated therein, I am ready to vote on this particular matter.
             </span>
             <button
