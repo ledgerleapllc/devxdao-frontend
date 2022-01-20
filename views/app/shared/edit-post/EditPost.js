@@ -80,7 +80,7 @@ class EditPost extends Component {
           <textarea
             ref={this.inputRef}
             defaultValue={postText}
-            placeholder="What are your toughts?"
+            placeholder="What are your thoughts?"
           ></textarea>
         </div>
         <div className="post-footer">
