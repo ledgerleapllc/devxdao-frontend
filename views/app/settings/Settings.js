@@ -18,6 +18,7 @@ import Helper from "../../../utils/Helper";
 // import SponsorCodesView from "./SponsorCodes";
 
 import "./settings.scss";
+import { FORUM_REGEX } from "../../../utils/Constant";
 
 const mapStateToProps = (state) => {
   return {
@@ -158,6 +159,16 @@ class Settings extends Component {
 
     if (!forum_name.trim()) {
       this.props.dispatch(showAlert("Please input forum name"));
+      return;
+    }
+
+    if (!forum_name.trim()) {
+      this.props.dispatch(showAlert("Please input forum name"));
+      return;
+    }
+
+    if (!FORUM_REGEX.test(forum_name)) {
+      this.props.dispatch(showAlert("Forum name is not right pattern"));
       return;
     }
 

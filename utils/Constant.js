@@ -388,3 +388,5 @@ export const SURVEY_PREFIX = {
   rfp: "RFP",
   grant: "S",
 };
+
+export const FORUM_REGEX = /^([A-Za-z0-9-_.]+)$/;

@@ -11,7 +11,7 @@ import {
 import Helper from "../../../utils/Helper";
 import { saveUser, showCanvas, hideCanvas } from "../../../redux/actions";
 import { getPreRegisterUserByHash, register } from "../../../utils/Thunk";
-
+import { FORUM_REGEX } from "../../../utils/Constant";
 import "./signup.scss";
 
 const mapStateToProps = () => {
@@ -137,6 +137,15 @@ class Signup extends Component {
       messages = {
         ...messages,
         forum_name: "Forum name is required",
+      };
+      this.setState({ messages });
+      return;
+    }
+
+    if (!FORUM_REGEX.test(forum_name)) {
+      messages = {
+        ...messages,
+        forum_name: "Forum name is not right pattern",
       };
       this.setState({ messages });
       return;
