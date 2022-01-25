@@ -14,8 +14,6 @@ import {
   getTimelineProposal,
 } from "../../../../utils/Thunk";
 import SingleProposalDetailView from "../../shared/single-proposal-detail/SingleProposalDetail";
-import ProposalChangeFormView from "../../shared/proposal-change-form/ProposalChangeForm";
-import ProposalChangesView from "../../shared/proposal-changes/ProposalChanges";
 import VoteAlertView from "../../shared/vote-alert/VoteAlert";
 import {
   CardBody,
@@ -31,12 +29,14 @@ import IconCheckDot from "../../../../public/icons/check-dot.svg";
 import "./single-proposal.scss";
 import Helper from "../../../../utils/Helper";
 import ProposalPosts from "../../shared/proposal-posts/ProposalPosts";
+import { CircularProgressbar } from "react-circular-progressbar";
 
 const mapStateToProps = (state) => {
   return {
     authUser: state.global.authUser,
     settings: state.global.settings,
     startInformalAdmin: state.admin.startInformalAdmin,
+    attestationData: state.user.attestationData,
   };
 };
 
@@ -344,30 +344,6 @@ class SingleProposal extends Component {
     }, 200);
   };
 
-  // Render Change Content
-  renderChangeContent() {
-    const { showForm, proposal } = this.state;
-
-    if (showForm) {
-      return (
-        <ProposalChangeFormView proposal={proposal} onClose={this.cancelForm} />
-      );
-    }
-
-    return (
-      this.state.isShowLogs && (
-        <ProposalChangesView
-          isAutoExpand={
-            proposal.status === "approved" &&
-            !(proposal.votes && proposal.votes.length)
-          }
-          proposal={proposal}
-          onShow={this.showForm}
-        />
-      )
-    );
-  }
-
   renderComplianceStatus = () => {
     const { proposal } = this.state;
     if (
@@ -423,7 +399,7 @@ class SingleProposal extends Component {
 
   // Render Content
   render() {
-    const { authUser } = this.props;
+    const { authUser, attestationData } = this.props;
     const { loading, proposal, expandTimeline } = this.state;
 
     if (!authUser || !authUser.id || loading) return null;
@@ -458,15 +434,28 @@ class SingleProposal extends Component {
     return (
       <div id="app-single-proposal-page">
         {this.renderHeader()}
-        <VoteAlertView
-          proposal={proposal}
-          onRefresh={() => this.getProposal()}
-        />
+        <div className="alert-with-va-rate">
+          <div style={{ flex: 1 }}>
+            <VoteAlertView
+              proposal={proposal}
+              onRefresh={() => this.getProposal()}
+            />
+          </div>
+          {attestationData.related_to_proposal ? (
+            <div className="app-simple-section topic-reads-chart">
+              <CircularProgressbar
+                value={attestationData.attestation_rate || 0}
+                text={`${attestationData.attestation_rate?.toFixed() || 0}%`}
+              />
+            </div>
+          ) : (
+            ""
+          )}
+        </div>
         <div className="d-flex flex-column flex-lg-row gap-box">
           <div className="proposal-detail-box">
             {this.renderDetail()}
             {this.renderComplianceCheck()}
-            {this.renderChangeContent()}
             <>
               {proposal?.milestones?.map(
                 (milestone, ind) =>

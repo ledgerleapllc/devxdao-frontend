@@ -10,13 +10,15 @@ import {
 import TopicPosts from "../shared/topic-posts/TopicPosts";
 import API from "../../../utils/API";
 import { connect } from "react-redux";
-import { setActiveModal } from "../../../redux/actions";
+import { setActiveModal, setAttestationData } from "../../../redux/actions";
 import { Flag } from "react-feather";
-import TopicConfirmation from "../shared/topic-confirmation/TopicConfirmation";
+import TopicAttestationCard from "../shared/topic-attestation-card/TopicAttestationCard";
+import { CircularProgressbar } from "react-circular-progressbar";
 
 const mapStateToProps = (state) => {
   return {
     authUser: state.global.authUser,
+    attestationData: state.user.attestationData,
   };
 };
 
@@ -38,6 +40,8 @@ class TopicDetail extends Component {
         loading: false,
         topic: res.data,
       });
+
+      this.props.dispatch(setAttestationData(res.data.attestation));
     });
   }
 
@@ -54,7 +58,7 @@ class TopicDetail extends Component {
     const { topic } = this.state;
     if (!topic || !topic.id) return null;
 
-    const { authUser, history } = this.props;
+    const { authUser, history, attestationData } = this.props;
 
     return (
       <PageHeaderComponent title={topic.title}>
@@ -69,14 +73,15 @@ class TopicDetail extends Component {
           )}
           {(authUser.is_member ||
             authUser.is_admin ||
-            authUser.is_super_admin) && (
-            <button
-              onClick={this.handleFlag}
-              className="btn btn-primary btn-fluid less-small"
-            >
-              Flag Topic
-            </button>
-          )}
+            authUser.is_super_admin) &&
+            attestationData.related_to_proposal && (
+              <button
+                onClick={this.handleFlag}
+                className="btn btn-primary btn-fluid less-small"
+              >
+                Flag Topic
+              </button>
+            )}
           {topic.flags_count > 0 && (
             <div className="total-flag-count">
               <Flag />
@@ -91,6 +96,7 @@ class TopicDetail extends Component {
   // Render Content
   render() {
     const { loading, topic } = this.state;
+    const { attestationData } = this.props;
 
     if (loading) return <GlobalRelativeCanvasComponent />;
     if (!topic || !topic.id) return <div>{`We can't find any details`}</div>;
@@ -108,7 +114,37 @@ class TopicDetail extends Component {
             </Card>
           </div>
           <div className="fd-topic-reads">
-            <TopicConfirmation topic={topic} />
+            {topic.proposal ? (
+              <div className="app-simple-section p-3">
+                <ul className="ul-table">
+                  <li>
+                    <label>Proposal ID</label>
+                    <span>{topic.proposal.id}</span>
+                  </li>
+                  <li>
+                    <label>Proposal Status</label>
+                    <span>{topic.proposal.status}</span>
+                  </li>
+                  <li>
+                    <label>Comments</label>
+                    <span>{topic.proposal.topic_posts_count}</span>
+                  </li>
+                </ul>
+              </div>
+            ) : (
+              ""
+            )}
+            <TopicAttestationCard topic={topic} />
+            {attestationData.related_to_proposal ? (
+              <div className="app-simple-section topic-reads-chart">
+                <CircularProgressbar
+                  value={attestationData.attestation_rate || 0}
+                  text={`${attestationData.attestation_rate?.toFixed() || 0}%`}
+                />
+              </div>
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </section>

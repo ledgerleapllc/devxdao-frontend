@@ -2,7 +2,12 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as Icon from "react-feather";
 import { withRouter } from "react-router-dom";
-import { hideCanvas, removeActiveModal, showAlert } from "../../redux/actions";
+import {
+  hideCanvas,
+  removeActiveModal,
+  setAttestationData,
+  showAlert,
+} from "../../redux/actions";
 
 import "./topic-flag.scss";
 import API from "../../utils/API";
@@ -45,6 +50,14 @@ class TopicFlag extends Component {
 
       this.props.dispatch(hideCanvas());
       this.hideModal();
+
+      this.props.dispatch(
+        setAttestationData({
+          ready_va_rate: 0,
+          ready_to_vote: true,
+        })
+      );
+
       this.props.dispatch(
         showAlert("Your request has been successfully sent", "success")
       );
