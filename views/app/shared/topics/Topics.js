@@ -139,7 +139,7 @@ class Topics extends Component {
           <li key={`topic_${topic.id}`} onClick={() => this.handleTopic(topic)}>
             <div className="infinite-row">
               <div className="c-col-0 c-cols">
-                <label className="font-size-14">{topic.id}</label>
+                <label className="font-size-14">{topic.proposal_id}</label>
               </div>
               <div className="c-col-1 c-cols">
                 <Tooltip title={topic.title} placement="bottom">
