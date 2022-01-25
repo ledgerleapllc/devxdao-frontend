@@ -31,12 +31,14 @@ import IconCheckDot from "../../../../public/icons/check-dot.svg";
 import "./single-proposal.scss";
 import Helper from "../../../../utils/Helper";
 import ProposalPosts from "../../shared/proposal-posts/ProposalPosts";
+import { CircularProgressbar } from "react-circular-progressbar";
 
 const mapStateToProps = (state) => {
   return {
     authUser: state.global.authUser,
     settings: state.global.settings,
     startInformalAdmin: state.admin.startInformalAdmin,
+    attestationData: state.user.attestationData,
   };
 };
 
@@ -423,7 +425,7 @@ class SingleProposal extends Component {
 
   // Render Content
   render() {
-    const { authUser } = this.props;
+    const { authUser, attestationData } = this.props;
     const { loading, proposal, expandTimeline } = this.state;
 
     if (!authUser || !authUser.id || loading) return null;
@@ -458,10 +460,20 @@ class SingleProposal extends Component {
     return (
       <div id="app-single-proposal-page">
         {this.renderHeader()}
-        <VoteAlertView
-          proposal={proposal}
-          onRefresh={() => this.getProposal()}
-        />
+        <div className="alert-with-va-rate">
+          <div style={{ flex: 1 }}>
+            <VoteAlertView
+              proposal={proposal}
+              onRefresh={() => this.getProposal()}
+            />
+          </div>
+          <div className="app-simple-section topic-reads-chart">
+            <CircularProgressbar
+              value={attestationData.ready_va_rate || 0}
+              text={`${attestationData.ready_va_rate?.toFixed() || 0}%`}
+            />
+          </div>
+        </div>
         <div className="d-flex flex-column flex-lg-row gap-box">
           <div className="proposal-detail-box">
             {this.renderDetail()}

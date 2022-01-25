@@ -10,13 +10,15 @@ import {
 import TopicPosts from "../shared/topic-posts/TopicPosts";
 import API from "../../../utils/API";
 import { connect } from "react-redux";
-import { setActiveModal } from "../../../redux/actions";
+import { setActiveModal, setAttestationData } from "../../../redux/actions";
 import { Flag } from "react-feather";
-import TopicConfirmation from "../shared/topic-confirmation/TopicConfirmation";
+import TopicAttestationCard from "../shared/topic-attestation-card/TopicAttestationCard";
+import { CircularProgressbar } from "react-circular-progressbar";
 
 const mapStateToProps = (state) => {
   return {
     authUser: state.global.authUser,
+    attestationData: state.user.attestationData,
   };
 };
 
@@ -38,6 +40,13 @@ class TopicDetail extends Component {
         loading: false,
         topic: res.data,
       });
+
+      this.props.dispatch(
+        setAttestationData({
+          ready_va_rate: res.data.ready_va_rate,
+          ready_to_vote: res.data.ready_to_vote,
+        })
+      );
     });
   }
 
@@ -91,6 +100,7 @@ class TopicDetail extends Component {
   // Render Content
   render() {
     const { loading, topic } = this.state;
+    const { attestationData } = this.props;
 
     if (loading) return <GlobalRelativeCanvasComponent />;
     if (!topic || !topic.id) return <div>{`We can't find any details`}</div>;
@@ -108,7 +118,13 @@ class TopicDetail extends Component {
             </Card>
           </div>
           <div className="fd-topic-reads">
-            <TopicConfirmation topic={topic} />
+            <TopicAttestationCard topic={topic} />
+            <div className="app-simple-section topic-reads-chart">
+              <CircularProgressbar
+                value={attestationData.ready_va_rate || 0}
+                text={`${attestationData.ready_va_rate?.toFixed() || 0}%`}
+              />
+            </div>
           </div>
         </div>
       </section>

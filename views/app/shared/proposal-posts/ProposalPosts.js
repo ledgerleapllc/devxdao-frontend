@@ -7,7 +7,8 @@ import { Card, CardHeader, CardBody } from "../../../../components/card";
 import API from "../../../../utils/API";
 import SinglePost from "../single-post/SinglePost";
 import TopicPosts from "../topic-posts/TopicPosts";
-import TopicConfirmation from "../topic-confirmation/TopicConfirmation";
+import TopicAttestationCard from "../topic-attestation-card/TopicAttestationCard";
+import { setAttestationData } from "../../../../redux/actions";
 
 const mapStateToProps = (state) => {
   return {
@@ -35,6 +36,13 @@ class ProposalPosts extends Component {
     API.getTopic(this.props.proposal.discourse_topic_id).then((res) => {
       res.data.post_stream.posts.shift();
       this.setState({ topic: res.data, loading: false });
+
+      this.props.dispatch(
+        setAttestationData({
+          ready_va_rate: res.data.ready_va_rate,
+          ready_to_vote: res.data.ready_to_vote,
+        })
+      );
     });
   }
 
@@ -83,7 +91,7 @@ class ProposalPosts extends Component {
           </div>
         </section>
         <div className="mt-3">
-          <TopicConfirmation topic={topic} />
+          <TopicAttestationCard topic={topic} />
         </div>
       </>
     );
