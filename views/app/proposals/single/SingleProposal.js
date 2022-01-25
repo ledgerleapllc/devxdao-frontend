@@ -14,8 +14,6 @@ import {
   getTimelineProposal,
 } from "../../../../utils/Thunk";
 import SingleProposalDetailView from "../../shared/single-proposal-detail/SingleProposalDetail";
-import ProposalChangeFormView from "../../shared/proposal-change-form/ProposalChangeForm";
-import ProposalChangesView from "../../shared/proposal-changes/ProposalChanges";
 import VoteAlertView from "../../shared/vote-alert/VoteAlert";
 import {
   CardBody,
@@ -346,30 +344,6 @@ class SingleProposal extends Component {
     }, 200);
   };
 
-  // Render Change Content
-  renderChangeContent() {
-    const { showForm, proposal } = this.state;
-
-    if (showForm) {
-      return (
-        <ProposalChangeFormView proposal={proposal} onClose={this.cancelForm} />
-      );
-    }
-
-    return (
-      this.state.isShowLogs && (
-        <ProposalChangesView
-          isAutoExpand={
-            proposal.status === "approved" &&
-            !(proposal.votes && proposal.votes.length)
-          }
-          proposal={proposal}
-          onShow={this.showForm}
-        />
-      )
-    );
-  }
-
   renderComplianceStatus = () => {
     const { proposal } = this.state;
     if (
@@ -478,7 +452,6 @@ class SingleProposal extends Component {
           <div className="proposal-detail-box">
             {this.renderDetail()}
             {this.renderComplianceCheck()}
-            {this.renderChangeContent()}
             <>
               {proposal?.milestones?.map(
                 (milestone, ind) =>
