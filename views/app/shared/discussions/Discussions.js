@@ -235,7 +235,7 @@ class Discussions extends Component {
                 <div>
                   <Icon.MessageCircle size={20} />
                 </div>
-                <span className="font-size-12">{item.comments}</span>
+                <span className="font-size-12">{item.topic_posts_count}</span>
               </div>
             </div>
             <div className="c-col-4 c-cols">

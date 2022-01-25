@@ -26,6 +26,7 @@ export const SAVE_USER = "SAVE_USER";
 
 // User Actions
 export const SET_EDIT_PROPOSAL_DATA = "SET_EDIT_PROPOSAL_DATA";
+export const SET_ATTESTATION_DATA = "SET_ATTESTATION_DATA";
 
 // Admin Actions
 export const SET_REVIEW_USER = "SET_REVIEW_USER";
@@ -300,6 +301,13 @@ export const setEditProposalData = (message) => ({
   type: SET_EDIT_PROPOSAL_DATA,
   payload: {
     editProposalData: message,
+  },
+});
+
+export const setAttestationData = (message) => ({
+  type: SET_ATTESTATION_DATA,
+  payload: {
+    attestationData: message,
   },
 });
 

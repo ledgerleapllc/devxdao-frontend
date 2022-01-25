@@ -1,7 +1,17 @@
-import { SAVE_DRAFT_BEFORE_LOGOUT, SET_EDIT_PROPOSAL_DATA } from "../actions";
+import {
+  SAVE_DRAFT_BEFORE_LOGOUT,
+  SET_EDIT_PROPOSAL_DATA,
+  SET_ATTESTATION_DATA,
+} from "../actions";
 
 const initialState = {
   editProposalData: {},
+  attestationData: {
+    attestation_rate: 0,
+    is_attestated: false,
+    in_discussion: false,
+    related_to_proposal: false,
+  },
 };
 
 export default function (state = initialState, action) {
@@ -11,6 +21,16 @@ export default function (state = initialState, action) {
       return {
         ...state,
         editProposalData,
+      };
+    }
+    case SET_ATTESTATION_DATA: {
+      const { attestationData } = action.payload;
+      return {
+        ...state,
+        attestationData: {
+          ...state.attestationData,
+          ...attestationData,
+        },
       };
     }
     case SAVE_DRAFT_BEFORE_LOGOUT: {

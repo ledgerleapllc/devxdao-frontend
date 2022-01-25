@@ -139,7 +139,7 @@ class Topics extends Component {
           <li key={`topic_${topic.id}`} onClick={() => this.handleTopic(topic)}>
             <div className="infinite-row">
               <div className="c-col-0 c-cols">
-                <label className="font-size-14">{topic.id}</label>
+                <label className="font-size-14">{topic.proposal?.id}</label>
               </div>
               <div className="c-col-1 c-cols">
                 <Tooltip title={topic.title} placement="bottom">
@@ -148,7 +148,7 @@ class Topics extends Component {
                   </label>
                 </Tooltip>
               </div>
-              <div className="c-col-3 c-cols">
+              <div className="c-col-0 c-cols">
                 <div className="topic-image-wrap">
                   <div>
                     <Reply fontSize="small" />
@@ -156,13 +156,28 @@ class Topics extends Component {
                   <span className="font-size-12">{topic.posts_count}</span>
                 </div>
               </div>
-              <div className="c-col-3 c-cols">
+              <div className="c-col-0 c-cols">
                 <div className="topic-image-wrap">
                   <div>
                     <Visibility fontSize="small" />
                   </div>
                   <span className="font-size-12">{topic.views}</span>
                 </div>
+              </div>
+              <div className="c-col-0 c-cols">
+                <span className="font-size-12">
+                  {topic.proposal?.attestation_rate
+                    ? `${topic.proposal.attestation_rate.toFixed()}%`
+                    : ""}
+                </span>
+              </div>
+              <div className="c-col-3 c-cols">
+                <span className="font-size-12">
+                  {topic.proposal?.is_attestated ? "Yes" : ""}
+                </span>
+              </div>
+              <div className="c-col-2 c-cols">
+                <span className="font-size-12">{topic.proposal?.status}</span>
               </div>
               <div className="c-col-2 c-cols">
                 <label className="font-size-14">
@@ -187,11 +202,20 @@ class Topics extends Component {
           <div className="c-col-1 c-cols">
             <label className="font-size-14">Topic</label>
           </div>
-          <div className="c-col-3 c-cols">
+          <div className="c-col-0 c-cols">
             <label className="font-size-14">Replies</label>
           </div>
-          <div className="c-col-3 c-cols">
+          <div className="c-col-0 c-cols">
             <label className="font-size-14">Views</label>
+          </div>
+          <div className="c-col-0 c-cols">
+            <label className="font-size-14">Attestation</label>
+          </div>
+          <div className="c-col-3 c-cols">
+            <label className="font-size-14">Have I Attestated</label>
+          </div>
+          <div className="c-col-2 c-cols">
+            <label className="font-size-14">Status</label>
           </div>
           <div className="c-col-2 c-cols">
             <label className="font-size-14">Activity</label>
