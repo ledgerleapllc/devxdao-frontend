@@ -114,6 +114,26 @@ class TopicDetail extends Component {
             </Card>
           </div>
           <div className="fd-topic-reads">
+            {topic.proposal ? (
+              <div className="app-simple-section p-3">
+                <ul className="ul-table">
+                  <li>
+                    <label>Proposal ID</label>
+                    <span>{topic.proposal.id}</span>
+                  </li>
+                  <li>
+                    <label>Proposal Status</label>
+                    <span>{topic.proposal.status}</span>
+                  </li>
+                  <li>
+                    <label>Comments</label>
+                    <span>{topic.proposal.topic_posts_count}</span>
+                  </li>
+                </ul>
+              </div>
+            ) : (
+              ""
+            )}
             <TopicAttestationCard topic={topic} />
             {attestationData.related_to_proposal ? (
               <div className="app-simple-section topic-reads-chart">
