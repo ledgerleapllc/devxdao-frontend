@@ -4,7 +4,7 @@
   &.fd-overflow {
     overflow: auto;
   }
-  
+
   .write-post {
     padding: 1rem 0;
     margin-bottom: 1rem;
@@ -422,5 +422,24 @@
 
   .topic-reads-chart {
     padding: 2rem;
+  }
+
+  .ul-table {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    list-style-type: none;
+
+    > li {
+      display: flex;
+      flex-direction: column;
+      font-size: 10pt;
+      font-weight: 500;
+      line-height: 1;
+
+      > label {
+        color: #722ed1;
+      }
+    }
   }
 }
