@@ -7,8 +7,10 @@ import {
 const initialState = {
   editProposalData: {},
   attestationData: {
-    ready_va_rate: 0,
-    ready_to_vote: false,
+    attestation_rate: 0,
+    is_attestated: false,
+    in_discussion: false,
+    related_to_proposal: false,
   },
 };
 
@@ -25,7 +27,10 @@ export default function (state = initialState, action) {
       const { attestationData } = action.payload;
       return {
         ...state,
-        attestationData,
+        attestationData: {
+          ...state.attestationData,
+          ...attestationData,
+        },
       };
     }
     case SAVE_DRAFT_BEFORE_LOGOUT: {

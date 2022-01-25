@@ -37,12 +37,7 @@ class ProposalPosts extends Component {
       res.data.post_stream.posts.shift();
       this.setState({ topic: res.data, loading: false });
 
-      this.props.dispatch(
-        setAttestationData({
-          ready_va_rate: res.data.ready_va_rate,
-          ready_to_vote: res.data.ready_to_vote,
-        })
-      );
+      this.props.dispatch(setAttestationData(res.data.attestation));
     });
   }
 

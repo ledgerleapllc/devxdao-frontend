@@ -41,12 +41,7 @@ class TopicDetail extends Component {
         topic: res.data,
       });
 
-      this.props.dispatch(
-        setAttestationData({
-          ready_va_rate: res.data.ready_va_rate,
-          ready_to_vote: res.data.ready_to_vote,
-        })
-      );
+      this.props.dispatch(setAttestationData(res.data.attestation));
     });
   }
 
@@ -63,7 +58,7 @@ class TopicDetail extends Component {
     const { topic } = this.state;
     if (!topic || !topic.id) return null;
 
-    const { authUser, history } = this.props;
+    const { authUser, history, attestationData } = this.props;
 
     return (
       <PageHeaderComponent title={topic.title}>
@@ -78,14 +73,15 @@ class TopicDetail extends Component {
           )}
           {(authUser.is_member ||
             authUser.is_admin ||
-            authUser.is_super_admin) && (
-            <button
-              onClick={this.handleFlag}
-              className="btn btn-primary btn-fluid less-small"
-            >
-              Flag Topic
-            </button>
-          )}
+            authUser.is_super_admin) &&
+            attestationData.related_to_proposal && (
+              <button
+                onClick={this.handleFlag}
+                className="btn btn-primary btn-fluid less-small"
+              >
+                Flag Topic
+              </button>
+            )}
           {topic.flags_count > 0 && (
             <div className="total-flag-count">
               <Flag />
@@ -119,12 +115,16 @@ class TopicDetail extends Component {
           </div>
           <div className="fd-topic-reads">
             <TopicAttestationCard topic={topic} />
-            <div className="app-simple-section topic-reads-chart">
-              <CircularProgressbar
-                value={attestationData.ready_va_rate || 0}
-                text={`${attestationData.ready_va_rate?.toFixed() || 0}%`}
-              />
-            </div>
+            {attestationData.related_to_proposal ? (
+              <div className="app-simple-section topic-reads-chart">
+                <CircularProgressbar
+                  value={attestationData.attestation_rate || 0}
+                  text={`${attestationData.attestation_rate?.toFixed() || 0}%`}
+                />
+              </div>
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </section>

@@ -441,12 +441,16 @@ class SingleProposal extends Component {
               onRefresh={() => this.getProposal()}
             />
           </div>
-          <div className="app-simple-section topic-reads-chart">
-            <CircularProgressbar
-              value={attestationData.ready_va_rate || 0}
-              text={`${attestationData.ready_va_rate?.toFixed() || 0}%`}
-            />
-          </div>
+          {attestationData.related_to_proposal ? (
+            <div className="app-simple-section topic-reads-chart">
+              <CircularProgressbar
+                value={attestationData.attestation_rate || 0}
+                text={`${attestationData.attestation_rate?.toFixed() || 0}%`}
+              />
+            </div>
+          ) : (
+            ""
+          )}
         </div>
         <div className="d-flex flex-column flex-lg-row gap-box">
           <div className="proposal-detail-box">

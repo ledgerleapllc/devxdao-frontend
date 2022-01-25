@@ -47,8 +47,8 @@ class TopicAttestationCard extends Component {
 
       this.props.dispatch(
         setAttestationData({
-          ready_va_rate: res.data.ready_va_rate,
-          ready_to_vote: res.data.ready_to_vote,
+          attestation_rate: res.data.attestation_rate,
+          is_attestated: true,
         })
       );
 
@@ -56,31 +56,49 @@ class TopicAttestationCard extends Component {
     });
   };
 
-  render() {
+  attestationContent() {
     const { loading } = this.state;
+
+    return (
+      <>
+        <span className="text">
+          I attest and certify that I have read this grant and the entire body
+          of comments in the thread. Based on my knowledge of the facts
+          stipulated therein, I am ready to vote on this particular matter.
+        </span>
+        <button
+          onClick={this.handleReadTopic}
+          className="btn btn-primary btn-fulid less-small"
+          disabled={loading}
+        >
+          Confirm
+        </button>
+      </>
+    );
+  }
+
+  isAttestatedContent() {
+    return <span className="text">Topic is attestated by you.</span>;
+  }
+
+  render() {
     const { authUser, attestationData } = this.props;
 
-    console.log(attestationData);
-
-    if (!authUser.is_member || !attestationData.ready_to_vote) {
+    if (
+      !authUser ||
+      !authUser.is_member ||
+      !attestationData.related_to_proposal ||
+      !attestationData.proposal_in_discussion
+    ) {
       return null;
     }
 
     return (
       <div className="app-simple-section topic-attestation-card mb-3">
         <div className="attestation-content">
-          <span className="text">
-            I attest and certify that I have read this grant and the entire body
-            of comments in the thread. Based on my knowledge of the facts
-            stipulated therein, I am ready to vote on this particular matter.
-          </span>
-          <button
-            onClick={this.handleReadTopic}
-            className="btn btn-primary btn-fulid less-small"
-            disabled={loading}
-          >
-            Confirm
-          </button>
+          {attestationData.is_attestated
+            ? this.isAttestatedContent()
+            : this.attestationContent()}
         </div>
       </div>
     );
