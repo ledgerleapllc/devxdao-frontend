@@ -43,10 +43,10 @@ class SinglePost extends Component {
     }
   }
 
-  handleReact = () => {
+  handleToggleLike = () => {
     this.setState({ loading: true });
 
-    API.reactPost(this.props.post.id)
+    API.toggleLikePost(this.props.post.id)
       .then((res) => {
         if (res.success === false) {
           alert(res.message);
@@ -63,6 +63,36 @@ class SinglePost extends Component {
       .finally(() => {
         this.setState({ loading: false });
       });
+  };
+
+  handleReact = (type) => {
+    this.setState({ loading: true });
+
+    API[`${type}Post`](this.props.post.id)
+      .then((res) => {
+        if (res.success === false) {
+          alert(res.message);
+          return;
+        }
+
+        this.setState((prev) => ({
+          post: {
+            ...prev.post,
+            reactions: res.data,
+          },
+        }));
+      })
+      .finally(() => {
+        this.setState({ loading: false });
+      });
+  };
+
+  handleUpVote = () => {
+    this.handleReact("upVote");
+  };
+
+  handleDownVote = () => {
+    this.handleReact("downVote");
   };
 
   handleConfirmDestroy = () => {
@@ -220,6 +250,8 @@ class SinglePost extends Component {
     } = this.state;
 
     const likes = post.actions_summary?.find((action) => action.id === 2) || {};
+    const upvotes = post.reactions?.find((r) => r.type === 1) || {};
+    const downvotes = post.reactions?.find((r) => r.type === 2) || {};
 
     return (
       <div id={`post-${post.post_number}`} className="post-wrapper">
@@ -248,13 +280,31 @@ class SinglePost extends Component {
             </div>
             <div className="post-actions">
               <button
-                onClick={this.handleReact}
+                onClick={this.handleToggleLike}
                 className={`post-action ${likes.acted ? "active" : ""}`}
                 disabled={!likes.can_act && !likes.can_undo}
               >
                 <Heart />
                 {likes.count > 0 && (
                   <span className="post-action-value">{likes.count}</span>
+                )}
+              </button>
+              <button
+                onClick={this.handleUpVote}
+                className={`post-action ${upvotes.acted ? "active" : ""}`}
+              >
+                <ChevronUp />
+                {upvotes.count > 0 && (
+                  <span className="post-action-value">{upvotes.count}</span>
+                )}
+              </button>
+              <button
+                onClick={this.handleDownVote}
+                className={`post-action ${downvotes.acted ? "active" : ""}`}
+              >
+                <ChevronDown />
+                {downvotes.count > 0 && (
+                  <span className="post-action-value">{downvotes.count}</span>
                 )}
               </button>
               <button
