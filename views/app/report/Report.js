@@ -78,12 +78,31 @@ class Report extends Component {
         async (res) => {
           this.props.dispatch(hideCanvas());
           if (res.success) {
+            const totalRepByMonth = Array(12)
+              .fill(0)
+              .map((month, index) => {
+                const sum = res.rep_results.reduce(
+                  (sum, user) => sum + user.rep_results[index].total,
+                  0
+                );
+                return sum;
+              });
             const temp = {
               xAxis: res.rep_results[0].rep_results.map((x) => x.month),
-              data: res.rep_results.map((user) => ({
-                name: user.username,
-                data: user.rep_results.map((x) => x.total),
-              })),
+              // data: res.rep_results.map((user) => ({
+              //   name: user.username,
+              //   data: user.rep_results.map((x) => x.total),
+              // })),
+              data: [
+                {
+                  name: "Total",
+                  data: totalRepByMonth.map((month, index) => {
+                    return totalRepByMonth
+                      .slice(0, index + 1)
+                      .reduce((sum, x) => sum + x, 0);
+                  }),
+                },
+              ],
               rawData: res.rep_results,
             };
             this.setState({ reportReputation: temp });
