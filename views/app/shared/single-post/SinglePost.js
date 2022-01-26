@@ -338,7 +338,7 @@ class SinglePost extends Component {
                   <span>{deleteConfirmation ? "Confirm" : "Delete"}</span>
                 </button>
               )}
-              {post.reply_to_post_number && (
+              {post.reply_to_post_number && post.reply_to_user && (
                 <button
                   onClick={() => this.goToParentPost(post.reply_to_post_number)}
                   className="post-action ml-auto"
