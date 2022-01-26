@@ -167,6 +167,11 @@ class Settings extends Component {
       return;
     }
 
+    if (forum_name.length < 2) {
+      this.props.dispatch(showAlert("Forum name have at least 2 characters"));
+      return;
+    }
+
     if (!FORUM_REGEX.test(forum_name)) {
       this.props.dispatch(showAlert("Forum name is not right pattern"));
       return;
