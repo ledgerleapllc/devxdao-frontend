@@ -79,14 +79,20 @@ class Report extends Component {
           this.props.dispatch(hideCanvas());
           if (res.success) {
             const temp = {
-              xAxis: res.rep_results[0].rep_results.map((x) => x.month),
+              xAxis: [
+                ...res.rep_results[0].rep_results.map((x) => x.month),
+                "Total",
+              ],
               data: res.rep_results.map((user) => ({
                 name: user.username,
-                data: user.rep_results.map((result, index) => {
-                  return user.rep_results
-                    .slice(0, index + 1)
-                    .reduce((sum, x) => sum + x.total, 0);
-                }),
+                data: [
+                  ...user.rep_results.map((result, index) => {
+                    return user.rep_results
+                      .slice(0, index + 1)
+                      .reduce((sum, x) => sum + x.total, 0);
+                  }),
+                  user.total_rep_all_years,
+                ],
               })),
               rawData: res.rep_results,
             };
