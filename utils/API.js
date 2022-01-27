@@ -187,9 +187,29 @@ class API {
     return sendRequest(`/user/discourse/topics/${id}/readed`, {}, "PUT", true);
   }
 
-  // Like or Unlike Post
-  static reactPost(id) {
-    return sendRequest(`/user/discourse/posts/${id}/react`, {}, "PUT", true);
+  // Toggle Like Post
+  static toggleLikePost(id) {
+    return sendRequest(
+      `/user/discourse/posts/${id}/toggle-like`,
+      {},
+      "PUT",
+      true
+    );
+  }
+
+  // Up Vote Post
+  static upVotePost(id) {
+    return sendRequest(`/user/discourse/posts/${id}/up-vote`, {}, "PUT", true);
+  }
+
+  // Down Vote Post
+  static downVotePost(id) {
+    return sendRequest(
+      `/user/discourse/posts/${id}/down-vote`,
+      {},
+      "PUT",
+      true
+    );
   }
 
   // Create Sponsor Code
