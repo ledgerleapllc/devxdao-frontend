@@ -142,6 +142,15 @@ class Signup extends Component {
       return;
     }
 
+    if (forum_name.length < 2) {
+      messages = {
+        ...messages,
+        forum_name: "Forum name have at least 2 characters",
+      };
+      this.setState({ messages });
+      return;
+    }
+
     if (!FORUM_REGEX.test(forum_name)) {
       messages = {
         ...messages,
