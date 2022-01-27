@@ -53,6 +53,10 @@ class TopicDetail extends Component {
     );
   };
 
+  handleProposal = () => {
+    this.props.history.push(`/app/proposal/${this.state.topic.proposal.id}`);
+  };
+
   // Render Header
   renderHeader() {
     const { topic } = this.state;
@@ -70,6 +74,16 @@ class TopicDetail extends Component {
             >
               Edit Topic Title
             </button>
+          )}
+          {attestationData.related_to_proposal ? (
+            <button
+              onClick={this.handleProposal}
+              className="btn btn-primary btn-fluid less-small"
+            >
+              Proposal Detail
+            </button>
+          ) : (
+            ""
           )}
           {(authUser.is_member ||
             authUser.is_admin ||
