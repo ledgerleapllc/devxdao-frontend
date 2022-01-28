@@ -35,14 +35,16 @@ class TopicDetail extends Component {
   componentDidMount() {
     const { match } = this.props;
 
-    API.getTopic(match.params.topic).then((res) => {
-      this.setState({
-        loading: false,
-        topic: res.data,
-      });
+    API.getTopic(match.params.topic)
+      .then((res) => {
+        if (res?.failed) {
+          return;
+        }
 
-      this.props.dispatch(setAttestationData(res.data.attestation));
-    });
+        this.setState({ topic: res.data });
+        this.props.dispatch(setAttestationData(res.data.attestation));
+      })
+      .finally(() => this.setState({ loading: false }));
   }
 
   handleFlag = () => {
