@@ -8,7 +8,7 @@ import API from "../../../../utils/API";
 import { Reply, Visibility } from "@material-ui/icons";
 import { Tooltip } from "@material-ui/core";
 import moment from "moment";
-import "./topics.scss";
+import "../topics/topics.scss";
 
 const mapStateToProps = (state) => {
   return {
@@ -16,7 +16,7 @@ const mapStateToProps = (state) => {
   };
 };
 
-class Topics extends Component {
+class Messages extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -34,8 +34,14 @@ class Topics extends Component {
   componentDidMount() {
     this.$body = document.getElementById("app-topics-sectionBody");
     this.$section = document.getElementById("app-topics-section");
-    this.getTopics();
+    this.getMessages();
     this.startTracking();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.folder !== this.props.folder) {
+      this.reloadTable();
+    }
   }
 
   componentWillUnmount() {
@@ -59,24 +65,10 @@ class Topics extends Component {
     }
   };
 
-  // Handle Search
-  handleSearch = (e) => {
-    this.setState({ search: e.target.value }, () => {
-      if (this.timer) {
-        clearTimeout(this.timer);
-        this.timer = null;
-      }
-
-      this.timer = setTimeout(() => {
-        this.reloadTable();
-      }, 500);
-    });
-  };
-
   // Reload Full Table
   reloadTable() {
     this.setState({ page: 0, data: { topics: [] }, finished: false }, () => {
-      this.getTopics();
+      this.getMessages();
     });
   }
 
@@ -85,18 +77,20 @@ class Topics extends Component {
     if (calling || loading || finished) return;
 
     this.setState({ page: page + 1, loadMoreLoading: true }, () => {
-      this.getTopics(false);
+      this.getMessages(false);
     });
   }
 
-  getTopics(showLoading = true) {
-    let { calling, loading, finished, page, data } = this.state;
+  getMessages(showLoading = true) {
+    const { calling, loading, finished, page, data } = this.state;
+    const { folder } = this.props;
+
     if (loading || calling || finished) return;
 
     if (showLoading) this.setState({ loading: true, calling: true });
     else this.setState({ loading: false, calling: true });
 
-    API.getTopics(page).then((res) => {
+    API.getMessages(page, folder).then((res) => {
       const result = res.data || [];
       const finished = !res.data.more_topics_url;
 
@@ -138,9 +132,6 @@ class Topics extends Component {
         {data.topics.map((topic) => (
           <li key={`topic_${topic.id}`} onClick={() => this.handleTopic(topic)}>
             <div className="infinite-row">
-              <div className="c-col-0 c-cols">
-                <label className="font-size-14">{topic.proposal?.id}</label>
-              </div>
               <div className="c-col-1 c-cols">
                 <Tooltip title={topic.title} placement="bottom">
                   <label className="font-size-14 font-weight-700">
@@ -164,21 +155,6 @@ class Topics extends Component {
                   <span className="font-size-12">{topic.views}</span>
                 </div>
               </div>
-              <div className="c-col-0 c-cols">
-                <span className="font-size-12">
-                  {topic.proposal?.attestation_rate
-                    ? `${topic.proposal.attestation_rate.toFixed()}%`
-                    : ""}
-                </span>
-              </div>
-              <div className="c-col-3 c-cols">
-                <span className="font-size-12">
-                  {topic.proposal?.is_attestated ? "Yes" : ""}
-                </span>
-              </div>
-              <div className="c-col-2 c-cols">
-                <span className="font-size-12">{topic.proposal?.status}</span>
-              </div>
               <div className="c-col-2 c-cols">
                 <label className="font-size-14">
                   {moment(topic.last_posted_at).local().format("M/D/YYYY")}{" "}
@@ -196,9 +172,6 @@ class Topics extends Component {
     return (
       <div className="infinite-header">
         <div className="infinite-headerInner">
-          <div className="c-col-0 c-cols">
-            <label className="font-size-14">#</label>
-          </div>
           <div className="c-col-1 c-cols">
             <label className="font-size-14">Topic</label>
           </div>
@@ -207,15 +180,6 @@ class Topics extends Component {
           </div>
           <div className="c-col-0 c-cols">
             <label className="font-size-14">Views</label>
-          </div>
-          <div className="c-col-0 c-cols">
-            <label className="font-size-14">Attestation</label>
-          </div>
-          <div className="c-col-3 c-cols">
-            <label className="font-size-14">Have I Attestated</label>
-          </div>
-          <div className="c-col-2 c-cols">
-            <label className="font-size-14">Status</label>
           </div>
           <div className="c-col-2 c-cols">
             <label className="font-size-14">Activity</label>
@@ -253,4 +217,4 @@ class Topics extends Component {
   }
 }
 
-export default connect(mapStateToProps)(withRouter(Topics));
+export default connect(mapStateToProps)(withRouter(Messages));

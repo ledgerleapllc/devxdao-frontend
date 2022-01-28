@@ -127,6 +127,23 @@ class API {
     return sendRequest("/user/discourse/topics", { page }, "GET", true);
   }
 
+  static createMessage(params) {
+    return sendRequest("/user/discourse/messages", params, "POST", true);
+  }
+
+  static searchDiscourseUsers(term) {
+    return sendRequest("/user/discourse/users", { term }, "GET", true);
+  }
+
+  static getMessages(page = 0, folder = "") {
+    return sendRequest(
+      "/user/discourse/messages",
+      { page, folder },
+      "GET",
+      true
+    );
+  }
+
   // Get Topic Posts
   static getPosts(id, postIds = []) {
     return sendRequest(

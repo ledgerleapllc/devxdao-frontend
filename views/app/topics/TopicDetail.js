@@ -167,6 +167,12 @@ class TopicDetail extends Component {
               <div className="app-simple-section">
                 <ul className="ul-table">
                   <li>
+                    <label>Invited users</label>
+                    {topic.details.allowed_users.map((user) => (
+                      <span key={user.id}>{user.username}</span>
+                    ))}
+                  </li>
+                  <li>
                     <label>Participants</label>
                     {topic.details.participants.map((participant) => (
                       <span key={participant.id}>{participant.username}</span>

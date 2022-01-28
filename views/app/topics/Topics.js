@@ -29,9 +29,15 @@ class Topics extends Component {
           <div className="mb-3">
             <button
               onClick={() => this.props.history.push("/app/topics/create")}
-              className="btn btn-primary small"
+              className="btn btn-primary small mr-3"
             >
               New Topic
+            </button>
+            <button
+              onClick={() => this.props.history.push("/app/messages")}
+              className="btn btn-primary small"
+            >
+              Messages
             </button>
           </div>
         </Fade>
