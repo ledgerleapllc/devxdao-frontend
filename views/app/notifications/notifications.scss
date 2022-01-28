@@ -1,0 +1,32 @@
+#app-notifications-page {
+  width: 60%;
+  margin: 0 auto;
+
+  .notifications {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .notifications-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex: 1;
+    background-color: #1f063e;
+    border-radius: 0.5rem;
+    padding: 1rem;
+
+    &.readed {
+      opacity: 0.6;
+    }
+
+    > svg {
+      font-size: 1.25rem;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
+}

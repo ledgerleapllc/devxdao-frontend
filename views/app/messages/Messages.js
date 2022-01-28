@@ -53,7 +53,7 @@ class Messages extends Component {
             <div className="mb-3 mb-md-0">
               <button
                 onClick={() => this.props.history.push("/app/messages/create")}
-                className="btn btn-primary small mr-3"
+                className="btn btn-primary small mr-2"
               >
                 New PM
               </button>
