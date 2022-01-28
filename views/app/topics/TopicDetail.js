@@ -123,7 +123,9 @@ class TopicDetail extends Component {
         <div className="fd-topic-container">
           <div className="fd-topic-posts">
             <Card isAutoExpand={true}>
-              <CardHeader>Posts</CardHeader>
+              <CardHeader>
+                {topic.archetype === "private_message" ? "Messages" : "Posts"}
+              </CardHeader>
               <CardBody>
                 <TopicPosts topic={topic} />
               </CardBody>
@@ -158,6 +160,24 @@ class TopicDetail extends Component {
                   />
                 </div>
               </>
+            ) : (
+              ""
+            )}
+            {topic.archetype === "private_message" ? (
+              <div className="app-simple-section">
+                <ul className="ul-table">
+                  <li>
+                    <label>Participants</label>
+                    {topic.details.participants.map((participant) => (
+                      <span key={participant.id}>{participant.username}</span>
+                    ))}
+                  </li>
+                  <li>
+                    <label>Views</label>
+                    <span>{topic.views}</span>
+                  </li>
+                </ul>
+              </div>
             ) : (
               ""
             )}
