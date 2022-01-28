@@ -26,7 +26,6 @@ class Notifications extends Component {
         return;
       }
 
-      this.props.dispatch(setDiscourseNotifications(res.data));
       this.props.dispatch(seeAllDiscourseNotifications());
     });
   }
@@ -126,15 +125,15 @@ class Notifications extends Component {
               Topics
             </button>
           </div>
+          <div className="notifications">
+            {discourseNotifications.notifications.map((notification) => (
+              <NotificationItem
+                key={notification.id}
+                notification={notification}
+              />
+            ))}
+          </div>
         </Fade>
-        <div className="notifications">
-          {discourseNotifications.notifications.map((notification) => (
-            <NotificationItem
-              key={notification.id}
-              notification={notification}
-            />
-          ))}
-        </div>
       </div>
     );
   }
