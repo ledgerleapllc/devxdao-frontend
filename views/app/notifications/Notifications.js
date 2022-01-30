@@ -47,9 +47,12 @@ class Notifications extends Component {
     switch (notification_type) {
       case 12:
         return `Earned '${data.badge_name}'`;
-      case 6:
       case 1:
-      case 9:
+      case 2:
+      case 3:
+      case 4:
+      case 5:
+      case 6:
         return `[${data.original_username}]: ${data.topic_title}`;
       default:
         return fancy_title;
@@ -58,8 +61,12 @@ class Notifications extends Component {
 
   getLink({ topic_id, notification_type }) {
     switch (notification_type) {
-      case 6:
       case 1:
+      case 2:
+      case 3:
+      case 4:
+      case 5:
+      case 6:
       case 9:
         return `/app/topics/${topic_id}`;
     }
