@@ -28,6 +28,7 @@ class Topics extends Component {
       page: 0,
       calling: false,
       finished: false,
+      search: "",
     };
   }
 
@@ -90,15 +91,20 @@ class Topics extends Component {
   }
 
   getTopics(showLoading = true) {
-    let { calling, loading, finished, page, data } = this.state;
+    let { calling, loading, finished, page, data, search } = this.state;
     if (loading || calling || finished) return;
 
     if (showLoading) this.setState({ loading: true, calling: true });
     else this.setState({ loading: false, calling: true });
 
-    API.getTopics(page).then((res) => {
+    API.getTopics(page, search).then((res) => {
+      if (res?.failed) {
+        this.setState({ loading: false, calling: false });
+        return;
+      }
+
       const result = res.data || [];
-      const finished = !res.data.more_topics_url;
+      const finished = !res.data?.more_topics_url;
 
       this.setState({
         loading: false,
@@ -119,7 +125,7 @@ class Topics extends Component {
   }
 
   renderTopics() {
-    const { data, loading } = this.state;
+    const { data, search, loading } = this.state;
 
     if (loading) {
       return <GlobalRelativeCanvasComponent />;
@@ -156,14 +162,18 @@ class Topics extends Component {
                   <span className="font-size-12">{topic.posts_count}</span>
                 </div>
               </div>
-              <div className="c-col-0 c-cols">
-                <div className="topic-image-wrap">
-                  <div>
-                    <Visibility fontSize="small" />
+              {search.length === 0 ? (
+                <div className="c-col-0 c-cols">
+                  <div className="topic-image-wrap">
+                    <div>
+                      <Visibility fontSize="small" />
+                    </div>
+                    <span className="font-size-12">{topic.views}</span>
                   </div>
-                  <span className="font-size-12">{topic.views}</span>
                 </div>
-              </div>
+              ) : (
+                ""
+              )}
               <div className="c-col-0 c-cols">
                 <span className="font-size-12">
                   {topic.proposal?.attestation_rate
@@ -193,6 +203,8 @@ class Topics extends Component {
   }
 
   renderHeader() {
+    const { search } = this.state;
+
     return (
       <div className="infinite-header">
         <div className="infinite-headerInner">
@@ -205,9 +217,13 @@ class Topics extends Component {
           <div className="c-col-0 c-cols">
             <label className="font-size-14">Replies</label>
           </div>
-          <div className="c-col-0 c-cols">
-            <label className="font-size-14">Views</label>
-          </div>
+          {search.length === 0 ? (
+            <div className="c-col-0 c-cols">
+              <label className="font-size-14">Views</label>
+            </div>
+          ) : (
+            ""
+          )}
           <div className="c-col-0 c-cols">
             <label className="font-size-14">Attestation</label>
           </div>
@@ -228,6 +244,14 @@ class Topics extends Component {
   render() {
     return (
       <Fade distance={"20px"} bottom duration={200} delay={700}>
+        <div className="mb-3">
+          <input
+            type="text"
+            onChange={this.handleSearch}
+            className="fd-input"
+            placeholder="Search"
+          />
+        </div>
         <section id="app-topics-section" className="app-infinite-box">
           <div className="app-infinite-search-wrap">
             <label>
