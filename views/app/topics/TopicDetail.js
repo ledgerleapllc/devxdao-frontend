@@ -33,7 +33,11 @@ class TopicDetail extends Component {
   }
 
   componentDidMount() {
-    const { match } = this.props;
+    const { match, authUser } = this.props;
+
+    if (!authUser.is_member && !authUser.is_admin) {
+      this.props.history.push("/app");
+    }
 
     API.getTopic(match.params.topic)
       .then((res) => {
@@ -69,13 +73,15 @@ class TopicDetail extends Component {
     return (
       <PageHeaderComponent title={topic.title}>
         <div className="fd-page-actions ml-auto">
-          {topic.details.can_edit && (
+          {topic.details.can_edit ? (
             <button
               onClick={() => history.push(`/app/topics/${topic.id}/edit`)}
               className="btn btn-primary btn-fluid less-small"
             >
               Edit Topic Title
             </button>
+          ) : (
+            ""
           )}
           {attestationData.related_to_proposal ? (
             <button
@@ -90,19 +96,23 @@ class TopicDetail extends Component {
           {(authUser.is_member ||
             authUser.is_admin ||
             authUser.is_super_admin) &&
-            attestationData.related_to_proposal && (
-              <button
-                onClick={this.handleFlag}
-                className="btn btn-primary btn-fluid less-small"
-              >
-                Flag Topic
-              </button>
-            )}
-          {topic.flags_count > 0 && (
+          attestationData.related_to_proposal ? (
+            <button
+              onClick={this.handleFlag}
+              className="btn btn-primary btn-fluid less-small"
+            >
+              Flag Topic
+            </button>
+          ) : (
+            ""
+          )}
+          {topic.flags_count > 0 ? (
             <div className="total-flag-count">
               <Flag />
               <span>{topic.flags_count}</span>
             </div>
+          ) : (
+            ""
           )}
         </div>
       </PageHeaderComponent>
