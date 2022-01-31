@@ -33,16 +33,22 @@ class TopicDetail extends Component {
   }
 
   componentDidMount() {
-    const { match } = this.props;
+    const { match, authUser } = this.props;
 
-    API.getTopic(match.params.topic).then((res) => {
-      this.setState({
-        loading: false,
-        topic: res.data,
-      });
+    if (!authUser.is_member && !authUser.is_admin) {
+      this.props.history.push("/app");
+    }
 
-      this.props.dispatch(setAttestationData(res.data.attestation));
-    });
+    API.getTopic(match.params.topic)
+      .then((res) => {
+        if (res?.failed) {
+          return;
+        }
+
+        this.setState({ topic: res.data });
+        this.props.dispatch(setAttestationData(res.data.attestation));
+      })
+      .finally(() => this.setState({ loading: false }));
   }
 
   handleFlag = () => {
@@ -67,13 +73,15 @@ class TopicDetail extends Component {
     return (
       <PageHeaderComponent title={topic.title}>
         <div className="fd-page-actions ml-auto">
-          {topic.details.can_edit && (
+          {topic.details.can_edit ? (
             <button
               onClick={() => history.push(`/app/topics/${topic.id}/edit`)}
               className="btn btn-primary btn-fluid less-small"
             >
               Edit Topic Title
             </button>
+          ) : (
+            ""
           )}
           {attestationData.related_to_proposal ? (
             <button
@@ -88,19 +96,23 @@ class TopicDetail extends Component {
           {(authUser.is_member ||
             authUser.is_admin ||
             authUser.is_super_admin) &&
-            attestationData.related_to_proposal && (
-              <button
-                onClick={this.handleFlag}
-                className="btn btn-primary btn-fluid less-small"
-              >
-                Flag Topic
-              </button>
-            )}
-          {topic.flags_count > 0 && (
+          attestationData.related_to_proposal ? (
+            <button
+              onClick={this.handleFlag}
+              className="btn btn-primary btn-fluid less-small"
+            >
+              Flag Topic
+            </button>
+          ) : (
+            ""
+          )}
+          {topic.flags_count > 0 ? (
             <div className="total-flag-count">
               <Flag />
               <span>{topic.flags_count}</span>
             </div>
+          ) : (
+            ""
           )}
         </div>
       </PageHeaderComponent>
@@ -121,7 +133,9 @@ class TopicDetail extends Component {
         <div className="fd-topic-container">
           <div className="fd-topic-posts">
             <Card isAutoExpand={true}>
-              <CardHeader>Posts</CardHeader>
+              <CardHeader>
+                {topic.archetype === "private_message" ? "Messages" : "Posts"}
+              </CardHeader>
               <CardBody>
                 <TopicPosts topic={topic} />
               </CardBody>
@@ -129,32 +143,56 @@ class TopicDetail extends Component {
           </div>
           <div className="fd-topic-reads">
             {topic.proposal ? (
-              <div className="app-simple-section p-3">
-                <ul className="ul-table">
-                  <li>
-                    <label>Proposal ID</label>
-                    <span>{topic.proposal.id}</span>
-                  </li>
-                  <li>
-                    <label>Proposal Status</label>
-                    <span>{topic.proposal.status}</span>
-                  </li>
-                  <li>
-                    <label>Comments</label>
-                    <span>{topic.proposal.topic_posts_count}</span>
-                  </li>
-                </ul>
-              </div>
+              <>
+                <div className="app-simple-section p-3">
+                  <ul className="ul-table">
+                    <li>
+                      <label>Proposal ID</label>
+                      <span>{topic.proposal.id}</span>
+                    </li>
+                    <li>
+                      <label>Proposal Status</label>
+                      <span>{topic.proposal.status}</span>
+                    </li>
+                    <li>
+                      <label>Comments</label>
+                      <span>{topic.proposal.topic_posts_count}</span>
+                    </li>
+                  </ul>
+                </div>
+                <TopicAttestationCard topic={topic} />
+                <div className="app-simple-section topic-reads-chart">
+                  <CircularProgressbar
+                    value={attestationData.attestation_rate || 0}
+                    text={`${
+                      attestationData.attestation_rate?.toFixed() || 0
+                    }%`}
+                  />
+                </div>
+              </>
             ) : (
               ""
             )}
-            <TopicAttestationCard topic={topic} />
-            {attestationData.related_to_proposal ? (
-              <div className="app-simple-section topic-reads-chart">
-                <CircularProgressbar
-                  value={attestationData.attestation_rate || 0}
-                  text={`${attestationData.attestation_rate?.toFixed() || 0}%`}
-                />
+            {topic.archetype === "private_message" ? (
+              <div className="app-simple-section">
+                <ul className="ul-table">
+                  <li>
+                    <label>Invited users</label>
+                    {topic.details.allowed_users.map((user) => (
+                      <span key={user.id}>{user.username}</span>
+                    ))}
+                  </li>
+                  <li>
+                    <label>Participants</label>
+                    {topic.details.participants.map((participant) => (
+                      <span key={participant.id}>{participant.username}</span>
+                    ))}
+                  </li>
+                  <li>
+                    <label>Views</label>
+                    <span>{topic.views}</span>
+                  </li>
+                </ul>
               </div>
             ) : (
               ""
