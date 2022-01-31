@@ -60,6 +60,15 @@ class EditPost extends Component {
         return;
       }
 
+      if (res?.failed) {
+        this.setState({
+          loading: false,
+          errorText: res.message,
+        });
+
+        return;
+      }
+
       this.setState({ loading: false });
       this.editor.value("");
 

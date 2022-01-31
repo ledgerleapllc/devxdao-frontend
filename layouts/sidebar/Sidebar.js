@@ -6,7 +6,13 @@ import * as Icon from "react-feather";
 import ForumIcon from "@material-ui/icons/Forum";
 import { Fade } from "react-reveal";
 import Helper from "../../utils/Helper";
-import { saveUser, hideSidebar, setActiveModal } from "../../redux/actions";
+import {
+  saveUser,
+  hideSidebar,
+  setActiveModal,
+  setDiscourseNotifications,
+  loadDiscourseNotifications,
+} from "../../redux/actions";
 import IconAccounting from "../../public/icons/accounting.svg";
 import IconMilestone from "../../public/icons/milestone.svg";
 import IconTeam from "../../public/icons/team.svg";
@@ -16,11 +22,13 @@ import IconVA from "../../public/icons/va.svg";
 import IconReport from "../../public/icons/report.svg";
 
 import "./sidebar.scss";
+import API from "../../utils/API";
 
 const mapStateToProps = (state) => {
   return {
     theme: state.global.theme,
     authUser: state.global.authUser,
+    discourseNotifications: state.user.discourseNotifications,
   };
 };
 
@@ -37,18 +45,57 @@ class Sidebar extends Component {
     const { authUser } = this.props;
     if (authUser?.id) {
       this.setTabs();
+      this.fetchNotifications();
     }
   }
 
   componentDidUpdate(prevProps) {
-    const { authUser } = this.props;
+    const { authUser, discourseNotifications } = this.props;
+
     if (prevProps.authUser?.id !== authUser.id) {
+      this.setTabs();
+      this.fetchNotifications();
+    }
+
+    if (
+      prevProps.discourseNotifications.seen_notification_id !==
+      discourseNotifications.seen_notification_id
+    ) {
       this.setTabs();
     }
   }
 
+  fetchNotifications() {
+    this.props.dispatch(loadDiscourseNotifications());
+
+    API.notifications().then((res) => {
+      if (res?.failed) {
+        return;
+      }
+
+      this.props.dispatch(setDiscourseNotifications(res.data));
+      this.setTabs();
+    });
+  }
+
   checkPermission(permissions, type) {
     return !!permissions?.find((x) => x.name === type)?.is_permission;
+  }
+
+  getTopicsLabel() {
+    const { discourseNotifications } = this.props;
+
+    const count = discourseNotifications.notifications.filter(
+      (notification) => {
+        return notification.id > discourseNotifications.seen_notification_id;
+      }
+    ).length;
+
+    if (count > 0) {
+      return `Topics (${count})`;
+    }
+
+    return "Topics";
   }
 
   setTabs() {
@@ -69,7 +116,7 @@ class Sidebar extends Component {
             },
             {
               link: "/app/topics",
-              label: "Topics",
+              label: this.getTopicsLabel(),
               icon: <ForumIcon size={20} />,
               isShow: true,
             },
@@ -264,7 +311,7 @@ class Sidebar extends Component {
             },
             {
               link: "/app/topics",
-              label: "Topics",
+              label: this.getTopicsLabel(),
               icon: <ForumIcon size={20} />,
               isShow: true,
             },

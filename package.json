@@ -53,7 +53,8 @@
     "wallet-address-validator": "^0.2.4",
     "yup": "^0.32.11",
     "easymde": "^2.15.0",
-    "react-circular-progressbar": "^2.0.4"
+    "react-circular-progressbar": "^2.0.4",
+    "react-tag-autocomplete": "^6.3.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",

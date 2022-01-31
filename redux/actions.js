@@ -28,6 +28,13 @@ export const SAVE_USER = "SAVE_USER";
 export const SET_EDIT_PROPOSAL_DATA = "SET_EDIT_PROPOSAL_DATA";
 export const SET_ATTESTATION_DATA = "SET_ATTESTATION_DATA";
 
+// Discourse Notifications
+export const SET_DISCOURSE_NOTIFICATIONS = "SET_DISCOURSE_NOTIFICATIONS";
+export const LOAD_DISCOURSE_NOTIFICATIONS = "LOAD_DISCOURSE_NOTIFICATIONS";
+export const SEE_ALL_DISCOURSE_NOTIFICATIONS =
+  "SEE_ALL_DISCOURSE_NOTIFICATIONS";
+export const READ_DISCOURSE_NOTIFICATION = "READ_DISCOURSE_NOTIFICATION";
+
 // Admin Actions
 export const SET_REVIEW_USER = "SET_REVIEW_USER";
 export const SET_REVIEW_PROPOSAL = "SET_REVIEW_PROPOSAL";
@@ -308,6 +315,28 @@ export const setAttestationData = (message) => ({
   type: SET_ATTESTATION_DATA,
   payload: {
     attestationData: message,
+  },
+});
+
+export const setDiscourseNotifications = (message) => ({
+  type: SET_DISCOURSE_NOTIFICATIONS,
+  payload: {
+    discourseNotifications: message,
+  },
+});
+
+export const loadDiscourseNotifications = () => ({
+  type: LOAD_DISCOURSE_NOTIFICATIONS,
+});
+
+export const seeAllDiscourseNotifications = () => ({
+  type: SEE_ALL_DISCOURSE_NOTIFICATIONS,
+});
+
+export const readDiscourseNotification = (id) => ({
+  type: READ_DISCOURSE_NOTIFICATION,
+  payload: {
+    id,
   },
 });
 

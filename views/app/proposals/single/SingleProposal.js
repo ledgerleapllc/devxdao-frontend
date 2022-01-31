@@ -771,7 +771,9 @@ class SingleProposal extends Component {
             </>
           </div>
           <div className="right-side">
-            {authUser.is_admin || authUser.is_member ? (
+            {authUser.is_admin ||
+            authUser.is_member ||
+            authUser.id === proposal.user_id ? (
               <div className="mb-3">
                 <ProposalPosts proposal={proposal} />
               </div>

@@ -123,8 +123,43 @@ class API {
     return sendRequest(`/user/discourse/topics/${id}`, {}, "GET", true);
   }
 
-  static getTopics(page = 0) {
-    return sendRequest("/user/discourse/topics", { page }, "GET", true);
+  static getTopics(page = 0, term = "") {
+    return sendRequest("/user/discourse/topics", { page, term }, "GET", true);
+  }
+
+  static createMessage(params) {
+    return sendRequest("/user/discourse/messages", params, "POST", true);
+  }
+
+  static searchDiscourseUsers(term) {
+    return sendRequest("/user/discourse/users", { term }, "GET", true);
+  }
+
+  static notifications(recent = false) {
+    return sendRequest(
+      "/user/discourse/notifications",
+      { recent },
+      "GET",
+      true
+    );
+  }
+
+  static readNotification(id) {
+    return sendRequest(
+      `/user/discourse/notifications/${id}/read`,
+      {},
+      "PUT",
+      true
+    );
+  }
+
+  static getMessages(page = 0, folder = "") {
+    return sendRequest(
+      "/user/discourse/messages",
+      { page, folder },
+      "GET",
+      true
+    );
   }
 
   // Get Topic Posts
