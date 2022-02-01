@@ -7,6 +7,7 @@ import {
   forceReloadActiveSurveyTable,
   setActiveModal,
 } from "../../../../../../redux/actions";
+import { DEFAULT_API_RECORDS } from "../../../../../../utils/Constant";
 import { getUserSurveys } from "../../../../../../utils/Thunk";
 import "./style.scss";
 
@@ -122,6 +123,7 @@ class ActiveRFPSurveysTable extends Component {
       search,
       page_id,
       type: "rfp",
+      limit: DEFAULT_API_RECORDS,
       status: "active",
     };
 
