@@ -110,9 +110,6 @@ class TopicAttestationCard extends Component {
       return null;
     }
 
-    if (attestationData.proposal_in_discussion) {
-    }
-
     return (
       <div className="app-simple-section topic-attestation-card mb-3">
         <div className="attestation-content">

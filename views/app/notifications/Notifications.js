@@ -8,7 +8,6 @@ import { Heart } from "react-feather";
 import {
   readDiscourseNotification,
   seeAllDiscourseNotifications,
-  setDiscourseNotifications,
 } from "../../../redux/actions";
 import API from "../../../utils/API";
 

@@ -65,8 +65,9 @@ class Messages extends Component {
               </button>
             </div>
             <div className="message-folders">
-              {Object.keys(this.folders).map((key) => (
+              {Object.keys(this.folders).map((key, index) => (
                 <button
+                  key={index}
                   onClick={() => this.handleFolder(key)}
                   className={`message-folder ${folder === key ? "active" : ""}`}
                 >
