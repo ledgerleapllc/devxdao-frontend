@@ -7,7 +7,8 @@ import {
   forceReloadActiveSurveyTable,
   setActiveModal,
 } from "../../../../../../redux/actions";
-import { getSurveys } from "../../../../../../utils/Thunk";
+import { DEFAULT_API_RECORDS } from "../../../../../../utils/Constant";
+import { getUserSurveys } from "../../../../../../utils/Thunk";
 import "./style.scss";
 
 const mapStateToProps = (state) => {
@@ -117,10 +118,12 @@ class CompletedSurveysTable extends Component {
       search,
       page_id,
       status: "completed",
+      type: "grant",
+      limit: DEFAULT_API_RECORDS,
     };
 
     this.props.dispatch(
-      getSurveys(
+      getUserSurveys(
         params,
         () => {
           if (showLoading) this.setState({ loading: true, calling: true });

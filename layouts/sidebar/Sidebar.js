@@ -58,8 +58,8 @@ class Sidebar extends Component {
     }
 
     if (
-      prevProps.discourseNotifications.seen_notification_id !==
-      discourseNotifications.seen_notification_id
+      prevProps.discourseNotifications?.seen_notification_id !==
+      discourseNotifications?.seen_notification_id
     ) {
       this.setTabs();
     }
@@ -85,7 +85,7 @@ class Sidebar extends Component {
   getTopicsLabel() {
     const { discourseNotifications } = this.props;
 
-    const count = discourseNotifications.notifications.filter(
+    const count = discourseNotifications?.notifications.filter(
       (notification) => {
         return notification.id > discourseNotifications.seen_notification_id;
       }

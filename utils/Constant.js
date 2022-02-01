@@ -390,3 +390,4 @@ export const SURVEY_PREFIX = {
 };
 
 export const FORUM_REGEX = /^([A-Za-z0-9-_.]+)$/;
+export const DEFAULT_API_RECORDS = 50;

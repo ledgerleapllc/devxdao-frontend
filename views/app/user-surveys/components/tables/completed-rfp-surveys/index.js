@@ -4,7 +4,8 @@ import { connect } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
 import { GlobalRelativeCanvasComponent } from "../../../../../../components";
 import { forceReloadActiveSurveyTable } from "../../../../../../redux/actions";
-import { getRFPSurveys } from "../../../../../../utils/Thunk";
+import { DEFAULT_API_RECORDS } from "../../../../../../utils/Constant";
+import { getUserSurveys } from "../../../../../../utils/Thunk";
 import "./style.scss";
 
 const mapStateToProps = (state) => {
@@ -113,12 +114,13 @@ class CompletedRFPSurveysTable extends Component {
       sort_direction,
       search,
       page_id,
-      limit: 1,
+      limit: DEFAULT_API_RECORDS,
+      type: "rfp",
       status: "completed",
     };
 
     this.props.dispatch(
-      getRFPSurveys(
+      getUserSurveys(
         params,
         () => {
           if (showLoading) this.setState({ loading: true, calling: true });
