@@ -71,10 +71,7 @@ class ProposalPosts extends Component {
               </CardHeader>
               {!loading && topic.post_stream.posts.length > 0 && (
                 <div className="discourse mt-3">
-                  <SinglePost
-                    post={topic.post_stream.posts[0]}
-                    topicId={proposal.discourse_topic_id}
-                  />
+                  <SinglePost post={topic.post_stream.posts[0]} topic={topic} />
                 </div>
               )}
               {!loading && (
