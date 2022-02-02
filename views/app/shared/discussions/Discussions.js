@@ -170,14 +170,16 @@ class Discussions extends Component {
   clickRow(item) {
     const { history, authUser } = this.props;
 
-    if (authUser && authUser.is_admin) history.push(`/app/proposal/${item.id}`);
+    if (authUser && authUser.is_admin)
+      history.push(`/app/topics/${item.discourse_topic_id}`);
     else {
       if (item.status != "approved") return;
 
-      if (authUser.is_member) history.push(`/app/proposal/${item.id}`);
+      if (authUser.is_member)
+        history.push(`/app/topics/${item.discourse_topic_id}`);
       else {
         if (!item.votes || !item.votes.length)
-          history.push(`/app/proposal/${item.id}`);
+          history.push(`/app/topics/${item.discourse_topic_id}`);
       }
     }
   }
