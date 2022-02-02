@@ -249,6 +249,8 @@ class SinglePost extends Component {
       deleteConfirmation,
     } = this.state;
 
+    const { topic } = this.props;
+
     const likes = post.actions_summary?.find((action) => action.id === 2) || {};
     const upvotes = post.reactions?.find((r) => r.type === 1) || {};
     const downvotes = post.reactions?.find((r) => r.type === 2) || {};
@@ -391,7 +393,7 @@ class SinglePost extends Component {
         </div>
         {displayReply && (
           <WritePost
-            topicId={post.topic_id}
+            topic={topic}
             parent={post.post_number}
             promise={() => API.getPostReplies(post.id)}
             callback={this.handleReply}
@@ -400,7 +402,7 @@ class SinglePost extends Component {
         {displayReplies && post.replies.length > 0 && (
           <div className="post-replies">
             {post.replies.map((reply) => (
-              <SinglePost key={reply.id} post={reply} />
+              <SinglePost key={reply.id} post={reply} topic={topic} />
             ))}
           </div>
         )}
