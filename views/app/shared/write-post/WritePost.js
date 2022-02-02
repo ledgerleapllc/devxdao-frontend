@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { BeatLoader } from "react-spinners";
 import API from "../../../../utils/API";
+import Discourse from "../../../../utils/Discourse";
 import MarkdownEditor from "../../../../utils/MarkdownEditor";
 
 const mapStateToProps = (state) => {
@@ -22,6 +23,7 @@ class WritePost extends Component {
       postText: "",
       errorText: null,
       loading: false,
+      disabled: true,
     };
 
     this.editor = React.createRef(null);
@@ -29,6 +31,24 @@ class WritePost extends Component {
   }
 
   componentDidMount() {
+    if (Discourse.canPost(this.props.authUser, this.props.topic?.proposal)) {
+      this.setState({ disabled: false });
+    }
+
+    this.initEditor();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.disabled !== this.state.disabled) {
+      this.initEditor();
+    }
+  }
+
+  initEditor() {
+    if (!this.inputRef.current) {
+      return;
+    }
+
     this.editor = new MarkdownEditor(this.inputRef.current);
 
     this.editor.codemirror.on("change", () => {
@@ -41,11 +61,11 @@ class WritePost extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
 
-    const { parent, topicId, promise, callback } = this.props;
+    const { parent, topic, promise, callback } = this.props;
 
     this.setState({ loading: true });
 
-    API.submitPost(topicId, {
+    API.submitPost(topic.id, {
       post: this.state.postText,
       reply_to_post_number: parent,
     }).then((res) => {
@@ -72,7 +92,15 @@ class WritePost extends Component {
   };
 
   render() {
-    const { loading, postText, errorText } = this.state;
+    const { loading, postText, errorText, disabled } = this.state;
+
+    if (disabled) {
+      return (
+        <div className="fd-input">
+          You are not allowed to post to this topic.
+        </div>
+      );
+    }
 
     return (
       <form onSubmit={this.handleSubmit}>
@@ -84,7 +112,11 @@ class WritePost extends Component {
           ></textarea>
         </div>
         <div className="post-footer">
-          <button className="post-btn" type="submit" disabled={loading}>
+          <button
+            className="post-btn"
+            type="submit"
+            disabled={loading || disabled}
+          >
             {loading ? <BeatLoader size={8} color="#fff" /> : "Reply"}
           </button>
           {errorText && <span className="error-text">{errorText}</span>}

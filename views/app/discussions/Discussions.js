@@ -28,6 +28,28 @@ class Discussions extends Component {
     return (
       <div id="app-discussions-page">
         <Fade distance={"20px"} bottom duration={400} delay={600}>
+          <div className="mb-4">
+            <button
+              onClick={() => this.props.history.push("/app/topics/create")}
+              className="btn btn-primary small mr-2"
+            >
+              New Topic
+            </button>
+            <button
+              onClick={() => this.props.history.push("/app/messages")}
+              className="btn btn-primary small mr-2"
+            >
+              Messages
+            </button>
+            <button
+              onClick={() => this.props.history.push("/app/notifications")}
+              className="btn btn-primary small"
+            >
+              Notifications
+            </button>
+          </div>
+        </Fade>
+        <Fade distance={"20px"} bottom duration={400} delay={600}>
           <ul id="app-discussions-pageHeader">
             <li
               className={tab == "active" ? "active" : ""}

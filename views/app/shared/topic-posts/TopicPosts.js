@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from "../../../../utils/API";
-import { offsetPostIds, isLastPage } from "../../../../utils/Discourse";
+import Discourse from "../../../../utils/Discourse";
 import SinglePost from "../single-post/SinglePost";
 import WritePost from "../write-post/WritePost";
 import "../../topics/discourse.scss";
@@ -21,7 +21,7 @@ class TopicPosts extends Component {
       (prev) => ({ page: prev.page + 1, loadMoreLoading: true }),
       () => {
         const { topic, page } = this.state;
-        const postIds = offsetPostIds(topic.post_stream.stream, page);
+        const postIds = Discourse.offsetPostIds(topic.post_stream.stream, page);
 
         API.getPosts(topic.id, postIds).then((res) => {
           this.setState((prev) => ({
@@ -66,14 +66,14 @@ class TopicPosts extends Component {
     return (
       <div className="discourse fd-overflow">
         <div className="write-post">
-          <WritePost topicId={topic.id} promise={this.handlePost} />
+          <WritePost topic={topic} promise={this.handlePost} />
         </div>
         <div className="posts">
           {topic.post_stream.posts.map((post) => (
-            <SinglePost key={post.id} post={post} />
+            <SinglePost key={post.id} post={post} topic={topic} />
           ))}
         </div>
-        {(!isLastPage(topic.post_stream.stream, page) ||
+        {(!Discourse.isLastPage(topic.post_stream.stream, page) ||
           loadMoreLoading === true) && (
           <div className="w-100 mt-3">
             <button

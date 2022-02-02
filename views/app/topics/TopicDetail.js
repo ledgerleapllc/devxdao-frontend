@@ -33,11 +33,7 @@ class TopicDetail extends Component {
   }
 
   componentDidMount() {
-    const { match, authUser } = this.props;
-
-    if (!authUser.is_member && !authUser.is_admin) {
-      this.props.history.push("/app");
-    }
+    const { match } = this.props;
 
     API.getTopic(match.params.topic)
       .then((res) => {
