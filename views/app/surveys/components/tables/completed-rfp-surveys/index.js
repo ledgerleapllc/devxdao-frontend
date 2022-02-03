@@ -7,6 +7,7 @@ import { withRouter } from "react-router-dom";
 import { forceReloadActiveSurveyTable } from "../../../../../../redux/actions";
 import { getRFPSurveys } from "../../../../../../utils/Thunk";
 import "./style.scss";
+import { DEFAULT_API_RECORDS } from "../../../../../../utils/Constant";
 
 const mapStateToProps = (state) => {
   return {
@@ -114,7 +115,7 @@ class CompletedRFPSurveysTable extends Component {
       sort_direction,
       search,
       page_id,
-      limit: 1,
+      limit: DEFAULT_API_RECORDS,
       status: "completed",
     };
 
