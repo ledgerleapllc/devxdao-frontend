@@ -21,15 +21,17 @@ class RFPSurveysTab extends Component {
     return (
       <div className="h-100 rfp-survey-page">
         <Fade distance={"20px"} bottom duration={300} delay={600}>
-          <section className="active-rfp-surveys-section app-infinite-box mb-4">
-            <div className="app-infinite-search-wrap">
-              <label>Active Surveys</label>
-            </div>
-            <ActiveRFPSurveysTable />
-          </section>
+          <div className="active-rfp-surveys-section pb-4">
+            <section className="app-infinite-box h-100">
+              <div className="app-infinite-search-wrap">
+                <label>Active Surveys</label>
+              </div>
+              <ActiveRFPSurveysTable />
+            </section>
+          </div>
         </Fade>
         <Fade distance={"20px"} bottom duration={300} delay={600}>
-          <section className="completed-rfp-surveys-section app-infinite-box mb-4">
+          <section className="completed-rfp-surveys-section app-infinite-box">
             <div className="app-infinite-search-wrap">
               <label>Completed Surveys</label>
             </div>
