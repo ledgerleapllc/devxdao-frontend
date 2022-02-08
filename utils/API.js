@@ -912,6 +912,16 @@ class API {
     return sendRequest("/shared/completed-votes", params, "GET", true);
   }
 
+  static downloadCompletedVotes(params = {}) {
+    return sendRequest(
+      `/shared/completed-votes-export`,
+      params,
+      "GET",
+      true,
+      "blob"
+    );
+  }
+
   // Get Active Informal Votes - Shared
   static getActiveInformalVotes(params = {}) {
     return sendRequest("/shared/active-informal-votes", params, "GET", true);
