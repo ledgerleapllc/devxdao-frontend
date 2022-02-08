@@ -5,11 +5,16 @@ import { Fade } from "react-reveal";
 import * as Icon from "react-feather";
 import Tooltip from "@material-ui/core/Tooltip";
 import { GlobalRelativeCanvasComponent } from "../../../../components";
-import { getCompletedVotes } from "../../../../utils/Thunk";
 import {
+  getCompletedVotes,
+  downloadCompletedVotes,
+} from "../../../../utils/Thunk";
+import {
+  hideCanvas,
   setActiveModal,
   setCompletedVotesTableStatus,
   setCustomModalData,
+  showCanvas,
 } from "../../../../redux/actions";
 
 import "./completed-votes.scss";
@@ -606,6 +611,36 @@ class CompletedVotes extends Component {
     return <ul>{items}</ul>;
   }
 
+  downloadCSV = () => {
+    let { sort_key, sort_direction, search } = this.state;
+
+    const params = {
+      sort_key,
+      sort_direction,
+      search,
+    };
+
+    this.props.dispatch(
+      downloadCompletedVotes(
+        params,
+        () => {
+          this.props.dispatch(showCanvas());
+        },
+        (res) => {
+          console.log(res);
+          this.props.dispatch(hideCanvas());
+          const url = window.URL.createObjectURL(new Blob([res]));
+          const link = document.createElement("a");
+          link.href = url;
+          link.setAttribute("download", "completed-votes.csv");
+          document.body.appendChild(link);
+          link.click();
+          this.props.dispatch(hideCanvas());
+        }
+      )
+    );
+  };
+
   render() {
     const { authUser } = this.props;
     const { loading, search } = this.state;
@@ -626,13 +661,23 @@ class CompletedVotes extends Component {
                 </Tooltip>
               </div>
             )}
+            <div>
+              {!!authUser.is_admin && (
+                <button
+                  className="mr-4 btn btn-primary btn-download extra-small"
+                  onClick={() => this.downloadCSV()}
+                >
+                  Download CSV
+                </button>
+              )}
 
-            <input
-              type="text"
-              value={search}
-              onChange={this.handleSearch}
-              placeholder="Search..."
-            />
+              <input
+                type="text"
+                value={search}
+                onChange={this.handleSearch}
+                placeholder="Search..."
+              />
+            </div>
           </div>
 
           <div className="infinite-content">
