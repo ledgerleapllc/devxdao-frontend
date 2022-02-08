@@ -341,6 +341,16 @@ export function getCompletedVotes(params, start, completion) {
   };
 }
 
+// Get Completed Votes - Shared
+export function downloadCompletedVotes(params, start, completion) {
+  return () => {
+    if (start) start();
+    API.downloadCompletedVotes(params).then((res) => {
+      if (completion) completion(res);
+    });
+  };
+}
+
 // Get Active Informal Votes - Shared
 export function getActiveInformalVotes(params, start, completion) {
   return () => {
