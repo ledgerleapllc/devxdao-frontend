@@ -359,7 +359,7 @@ class Informal extends Component {
       (x) => x.id === vote.milestone_id
     );
     let data;
-    if (currentMilestone?.milestone_review.length > 0) {
+    if (currentMilestone?.milestone_review?.length > 0) {
       data =
         currentMilestone?.milestone_review[
           currentMilestone?.milestone_review?.length - 1
