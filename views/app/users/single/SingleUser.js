@@ -618,8 +618,10 @@ class SingleUser extends Component {
             <div className="app-sup-row">
               <label>Name Verified in KYC kangaroo</label>
               <span>
+                {data?.address_document?.business_name}
                 {data?.address_document?.name?.first_name}{" "}
-                {data?.address_document?.name?.last_name}
+                {data?.address_document?.name?.last_name}{" "}
+                {data?.address_document?.name?.full_name}
               </span>
             </div>
             <div className="app-sup-row">
