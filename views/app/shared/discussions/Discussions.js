@@ -216,7 +216,7 @@ class Discussions extends Component {
             <div className="c-col-0 c-cols">
               <label className="font-size-14">{item.id}</label>
             </div>
-            <div className="c-col-1 c-cols">
+            <div className="c-col-title c-cols">
               <Tooltip title={item.title} placement="bottom">
                 <label className="font-size-14 font-weight-700">
                   {item.title}
@@ -226,12 +226,27 @@ class Discussions extends Component {
                 {Helper.getExcerpt(item.short_description)}
               </p>
             </div>
-            <div className="c-col-2 c-cols">
+            <div className="c-col-3 c-cols">
               <div className="proposal-clock-wrap">
                 <Icon.Clock size={20} />
                 <p className="font-size-12">{`${days}D:${hours}H:${mins}MIN`}</p>
               </div>
             </div>
+            <div className="c-col-0 c-cols">
+              <span className="font-size-12">
+                {item.attestation?.rate
+                  ? `${item.attestation.rate.toFixed()}%`
+                  : ""}
+              </span>
+            </div>
+            <div className="c-col-3 c-cols">
+              <span className="font-size-12">
+                {item.attestation?.is_attestated ? "Yes" : ""}
+              </span>
+            </div>
+            {/* <div className="c-col-2 c-cols">
+              <span className="font-size-12">{item.status_label}</span>
+            </div> */}
             <div className="c-col-3 c-cols">
               <div className="proposal-image-wrap">
                 <div>
@@ -296,19 +311,28 @@ class Discussions extends Component {
             {this.renderTriangle("proposal.id")}
           </div>
           <div
-            className="c-col-1 c-cols"
+            className="c-col-title c-cols"
             onClick={() => this.clickHeader("proposal.title")}
           >
             <label className="font-size-14">Forums</label>
             {this.renderTriangle("proposal.title")}
           </div>
           <div
-            className="c-col-2 c-cols"
+            className="c-col-3 c-cols"
             onClick={() => this.clickHeader("proposal.approved_at")}
           >
             <label className="font-size-14">Time Active</label>
             {this.renderTriangle("proposal.approved_at")}
           </div>
+          <div className="c-col-0 c-cols">
+            <label className="font-size-14">Attestation</label>
+          </div>
+          <div className="c-col-3 c-cols">
+            <label className="font-size-14">Have I Attestated</label>
+          </div>
+          {/* <div className="c-col-2 c-cols">
+            <label className="font-size-14">Status</label>
+          </div> */}
           <div
             className="c-col-3 c-cols"
             onClick={() => this.clickHeader("proposal.comments")}
