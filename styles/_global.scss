@@ -97,7 +97,7 @@
 ::-webkit-scrollbar-thumb {
   width: 8px !important;
   border-radius: 10px !important;
-  background: #7A48B9 0% 0% no-repeat padding-box;
+  background: #7a48b9 0% 0% no-repeat padding-box;
   box-shadow: 0px 2px 1px #00000072;
 }
 .text-underline {
@@ -117,4 +117,22 @@
 }
 .break-word {
   overflow-wrap: break-word;
+}
+
+.button-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  > .btn {
+    width: 100%;
+  }
+
+  @include media-breakpoint-up(md) {
+    flex-direction: row;
+
+    > .btn {
+      width: auto;
+    }
+  }
 }
