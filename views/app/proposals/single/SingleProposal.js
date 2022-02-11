@@ -30,6 +30,8 @@ import "./single-proposal.scss";
 import Helper from "../../../../utils/Helper";
 import ProposalPosts from "../../shared/proposal-posts/ProposalPosts";
 import { CircularProgressbar } from "react-circular-progressbar";
+import ProposalChangesView from "../../shared/proposal-changes/ProposalChanges";
+import ProposalChangeFormView from "../../shared/proposal-change-form/ProposalChangeForm";
 
 const mapStateToProps = (state) => {
   return {
@@ -313,6 +315,25 @@ class SingleProposal extends Component {
     }
     // Not Admin
     return <PageHeaderComponent title={title} />;
+  }
+
+  // Render Change Content
+  renderChangeContent() {
+    const { showForm, isShowLogs, proposal } = this.state;
+
+    if (showForm) {
+      return (
+        <ProposalChangeFormView proposal={proposal} onClose={this.cancelForm} />
+      );
+    }
+
+    return (
+      isShowLogs &&
+      proposal &&
+      Object.keys(proposal).length > 0 && (
+        <ProposalChangesView proposal={proposal} onShow={this.showForm} />
+      )
+    );
   }
 
   // Render Detail
@@ -769,6 +790,7 @@ class SingleProposal extends Component {
                   ))
               )}
             </>
+            {this.renderChangeContent()}
           </div>
           <div className="right-side">
             {authUser.is_admin ||
