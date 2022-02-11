@@ -300,10 +300,12 @@ class SingleProposalDetail extends Component {
           proposalTemp.total_grant = editionValue.total_grant;
           proposalTemp.grants = proposal.grants.map((x) => ({
             ...x,
-            grant: (
-              (x.grant / proposal.total_grant) *
-              proposalTemp.total_grant
-            ).toFixed(DECIMALS),
+            grant: parseFloat(
+              (
+                (x.grant / proposal.total_grant) *
+                proposalTemp.total_grant
+              ).toFixed(DECIMALS)
+            ),
           }));
           if (proposalTemp.milestones.length < proposal.milestones.length) {
             if (
@@ -415,12 +417,24 @@ class SingleProposalDetail extends Component {
             }
           }
           proposalTemp.grants = grantsData;
+          proposalTemp.total_grant = editionValue.total_grant;
+          proposalTemp.milestones = proposal.milestones.map((x) => ({
+            ...x,
+            grant: parseFloat(
+              (
+                (x.grant / proposal.total_grant) *
+                proposalTemp.total_grant
+              ).toFixed(DECIMALS)
+            ),
+          }));
           whatSection = `${editionField}_update`;
           changeTo = JSON.stringify({
             grants: grantsData,
+            total_grant: editionValue.total_grant,
           });
           additionalNotes = JSON.stringify({
             grants: proposal.grants,
+            total_grant: editionValue.total_grant,
           });
         } else {
           proposalTemp[editionField] = editionValue;
@@ -430,6 +444,7 @@ class SingleProposalDetail extends Component {
         }
       }
       const params = proposalParams(proposalTemp);
+
       this.props.dispatch(
         updateProposalShared(
           { id: proposal.id, type: proposal.type },
@@ -720,7 +735,8 @@ class SingleProposalDetail extends Component {
       canSave = this.checkMembersSection(e.memberChecked, e.members);
     } else if (this.state.editionField === "milestones") {
       val = e;
-      canSave = this.checkMilestoneSection(e.total_grant, e.milestones);
+      val.total_grant = parseFloat(e.total_grant.toFixed(5));
+      canSave = this.checkMilestoneSection(val.total_grant, e.milestones);
     } else if (this.state.editionField === "citations") {
       val = e;
       canSave = this.checkCitationsSection(e.citations);
@@ -735,7 +751,12 @@ class SingleProposalDetail extends Component {
       canSave = this.checkMentorEntity(e);
     } else if (this.state.editionField === "grants") {
       val = e;
-      canSave = !this.checkGrantSection(e);
+      let total = 0;
+      Object.keys(val.grants).forEach(
+        (key) => (total = total + +val.grants[key].grant)
+      );
+      val.total_grant = parseFloat(total.toFixed(5));
+      canSave = !this.checkGrantSection(val);
     } else {
       val = e.target.value;
       if (!val) {
@@ -757,9 +778,8 @@ class SingleProposalDetail extends Component {
     this.setState({ editionValue });
   }
 
-  checkGrantSection() {
-    const { editionValue } = this.state;
-    const { total_grant, grants } = editionValue;
+  checkGrantSection(grantsData) {
+    const { total_grant, grants } = grantsData;
 
     let error = false;
     if (!total_grant || parseFloat(Helper.unformatNumber(total_grant)) <= 0) {
@@ -959,6 +979,7 @@ class SingleProposalDetail extends Component {
     const grants = proposal.grants || [];
     const items = [];
     if (grants) {
+      //day
       grants.forEach((grant, index) => {
         const percent = +grant.grant / +proposal.total_grant;
         items.push(
@@ -971,8 +992,10 @@ class SingleProposalDetail extends Component {
               <span>
                 {this.state.editionField === "milestones" &&
                   Helper.formatPriceNumber(
-                    (percent * this.state.editionValue.total_grant).toFixed(
-                      DECIMALS
+                    parseFloat(
+                      (percent * this.state.editionValue.total_grant).toFixed(
+                        DECIMALS
+                      )
                     )
                   )}
                 {this.state.editionField !== "milestones" &&
@@ -1153,7 +1176,9 @@ class SingleProposalDetail extends Component {
     const milestones = proposal.milestones || [];
     const items = [];
     if (milestones) {
+      // day
       milestones.forEach((milestone, index) => {
+        const percent = +milestone.grant / +proposal.total_grant;
         items.push(
           <div key={`milestone_${index}`}>
             <label className="d-block mt-5 mb-5" style={{ color: "#9B64E6" }}>
@@ -1183,7 +1208,19 @@ class SingleProposalDetail extends Component {
             <label className="font-weight-700 d-block">
               Grant portion requested for this milestone
             </label>
-            <p>{Helper.formatPriceNumber(milestone.grant.toString())}</p>
+            {/* <p>{Helper.formatPriceNumber(milestone.grant.toString())}</p> */}
+            <p>
+              {this.state.editionField === "grants" &&
+                Helper.formatPriceNumber(
+                  parseFloat(
+                    (percent * this.state.editionValue.total_grant).toFixed(
+                      DECIMALS
+                    )
+                  )
+                )}
+              {this.state.editionField !== "grants" &&
+                Helper.formatPriceNumber(milestone.grant)}
+            </p>
             <label className="font-weight-700 d-block">Deadline</label>
             <p>
               {milestone.deadline
@@ -2240,12 +2277,17 @@ class SingleProposalDetail extends Component {
                 </label>
                 <p>
                   {/* {Helper.formatPriceNumber(proposal.total_grant.toString())} */}
-                  {this.state.editionField === "milestones" &&
+                  {/* {this.state.editionField === "milestones" &&
                     Helper.formatPriceNumber(
                       this.state.editionValue.total_grant
                     )}
                   {this.state.editionField !== "milestones" &&
-                    Helper.formatPriceNumber(proposal.total_grant)}
+                    Helper.formatPriceNumber(proposal.total_grant)} */}
+                  {this.state.editionValue.total_grant
+                    ? Helper.formatPriceNumber(
+                        this.state.editionValue.total_grant
+                      )
+                    : Helper.formatPriceNumber(proposal.total_grant)}
                   {this.checkProposalChange("total_grant")}
                 </p>
                 <>
@@ -2404,7 +2446,7 @@ class SingleProposalDetail extends Component {
                   {this.state.editionField === "grants" && (
                     <ProposalGrantView
                       hideLabel
-                      total_grant={proposal.total_grant}
+                      total_grant={this.state.editionValue.total_grant}
                       grants={this.state.editionValue?.grants}
                       onUpdate={(grants) => {
                         this.inputField({
