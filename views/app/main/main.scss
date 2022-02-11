@@ -1,6 +1,7 @@
 #app-main-page {
   display: flex;
   flex-direction: column;
+  height: 100%;
   #app-ballots-wrap {
     display: flex;
     overflow: hidden;
