@@ -144,9 +144,6 @@ class Topics extends Component {
         {data.topics.map((topic) => (
           <li key={`topic_${topic.id}`} onClick={() => this.handleTopic(topic)}>
             <div className="infinite-row">
-              <div className="c-col-0 c-cols">
-                <label className="font-size-14">{topic.proposal?.id}</label>
-              </div>
               <div className="c-col-1 c-cols">
                 <Tooltip title={topic.title} placement="bottom">
                   <label className="font-size-14 font-weight-700">
@@ -174,21 +171,6 @@ class Topics extends Component {
               ) : (
                 ""
               )}
-              <div className="c-col-0 c-cols">
-                <span className="font-size-12">
-                  {topic.proposal?.attestation_rate
-                    ? `${topic.proposal.attestation_rate.toFixed()}%`
-                    : ""}
-                </span>
-              </div>
-              <div className="c-col-3 c-cols">
-                <span className="font-size-12">
-                  {topic.proposal?.is_attestated ? "Yes" : ""}
-                </span>
-              </div>
-              <div className="c-col-2 c-cols">
-                <span className="font-size-12">{topic.proposal?.status}</span>
-              </div>
               <div className="c-col-2 c-cols">
                 <label className="font-size-14">
                   {moment(topic.last_posted_at).local().format("M/D/YYYY")}{" "}
@@ -208,9 +190,6 @@ class Topics extends Component {
     return (
       <div className="infinite-header">
         <div className="infinite-headerInner">
-          <div className="c-col-0 c-cols">
-            <label className="font-size-14">#</label>
-          </div>
           <div className="c-col-1 c-cols">
             <label className="font-size-14">Topic</label>
           </div>
@@ -224,15 +203,6 @@ class Topics extends Component {
           ) : (
             ""
           )}
-          <div className="c-col-0 c-cols">
-            <label className="font-size-14">Attestation</label>
-          </div>
-          <div className="c-col-3 c-cols">
-            <label className="font-size-14">Have I Attestated</label>
-          </div>
-          <div className="c-col-2 c-cols">
-            <label className="font-size-14">Status</label>
-          </div>
           <div className="c-col-2 c-cols">
             <label className="font-size-14">Activity</label>
           </div>
