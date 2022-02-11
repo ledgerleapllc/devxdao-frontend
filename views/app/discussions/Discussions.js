@@ -28,16 +28,16 @@ class Discussions extends Component {
     return (
       <div id="app-discussions-page">
         <Fade distance={"20px"} bottom duration={400} delay={600}>
-          <div className="mb-4">
+          <div className="button-list mb-4">
             <button
               onClick={() => this.props.history.push("/app/topics/create")}
-              className="btn btn-primary small mr-2"
+              className="btn btn-primary small"
             >
               New Topic
             </button>
             <button
               onClick={() => this.props.history.push("/app/messages")}
-              className="btn btn-primary small mr-2"
+              className="btn btn-primary small"
             >
               Messages
             </button>
