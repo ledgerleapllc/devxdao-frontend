@@ -33,6 +33,7 @@ import KycErrorModal from "./kyc-error/KycError";
 import KycGrantModal from "./kyc-grant/KycGrant";
 import ShowDeniedComplianceModal from "./show-denied-compliance/ShowDeniedCompliance";
 import ShuftiRefChangeModal from "./shufti-ref-change/ShuftiRefChange";
+import ShuftiRefUpdateModal from "./shufti-ref-update/ShuftiRefUpdate";
 import MultipleMilestoneSubmitModal from "./multiple-milestone-submit/MultipleMilestoneSubmit";
 import ExportReportSelectionModal from "./export-report-selection/ExportReportSelection";
 import TopicFlagModal from "./topic-flag/TopicFlag";
@@ -50,6 +51,7 @@ export {
   VerifyKYCModal,
   PaymentFormModal,
   ShuftiRefChangeModal,
+  ShuftiRefUpdateModal,
   ViewPaymentFormModal,
   ReviewKYCModal,
   ResetKYCModal,
