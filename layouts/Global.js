@@ -42,6 +42,7 @@ import {
   ListVoterSurveyModal,
   ShowDeniedComplianceModal,
   TopicFlagModal,
+  ShuftiRefUpdateModal,
 } from "../modals";
 
 const mapStateToProps = (state) => {
@@ -164,6 +165,8 @@ class Global extends Component {
               <AdminToolsModal data={this.props.modalData} />
             ) : activeModal == "shufti-ref-change" ? (
               <ShuftiRefChangeModal data={this.props.modalData} />
+            ) : activeModal == "shufti-ref-update" ? (
+              <ShuftiRefUpdateModal data={this.props.modalData} />
             ) : activeModal == "session-timeout" ? (
               <SessionTimeoutModal />
             ) : activeModal == "show-survey-voter-answer" ? (
