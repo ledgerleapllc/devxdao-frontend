@@ -105,9 +105,11 @@ class InformalDone extends Component {
   };
 
   startFormalMilestoneVote = (vote) => {
+    const { onRefresh } = this.props;
     this.props.dispatch(
       startFormalMilestoneVotingUser(
         vote.proposal_id,
+        vote.id,
         () => {
           this.props.dispatch(showCanvas());
         },
@@ -120,6 +122,7 @@ class InformalDone extends Component {
                 "success"
               )
             );
+            if (onRefresh) onRefresh();
           }
         }
       )
