@@ -742,6 +742,16 @@ export function updateShuftiproTemp(params, start, completion) {
   };
 }
 
+// Update Shuftipro Ref Id
+export function updateShuftiproRefId(params, start, completion) {
+  return () => {
+    if (start) start();
+    API.updateShuftiproRefId(params).then((res) => {
+      if (completion) completion(res);
+    });
+  };
+}
+
 // Stake CC - User
 export function stakeCC(proposalId, params, start, completion) {
   return (dispatch) => {

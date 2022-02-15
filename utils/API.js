@@ -343,6 +343,16 @@ class API {
     return sendRequest("/user/shuftipro-temp", params, "PUT", true);
   }
 
+  // Update Shuftipro Ref Id
+  static updateShuftiproRefId(params) {
+    return sendRequest(
+      "/admin/update-shufti-reference-number",
+      params,
+      "POST",
+      true
+    );
+  }
+
   // Stake CC - User
   static stakeCC(proposalId, params) {
     return sendRequest(

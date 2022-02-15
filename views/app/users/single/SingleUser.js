@@ -48,6 +48,7 @@ class SingleUser extends Component {
       user: {},
       loading: false,
       totalStaked: 0,
+      newRefNumber: "",
     };
   }
 
@@ -184,11 +185,40 @@ class SingleUser extends Component {
     await this.props.dispatch(setActiveModal("custom-global-modal"));
   };
 
+  // Click Update Ref
+  clickUpdateRef = async (e) => {
+    e.preventDefault();
+    const { user, newRefNumber } = this.state;
+    let refNumber = user?.shuftipro?.reference_id;
+    if (!newRefNumber || !newRefNumber.trim()) {
+      this.props.dispatch(showAlert("Please input new Shufti REF ID"));
+      return;
+    }
+    if (!newRefNumber.includes("SP_REQUEST_")) {
+      this.props.dispatch(showAlert("Please input valid Shufti REF ID"));
+      return;
+    }
+    if (refNumber === newRefNumber.trim()) {
+      this.props.dispatch(
+        showAlert("New Shufti REF ID should be different from the old one")
+      );
+      return;
+    }
+    await this.props.dispatch(
+      setActiveModal("shufti-ref-update", {
+        user,
+        newRefNumber: newRefNumber.trim(),
+      })
+    );
+  };
+
   // Click Change User AML
   clickChangeShuftiRef = async (e) => {
     e.preventDefault();
-    const { user } = this.state;
-    await this.props.dispatch(setActiveModal("shufti-ref-change", { user }));
+    const { user, newRefNumber } = this.state;
+    await this.props.dispatch(
+      setActiveModal("shufti-ref-change", { user, newRefNumber })
+    );
   };
 
   downloadCSV = () => {
@@ -474,7 +504,7 @@ class SingleUser extends Component {
 
   renderKYCInfo() {
     const { authUser } = this.props;
-    const { user } = this.state;
+    const { user, newRefNumber } = this.state;
     let approvedAt = null;
     let approver = null;
     if (user.shuftipro && user.shuftipro.manual_approved_at)
@@ -612,8 +642,46 @@ class SingleUser extends Component {
               <span>{user?.shuftipro_temp?.invite_id}</span>
             </div>
             <div className="app-sup-row">
-              <label>Shufti REFID</label>
-              <span>{user?.shuftipro?.reference_id}</span>
+              <label>Shufti REF ID</label>
+              <div>
+                <span>{user?.shuftipro?.reference_id}</span>
+                {authUser.is_admin && (
+                  <div
+                    className="mt-1"
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                    }}
+                  >
+                    <input
+                      className="custom-form-control"
+                      value={newRefNumber}
+                      placeholder="Input New Shufti REF ID"
+                      onChange={(e) =>
+                        this.setState({ newRefNumber: e.target.value })
+                      }
+                      style={{
+                        width: "250px",
+                        height: "25px",
+                        padding: "5px 10px",
+                        borderRadius: "3px",
+                        fontWeight: "400",
+                        fontSize: "12px",
+                      }}
+                    />
+                    {newRefNumber &&
+                    newRefNumber !== user?.shuftipro?.reference_id ? (
+                      <button
+                        className="btn btn-primary extra-small"
+                        onClick={this.clickUpdateRef}
+                        style={{ marginLeft: "5px" }}
+                      >
+                        Update
+                      </button>
+                    ) : null}
+                  </div>
+                )}
+              </div>
             </div>
             <div className="app-sup-row">
               <label>Name Verified in KYC kangaroo</label>

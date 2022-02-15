@@ -2,13 +2,12 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { FormInputComponent } from "../../components";
-
 import {
-  hideCanvas,
   removeActiveModal,
   setRefreshSingleUserPage,
   showAlert,
   showCanvas,
+  hideCanvas,
 } from "../../redux/actions";
 import { updateShufti } from "../../utils/Thunk";
 
