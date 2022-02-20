@@ -294,10 +294,13 @@ class ActiveInformalVotes extends Component {
             {this.renderTriangle("timeLeft")}
           </div>
           <div className="c-col-7 c-cols">
+            <label className="font-size-14">Attestation Rate</label>
+          </div>
+          <div className="c-col-8 c-cols">
             <label className="font-size-14">Quorum</label>
           </div>
           <div
-            className="c-col-8 c-cols"
+            className="c-col-9 c-cols"
             onClick={() => this.clickHeader("vote.created_at")}
           >
             <label className="font-size-14">Submitted</label>
@@ -341,10 +344,13 @@ class ActiveInformalVotes extends Component {
             {this.renderTriangle("timeLeft")}
           </div>
           <div className="c-col-5 c-cols">
+            <label className="font-size-14">Attestation Rate</label>
+          </div>
+          <div className="c-col-6 c-cols">
             <label className="font-size-14">Quorum</label>
           </div>
           <div
-            className="c-col-6 c-cols"
+            className="c-col-7 c-cols"
             onClick={() => this.clickHeader("vote.created_at")}
           >
             <label className="font-size-14">Submitted</label>
@@ -488,11 +494,14 @@ class ActiveInformalVotes extends Component {
                 </div>
               </div>
               <div className="c-col-7 c-cols">
+                <label className="font-size-14 d-block">{vote.rate}%</label>
+              </div>
+              <div className="c-col-8 c-cols">
                 <label className="font-size-14 d-block">
                   {this.renderQuorum(vote)}
                 </label>
               </div>
-              <div className="c-col-8 c-cols">
+              <div className="c-col-9 c-cols">
                 <label className="font-size-14 d-block">
                   {moment(vote.created_at).local().format("M/D/YYYY")}{" "}
                   {moment(vote.created_at).local().format("h:mm A")}
@@ -531,11 +540,14 @@ class ActiveInformalVotes extends Component {
                 </div>
               </div>
               <div className="c-col-5 c-cols">
+                <label className="font-size-14 d-block">{vote.rate}%</label>
+              </div>
+              <div className="c-col-6 c-cols">
                 <label className="font-size-14 d-block">
                   {this.renderQuorum(vote)}
                 </label>
               </div>
-              <div className="c-col-6 c-cols">
+              <div className="c-col-7 c-cols">
                 <label className="font-size-14 d-block">
                   {moment(vote.created_at).local().format("M/D/YYYY")}{" "}
                   {moment(vote.created_at).local().format("h:mm A")}
