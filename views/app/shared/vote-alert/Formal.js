@@ -319,7 +319,7 @@ class Formal extends Component {
       return (
         <form action="" method="POST" onSubmit={(e) => e.preventDefault()}>
           <div id="app-spd-formal-process-header">
-            <label>Active Tighly Coupled Vote</label>
+            <label>Active Tightly Coupled Vote</label>
             <Icon.Info size={16} />
           </div>
           <div id="app-spd-formal-process-body">
