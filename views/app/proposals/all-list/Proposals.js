@@ -10,7 +10,7 @@ import {
 import { GlobalRelativeCanvasComponent } from "../../../../components";
 import Tooltip from "@material-ui/core/Tooltip";
 import "./proposals.scss";
-import { hideCanvas, showCanvas } from "../../../../redux/actions";
+import { hideCanvas, showAlert, showCanvas } from "../../../../redux/actions";
 import { PROPOSAL_TYPES } from "../../../../utils/enum";
 
 // eslint-disable-next-line no-undef
@@ -126,12 +126,18 @@ class Proposals extends Component {
           this.props.dispatch(showCanvas());
         },
         (res) => {
-          const url = window.URL.createObjectURL(new Blob([res]));
-          const link = document.createElement("a");
-          link.href = url;
-          link.setAttribute("download", "all-proposals.csv");
-          document.body.appendChild(link);
-          link.click();
+          if (res.type === "application/json" || res.success === false) {
+            this.props.dispatch(
+              showAlert("You can't download this file. Try again later.")
+            );
+          } else {
+            const url = window.URL.createObjectURL(new Blob([res]));
+            const link = document.createElement("a");
+            link.href = url;
+            link.setAttribute("download", "all-proposals.csv");
+            document.body.appendChild(link);
+            link.click();
+          }
           this.props.dispatch(hideCanvas());
         }
       )

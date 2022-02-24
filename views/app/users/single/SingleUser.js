@@ -231,12 +231,18 @@ class SingleUser extends Component {
           this.props.dispatch(showCanvas());
         },
         (res) => {
-          const url = window.URL.createObjectURL(new Blob([res]));
-          const link = document.createElement("a");
-          link.href = url;
-          link.setAttribute("download", `user-${user.id}-rep.csv`);
-          document.body.appendChild(link);
-          link.click();
+          if (res.type === "application/json" || res.success === false) {
+            this.props.dispatch(
+              showAlert("You can't download this file. Try again later.")
+            );
+          } else {
+            const url = window.URL.createObjectURL(new Blob([res]));
+            const link = document.createElement("a");
+            link.href = url;
+            link.setAttribute("download", `user-${user.id}-rep.csv`);
+            document.body.appendChild(link);
+            link.click();
+          }
           this.props.dispatch(hideCanvas());
         }
       )
@@ -253,12 +259,18 @@ class SingleUser extends Component {
           this.props.dispatch(showCanvas());
         },
         (res) => {
-          const url = window.URL.createObjectURL(new Blob([res]));
-          const link = document.createElement("a");
-          link.href = url;
-          link.setAttribute("download", `user-mentor.csv`);
-          document.body.appendChild(link);
-          link.click();
+          if (res.type === "application/json" || res.success === false) {
+            this.props.dispatch(
+              showAlert("You can't download this file. Try again later.")
+            );
+          } else {
+            const url = window.URL.createObjectURL(new Blob([res]));
+            const link = document.createElement("a");
+            link.href = url;
+            link.setAttribute("download", `user-mentor.csv`);
+            document.body.appendChild(link);
+            link.click();
+          }
           this.props.dispatch(hideCanvas());
         }
       )
