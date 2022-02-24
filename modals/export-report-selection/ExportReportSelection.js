@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { removeActiveModal, showCanvas, hideCanvas } from "../../redux/actions";
+import {
+  removeActiveModal,
+  showCanvas,
+  hideCanvas,
+  showAlert,
+} from "../../redux/actions";
 import "./style.scss";
 import { FROM_YEAR } from "../../utils/Constant";
 import Checkbox from "../../components/check-box/Checkbox";
@@ -58,12 +63,18 @@ class ExportReportSelection extends Component {
           this.props.dispatch(showCanvas());
         },
         (res) => {
-          const url = window.URL.createObjectURL(new Blob([res]));
-          const link = document.createElement("a");
-          link.href = url;
-          link.setAttribute("download", "report.pdf");
-          document.body.appendChild(link);
-          link.click();
+          if (res.type === "application/json" || res.success === false) {
+            this.props.dispatch(
+              showAlert("You can't download this file. Try again later.")
+            );
+          } else {
+            const url = window.URL.createObjectURL(new Blob([res]));
+            const link = document.createElement("a");
+            link.href = url;
+            link.setAttribute("download", "report.pdf");
+            document.body.appendChild(link);
+            link.click();
+          }
           this.props.dispatch(hideCanvas());
           this.hideModal();
         }
