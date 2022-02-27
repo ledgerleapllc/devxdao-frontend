@@ -3,7 +3,12 @@ import { Redirect, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import Helper from "../../../utils/Helper";
 import "./accounting.scss";
-import { downloadCSVAccounting, getMetrics } from "../../../utils/Thunk";
+import {
+  downloadCSVAccounting,
+  getMetrics,
+  downloadAllRep,
+  downloadAllVotes,
+} from "../../../utils/Thunk";
 import { hideCanvas, showAlert, showCanvas } from "../../../redux/actions";
 import DatePicker from "react-date-picker/dist/entry.nostyle";
 import DosFeeTable from "./components/DosFeeTable";
@@ -123,6 +128,58 @@ class Accounting extends Component {
     this.setState({ total });
   };
 
+  downloadVARep = () => {
+    this.props.dispatch(
+      downloadAllRep(
+        {},
+        () => {
+          this.props.dispatch(showCanvas());
+        },
+        (res) => {
+          if (res.type === "application/json" || res.success === false) {
+            this.props.dispatch(
+              showAlert("You can't download this file. Try again later.")
+            );
+          } else {
+            const url = window.URL.createObjectURL(new Blob([res]));
+            const link = document.createElement("a");
+            link.href = url;
+            link.setAttribute("download", "all-va-rep.csv");
+            document.body.appendChild(link);
+            link.click();
+          }
+          this.props.dispatch(hideCanvas());
+        }
+      )
+    );
+  };
+
+  downloadVotesCSV = () => {
+    this.props.dispatch(
+      downloadAllVotes(
+        {},
+        () => {
+          this.props.dispatch(showCanvas());
+        },
+        (res) => {
+          if (res.type === "application/json" || res.success === false) {
+            this.props.dispatch(
+              showAlert("You can't download this file. Try again later.")
+            );
+          } else {
+            const url = window.URL.createObjectURL(new Blob([res]));
+            const link = document.createElement("a");
+            link.href = url;
+            link.setAttribute("download", "all-votes.csv");
+            document.body.appendChild(link);
+            link.click();
+          }
+          this.props.dispatch(hideCanvas());
+        }
+      )
+    );
+  };
+
   render() {
     const { authUser } = this.props;
     const { metrics, total, params } = this.state;
@@ -133,7 +190,23 @@ class Accounting extends Component {
     return (
       <div id="accounting-page">
         <section className="app-simple-section mb-4">
-          <label>System metrics</label>
+          <div className="d-flex justify-content-between">
+            <label>System metrics</label>
+            <div>
+              <button
+                className="mr-4 btn btn-primary btn-download small ml-2"
+                onClick={() => this.downloadVARep()}
+              >
+                All VA rep
+              </button>
+              <button
+                className="mr-4 btn btn-primary btn-download small ml-2"
+                onClick={() => this.downloadVotesCSV()}
+              >
+                All votes CSV
+              </button>
+            </div>
+          </div>
           <div className="box">
             <div>
               <label className="pr-3">Sum of grants activated:</label>
