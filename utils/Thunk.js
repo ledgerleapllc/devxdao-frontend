@@ -2278,6 +2278,26 @@ export function downloadCurrentDownvoteByProposal(
 }
 
 // Get All Proposal Milestones - Admin
+export function downloadAllVotes(params, start, completion) {
+  return () => {
+    if (start) start();
+    API.downloadAllVotes(params).then((res) => {
+      if (completion) completion(res);
+    });
+  };
+}
+
+// Get All Proposal Milestones - Admin
+export function downloadAllRep(params, start, completion) {
+  return () => {
+    if (start) start();
+    API.downloadAllRep(params).then((res) => {
+      if (completion) completion(res);
+    });
+  };
+}
+
+// Get All Proposal Milestones - Admin
 export function approveComplianceReview(params, start, completion) {
   return () => {
     if (start) start();
