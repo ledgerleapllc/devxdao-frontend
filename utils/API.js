@@ -1626,6 +1626,14 @@ class API {
     );
   }
 
+  static downloadAllRep(params = {}) {
+    return sendRequest(`/admin/export-all-rep`, params, "GET", true, "blob");
+  }
+
+  static downloadAllVotes(params = {}) {
+    return sendRequest(`/admin/export-all-vote`, params, "GET", true, "blob");
+  }
+
   // Milestone Review - Admin
   static downloadCSVAllProposals(params = {}) {
     return sendRequest(
