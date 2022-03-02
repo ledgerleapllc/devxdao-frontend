@@ -43,9 +43,7 @@ class Accounting extends Component {
         (res) => {
           this.props.dispatch(hideCanvas());
           if (res.success) {
-            const metrics = {
-              totalGrant: res.data.totalGrant,
-            };
+            const metrics = res.data;
             this.setState({
               metrics,
             });
@@ -213,6 +211,26 @@ class Accounting extends Component {
               <span>
                 {Helper.formatPriceNumber(metrics?.totalGrant || 0, "€")}
               </span>
+            </div>
+            <div>
+              <label className="pr-3">Current total users registered:</label>
+              <span>{metrics?.totalUserRegisted}</span>
+            </div>
+            <div>
+              <label className="pr-3">Current number of VAs:</label>
+              <span>{metrics?.totalVAs}</span>
+            </div>
+            <div>
+              <label className="pr-3">Number of proposals submitted:</label>
+              <span>{metrics?.totalProposalSubmitted}</span>
+            </div>
+            <div>
+              <label className="pr-3">Number of grants activated:</label>
+              <span>{metrics?.totalGrantActive}</span>
+            </div>
+            <div>
+              <label className="pr-3">Number of grants completed:</label>
+              <span>{metrics?.totalGrantCompleted}</span>
             </div>
           </div>
         </section>
