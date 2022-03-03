@@ -43,6 +43,7 @@ import {
   ShowDeniedComplianceModal,
   TopicFlagModal,
   ShuftiRefUpdateModal,
+  DaysReportModal,
 } from "../modals";
 
 const mapStateToProps = (state) => {
@@ -195,6 +196,8 @@ class Global extends Component {
               <MilestoneVoteModal data={this.props.modalData} />
             ) : activeModal == "topic-flag" ? (
               <TopicFlagModal data={this.props.modalData} />
+            ) : activeModal == "days-report" ? (
+              <DaysReportModal data={this.props.modalData} />
             ) : null}
           </div>
         ) : null}
