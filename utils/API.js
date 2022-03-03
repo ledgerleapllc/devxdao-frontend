@@ -1956,6 +1956,15 @@ class API {
   static submitPaymentProposal(params = {}) {
     return sendRequest("/user/advance-payment-proposal", params, "POST", true);
   }
+
+  // 30 days report
+  static getMetricDiscussions(params = {}) {
+    return sendRequest("/shared/metric-discussions", params, "GET", true);
+  }
+
+  static getReportDiscussions(params = {}) {
+    return sendRequest("/shared/report-discussions", params, "GET", true);
+  }
 }
 
 export default API;

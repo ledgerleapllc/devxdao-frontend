@@ -2683,3 +2683,24 @@ export function submitDownvoteSurvey(id, body, start, completion) {
     });
   };
 }
+
+// 30 Days report
+export function getMetricDiscussions(params, start, completion) {
+  return (dispatch) => {
+    if (start) start();
+    API.getMetricDiscussions(params).then((res) => {
+      if (!res.success) dispatch(showAlert(res.message));
+      if (completion) completion(res);
+    });
+  };
+}
+
+export function getReportDiscussions(params, start, completion) {
+  return (dispatch) => {
+    if (start) start();
+    API.getReportDiscussions(params).then((res) => {
+      if (!res.success) dispatch(showAlert(res.message));
+      if (completion) completion(res);
+    });
+  };
+}
