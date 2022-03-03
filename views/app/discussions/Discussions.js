@@ -5,6 +5,7 @@ import { Fade } from "react-reveal";
 import DiscussionsView from "../shared/discussions/Discussions";
 
 import "./discussions.scss";
+import { setActiveModal } from "../../../redux/actions";
 
 const mapStateToProps = (state) => {
   return {
@@ -19,6 +20,10 @@ class Discussions extends Component {
       tab: "active",
     };
   }
+
+  openDayReportDialog = () => {
+    this.props.dispatch(setActiveModal("days-report"));
+  };
 
   render() {
     const { tab } = this.state;
@@ -46,6 +51,13 @@ class Discussions extends Component {
               className="btn btn-primary small"
             >
               Notifications
+            </button>
+
+            <button
+              className="btn btn-primary small"
+              onClick={this.openDayReportDialog}
+            >
+              30 Day Report
             </button>
           </div>
         </Fade>

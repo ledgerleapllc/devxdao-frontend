@@ -37,6 +37,7 @@ import ShuftiRefUpdateModal from "./shufti-ref-update/ShuftiRefUpdate";
 import MultipleMilestoneSubmitModal from "./multiple-milestone-submit/MultipleMilestoneSubmit";
 import ExportReportSelectionModal from "./export-report-selection/ExportReportSelection";
 import TopicFlagModal from "./topic-flag/TopicFlag";
+import DaysReportModal from "./30-days-report/30DaysReport";
 
 export {
   UserReviewModal,
@@ -78,4 +79,5 @@ export {
   ResendKycModal,
   ShowDeniedComplianceModal,
   TopicFlagModal,
+  DaysReportModal,
 };
