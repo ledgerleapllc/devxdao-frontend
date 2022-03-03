@@ -42,6 +42,8 @@ class GlobalSettings extends Component {
       autoactivate_grants: "",
       gate_new_grant_votes: "",
       gate_new_milestone_votes: "",
+      autostart_threshhold: "",
+      autostart_if_attested: "",
       time_before_op_informal: "",
       time_unit_before_op_informal: "",
       time_before_op_informal_simple: "",
@@ -110,6 +112,7 @@ class GlobalSettings extends Component {
       autoactivate_grants: settings.autoactivate_grants || "",
       gate_new_grant_votes: settings.gate_new_grant_votes || "",
       gate_new_milestone_votes: settings.gate_new_milestone_votes || "",
+      autostart_if_attested: settings.autostart_if_attested || "",
       time_before_op_informal: settings.time_before_op_informal || "",
       time_unit_before_op_informal: settings.time_unit_before_op_informal || "",
       time_before_op_informal_simple:
@@ -140,6 +143,7 @@ class GlobalSettings extends Component {
       cfo_email: settings.cfo_email || "",
       board_member_email: settings.board_member_email || "",
       compliance_admin: settings.compliance_admin || "",
+      autostart_threshhold: settings.autostart_threshhold || "",
       // president_email: settings.president_email || "",
       need_to_approve: settings.need_to_approve || "",
     });
@@ -230,6 +234,7 @@ class GlobalSettings extends Component {
       autoactivate_grants,
       gate_new_grant_votes,
       gate_new_milestone_votes,
+      autostart_if_attested,
       time_before_op_informal,
       time_unit_before_op_informal,
       time_before_op_informal_simple,
@@ -258,6 +263,7 @@ class GlobalSettings extends Component {
       cfo_email,
       board_member_email,
       compliance_admin,
+      autostart_threshhold,
       // president_email,
       need_to_approve,
     } = this.state;
@@ -281,6 +287,15 @@ class GlobalSettings extends Component {
       this.props.dispatch(
         showAlert("Please input valid Compliance Admin Email")
       );
+      return;
+    }
+
+    if (
+      !autostart_threshhold ||
+      autostart_threshhold > 100 ||
+      autostart_threshhold < 0
+    ) {
+      this.props.dispatch(showAlert("Please input valid attested threshold"));
       return;
     }
 
@@ -481,6 +496,7 @@ class GlobalSettings extends Component {
       board_member_email,
       compliance_admin,
       // president_email,
+      autostart_threshhold,
       time_before_op_do,
       time_unit_before_op_do,
       can_op_start_informal,
@@ -491,6 +507,7 @@ class GlobalSettings extends Component {
       autoactivate_grants,
       gate_new_grant_votes,
       gate_new_milestone_votes,
+      autostart_if_attested,
       time_before_op_informal,
       time_unit_before_op_informal,
       time_before_op_informal_simple,
@@ -560,6 +577,7 @@ class GlobalSettings extends Component {
       cfo_email,
       board_member_email,
       compliance_admin,
+      autostart_threshhold,
       // president_email,
       time_before_op_do,
       time_unit_before_op_do,
@@ -595,6 +613,7 @@ class GlobalSettings extends Component {
       autoactivate_grants,
       gate_new_grant_votes,
       gate_new_milestone_votes,
+      autostart_if_attested,
     } = this.state;
 
     return (
@@ -949,6 +968,44 @@ class GlobalSettings extends Component {
                 )}
                 <label>No</label>
               </div>
+            </div>
+          </div>
+          <div className="c-form-row">
+            <label>Autostart if attested</label>
+            <div>
+              <div
+                className="c-form-check"
+                onClick={() => this.setCheckbox("yes", "autostart_if_attested")}
+              >
+                {autostart_if_attested == "yes" ? (
+                  <Icon.CheckSquare color="#9B64E6" />
+                ) : (
+                  <Icon.Square color="#9B64E6" />
+                )}
+                <label>Yes</label>
+              </div>
+              <div
+                className="c-form-check"
+                onClick={() => this.setCheckbox("no", "autostart_if_attested")}
+              >
+                {autostart_if_attested == "no" ? (
+                  <Icon.CheckSquare color="#9B64E6" />
+                ) : (
+                  <Icon.Square color="#9B64E6" />
+                )}
+                <label>No</label>
+              </div>
+            </div>
+          </div>
+          <div className="c-form-row">
+            <label>Autostart threshhold</label>
+            <div>
+              <input
+                type="text"
+                value={autostart_threshhold}
+                onChange={(e) => this.inputIntField(e, "autostart_threshhold")}
+                disabled={!editing}
+              />
             </div>
           </div>
           <div className="c-form-row">
