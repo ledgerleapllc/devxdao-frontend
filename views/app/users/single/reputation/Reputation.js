@@ -160,7 +160,9 @@ class Reputation extends Component {
         <li key={`reputation_${item.id}`}>
           <div className="infinite-row">
             <div className="c-col-1 c-cols">
-              <label className="font-size-14">{item.event}</label>
+              <label className="font-size-14 text-pre-wrap">
+                {item.event} {!!item.email && <>({item.email})</>}
+              </label>
             </div>
             <div className="c-col-2 c-cols">
               <label className="font-size-14 font-weight-700">
