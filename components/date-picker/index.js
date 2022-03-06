@@ -13,7 +13,7 @@ export default function BasicDatePicker({ value, onChange }) {
         <KeyboardDatePicker
           disableToolbar
           variant="inline"
-          format="MM/dd/yyyy"
+          format="dd/MM/yyyy"
           margin="normal"
           label=""
           value={value || null}

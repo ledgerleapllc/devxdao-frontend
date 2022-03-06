@@ -493,7 +493,7 @@ class ActiveFormalVotes extends Component {
                 </div>
               </div>
               <div className="c-col-7 c-cols">
-                <label className="font-size-14">{vote.rate}%</label>
+                <label className="font-size-14">{vote.rate?.toFixed(2)}%</label>
               </div>
               <div className="c-col-8 c-cols">{this.renderQuorum(vote)}</div>
               <div className="c-col-9 c-cols">
@@ -535,7 +535,7 @@ class ActiveFormalVotes extends Component {
                 </div>
               </div>
               <div className="c-col-5 c-cols">
-                <label className="font-size-14">{vote.rate}%</label>
+                <label className="font-size-14">{vote.rate?.toFixed(2)}%</label>
               </div>
               <div className="c-col-6 c-cols">
                 <label className="font-size-14">
