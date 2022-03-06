@@ -37,7 +37,7 @@ import {
 } from "../../../../utils/Thunk";
 
 import "./single-proposal-detail.scss";
-import { FormSelectComponent } from "../../../../components";
+import { FormSelectComponent, BasicDatePicker } from "../../../../components";
 import {
   Card,
   CardHeader,
@@ -757,6 +757,11 @@ class SingleProposalDetail extends Component {
       );
       val.total_grant = parseFloat(total.toFixed(5));
       canSave = !this.checkGrantSection(val);
+    } else if (this.state.editionField === "delivered_at") {
+      val = format(new Date(new Date(e).toLocaleDateString()), "yyyy-MM-dd");
+      if (!val) {
+        canSave = false;
+      }
     } else {
       val = e.target.value;
       if (!val) {
@@ -1937,15 +1942,28 @@ class SingleProposalDetail extends Component {
                           )}
                         </>
                         <>
-                          <label className="font-weight-700 d-block">
-                            {`When will this be delivered`}
-                          </label>
-                          <p className="text-pre-wrap">
-                            {format(
-                              new Date(proposal.delivered_at),
-                              "dd/MM/yyyy"
-                            )}
-                          </p>
+                          {this.renderLabelEdition(
+                            "When will this be delivered",
+                            "delivered_at",
+                            proposal.delivered_at
+                          )}
+                          {this.state.editionField !== "delivered_at" && (
+                            <p className="text-pre-wrap">
+                              {format(
+                                new Date(proposal.delivered_at),
+                                "dd/MM/yyyy"
+                              )}
+                              {this.checkProposalChange("delivered_at")}
+                            </p>
+                          )}
+                          {this.state.editionField === "delivered_at" && (
+                            <div className="c-form-row">
+                              <BasicDatePicker
+                                value={this.state.editionValue}
+                                onChange={(e) => this.inputField(e)}
+                              />
+                            </div>
+                          )}
                         </>
                         <>
                           {this.renderLabelEdition(

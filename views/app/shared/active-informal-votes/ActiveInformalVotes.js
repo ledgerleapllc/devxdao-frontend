@@ -494,7 +494,9 @@ class ActiveInformalVotes extends Component {
                 </div>
               </div>
               <div className="c-col-7 c-cols">
-                <label className="font-size-14 d-block">{vote.rate}%</label>
+                <label className="font-size-14 d-block">
+                  {vote.rate?.toFixed(2)}%
+                </label>
               </div>
               <div className="c-col-8 c-cols">
                 <label className="font-size-14 d-block">
@@ -540,7 +542,9 @@ class ActiveInformalVotes extends Component {
                 </div>
               </div>
               <div className="c-col-5 c-cols">
-                <label className="font-size-14 d-block">{vote.rate}%</label>
+                <label className="font-size-14 d-block">
+                  {vote.rate?.toFixed(2)}%
+                </label>
               </div>
               <div className="c-col-6 c-cols">
                 <label className="font-size-14 d-block">
