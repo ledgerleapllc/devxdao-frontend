@@ -283,39 +283,25 @@ class Settings extends Component {
     const { code_new, email } = this.state;
 
     this.props.dispatch(
-      check2FA(
-        code_new,
+      updateAccountInfo(
+        { email, code: code_new },
         () => {
           this.props.dispatch(showCanvas());
         },
         (res) => {
-          if (res.success && email) {
+          this.props.dispatch(hideCanvas());
+          if (res.success) {
+            this.clearEmailStep();
             this.props.dispatch(
-              updateAccountInfo(
-                { email },
-                () => {},
-                (res) => {
-                  this.props.dispatch(hideCanvas());
-                  if (res.success) {
-                    this.clearEmailStep();
-                    this.props.dispatch(
-                      showAlert(
-                        "You've changed your email successfully!",
-                        "success"
-                      )
-                    );
-                  }
-                }
-              )
+              showAlert("You've changed your email successfully!", "success")
             );
-          } else this.props.dispatch(hideCanvas());
+          }
         }
       )
     );
   };
 
-  clearEmailStep = (e) => {
-    e.preventDefault();
+  clearEmailStep = () => {
     this.setState({ email: "", emailStep: 0, code: "", code_new: "" });
   };
 
