@@ -758,7 +758,11 @@ class SingleProposalDetail extends Component {
       val.total_grant = parseFloat(total.toFixed(5));
       canSave = !this.checkGrantSection(val);
     } else if (this.state.editionField === "delivered_at") {
-      val = format(new Date(new Date(e).toLocaleDateString()), "yyyy-MM-dd");
+      try {
+        val = format(new Date(e), "yyyy-MM-dd");
+      } catch (e) {
+        canSave = false;
+      }
       if (!val) {
         canSave = false;
       }
