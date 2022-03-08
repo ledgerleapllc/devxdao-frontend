@@ -28,7 +28,7 @@ class Discussions extends Component {
     this.state = {
       loading: false,
       proposals: [],
-      sort_key: "proposal.id",
+      sort_key: "id",
       sort_direction: "desc",
       search: "",
       page_id: 1,
