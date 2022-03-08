@@ -305,24 +305,24 @@ class Discussions extends Component {
         <div className="infinite-headerInner">
           <div
             className="c-col-0 c-cols"
-            onClick={() => this.clickHeader("proposal.id")}
+            onClick={() => this.clickHeader("id")}
           >
             <label className="font-size-14">#</label>
-            {this.renderTriangle("proposal.id")}
+            {this.renderTriangle("id")}
           </div>
           <div
             className="c-col-1 c-cols"
-            onClick={() => this.clickHeader("proposal.title")}
+            onClick={() => this.clickHeader("title")}
           >
             <label className="font-size-14">Forums</label>
-            {this.renderTriangle("proposal.title")}
+            {this.renderTriangle("title")}
           </div>
           <div
             className="c-col-2 c-cols"
-            onClick={() => this.clickHeader("proposal.approved_at")}
+            onClick={() => this.clickHeader("approved_at")}
           >
             <label className="font-size-14">Time Active</label>
-            {this.renderTriangle("proposal.approved_at")}
+            {this.renderTriangle("approved_at")}
           </div>
           <div
             className="c-col-3 c-cols"
@@ -343,24 +343,24 @@ class Discussions extends Component {
           </div> */}
           <div
             className="c-col-5 c-cols"
-            onClick={() => this.clickHeader("proposal.comments")}
+            onClick={() => this.clickHeader("comments")}
           >
             <label className="font-size-14">Comments</label>
-            {this.renderTriangle("proposal.comments")}
+            {this.renderTriangle("comments")}
           </div>
           <div
             className="c-col-6 c-cols"
-            onClick={() => this.clickHeader("proposal.changes")}
+            onClick={() => this.clickHeader("changes")}
           >
             <label className="font-size-14">Changes</label>
-            {this.renderTriangle("proposal.changes")}
+            {this.renderTriangle("changes")}
           </div>
           <div
             className="c-col-7 c-cols"
-            onClick={() => this.clickHeader("proposal.created_at")}
+            onClick={() => this.clickHeader("created_at")}
           >
             <label className="font-size-14">Date</label>
-            {this.renderTriangle("proposal.created_at")}
+            {this.renderTriangle("created_at")}
           </div>
         </div>
       </div>
