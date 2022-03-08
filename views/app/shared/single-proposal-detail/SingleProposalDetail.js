@@ -758,7 +758,7 @@ class SingleProposalDetail extends Component {
       canSave = !this.checkGrantSection(val);
     } else if (this.state.editionField === "delivered_at") {
       try {
-         val = moment(e).local().format("YYYY-MM-DD");
+        val = moment(e).local().format("YYYY-MM-DD");
       } catch (e) {
         canSave = false;
       }
