@@ -466,7 +466,7 @@ class SingleProposal extends Component {
             <div className="app-simple-section topic-reads-chart">
               <CircularProgressbar
                 value={attestationData.attestation_rate || 0}
-                text={`${attestationData.attestation_rate?.toFixed() || 0}%`}
+                text={`${attestationData.attestation_rate?.toFixed(2) || 0}%`}
               />
             </div>
           ) : (
