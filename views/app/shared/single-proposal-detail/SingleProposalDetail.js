@@ -9,7 +9,6 @@ import { PROPOSAL_TYPES } from "../../../../utils/enum";
 import ProposalTeamView from "../../shared/proposal-team/ProposalTeam";
 import ProposalMilestoneView from "../../shared/proposal-milestone/ProposalMilestone";
 import ProposalCitationView from "../../shared/proposal-citation/ProposalCitation";
-import { format } from "date-fns";
 import ProposalGrantView from "../../shared/proposal-grant/ProposalGrant";
 import {
   BRAND,
