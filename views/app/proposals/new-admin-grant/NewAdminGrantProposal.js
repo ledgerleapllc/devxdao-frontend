@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import * as Icon from "react-feather";
 import Dropzone from "react-dropzone";
+import moment from "moment";
 import { Fade } from "react-reveal";
 import { hideCanvas, showAlert, showCanvas } from "../../../../redux/actions";
 import {
@@ -15,7 +16,6 @@ import * as yup from "yup";
 import "./new-admin-grant-proposal.scss";
 import { useHistory } from "react-router";
 import { useDispatch } from "react-redux";
-import { format } from "date-fns";
 
 const schema = yup.object().shape({
   title: yup.string().required(),
@@ -34,10 +34,7 @@ const NewAdminGrantProposal = () => {
   const dispatch = useDispatch();
 
   const onSubmit = (data) => {
-    data.delivered_at = format(
-      new Date(new Date(data.delivered_at).toLocaleDateString()),
-      "yyyy-MM-dd"
-    );
+    data.delivered_at = moment(data.delivered_at).local().format("YYYY-MM-DD");
     dispatch(
       submitAdminGrantProposal(
         data,
