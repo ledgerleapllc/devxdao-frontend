@@ -52,11 +52,11 @@ const sendRequest = (
                 ...data,
                 message: "Please try again later",
               };
-            } else if (!data.success && data.message === "Not authorized") {
-              Helper.removeUser();
-              window.location.href = "/login";
-              return;
-            }
+            // } else if (!data.success && data.message === "Not authorized") {
+            //   Helper.removeUser();
+            //   window.location.href = "/login";
+            //   return;
+            // }
             resolve(data);
           } else {
             resolve(data);
