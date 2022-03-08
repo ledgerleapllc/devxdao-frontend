@@ -759,7 +759,7 @@ class SingleProposalDetail extends Component {
       canSave = !this.checkGrantSection(val);
     } else if (this.state.editionField === "delivered_at") {
       try {
-        val = format(new Date(e), "yyyy-MM-dd");
+         val = moment(e).local().format("YYYY-MM-DD");
       } catch (e) {
         canSave = false;
       }
@@ -1791,7 +1791,9 @@ class SingleProposalDetail extends Component {
                         {`When will this be delivered`}
                       </label>
                       <p className="text-pre-wrap">
-                        {format(new Date(proposal.delivered_at), "dd/MM/yyyy")}
+                        {moment(proposal.delivered_at)
+                          .local()
+                          .format("DD/MM/YYYY")}
                       </p>
                       <label className="font-weight-700 d-block">
                         {`Other notes`}
@@ -1953,17 +1955,20 @@ class SingleProposalDetail extends Component {
                           )}
                           {this.state.editionField !== "delivered_at" && (
                             <p className="text-pre-wrap">
-                              {format(
-                                new Date(proposal.delivered_at),
-                                "dd/MM/yyyy"
-                              )}
+                              {moment(proposal.delivered_at)
+                                .local()
+                                .format("DD/MM/YYYY")}
                               {this.checkProposalChange("delivered_at")}
                             </p>
                           )}
                           {this.state.editionField === "delivered_at" && (
                             <div className="c-form-row">
                               <BasicDatePicker
-                                value={this.state.editionValue}
+                                value={
+                                  this.state.editionValue
+                                    ? moment(this.state.editionValue).local()
+                                    : null
+                                }
                                 onChange={(e) => this.inputField(e)}
                               />
                             </div>
