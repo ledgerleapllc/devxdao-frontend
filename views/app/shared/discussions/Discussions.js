@@ -235,7 +235,7 @@ class Discussions extends Component {
             <div className="c-col-0 c-cols">
               <span className="font-size-12">
                 {item.attestation?.rate
-                  ? `${item.attestation.rate.toFixed()}%`
+                  ? `${item.attestation.rate.toFixed(2)}%`
                   : ""}
               </span>
             </div>
