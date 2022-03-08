@@ -111,7 +111,7 @@ class DaysReport extends Component {
               {moment(item.created_at).local().format("h:mm A")}
             </div>
             <div className="c-col-2 c-cols text-center">
-              {item.attestation_rate.toFixed()}%
+              {item.attestation_rate.toFixed(2)}%
             </div>
             <div className="c-col-3 c-cols text-center text-capitalize">
               {item.content_type}

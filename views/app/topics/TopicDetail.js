@@ -161,7 +161,7 @@ class TopicDetail extends Component {
                   <CircularProgressbar
                     value={attestationData.attestation_rate || 0}
                     text={`${
-                      attestationData.attestation_rate?.toFixed() || 0
+                      attestationData.attestation_rate?.toFixed(2) || 0
                     }%`}
                   />
                 </div>
