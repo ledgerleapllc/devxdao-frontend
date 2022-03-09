@@ -261,38 +261,38 @@ class Proposals extends Component {
                 <div className="infinite-headerInner">
                   <div
                     className="c-col-0 c-cols"
-                    onClick={() => this.clickHeader("proposal.id")}
+                    onClick={() => this.clickHeader("id")}
                   >
                     <label className="font-size-14">#</label>
-                    {this.renderTriangle("proposal.id")}
+                    {this.renderTriangle("id")}
                   </div>
                   <div
                     className="c-col-1 c-cols"
-                    onClick={() => this.clickHeader("proposal.title")}
+                    onClick={() => this.clickHeader("title")}
                   >
                     <label className="font-size-14">Title</label>
-                    {this.renderTriangle("proposal.title")}
+                    {this.renderTriangle("title")}
                   </div>
                   <div
                     className="c-col-2 c-cols"
-                    onClick={() => this.clickHeader("proposal.comments")}
+                    onClick={() => this.clickHeader("topic_posts_count")}
                   >
                     <label className="font-size-14">Comments</label>
-                    {this.renderTriangle("proposal.comments")}
+                    {this.renderTriangle("topic_posts_count")}
                   </div>
                   <div
                     className="c-col-3 c-cols"
-                    onClick={() => this.clickHeader("proposal.changes")}
+                    onClick={() => this.clickHeader("changes")}
                   >
                     <label className="font-size-14">Changes</label>
-                    {this.renderTriangle("proposal.changes")}
+                    {this.renderTriangle("changes")}
                   </div>
                   <div
                     className="c-col-4 c-cols"
-                    onClick={() => this.clickHeader("proposal.created_at")}
+                    onClick={() => this.clickHeader("created_at")}
                   >
                     <label className="font-size-14">Date</label>
-                    {this.renderTriangle("proposal.created_at")}
+                    {this.renderTriangle("created_at")}
                   </div>
                   <div className="c-col-5 c-cols">
                     <label className="font-size-14">Time Active</label>
