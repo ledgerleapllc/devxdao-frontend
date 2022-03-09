@@ -68,6 +68,7 @@ class SingleVote extends Component {
 
   getProposal() {
     const { proposalId } = this.state;
+    const { authUser } = this.props;
 
     this.props.dispatch(
       getSingleProposal(
@@ -82,7 +83,9 @@ class SingleVote extends Component {
           if (proposal && proposal.votes && proposal.votes.length > 1)
             vote = proposal.votes[1];
           this.setState({ loading: false, proposalId, proposal, vote });
-          this.fetchVAsNotVote(vote.id);
+          if (authUser?.is_admin) {
+            this.fetchVAsNotVote(vote.id);
+          }
           this.props.dispatch(hideCanvas());
         }
       )

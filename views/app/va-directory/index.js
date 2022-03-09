@@ -2,15 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect, withRouter } from "react-router-dom";
 import { Fade } from "react-reveal";
-// import "./milestones.scss";
 import VATables from "./components/VATables";
-import {
-  downloadCSVMilestones,
-  getAllOPMilestones,
-  getAllProposalMilestones,
-} from "../../../utils/Thunk";
-import moment from "moment";
-import { hideCanvas, showAlert, showCanvas } from "../../../redux/actions";
 import "./style.scss";
 const mapStateToProps = (state) => {
   return {
@@ -21,117 +13,7 @@ const mapStateToProps = (state) => {
 class VADirectory extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      params: {},
-      total: {},
-      ops: [],
-      proposals: [],
-    };
-    this.timer = null;
-    this.getOPs();
-    this.getProposalFilter();
   }
-
-  getOPs() {
-    this.props.dispatch(
-      getAllOPMilestones(
-        {},
-        () => {},
-        (res) => {
-          if (res.success) {
-            this.setState({ ops: res.emails });
-          }
-        }
-      )
-    );
-  }
-
-  getProposalFilter() {
-    this.props.dispatch(
-      getAllProposalMilestones(
-        {},
-        () => {},
-        (res) => {
-          if (res.success) {
-            this.setState({ proposals: res.proposalIds.map((x) => `${x}`) });
-          }
-        }
-      )
-    );
-  }
-
-  downloadCSV = () => {
-    this.props.dispatch(
-      downloadCSVMilestones(
-        this.state.params,
-        () => {
-          this.props.dispatch(showCanvas());
-        },
-        (res) => {
-          if (res.type === "application/json" || res.success === false) {
-            this.props.dispatch(
-              showAlert("You can't download this file. Try again later.")
-            );
-          } else {
-            const url = window.URL.createObjectURL(new Blob([res]));
-            const link = document.createElement("a");
-            link.href = url;
-            link.setAttribute("download", "milestones.csv");
-            document.body.appendChild(link);
-            link.click();
-          }
-          this.props.dispatch(hideCanvas());
-        }
-      )
-    );
-  };
-
-  handleParams = (key, value) => {
-    const { params } = this.state;
-    if (key === "notSubmitted") {
-      if (value) {
-        params[key] = 1;
-      } else {
-        delete params[key];
-      }
-    } else if (["hidePaid", "hideCompletedGrants"].includes(key)) {
-      if (value) {
-        params[key] = 1;
-      } else {
-        delete params[key];
-      }
-    } else if (["startDate", "endDate"].includes(key)) {
-      if (value) {
-        const temp = moment(value).local().format("YYYY-MM-DD");
-        params[key] = temp;
-      } else {
-        delete params[key];
-      }
-    } else {
-      if (value) {
-        params[key] = value;
-      } else {
-        delete params[key];
-      }
-    }
-    this.setState({ params: { ...params } });
-  };
-
-  // Handle Search
-  handleSearch = (val) => {
-    if (this.timer) {
-      clearTimeout(this.timer);
-      this.timer = null;
-    }
-
-    this.timer = setTimeout(() => {
-      this.handleParams("search", val);
-    }, 500);
-  };
-
-  getTotal = (total) => {
-    this.setState({ total });
-  };
 
   render() {
     const { authUser } = this.props;
