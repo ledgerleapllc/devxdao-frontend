@@ -343,10 +343,10 @@ class Discussions extends Component {
           </div> */}
           <div
             className="c-col-5 c-cols"
-            onClick={() => this.clickHeader("comments")}
+            onClick={() => this.clickHeader("topic_posts_count")}
           >
             <label className="font-size-14">Comments</label>
-            {this.renderTriangle("comments")}
+            {this.renderTriangle("topic_posts_count")}
           </div>
           <div
             className="c-col-6 c-cols"
