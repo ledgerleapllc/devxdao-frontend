@@ -70,7 +70,7 @@ class SingleMilestoneVote extends Component {
 
   getProposal() {
     const { proposalId, voteId } = this.state;
-
+    const { authUser } = this.props;
     this.props.dispatch(
       getSingleProposal(
         proposalId,
@@ -91,7 +91,9 @@ class SingleMilestoneVote extends Component {
           }
 
           this.setState({ loading: false, proposalId, proposal, vote });
-          this.fetchVAsNotVote(vote.id);
+          if (authUser?.is_admin) {
+            this.fetchVAsNotVote(vote.id);
+          }
           this.props.dispatch(hideCanvas());
         }
       )
