@@ -820,9 +820,11 @@ class SingleUser extends Component {
               <div className="app-sup-row">
                 <label>Associate Agreement Timestamp</label>
                 <span>
-                  {moment(
-                    user?.profile?.associate_agreement_at + ".000Z"
-                  ).format("MM/DD/YYYY hh:mm")}
+                  {user?.profile?.associate_agreement_at
+                    ? moment(
+                        user?.profile?.associate_agreement_at + ".000Z"
+                      ).format("MM/DD/YYYY hh:mm")
+                    : null}
                 </span>
               </div>
               {user.member_no ? (
