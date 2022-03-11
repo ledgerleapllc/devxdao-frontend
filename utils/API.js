@@ -1219,6 +1219,11 @@ class API {
     return sendRequest(`/admin/grant/${grantId}/file-url`, {}, "GET", true);
   }
 
+  // Activate Grant - Admin
+  static viewAgreement(userId) {
+    return sendRequest(`/admin/user/${userId}/file-url`, {}, "GET", true);
+  }
+
   // Milestone Review - Admin
   static getReviewMilestones(params = {}) {
     return sendRequest(`/admin/milestone-reviews`, params, "GET", true);
