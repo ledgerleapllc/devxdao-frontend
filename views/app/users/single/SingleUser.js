@@ -22,6 +22,7 @@ import {
   downloadCSVUserRep,
   exportProposalMentor,
   sendKycKangarooByAdmin,
+  viewAgreement,
 } from "../../../../utils/Thunk";
 import ProposalsView from "./proposals/Proposals";
 import VotesView from "./votes/Votes";
@@ -718,6 +719,27 @@ class SingleUser extends Component {
     }
   }
 
+  download(userId) {
+    this.props.dispatch(
+      viewAgreement(
+        userId,
+        () => {
+          this.props.dispatch(showCanvas());
+        },
+        (res) => {
+          if (res.success) {
+            if (!res.file_url) {
+              this.props.dispatch(showAlert(`No signed agreement on file`));
+            } else {
+              window.open(res.file_url, "_blank").focus();
+            }
+          }
+          this.props.dispatch(hideCanvas());
+        }
+      )
+    );
+  }
+
   renderHellosignForm() {
     const { user } = this.state;
     const { profile } = user;
@@ -726,8 +748,9 @@ class SingleUser extends Component {
         <a
           target="_blank"
           rel="noreferrer"
-          href={process.env.NEXT_PUBLIC_BACKEND_URL + profile.hellosign_form}
+          onClick={() => this.download(user.id)}
           className="text-underline"
+          style={{ cursor: "pointer" }}
         >
           Click Here
         </a>
