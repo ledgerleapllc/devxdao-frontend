@@ -1748,6 +1748,17 @@ export function viewSignedGrant(grantId, start, completion) {
   };
 }
 
+// view Associate Agreement
+export function viewAgreement(grantId, start, completion) {
+  return (dispatch) => {
+    if (start) start();
+    API.viewAgreement(grantId).then((res) => {
+      if (!res.success) dispatch(showAlert(res.message));
+      if (completion) completion(res);
+    });
+  };
+}
+
 // Get All Review Milestones - Admin
 export function getAllReviewMilestones(params, start, completion) {
   return () => {
