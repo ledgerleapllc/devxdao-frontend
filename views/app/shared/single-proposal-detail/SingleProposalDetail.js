@@ -435,6 +435,33 @@ class SingleProposalDetail extends Component {
             grants: proposal.grants,
             total_grant: editionValue.total_grant,
           });
+        } else if (editionField === "total_grant") {
+          proposalTemp.total_grant = editionValue.total_grant;
+          proposalTemp.grants = proposalTemp.grants.map((x) => ({
+            ...x,
+            grant: parseFloat(
+              (
+                (x.grant / proposal.total_grant) *
+                proposalTemp.total_grant
+              ).toFixed(DECIMALS)
+            ),
+          }));
+          proposalTemp.milestones = proposal.milestones.map((x) => ({
+            ...x,
+            grant: parseFloat(
+              (
+                (x.grant / proposal.total_grant) *
+                proposalTemp.total_grant
+              ).toFixed(DECIMALS)
+            ),
+          }));
+          whatSection = `${editionField}_update`;
+          changeTo = JSON.stringify({
+            total_grant: editionValue.total_grant,
+          });
+          additionalNotes = JSON.stringify({
+            total_grant: editionValue.total_grant,
+          });
         } else {
           proposalTemp[editionField] = editionValue;
           whatSection = `${editionField}_update`;
@@ -719,6 +746,7 @@ class SingleProposalDetail extends Component {
   }
 
   inputField(e) {
+    console.log(e);
     let val;
     let canSave = true;
     if (this.state.editionField === "license") {
@@ -756,6 +784,9 @@ class SingleProposalDetail extends Component {
       );
       val.total_grant = parseFloat(total.toFixed(5));
       canSave = !this.checkGrantSection(val);
+    } else if (this.state.editionField === "total_grant") {
+      val = e;
+      canSave = !!val.total_grant;
     } else if (this.state.editionField === "delivered_at") {
       try {
         val = moment(e).local().format("YYYY-MM-DD");
@@ -998,7 +1029,9 @@ class SingleProposalDetail extends Component {
                 {GRANTTYPES[grant.type]}
               </label>
               <span>
-                {this.state.editionField === "milestones" &&
+                {["milestones", "total_grant"].includes(
+                  this.state.editionField
+                ) &&
                   Helper.formatPriceNumber(
                     parseFloat(
                       (percent * this.state.editionValue.total_grant).toFixed(
@@ -1006,8 +1039,9 @@ class SingleProposalDetail extends Component {
                       )
                     )
                   )}
-                {this.state.editionField !== "milestones" &&
-                  Helper.formatPriceNumber(grant.grant)}
+                {!["milestones", "total_grant"].includes(
+                  this.state.editionField
+                ) && Helper.formatPriceNumber(grant.grant)}
               </span>
               <span>{grant.type_other || ""}</span>
               <p
@@ -1218,7 +1252,7 @@ class SingleProposalDetail extends Component {
             </label>
             {/* <p>{Helper.formatPriceNumber(milestone.grant.toString())}</p> */}
             <p>
-              {this.state.editionField === "grants" &&
+              {["grants", "total_grant"].includes(this.state.editionField) &&
                 Helper.formatPriceNumber(
                   parseFloat(
                     (percent * this.state.editionValue.total_grant).toFixed(
@@ -1226,7 +1260,7 @@ class SingleProposalDetail extends Component {
                     )
                   )
                 )}
-              {this.state.editionField !== "grants" &&
+              {!["grants", "total_grant"].includes(this.state.editionField) &&
                 Helper.formatPriceNumber(milestone.grant)}
             </p>
             <label className="font-weight-700 d-block">Deadline</label>
@@ -2298,24 +2332,39 @@ class SingleProposalDetail extends Component {
                 <Icon.Info size={16} />
               </div>
               <div className="app-simple-section__body">
-                <label className="font-weight-700 d-block">
-                  Please enter the total amount you are requesting as a grant:
-                </label>
-                <p>
-                  {/* {Helper.formatPriceNumber(proposal.total_grant.toString())} */}
-                  {/* {this.state.editionField === "milestones" &&
-                    Helper.formatPriceNumber(
-                      this.state.editionValue.total_grant
-                    )}
-                  {this.state.editionField !== "milestones" &&
-                    Helper.formatPriceNumber(proposal.total_grant)} */}
-                  {this.state.editionValue.total_grant
-                    ? Helper.formatPriceNumber(
-                        this.state.editionValue.total_grant
-                      )
-                    : Helper.formatPriceNumber(proposal.total_grant)}
-                  {this.checkProposalChange("total_grant")}
-                </p>
+                <>
+                  {this.renderLabelEdition(
+                    "Please enter the total amount you are requesting as a grant:",
+                    "total_grant",
+                    {
+                      total_grant: proposal.total_grant,
+                    }
+                  )}
+                  {this.state.editionField !== "total_grant" && (
+                    <p>
+                      {this.state.editionValue.total_grant
+                        ? Helper.formatPriceNumber(
+                            this.state.editionValue.total_grant
+                          )
+                        : Helper.formatPriceNumber(proposal.total_grant)}
+                      {this.checkProposalChange("total_grant")}
+                    </p>
+                  )}
+                  {this.state.editionField === "total_grant" && (
+                    <div className="c-form-row">
+                      <input
+                        type="text"
+                        value={this.state.editionValue.total_grant}
+                        placeholder="Total in Euros"
+                        onChange={(e) => {
+                          this.inputField({
+                            total_grant: e.target.value,
+                          });
+                        }}
+                      />
+                    </div>
+                  )}
+                </>
                 <>
                   {this.renderLabelEdition(
                     "Will payments for this work be made to a entity such as your company or organization instead of to you personally?",
