@@ -1,14 +1,13 @@
 #app-discussions-section {
   height: 650px;
   min-height: 650px;
-  
   .c-col-0 {
     width: 5%;
     flex: 0 0 5%;
   }
   .c-col-1 {
-    width: 35%;
-    flex: 0 0 35%;
+    width: 25%;
+    flex: 0 0 25%;
   }
   .c-col-2 {
     width: 10%;
@@ -23,20 +22,28 @@
     flex: 0 0 10%;
   }
   .c-col-5 {
-    width: 10%;
-    flex: 0 0 10%;
+    width: 8%;
+    flex: 0 0 8%;
   }
   .c-col-6 {
-    width: 10%;
-    flex: 0 0 10%;
+    width: 8%;
+    flex: 0 0 8%;
   }
   .c-col-7 {
-    width: 10%;
-    flex: 0 0 10%;
+    width: 8%;
+    flex: 0 0 8%;
+  }
+  .c-col-8 {
+    width: 8%;
+    flex: 0 0 8%;
+  }
+  .c-col-9 {
+    width: 8%;
+    flex: 0 0 8%;
   }
 
   .infinite-contentInner {
-    min-width: 1000px;
+    min-width: 1400px;
   }
 
   .infinite-body {
