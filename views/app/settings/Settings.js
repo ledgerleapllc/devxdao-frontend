@@ -3,7 +3,12 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import * as Icon from "react-feather";
 import { HiddenFieldComponent } from "../../../components";
-import { showAlert, showCanvas, hideCanvas } from "../../../redux/actions";
+import {
+  showAlert,
+  showCanvas,
+  hideCanvas,
+  saveUser,
+} from "../../../redux/actions";
 import {
   changePassword,
   check2FA,
@@ -139,6 +144,9 @@ class Settings extends Component {
             params,
             () => {},
             (res) => {
+              const authUser = res.user;
+              Helper.storeUser(authUser);
+              this.props.dispatch(saveUser(authUser));
               resolve(res.success);
             }
           )
