@@ -244,10 +244,18 @@ class Discussions extends Component {
                 {item.attestation?.is_attestated ? "Yes" : ""}
               </span>
             </div>
+            <div className="c-col-5 c-cols">
+              <span className="font-size-12">{item.op_forum_name}</span>
+            </div>
+            <div className="c-col-6 c-cols">
+              <span className="font-size-12">
+                {Helper.formatPriceNumber(item.total_grant)}
+              </span>
+            </div>
             {/* <div className="c-col-2 c-cols">
               <span className="font-size-12">{item.status_label}</span>
             </div> */}
-            <div className="c-col-5 c-cols">
+            <div className="c-col-7 c-cols">
               <div className="proposal-image-wrap">
                 <div>
                   <Icon.MessageCircle size={20} />
@@ -255,7 +263,7 @@ class Discussions extends Component {
                 <span className="font-size-12">{item.topic_posts_count}</span>
               </div>
             </div>
-            <div className="c-col-6 c-cols">
+            <div className="c-col-8 c-cols">
               <div className="proposal-image-wrap">
                 <div>
                   <Icon.Monitor size={20} />
@@ -263,7 +271,7 @@ class Discussions extends Component {
                 <span className="font-size-12">{item.changes}</span>
               </div>
             </div>
-            <div className="c-col-7 c-cols">
+            <div className="c-col-9 c-cols">
               <label className="font-size-14">
                 {moment(item.created_at).local().format("M/D/YYYY")}{" "}
                 {moment(item.created_at).local().format("h:mm A")}
@@ -338,25 +346,31 @@ class Discussions extends Component {
             <label className="font-size-14">Have I Attestated</label>
             {this.renderTriangle("is_attestated")}
           </div>
+          <div className="c-col-5 c-cols">
+            <label className="font-size-14">OP</label>
+          </div>
+          <div className="c-col-6 c-cols">
+            <label className="font-size-14">Grant Total</label>
+          </div>
           {/* <div className="c-col-2 c-cols">
             <label className="font-size-14">Status</label>
           </div> */}
           <div
-            className="c-col-5 c-cols"
+            className="c-col-7 c-cols"
             onClick={() => this.clickHeader("topic_posts_count")}
           >
             <label className="font-size-14">Comments</label>
             {this.renderTriangle("topic_posts_count")}
           </div>
           <div
-            className="c-col-6 c-cols"
+            className="c-col-8 c-cols"
             onClick={() => this.clickHeader("changes")}
           >
             <label className="font-size-14">Changes</label>
             {this.renderTriangle("changes")}
           </div>
           <div
-            className="c-col-7 c-cols"
+            className="c-col-9 c-cols"
             onClick={() => this.clickHeader("created_at")}
           >
             <label className="font-size-14">Date</label>
