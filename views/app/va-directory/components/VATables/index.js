@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { GlobalRelativeCanvasComponent } from "../../../../../components";
 import { DECIMALS } from "../../../../../utils/Constant";
+import Helper from "../../../../../utils/Helper";
 import { getVADirectory } from "../../../../../utils/Thunk";
 import "./va-directory.scss";
 
@@ -201,6 +202,9 @@ class VATables extends Component {
               <p>{item.total_rep?.toFixed?.(DECIMALS)}</p>
             </div>
             <div className="c-col-7 c-cols">
+              <p> {Helper.formatPriceNumber(item.total_grant)}</p>
+            </div>
+            <div className="c-col-8 c-cols">
               <p>{moment(item.member_at).local().format("M/D/YYYY")}</p>
             </div>
           </div>
@@ -268,8 +272,11 @@ class VATables extends Component {
                 <label className="font-size-14">Total Rep</label>
                 {this.renderTriangle("total_rep")}
               </div>
+              <div className="c-col-7 c-cols">
+                <label className="font-size-14">Grant total</label>
+              </div>
               <div
-                className="c-col-7 c-cols"
+                className="c-col-8 c-cols"
                 onClick={() => this.clickHeader("member_at")}
               >
                 <label className="font-size-14">Date became VA</label>

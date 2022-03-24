@@ -90,7 +90,6 @@ class DaysReport extends Component {
 
   renderReports = () => {
     const { reports } = this.state;
-    console.log(" Reports ", this.state);
     const items = [];
 
     if (!reports || !reports.length) {
