@@ -35,6 +35,8 @@ class Reputation extends Component {
       calling: false,
       finished: false,
       total: "",
+      rep: "",
+      rep_pending: "",
       daily_email: false,
     };
 
@@ -175,6 +177,8 @@ class Reputation extends Component {
             finished,
             items: [...items, ...result],
             total: res.total,
+            rep: res.rep,
+            rep_pending: res.rep_pending,
           });
         }
       )
@@ -383,7 +387,7 @@ class Reputation extends Component {
   }
 
   render() {
-    const { loading, search, total } = this.state;
+    const { loading, search, total, rep, rep_pending } = this.state;
     const { authUser } = this.props;
 
     if (!authUser || !authUser.id) return null;
@@ -393,7 +397,7 @@ class Reputation extends Component {
         <div className="d-flex justify-content-between">
           <h3>
             My Available Reputation: <Icon.Droplet />{" "}
-            <span>{authUser.profile.rep?.toFixed?.(DECIMALS)}</span>
+            <span>{rep?.toFixed?.(DECIMALS)}</span>
           </h3>
           <Checkbox
             value={this.state.daily_email}
@@ -409,7 +413,7 @@ class Reputation extends Component {
         </label>
         <label className="d-block">
           Minted Pending:
-          <span>{authUser.profile.rep_pending?.toFixed?.(DECIMALS)}</span>
+          <span>{rep_pending?.toFixed?.(DECIMALS)}</span>
         </label>
         <Fade distance={"20px"} bottom duration={300} delay={600}>
           <section id="app-reputation-section" className="app-infinite-box">
