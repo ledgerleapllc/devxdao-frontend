@@ -257,14 +257,17 @@ class Proposals extends Component {
                 {item.type == "grant" ? "Grant" : "Simple"}
               </label>
             </div>
-            <div className="c-col-4 c-cols">{this.renderStatus(item)}</div>
-            <div className="c-col-5 c-cols" onClick={() => this.clickRow(item)}>
+            <div className="c-col-4 c-cols">
+              {Helper.formatPriceNumber(item.total_grant)}
+            </div>
+            <div className="c-col-5 c-cols">{this.renderStatus(item)}</div>
+            <div className="c-col-6 c-cols" onClick={() => this.clickRow(item)}>
               {this.renderInformalResult(item)}
             </div>
-            <div className="c-col-6 c-cols" onClick={() => this.clickRow(item)}>
+            <div className="c-col-7 c-cols" onClick={() => this.clickRow(item)}>
               {this.renderFormalResult(item)}
             </div>
-            <div className="c-col-7 c-cols" onClick={() => this.clickRow(item)}>
+            <div className="c-col-8 c-cols" onClick={() => this.clickRow(item)}>
               <label className="font-size-14">
                 {moment(item.created_at).local().format("M/D/YYYY")}{" "}
                 {moment(item.created_at).local().format("h:mm A")}
@@ -322,16 +325,19 @@ class Proposals extends Component {
             {this.renderTriangle("proposal.type")}
           </div>
           <div className="c-col-4 c-cols">
-            <label className="font-size-14">Status</label>
+            <label className="font-size-14">Grant Total</label>
           </div>
           <div className="c-col-5 c-cols">
-            <label className="font-size-14">Informal Result</label>
+            <label className="font-size-14">Status</label>
           </div>
           <div className="c-col-6 c-cols">
+            <label className="font-size-14">Informal Result</label>
+          </div>
+          <div className="c-col-7 c-cols">
             <label className="font-size-14">Formal Result</label>
           </div>
           <div
-            className="c-col-7 c-cols"
+            className="c-col-8 c-cols"
             onClick={() => this.clickHeader("proposal.created_at")}
           >
             <label className="font-size-14">Date</label>

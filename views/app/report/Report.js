@@ -96,7 +96,6 @@ class Report extends Component {
               })),
               rawData: res.rep_results,
             };
-            console.log(temp);
             this.setState({ reportReputation: temp });
           }
         }
