@@ -746,7 +746,6 @@ class SingleProposalDetail extends Component {
   }
 
   inputField(e) {
-    console.log(e);
     let val;
     let canSave = true;
     if (this.state.editionField === "license") {

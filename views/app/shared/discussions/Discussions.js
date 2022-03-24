@@ -8,7 +8,10 @@ import {
   getActiveDiscussions,
   getCompletedDiscussions,
 } from "../../../../utils/Thunk";
-import { GlobalRelativeCanvasComponent } from "../../../../components";
+import {
+  Checkbox,
+  GlobalRelativeCanvasComponent,
+} from "../../../../components";
 import Helper from "../../../../utils/Helper";
 
 import "./discussions.scss";
@@ -31,6 +34,7 @@ class Discussions extends Component {
       sort_key: "id",
       sort_direction: "desc",
       search: "",
+      hide_attested: false,
       page_id: 1,
       calling: false,
       finished: false,
@@ -102,6 +106,12 @@ class Discussions extends Component {
     });
   }
 
+  onFilterUnAttested = (e) => {
+    this.setState({ hide_attested: e }, () => {
+      this.reloadTable();
+    });
+  };
+
   getProposals(showLoading = true) {
     const { tab } = this.props;
     let {
@@ -112,6 +122,7 @@ class Discussions extends Component {
       sort_direction,
       search,
       page_id,
+      hide_attested,
       proposals,
     } = this.state;
     if (loading || calling || finished) return;
@@ -123,6 +134,10 @@ class Discussions extends Component {
       page_id,
       limit: 20,
     };
+
+    if (hide_attested) {
+      params.hide_attested = +hide_attested;
+    }
 
     if (tab == "active") {
       this.props.dispatch(
@@ -391,7 +406,13 @@ class Discussions extends Component {
               Proposals&nbsp;&nbsp;
               <Icon.Info size={16} />
             </label>
-
+            <div className="ml-5 d-flex align-items-center">
+              <Checkbox
+                value={this.hide_attested}
+                onChange={this.onFilterUnAttested}
+                text={`Show only Unattested`}
+              />
+            </div>
             <input
               type="text"
               value={search}
