@@ -483,7 +483,7 @@ class ActiveInformalVotes extends Component {
                 </label>
               </div>
               <div className="c-col-3 c-cols">
-                {Helper.formatPriceNumber(vote.euros || "", "€")}
+                {Helper.formatPrice(vote.euros || 0)}
               </div>
               <div className="c-col-4 c-cols">{this.renderMyVote(vote)}</div>
               <div className="c-col-5 c-cols">{this.renderRep(vote)}</div>
@@ -533,7 +533,7 @@ class ActiveInformalVotes extends Component {
                 </label>
               </div>
               <div className="c-col-3 c-cols">
-                {Helper.formatPriceNumber(vote.euros || "", "€")}
+                {Helper.formatPrice(vote.euros || 0)}
               </div>
               <div className="c-col-4 c-cols">
                 <div className="vote-clock-wrap">
