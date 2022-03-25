@@ -195,7 +195,7 @@ class PublicMilestonesTable extends Component {
               </p>
             </div>
             <div className="c-col-7 c-cols">
-              <p>{Helper.formatPriceNumber(item.grant || "", "€")}</p>
+              <p>{Helper.formatPrice(item.grant || 0)}</p>
             </div>
             <div className="c-col-8 c-cols">
               <p>

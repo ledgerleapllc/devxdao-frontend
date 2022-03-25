@@ -216,9 +216,9 @@ class Proposals extends Component {
     if (lastVote?.content_type === "simple") {
       return "";
     } else if (lastVote?.content_type === "grant") {
-      return Helper.formatPriceNumber(item.total_grant || "", "€");
+      return Helper.formatPrice(item.total_grant || 0);
     } else if (lastVote?.content_type === "milestone") {
-      return Helper.formatPriceNumber(lastVote.milestone_grant || "", "€");
+      return Helper.formatPrice(lastVote.milestone_grant || 0);
     } else {
       return "";
     }

@@ -258,7 +258,7 @@ class Proposals extends Component {
               </label>
             </div>
             <div className="c-col-4 c-cols">
-              {Helper.formatPriceNumber(item.total_grant)}
+              {Helper.formatPrice(item.total_grant)}
             </div>
             <div className="c-col-5 c-cols">{this.renderStatus(item)}</div>
             <div className="c-col-6 c-cols" onClick={() => this.clickRow(item)}>
