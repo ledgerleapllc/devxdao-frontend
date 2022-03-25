@@ -499,7 +499,7 @@ class CompletedVotes extends Component {
                 className="c-col-4 c-cols"
                 onClick={() => this.clickRow(vote)}
               >
-                {Helper.formatPriceNumber(vote.euros || "", "€")}
+                {Helper.formatPrice(vote.euros || 0)}
               </div>
               <div
                 className="c-col-5 c-cols"
@@ -579,7 +579,7 @@ class CompletedVotes extends Component {
                 className="c-col-4 c-cols"
                 onClick={() => this.clickRow(vote)}
               >
-                {Helper.formatPriceNumber(vote.euros || "", "€")}
+                {Helper.formatPrice(vote.euros || 0)}
               </div>
               <div
                 className="c-col-5 c-cols"

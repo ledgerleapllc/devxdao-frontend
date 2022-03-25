@@ -202,7 +202,7 @@ class VATables extends Component {
               <p>{item.total_rep?.toFixed?.(DECIMALS)}</p>
             </div>
             <div className="c-col-7 c-cols">
-              <p> {Helper.formatPriceNumber(item.total_grant)}</p>
+              <p> {Helper.formatPrice(item.total_grant)}</p>
             </div>
             <div className="c-col-8 c-cols">
               <p>{moment(item.member_at).local().format("M/D/YYYY")}</p>

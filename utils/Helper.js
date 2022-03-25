@@ -124,6 +124,16 @@ class Helper {
     }
   }
 
+  static formatPrice(str, currency = "EUR") {
+    const formatter = new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency,
+      minimumFractionDigits: 0,
+    });
+
+    return formatter.format(str);
+  }
+
   // Format Float String
   static formatNumber(str) {
     str = `${str}`.replaceAll(",", "");

@@ -245,7 +245,7 @@ class BidsVotesTable extends Component {
               <p>{item.forum}</p>
             </div>
             <div className="c-col-3 c-cols">
-              <p>{Helper.formatPriceNumber(item.amount_of_bid || "", "€")}</p>
+              <p>{Helper.formatPrice(item.amount_of_bid || 0)}</p>
             </div>
             <div className="c-col-4 c-cols">
               <p>

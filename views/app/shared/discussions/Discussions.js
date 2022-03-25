@@ -264,7 +264,7 @@ class Discussions extends Component {
             </div>
             <div className="c-col-6 c-cols">
               <span className="font-size-12">
-                {Helper.formatPriceNumber(item.total_grant)}
+                {Helper.formatPrice(item.total_grant || 0)}
               </span>
             </div>
             {/* <div className="c-col-2 c-cols">
@@ -397,6 +397,7 @@ class Discussions extends Component {
   }
 
   render() {
+    const { authUser } = this.props;
     const { loading, search } = this.state;
     return (
       <Fade distance={"20px"} bottom duration={200} delay={700}>
@@ -406,13 +407,15 @@ class Discussions extends Component {
               Proposals&nbsp;&nbsp;
               <Icon.Info size={16} />
             </label>
-            <div className="ml-5 d-flex align-items-center">
-              <Checkbox
-                value={this.hide_attested}
-                onChange={this.onFilterUnAttested}
-                text={`Show only Unattested`}
-              />
-            </div>
+            {authUser.is_member && (
+              <div className="ml-5 d-flex align-items-center">
+                <Checkbox
+                  value={this.hide_attested}
+                  onChange={this.onFilterUnAttested}
+                  text={`Show only Unattested`}
+                />
+              </div>
+            )}
             <input
               type="text"
               value={search}
