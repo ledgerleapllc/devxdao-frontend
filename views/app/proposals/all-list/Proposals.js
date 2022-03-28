@@ -455,43 +455,41 @@ class Proposals extends Component {
       return null;
 
     return (
-      <div id="app-all-proposals-page">
-        <section id="app-all-proposals-section" className="app-infinite-box">
-          <div className="app-infinite-search-wrap">
-            <label>All Proposals</label>
-            <div className="d-flex">
-              {!!authUser.is_admin && (
-                <button
-                  className="mr-4 btn btn-primary btn-download small ml-2"
-                  onClick={() => this.downloadCSV()}
-                >
-                  Download CSV
-                </button>
+      <section id="app-all-proposals-section" className="app-infinite-box">
+        <div className="app-infinite-search-wrap">
+          <label>All Proposals</label>
+          <div className="d-flex">
+            {!!authUser.is_admin && (
+              <button
+                className="mr-4 btn btn-primary btn-download small ml-2"
+                onClick={() => this.downloadCSV()}
+              >
+                Download CSV
+              </button>
+            )}
+            <input
+              type="text"
+              value={search}
+              onChange={this.handleSearch}
+              placeholder="Search..."
+            />
+          </div>
+        </div>
+
+        <div className="infinite-content">
+          <div className="infinite-contentInner">
+            {this.renderHeader()}
+
+            <div className="infinite-body" id="app-all-proposals-sectionBody">
+              {loading ? (
+                <GlobalRelativeCanvasComponent />
+              ) : (
+                this.renderProposals()
               )}
-              <input
-                type="text"
-                value={search}
-                onChange={this.handleSearch}
-                placeholder="Search..."
-              />
             </div>
           </div>
-
-          <div className="infinite-content">
-            <div className="infinite-contentInner">
-              {this.renderHeader()}
-
-              <div className="infinite-body" id="app-all-proposals-sectionBody">
-                {loading ? (
-                  <GlobalRelativeCanvasComponent />
-                ) : (
-                  this.renderProposals()
-                )}
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
+        </div>
+      </section>
     );
   }
 }
