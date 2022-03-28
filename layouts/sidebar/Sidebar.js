@@ -20,7 +20,7 @@ import IconSurvey from "../../public/icons/survey.svg";
 import IconInfo from "../../public/icons/info.svg";
 import IconVA from "../../public/icons/va.svg";
 import IconReport from "../../public/icons/report.svg";
-
+import { clearCache } from "react-router-cache-route";
 import "./sidebar.scss";
 import API from "../../utils/API";
 
@@ -447,6 +447,7 @@ class Sidebar extends Component {
 
   clickTab(e, link) {
     e.preventDefault();
+    clearCache();
     this.hideSidebar();
     if (link) {
       const { history } = this.props;

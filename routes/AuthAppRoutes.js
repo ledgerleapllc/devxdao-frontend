@@ -1,6 +1,7 @@
 import React, { Suspense, lazy } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 import { setActiveModal } from "../redux/actions";
+import CacheRoute, { CacheSwitch } from "react-router-cache-route";
 
 import { useDispatch } from "react-redux";
 // Global
@@ -128,7 +129,6 @@ import IdleTimer from "react-idle-timer";
 export default function AuthAppRoutes() {
   const dispatch = useDispatch();
   const handleOnAction = () => {};
-
   const handleOnActive = () => {};
 
   const handleOnIdle = (event) => {
@@ -145,7 +145,7 @@ export default function AuthAppRoutes() {
       debounce={250}
     >
       <Suspense fallback={null}>
-        <Switch>
+        <CacheSwitch>
           <Route path="/app" component={MainView} exact />
           <Route path="/app/votes" component={VotesView} exact />
           <Route
@@ -157,7 +157,13 @@ export default function AuthAppRoutes() {
           <Route path="/app/user/:userId" component={SingleUserView} exact />
           <Route path="/app/proposals" component={ProposalsView} exact />
           <Route path="/app/new-proposals" component={NewProposalsView} exact />
-          <Route path="/app/all-proposals" component={AllProposalsView} exact />
+          <CacheRoute
+            className="app-all-proposals-page"
+            cacheKey="ALlProposalsPage"
+            path="/app/all-proposals"
+            component={AllProposalsView}
+            exact
+          />
           <Route path="/app/grants" component={GrantsView} exact />
           <Route path="/app/milestones" component={MilestonesView} exact />
           <Route
@@ -270,7 +276,7 @@ export default function AuthAppRoutes() {
           <Route path="/app/emailer" component={EmailerView} exact />
           <Route path="/app/report" component={ReportView} exact />
           <Route component={AuthAppErrorView} />
-        </Switch>
+        </CacheSwitch>
       </Suspense>
     </IdleTimer>
   );
