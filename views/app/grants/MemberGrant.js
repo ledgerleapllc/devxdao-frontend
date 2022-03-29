@@ -406,7 +406,7 @@ class MemberGrant extends Component {
       sort_direction,
       search,
       page_id,
-      limit: 20,
+      limit: 40,
     };
 
     if (hide_completed) params.hide_completed = hide_completed;
