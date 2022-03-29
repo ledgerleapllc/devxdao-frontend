@@ -151,7 +151,7 @@ class PendingProposals extends Component {
       sort_direction,
       search,
       page_id,
-      limit: 20,
+      limit: 40,
     };
 
     this.props.dispatch(

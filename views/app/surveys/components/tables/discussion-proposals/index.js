@@ -102,7 +102,7 @@ class DiscussionProposalsTable extends Component {
       sort_direction,
       search,
       page_id,
-      limit: 20,
+      limit: 40,
     };
 
     if (is_winner) params.is_winner = is_winner ? 1 : 0;
