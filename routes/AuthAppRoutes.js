@@ -155,8 +155,12 @@ export default function AuthAppRoutes() {
           />
           <Route path="/app/users" component={UsersView} exact />
           <Route path="/app/user/:userId" component={SingleUserView} exact />
-          <Route path="/app/proposals" component={ProposalsView} exact />
-          <Route path="/app/new-proposals" component={NewProposalsView} exact />
+          <CacheRoute path="/app/proposals" component={ProposalsView} exact />
+          <CacheRoute
+            path="/app/new-proposals"
+            component={NewProposalsView}
+            exact
+          />
           <CacheRoute
             className="app-all-proposals-page"
             cacheKey="ALlProposalsPage"
@@ -227,7 +231,11 @@ export default function AuthAppRoutes() {
             component={EditSimpleProposalView}
             exact
           />
-          <Route path="/app/discussions" component={DiscussionsView} exact />
+          <CacheRoute
+            path="/app/discussions"
+            component={DiscussionsView}
+            exact
+          />
           <Route path="/app/topics" component={TopicsView} exact />
           <Route path="/app/topics/create" component={CreateTopicView} exact />
           <Route
@@ -271,7 +279,11 @@ export default function AuthAppRoutes() {
             exact
           />
           <Route path="/app/accounting" component={AccountingView} exact />
-          <Route path="/app/va-directory" component={VADirectoryView} exact />
+          <CacheRoute
+            path="/app/va-directory"
+            component={VADirectoryView}
+            exact
+          />
           <Route path="/app/admin-team" component={AdminTeamView} exact />
           <Route path="/app/emailer" component={EmailerView} exact />
           <Route path="/app/report" component={ReportView} exact />
