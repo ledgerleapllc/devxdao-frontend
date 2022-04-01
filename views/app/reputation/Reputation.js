@@ -34,7 +34,7 @@ class Reputation extends Component {
       page_id: 1,
       calling: false,
       finished: false,
-      total: "",
+      staked: "",
       rep: "",
       rep_pending: "",
       daily_email: false,
@@ -176,7 +176,7 @@ class Reputation extends Component {
             calling: false,
             finished,
             items: [...items, ...result],
-            total: res.total,
+            staked: res.staked,
             rep: res.rep,
             rep_pending: res.rep_pending,
           });
@@ -378,16 +378,15 @@ class Reputation extends Component {
   }
 
   renderTotal() {
-    const { total } = this.state;
-    const { authUser } = this.props;
+    const { staked, rep } = this.state;
 
-    let totalV = parseFloat(total) + parseFloat(authUser.profile.rep);
+    const totalV = parseFloat(staked) + parseFloat(rep);
 
     return totalV?.toFixed?.(DECIMALS);
   }
 
   render() {
-    const { loading, search, total, rep, rep_pending } = this.state;
+    const { loading, search, staked, rep, rep_pending } = this.state;
     const { authUser } = this.props;
 
     if (!authUser || !authUser.id) return null;
@@ -409,7 +408,7 @@ class Reputation extends Component {
           Total: <span>{this.renderTotal()}</span>
         </label>
         <label className="d-block mb-0">
-          Staked: <span>{total?.toFixed?.(DECIMALS)}</span>
+          Staked: <span>{staked?.toFixed?.(DECIMALS)}</span>
         </label>
         <label className="d-block">
           Minted Pending:
