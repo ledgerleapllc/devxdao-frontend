@@ -16,6 +16,7 @@ import StartCheckSystemModal from "./start-check-system/StartCheckSystem";
 import StartKYCModal from "./start-kyc/StartKyc";
 import ResendKycModal from "./resend-kyc/ResendKyc";
 import AdminToolsModal from "./admin-tools/AdminTools";
+import ViewAttestionModal from "./view-attestion/ViewAttestion";
 import SessionTimeoutModal from "./session-timeout/SessionTimeout";
 import CancelActiveSurveyModal from "./cancel-active-survey/CancelActiveSurvey";
 import ListVoterSurveyModal from "./list-survey-voters/ListVoterSurvey";
@@ -62,6 +63,7 @@ export {
   StartHellosignModal,
   HelpModal,
   AdminToolsModal,
+  ViewAttestionModal,
   SessionTimeoutModal,
   ListVoterSurveyModal,
   ShowSurveyVoterAnswerModal,

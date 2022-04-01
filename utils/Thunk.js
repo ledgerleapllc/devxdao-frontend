@@ -2128,6 +2128,24 @@ export function downloadCSVMyRep(params, start, completion) {
   };
 }
 
+export function getTopicAttested(id, params, start, completion) {
+  return () => {
+    if (start) start();
+    API.getTopicAttested(id, params).then((res) => {
+      if (completion) completion(res);
+    });
+  };
+}
+
+export function getTopicNotAttested(id, params, start, completion) {
+  return () => {
+    if (start) start();
+    API.getTopicNotAttested(id, params).then((res) => {
+      if (completion) completion(res);
+    });
+  };
+}
+
 // Get All Proposal Milestones - Admin
 export function postRepDailyCsv(params, start, completion) {
   return () => {
