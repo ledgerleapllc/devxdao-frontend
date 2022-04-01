@@ -1524,6 +1524,24 @@ class API {
     );
   }
 
+  static getTopicAttested(topicId, params = {}) {
+    return sendRequest(
+      `/shared/topic-attested/${topicId}`,
+      params,
+      "GET",
+      true
+    );
+  }
+
+  static getTopicNotAttested(topicId, params = {}) {
+    return sendRequest(
+      `/shared/topic-not-attested/${topicId}`,
+      params,
+      "GET",
+      true
+    );
+  }
+
   // Rep - User
   static resendComplianceReview(params = {}) {
     return sendRequest(`/admin/resend-compliance-review`, params, "POST", true);
