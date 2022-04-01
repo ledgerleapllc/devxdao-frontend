@@ -29,6 +29,7 @@ import {
   MultipleMilestoneSubmitModal,
   ResetKYCModal,
   AdminToolsModal,
+  ViewAttestionModal,
   ShuftiRefChangeModal,
   SessionTimeoutModal,
   CancelActiveSurveyModal,
@@ -164,6 +165,8 @@ class Global extends Component {
               <MultipleMilestoneSubmitModal data={this.props.modalData} />
             ) : activeModal == "admin-tools" ? (
               <AdminToolsModal data={this.props.modalData} />
+            ) : activeModal == "view-attestion" ? (
+              <ViewAttestionModal data={this.props.modalData} />
             ) : activeModal == "shufti-ref-change" ? (
               <ShuftiRefChangeModal data={this.props.modalData} />
             ) : activeModal == "shufti-ref-update" ? (

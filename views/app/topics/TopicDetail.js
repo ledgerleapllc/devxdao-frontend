@@ -59,6 +59,14 @@ class TopicDetail extends Component {
     this.props.history.push(`/app/proposal/${this.state.topic.proposal.id}`);
   };
 
+  viewAttestion = () => {
+    const { match } = this.props;
+
+    this.props.dispatch(
+      setActiveModal("view-attestion", { topicId: match.params.topic })
+    );
+  };
+
   // Render Header
   renderHeader() {
     const { topic } = this.state;
@@ -69,6 +77,12 @@ class TopicDetail extends Component {
     return (
       <PageHeaderComponent title={topic.title}>
         <div className="fd-page-actions ml-auto">
+          <button
+            onClick={() => this.viewAttestion()}
+            className="btn btn-primary btn-fluid less-small"
+          >
+            View attestation
+          </button>
           {topic.details.can_edit ? (
             <button
               onClick={() => history.push(`/app/topics/${topic.id}/edit`)}

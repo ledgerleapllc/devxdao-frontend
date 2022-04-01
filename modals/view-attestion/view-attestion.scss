@@ -1,0 +1,21 @@
+#view-attestion-modal {
+  width: 700px;
+  max-width: 100%;
+  background-color: #ffffff;
+  border-radius: 12px;
+  position: relative;
+  padding: 50px;
+  margin: 160px auto;
+  text-align: center;
+  
+  .actions {
+    padding-top: 20px;
+    display: flex;
+    gap: 10px;
+  }
+  h3 {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+}
