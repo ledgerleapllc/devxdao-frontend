@@ -73,15 +73,22 @@ class ViewAttestion extends Component {
   render() {
     const { userAttest, userNotAttest } = this.state;
     return (
-      <div id="view-attestion-modal">
-        <h3>These VAs have attested</h3>
-        {userAttest && <AttestTable data={userAttest} />}
-        <h3>These VAs have not attested</h3>
-        {userNotAttest && <UnattestTable data={userNotAttest} />}
-        <button className="btn btn-primary-outline" onClick={this.hideModal}>
-          Close
-        </button>
-      </div>
+      <>
+        {!!userAttest && !!userNotAttest && (
+          <div id="view-attestion-modal">
+            <h3>These VAs have attested</h3>
+            <AttestTable data={userAttest} />
+            <h3>These VAs have not attested</h3>
+            <UnattestTable data={userNotAttest} />
+            <button
+              className="btn btn-primary-outline"
+              onClick={this.hideModal}
+            >
+              Close
+            </button>
+          </div>
+        )}
+      </>
     );
   }
 }
