@@ -3,7 +3,11 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
 import { hideCanvas, removeActiveModal, showCanvas } from "../../redux/actions";
-import { getTopicAttested, getTopicNotAttested } from "../../utils/Thunk";
+import {
+  getFlagAttested,
+  getTopicAttested,
+  getTopicNotAttested,
+} from "../../utils/Thunk";
 import AttestTable from "./components/AttestTable";
 import UnattestTable from "./components/UnattestTable";
 import "./view-attestion.scss";
@@ -17,6 +21,7 @@ class ViewAttestion extends Component {
     super(props);
     this.state = {
       userAttest: null,
+      flagAttest: null,
       userNotAttest: null,
       params: {
         sort_key: "users.id",
@@ -63,6 +68,23 @@ class ViewAttestion extends Component {
         }
       )
     );
+    this.props.dispatch(
+      getFlagAttested(
+        topicId,
+        this.state.params,
+        () => {
+          this.props.dispatch(showCanvas());
+        },
+        (res) => {
+          this.props.dispatch(hideCanvas());
+          if (res && res.success) {
+            this.setState({
+              flagAttest: res.users,
+            });
+          }
+        }
+      )
+    );
   }
 
   hideModal = () => {
@@ -71,7 +93,7 @@ class ViewAttestion extends Component {
 
   // Render Content
   render() {
-    const { userAttest, userNotAttest } = this.state;
+    const { userAttest, userNotAttest, flagAttest } = this.state;
     return (
       <>
         {!!userAttest && !!userNotAttest && (
@@ -80,6 +102,8 @@ class ViewAttestion extends Component {
             <AttestTable data={userAttest} />
             <h3>These VAs have not attested</h3>
             <UnattestTable data={userNotAttest} />
+            <h3>These VAs clicked the FLAG button</h3>
+            <UnattestTable data={flagAttest} />
             <button
               className="btn btn-primary-outline"
               onClick={this.hideModal}
