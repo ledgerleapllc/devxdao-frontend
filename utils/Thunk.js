@@ -2145,6 +2145,14 @@ export function getTopicNotAttested(id, params, start, completion) {
     });
   };
 }
+export function getFlagAttested(id, params, start, completion) {
+  return () => {
+    if (start) start();
+    API.getFlagAttested(id, params).then((res) => {
+      if (completion) completion(res);
+    });
+  };
+}
 
 // Get All Proposal Milestones - Admin
 export function postRepDailyCsv(params, start, completion) {

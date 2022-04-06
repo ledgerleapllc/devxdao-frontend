@@ -1533,6 +1533,10 @@ class API {
     );
   }
 
+  static getFlagAttested(topicId, params = {}) {
+    return sendRequest(`/shared/topic-flag/${topicId}`, params, "GET", true);
+  }
+
   static getTopicNotAttested(topicId, params = {}) {
     return sendRequest(
       `/shared/topic-not-attested/${topicId}`,
