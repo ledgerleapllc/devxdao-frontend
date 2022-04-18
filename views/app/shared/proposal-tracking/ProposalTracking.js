@@ -11,9 +11,9 @@ import {
   setOnboardingTableStatus,
   setPaymentFormData,
 } from "../../../../redux/actions";
+import * as Icon from "react-feather";
 
 import "./proposal-tracking.scss";
-import * as Icon from "react-feather";
 
 const moment = require("moment");
 

@@ -26,12 +26,13 @@ import {
 import IconDot from "../../../../public/icons/dot.svg";
 import IconEmptyDot from "../../../../public/icons/empty-dot.svg";
 import IconCheckDot from "../../../../public/icons/check-dot.svg";
-import "./single-proposal.scss";
 import Helper from "../../../../utils/Helper";
 import ProposalPosts from "../../shared/proposal-posts/ProposalPosts";
 import { CircularProgressbar } from "react-circular-progressbar";
 import ProposalChangesView from "../../shared/proposal-changes/ProposalChanges";
 import ProposalChangeFormView from "../../shared/proposal-change-form/ProposalChangeForm";
+
+import "./single-proposal.scss";
 
 const mapStateToProps = (state) => {
   return {

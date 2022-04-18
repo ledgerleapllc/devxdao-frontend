@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import "./style.scss";
 import moment from "moment";
+
+import "./style.scss";
 
 class AttestTable extends Component {
   constructor(props) {

@@ -15,9 +15,9 @@ import {
 } from "../../../../utils/Thunk";
 import { GlobalRelativeCanvasComponent } from "../../../../components";
 import { BALLOT_TYPES } from "../../../../utils/enum";
+import { Tooltip } from "@material-ui/core";
 
 import "./move-to-formal.scss";
-import { Tooltip } from "@material-ui/core";
 
 // eslint-disable-next-line no-undef
 const moment = require("moment");

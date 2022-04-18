@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { FormInputComponent } from "../../components";
-
 import {
   forceReloadAdminTeam,
   hideCanvas,

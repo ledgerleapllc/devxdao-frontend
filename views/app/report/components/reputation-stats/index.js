@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import "./style.scss";
 import { DECIMALS } from "../../../../../utils/Constant";
+
+import "./style.scss";
 
 const mapStateToProps = (state) => {
   return {

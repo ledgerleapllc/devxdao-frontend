@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { removeActiveModal } from "../../redux/actions";
 import { getMetricDiscussions, getReportDiscussions } from "../../utils/Thunk";
+
 import "./30-days-report.scss";
 
 const mapStateToProps = () => {

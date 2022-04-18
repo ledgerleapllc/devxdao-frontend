@@ -21,8 +21,9 @@ import IconInfo from "../../public/icons/info.svg";
 import IconVA from "../../public/icons/va.svg";
 import IconReport from "../../public/icons/report.svg";
 import { clearCache } from "react-router-cache-route";
-import "./sidebar.scss";
 import API from "../../utils/API";
+
+import "./sidebar.scss";
 
 const mapStateToProps = (state) => {
   return {
@@ -150,13 +151,6 @@ class Sidebar extends Component {
           link: "",
           label: "Admin Tools",
           tabs: [
-            /*
-            {
-              link: "/app/pre-register",
-              label: "Pre-Register",
-              icon: <Icon.UserCheck size={20} />,
-            },
-            */
             {
               link: "/app/users",
               label: "Portal Users",

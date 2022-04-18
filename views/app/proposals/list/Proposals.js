@@ -8,14 +8,14 @@ import GrantAlertView from "../../shared/grant-alert/GrantAlert";
 import ProposalTracking from "../../shared/proposal-tracking/ProposalTracking";
 import ActiveView from "./active/Active";
 import CompletedView from "./completed/Completed";
-
-import "./proposals.scss";
 import {
+  showCanvas,
   hideCanvas,
   setActiveModal,
-  showCanvas,
 } from "../../../../redux/actions";
 import { getProposalDrafts } from "../../../../utils/Thunk";
+
+import "./proposals.scss";
 
 const mapStateToProps = (state) => {
   return {

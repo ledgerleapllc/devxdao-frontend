@@ -2,8 +2,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-
-import "./edit-proposal.scss";
 import ProposalFinalForm from "../../shared/proposal-final-form/ProposalFinalForm";
 import { PageHeaderComponent } from "../../../../components";
 import {
@@ -11,7 +9,9 @@ import {
   updateProposalShared,
   uploadFile,
 } from "../../../../utils/Thunk";
-import { hideCanvas, showAlert, showCanvas } from "../../../../redux/actions";
+import { showCanvas, hideCanvas, showAlert } from "../../../../redux/actions";
+
+import "./edit-proposal.scss";
 
 const mapStateToProps = (state) => {
   return {

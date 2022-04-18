@@ -10,9 +10,9 @@ import {
   setCustomModalData,
   setInformalBallotTableStatus,
 } from "../../../../redux/actions";
+import { TimeClock } from "../../shared/time-clock/TimeClock";
 
 import "./informal-ballots.scss";
-import { TimeClock } from "../../shared/time-clock/TimeClock";
 
 // eslint-disable-next-line no-undef
 const moment = require("moment");

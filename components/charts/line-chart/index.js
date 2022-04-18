@@ -1,8 +1,10 @@
 import React from "react";
 import dynamic from "next/dynamic";
+
 const ReactApexChart = dynamic(() => import("react-apexcharts"), {
   ssr: false,
 });
+
 import "./style.scss";
 
 const buildOptions = (xaxisData, name = "", strokeWidth = 3) => ({

@@ -16,10 +16,10 @@ import {
   showAlert,
   showCanvas,
 } from "../../../../redux/actions";
-
-import "./admin-pending-grant.scss";
 import { Link } from "react-router-dom";
 import { Tooltip } from "@material-ui/core";
+
+import "./admin-pending-grant.scss";
 
 const mapStateToProps = (state) => {
   return {

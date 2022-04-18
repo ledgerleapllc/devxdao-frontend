@@ -8,9 +8,9 @@ import InformalBallotsView from "../shared/informal-ballots/InformalBallots";
 import ProposalsView from "../shared/proposals/Proposals";
 import PendingUsersView from "../shared/pending-users/PendingUsers";
 import UsersView from "../shared/users/Users";
+import NewSurveyAlert from "../shared/new-survey-alert/NewSurveyAlert";
 
 import "./main.scss";
-import NewSurveyAlert from "../shared/new-survey-alert/NewSurveyAlert";
 
 const mapStateToProps = (state) => {
   return {

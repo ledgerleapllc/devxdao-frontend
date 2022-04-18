@@ -10,6 +10,7 @@ import {
   forceDenyKYC,
   updateProfileInfo,
 } from "../../../utils/Thunk";
+import Helper from "../../../utils/Helper";
 
 import "./info.scss";
 
@@ -94,6 +95,16 @@ class Info extends Component {
       first_name,
       last_name,
     } = this.props;
+
+    if (Helper.hasURL(first_name)) {
+      this.props.dispatch(showAlert("First name has URL"));
+      return;
+    }
+
+    if (Helper.hasURL(last_name)) {
+      this.props.dispatch(showAlert("Last name has URL"));
+      return;
+    }
 
     if (!dob) {
       this.props.dispatch(showAlert("Please input dob"));

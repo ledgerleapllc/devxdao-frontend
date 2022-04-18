@@ -5,7 +5,7 @@ import {
   GlobalRelativeCanvasComponent,
   PageHeaderComponent,
 } from "../../../../components";
-import { hideCanvas, showAlert, showCanvas } from "../../../../redux/actions";
+import { showCanvas, hideCanvas, showAlert } from "../../../../redux/actions";
 import { DECIMALS } from "../../../../utils/Constant";
 import {
   getSingleProposal,

@@ -8,9 +8,9 @@ import {
   setAttestationData,
   showAlert,
 } from "../../redux/actions";
+import API from "../../utils/API";
 
 import "./topic-flag.scss";
-import API from "../../utils/API";
 
 const mapStateToProps = () => {
   return {};

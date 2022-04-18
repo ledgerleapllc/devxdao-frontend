@@ -6,7 +6,6 @@ import {
   GlobalRelativeCanvasComponent,
   PageHeaderComponent,
 } from "../../../components";
-import "./style.scss";
 import {
   getActiveDiscussions,
   getUserSurveyDetail,
@@ -15,10 +14,10 @@ import {
   getMe,
 } from "../../../utils/Thunk";
 import {
-  hideCanvas,
   saveUser,
   showAlert,
   showCanvas,
+  hideCanvas,
 } from "../../../redux/actions";
 import DiscussionProposalsTable from "../surveys/components/tables/discussion-proposals";
 import BidRanksTable from "./components/tables/bid-ranks";
@@ -26,6 +25,8 @@ import Helper from "../../../utils/Helper";
 import { TimeClock } from "../shared/time-clock/TimeClock";
 import moment from "moment";
 import { SURVEY_PREFIX } from "../../../utils/Constant";
+
+import "./style.scss";
 
 const mapStateToProps = (state) => {
   return {

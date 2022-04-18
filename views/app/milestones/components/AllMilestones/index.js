@@ -4,8 +4,9 @@ import { connect } from "react-redux";
 import { GlobalRelativeCanvasComponent } from "../../../../../components";
 import Helper from "../../../../../utils/Helper";
 import { getAllMilestones } from "../../../../../utils/Thunk";
-import "./all-milestones.scss";
 import { withRouter } from "react-router-dom";
+
+import "./all-milestones.scss";
 
 const mapStateToProps = (state) => {
   return {

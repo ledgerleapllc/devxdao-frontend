@@ -3,10 +3,11 @@ import { connect } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
 import { Fade } from "react-reveal";
 import qs from "qs";
-import "./style.scss";
 import moment from "moment";
 import { denyComplianceReview } from "../../../utils/Thunk";
-import { hideCanvas, showAlert, showCanvas } from "../../../redux/actions";
+import { showCanvas, hideCanvas, showAlert } from "../../../redux/actions";
+
+import "./style.scss";
 
 const mapStateToProps = () => {
   return {};

@@ -18,9 +18,9 @@ import {
   showAlert,
   showCanvas,
 } from "../../../redux/actions";
+import * as Icon from "react-feather";
 
 import "./member-grant.scss";
-import * as Icon from "react-feather";
 
 // eslint-disable-next-line no-undef
 const moment = require("moment");

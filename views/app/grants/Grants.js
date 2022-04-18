@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { Fade } from "react-reveal";
-import "./grants.scss";
 import MemberGrant from "./MemberGrant";
 import AdminGrant from "./AdminGrant";
+
+import "./grants.scss";
 
 const mapStateToProps = (state) => {
   return {

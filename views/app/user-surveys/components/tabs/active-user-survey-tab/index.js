@@ -4,6 +4,7 @@ import { withRouter } from "react-router-dom";
 import { Fade } from "react-reveal";
 import ActiveSurveysTable from "../../tables/active-surveys";
 import ActiveRFPSurveysTable from "../../tables/active-rfp-surveys";
+
 import "./style.scss";
 
 const mapStateToProps = (state) => {

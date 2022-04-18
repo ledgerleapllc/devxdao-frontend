@@ -9,9 +9,10 @@ import {
 } from "../../../../utils/Thunk";
 import { GlobalRelativeCanvasComponent } from "../../../../components";
 import Tooltip from "@material-ui/core/Tooltip";
-import "./proposals.scss";
-import { hideCanvas, showAlert, showCanvas } from "../../../../redux/actions";
+import { showCanvas, hideCanvas, showAlert } from "../../../../redux/actions";
 import { PROPOSAL_TYPES } from "../../../../utils/enum";
+
+import "./proposals.scss";
 
 // eslint-disable-next-line no-undef
 const moment = require("moment");

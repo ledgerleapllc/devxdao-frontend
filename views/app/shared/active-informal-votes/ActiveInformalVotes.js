@@ -18,10 +18,10 @@ import {
   setCustomModalData,
   setInformalBallotTableStatus,
 } from "../../../../redux/actions";
-
-import "./active-informal-votes.scss";
 import Helper from "../../../../utils/Helper";
 import { BALLOT_TYPES } from "../../../../utils/enum";
+
+import "./active-informal-votes.scss";
 
 // eslint-disable-next-line no-undef
 const moment = require("moment");

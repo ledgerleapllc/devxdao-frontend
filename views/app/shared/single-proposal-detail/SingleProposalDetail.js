@@ -27,15 +27,12 @@ import {
   setCustomModalData,
   toggleEditMode,
 } from "../../../../redux/actions";
-
 import {
   updateProposalShared,
   submitProposalChange,
   uploadFile,
   checkMentor,
 } from "../../../../utils/Thunk";
-
-import "./single-proposal-detail.scss";
 import { FormSelectComponent, BasicDatePicker } from "../../../../components";
 import {
   Card,
@@ -44,6 +41,8 @@ import {
   CardPreview,
   CardContext,
 } from "../../../../components/card";
+
+import "./single-proposal-detail.scss";
 
 const proposalParams = (proposal) => {
   return {

@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { GlobalRelativeCanvasComponent } from "../../../../../components";
 import { getMilestoneLogs } from "../../../../../utils/Thunk";
+
 import "./activity-logs.scss";
 
 const mapStateToProps = (state) => {

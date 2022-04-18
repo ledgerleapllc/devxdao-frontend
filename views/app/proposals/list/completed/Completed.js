@@ -7,8 +7,9 @@ import Helper from "../../../../../utils/Helper";
 import { GlobalRelativeCanvasComponent } from "../../../../../components";
 import { getCompletedProposalsShared } from "../../../../../utils/Thunk";
 import Tooltip from "@material-ui/core/Tooltip";
-import "./completed.scss";
 import { PROPOSAL_TYPES } from "../../../../../utils/enum";
+
+import "./completed.scss";
 
 // eslint-disable-next-line no-undef
 const moment = require("moment");

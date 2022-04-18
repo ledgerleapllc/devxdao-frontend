@@ -4,10 +4,10 @@ import { withRouter } from "react-router-dom";
 import { Fade } from "react-reveal";
 import { BRAND } from "../../../../utils/Constant";
 import Helper from "../../../../utils/Helper";
-import { hideCanvas, saveUser, showCanvas } from "../../../../redux/actions";
+import { showCanvas, hideCanvas, saveUser } from "../../../../redux/actions";
+import { dismissNewMemberAlert } from "../../../../utils/Thunk";
 
 import "./membership-alert.scss";
-import { dismissNewMemberAlert } from "../../../../utils/Thunk";
 
 const mapStateToProps = (state) => {
   return {

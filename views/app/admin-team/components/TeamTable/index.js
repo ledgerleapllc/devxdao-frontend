@@ -12,7 +12,6 @@ import {
   resendInvitedEmail,
 } from "../../../../../utils/Thunk";
 import { withRouter } from "react-router-dom";
-import "./team.scss";
 import {
   forceReloadAdminTeam,
   hideCanvas,
@@ -20,6 +19,8 @@ import {
   showAlert,
   showCanvas,
 } from "../../../../../redux/actions";
+
+import "./team.scss";
 
 const mapStateToProps = (state) => {
   return {

@@ -2,16 +2,17 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { Fade } from "react-reveal";
-import "./style.scss";
 import WinnersTable from "../../tables/winners";
 import DatePicker from "react-date-picker/dist/entry.nostyle";
 import moment from "moment";
 import { downloadSurveyWinner } from "../../../../../../utils/Thunk";
 import {
-  hideCanvas,
   showAlert,
   showCanvas,
+  hideCanvas,
 } from "../../../../../../redux/actions";
+
+import "./style.scss";
 
 const mapStateToProps = (state) => {
   return {

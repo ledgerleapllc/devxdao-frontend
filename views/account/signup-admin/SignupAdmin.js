@@ -100,6 +100,24 @@ class SignupAdmin extends Component {
       return;
     }
 
+    if (Helper.hasURL(first_name)) {
+      messages = {
+        ...messages,
+        first_name: "First name has URL",
+      };
+      this.setState({ messages });
+      return;
+    }
+
+    if (Helper.hasURL(last_name)) {
+      messages = {
+        ...messages,
+        last_name: "Last name has URL",
+      };
+      this.setState({ messages });
+      return;
+    }
+
     if (!Helper.checkPassword(password)) {
       messages = {
         ...messages,
