@@ -31,6 +31,7 @@ import {
   updateProposalShared,
   submitProposalChange,
   uploadFile,
+  getSingleProposal,
   checkMentor,
 } from "../../../../utils/Thunk";
 import { FormSelectComponent, BasicDatePicker } from "../../../../components";
@@ -174,6 +175,7 @@ class SingleProposalDetail extends Component {
     if (editionMode) {
       // Save
       let { proposal, editionField, editionValue } = this.state;
+      console.log(editionValue);
       const proposalTemp = { ...proposal };
       let whatSection = "";
       let changeTo = "";
@@ -208,49 +210,60 @@ class SingleProposalDetail extends Component {
               formData,
               () => {},
               (res) => {
-                if (res.success) {
-                  this.setState({
-                    ...this.state,
-                    expanded: true,
-                    editionMode: !editionMode,
-                    editionField: "",
-                    proposal: proposalTemp,
-                  });
-                  const paramsSubmitProposalChange = {
-                    proposal: proposal.id,
-                    what_section: whatSection,
-                    change_to: changeTo,
-                    additional_notes: additionalNotes || "",
-                    grant: 0,
-                  };
-                  this.props.dispatch(
-                    submitProposalChange(
-                      paramsSubmitProposalChange,
-                      () => {},
-                      (res) => {
+                console.log(proposalTemp);
+                this.props.dispatch(
+                  getSingleProposal(
+                    proposalTemp.id,
+                    () => {},
+                    (res1) => {
+                      console.log(res1);
+                      proposalTemp.files = res1.proposal.files;
+                      if (res.success) {
+                        this.setState({
+                          ...this.state,
+                          expanded: true,
+                          editionMode: !editionMode,
+                          editionField: "",
+                          proposal: proposalTemp,
+                        });
+                        const paramsSubmitProposalChange = {
+                          proposal: proposal.id,
+                          what_section: whatSection,
+                          change_to: changeTo,
+                          additional_notes: additionalNotes || "",
+                          grant: 0,
+                        };
+                        this.props.dispatch(
+                          submitProposalChange(
+                            paramsSubmitProposalChange,
+                            () => {},
+                            (res) => {
+                              this.props.dispatch(hideCanvas());
+                              if (res.success) {
+                                this.props.dispatch(
+                                  showAlert(
+                                    "You've successfully proposed a change",
+                                    "success"
+                                  )
+                                );
+                                this.props.refreshLogs();
+                              }
+                            },
+                            true
+                          )
+                        );
+                      } else {
                         this.props.dispatch(hideCanvas());
-                        if (res.success) {
-                          this.props.dispatch(
-                            showAlert(
-                              "You've successfully proposed a change",
-                              "success"
-                            )
-                          );
-                          this.props.refreshLogs();
-                        }
-                      },
-                      true
-                    )
-                  );
-                } else {
-                  this.props.dispatch(hideCanvas());
-                  this.setState({
-                    ...this.state,
-                    expanded: true,
-                    editionMode: !editionMode,
-                    editionField: "",
-                  });
-                }
+                        this.setState({
+                          ...this.state,
+                          expanded: true,
+                          editionMode: !editionMode,
+                          editionField: "",
+                        });
+                      }
+                    }
+                  )
+                );
               }
             )
           );
