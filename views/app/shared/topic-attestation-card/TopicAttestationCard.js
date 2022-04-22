@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { setAttestationData, showAlert } from "../../../../redux/actions";
 import API from "../../../../utils/API";
+
 import "./circular-progressbar.scss";
 import "./topic-attestation-card.scss";
 

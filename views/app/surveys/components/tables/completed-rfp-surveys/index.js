@@ -6,8 +6,9 @@ import { GlobalRelativeCanvasComponent } from "../../../../../../components";
 import { withRouter } from "react-router-dom";
 import { forceReloadActiveSurveyTable } from "../../../../../../redux/actions";
 import { getRFPSurveys } from "../../../../../../utils/Thunk";
-import "./style.scss";
 import { DEFAULT_API_RECORDS } from "../../../../../../utils/Constant";
+
+import "./style.scss";
 
 const mapStateToProps = (state) => {
   return {

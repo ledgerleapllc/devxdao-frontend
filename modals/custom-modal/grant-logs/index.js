@@ -1,8 +1,9 @@
 import moment from "moment";
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import "./style.scss";
 import { withRouter } from "react-router-dom";
+
+import "./style.scss";
 
 const GRANT_LOGS = {
   system_sent_doc: {

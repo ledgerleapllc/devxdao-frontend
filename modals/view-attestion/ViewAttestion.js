@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-
-import { hideCanvas, removeActiveModal, showCanvas } from "../../redux/actions";
+import { showCanvas, hideCanvas, removeActiveModal } from "../../redux/actions";
 import {
   getFlagAttested,
   getTopicAttested,
@@ -10,6 +9,7 @@ import {
 } from "../../utils/Thunk";
 import AttestTable from "./components/AttestTable";
 import UnattestTable from "./components/UnattestTable";
+
 import "./view-attestion.scss";
 
 const mapStateToProps = () => {

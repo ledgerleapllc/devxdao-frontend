@@ -3,10 +3,11 @@ import { connect } from "react-redux";
 import { Redirect, withRouter } from "react-router-dom";
 import { Fade } from "react-reveal";
 import { Checkbox, PageHeaderComponent } from "../../../components";
-import "./style.scss";
 import { launchSurvey } from "../../../utils/Thunk";
-import { hideCanvas, showAlert, showCanvas } from "../../../redux/actions";
+import { showCanvas, hideCanvas, showAlert } from "../../../redux/actions";
 import DiscussionProposalsTable from "../surveys/components/tables/discussion-proposals";
+
+import "./style.scss";
 
 const mapStateToProps = (state) => {
   return {

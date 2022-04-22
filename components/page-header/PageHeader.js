@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import * as Icon from "react-feather";
+
 import "./page-header.scss";
 
 class PageHeader extends Component {

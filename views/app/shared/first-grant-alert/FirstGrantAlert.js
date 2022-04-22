@@ -3,10 +3,10 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { Fade } from "react-reveal";
 import Helper from "../../../../utils/Helper";
-import { hideCanvas, saveUser, showCanvas } from "../../../../redux/actions";
+import { showCanvas, hideCanvas, saveUser } from "../../../../redux/actions";
+import { dismissFirstCompletedGrantAlert } from "../../../../utils/Thunk";
 
 import "./first-grant-alert.scss";
-import { dismissFirstCompletedGrantAlert } from "../../../../utils/Thunk";
 
 const mapStateToProps = (state) => {
   return {

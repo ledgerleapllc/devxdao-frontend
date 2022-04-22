@@ -5,6 +5,7 @@ import { Fade } from "react-reveal";
 import { PageHeaderComponent } from "../../../components";
 import { getPublicMilestoneDetail } from "../../../utils/Thunk";
 import moment from "moment";
+
 import "./public-milestone-detail.scss";
 
 const mapStateToProps = () => {

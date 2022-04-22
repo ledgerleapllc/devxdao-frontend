@@ -6,10 +6,11 @@ import { showAlert, showCanvas, hideCanvas } from "../../../../redux/actions";
 import { submitProposalChange } from "../../../../utils/Thunk";
 import ProposalMilestoneView from "../../shared/proposal-milestone/ProposalMilestone";
 import ProposalCitationView from "../proposal-citation/ProposalCitation";
-// eslint-disable-next-line no-undef
-const moment = require("moment");
 
 import "./proposal-change-form.scss";
+
+// eslint-disable-next-line no-undef
+const moment = require("moment");
 
 const mapStateToProps = (state) => {
   return {

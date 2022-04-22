@@ -3,16 +3,15 @@ import { connect } from "react-redux";
 import { Link, Redirect, withRouter } from "react-router-dom";
 import { Fade } from "react-reveal";
 import { PageHeaderComponent } from "../../../components";
-import "./style.scss";
 import SurveyVotesTable from "./components/tables/survey-votes";
 import SurveyDownVotesTable from "./components/tables/survey-downvotes";
 import RankOfBidsTable from "./components/tables/rank-of-bids";
 import BidsVotesTable from "./components/tables/bids-votes";
 import {
-  hideCanvas,
   setActiveModal,
   showAlert,
   showCanvas,
+  hideCanvas,
 } from "../../../redux/actions";
 import {
   getSurveyDetail,
@@ -27,6 +26,8 @@ import { TimeClock } from "../shared/time-clock/TimeClock";
 import moment from "moment";
 import Helper from "../../../utils/Helper";
 import { SURVEY_PREFIX } from "../../../utils/Constant";
+
+import "./style.scss";
 
 const mapStateToProps = (state) => {
   return {

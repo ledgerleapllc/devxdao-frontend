@@ -22,6 +22,7 @@ import {
   LICENSES,
   GRANTTYPES,
 } from "../../../../utils/Constant";
+
 import "./single-change-detail.scss";
 
 // eslint-disable-next-line no-undef

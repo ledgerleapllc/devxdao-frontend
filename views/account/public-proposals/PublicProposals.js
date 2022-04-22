@@ -2,10 +2,11 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Fade } from "react-reveal";
 import { SwitchButton } from "../../../components";
-import "./proposals.scss";
 import { withRouter } from "react-router-dom";
 import PublicProposalTable from "./components/public-proposal-table";
 import PublicMilestoneTable from "./components/milestones-table";
+
+import "./proposals.scss";
 
 const mapStateToProps = () => {
   return {};

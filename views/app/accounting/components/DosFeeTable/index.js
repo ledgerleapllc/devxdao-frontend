@@ -4,8 +4,9 @@ import { connect } from "react-redux";
 import { GlobalRelativeCanvasComponent } from "../../../../../components";
 import { getDosFee } from "../../../../../utils/Thunk";
 import { withRouter } from "react-router-dom";
-import "./dos-fee-table.scss";
 import Helper from "../../../../../utils/Helper";
+
+import "./dos-fee-table.scss";
 
 const mapStateToProps = (state) => {
   return {

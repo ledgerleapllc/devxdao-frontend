@@ -12,6 +12,7 @@ import Helper from "../../../utils/Helper";
 import { saveUser, showCanvas, hideCanvas } from "../../../redux/actions";
 import { getPreRegisterUserByHash, register } from "../../../utils/Thunk";
 import { FORUM_REGEX } from "../../../utils/Constant";
+
 import "./signup.scss";
 
 const mapStateToProps = () => {
@@ -191,6 +192,51 @@ class Signup extends Component {
       messages = {
         ...messages,
         password: "Password doesn't match",
+      };
+      this.setState({ messages });
+      return;
+    }
+
+    if (Helper.hasURL(first_name)) {
+      messages = {
+        ...messages,
+        first_name: "First name has URL",
+      };
+      this.setState({ messages });
+      return;
+    }
+
+    if (Helper.hasURL(last_name)) {
+      messages = {
+        ...messages,
+        last_name: "Last name has URL",
+      };
+      this.setState({ messages });
+      return;
+    }
+
+    if (company && Helper.hasURL(company)) {
+      messages = {
+        ...messages,
+        company: "Company has URL",
+      };
+      this.setState({ messages });
+      return;
+    }
+
+    if (Helper.hasURL(forum_name)) {
+      messages = {
+        ...messages,
+        forum_name: "Forum name has URL",
+      };
+      this.setState({ messages });
+      return;
+    }
+
+    if (Helper.hasURL(telegram)) {
+      messages = {
+        ...messages,
+        telegram: "Telegram has URL",
       };
       this.setState({ messages });
       return;
@@ -499,6 +545,7 @@ class Signup extends Component {
                       underlined
                       required
                     />
+                    {this.renderError("telegram")}
                   </div>
                 </Fade>
               </div>

@@ -7,6 +7,7 @@ import {
   showCanvas,
 } from "../../redux/actions";
 import { getMe, sendKycKangaroo } from "../../utils/Thunk";
+
 import "./style.scss";
 
 const mapStateToProps = (state) => {

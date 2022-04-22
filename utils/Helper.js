@@ -17,20 +17,27 @@ class Helper {
     return re.test(value.toLowerCase());
   }
 
+  // Check if it has URL
+  static hasURL(value) {
+    if (
+      new RegExp(
+        "([a-zA-Z0-9]+://)?([a-zA-Z0-9_]+:[a-zA-Z0-9_]+@)?([a-zA-Z0-9.-]+\\.[A-Za-z]{2,4})(:[0-9]+)?(/.*)?"
+      ).test(value)
+    ) {
+      return true;
+    }
+    return false;
+  }
+
   // Please use a password with at least 8 characters including at least one number, one letter and one symbol
   static checkPassword(password) {
     if (password.length < 8) return false;
-
     let re = /[0-9]/;
     if (!re.test(password)) return false;
-
     re = /[a-zA-Z]/;
     if (!re.test(password)) return false;
-
     re = /(?=.*[.,=+;:\_\-?()\[\]<>{}!@#$%^&*])^[^'"]*$/;
-
     if (!re.test(password)) return false;
-
     return true;
   }
 
@@ -56,12 +63,9 @@ class Helper {
     let stringNew = string.toString();
     const last = stringNew[stringNew.length - 1];
     if (last == ".") stringNew = stringNew.substring(0, stringNew.length - 1);
-
     stringNew = stringNew.replaceAll(".", "");
     stringNew = stringNew.replaceAll(",", ".");
-
     if (last == ".") stringNew = stringNew + ".";
-
     return stringNew;
   }
 
@@ -130,14 +134,12 @@ class Helper {
       currency,
       minimumFractionDigits: 0,
     });
-
     return formatter.format(str);
   }
 
   // Format Float String
   static formatNumber(str) {
     str = `${str}`.replaceAll(",", "");
-
     if (isNaN(str) || str.trim() == "") return "";
     const temp = str.split(".");
     if (temp.length > 1) {
@@ -182,7 +184,6 @@ class Helper {
   static getGuestKey(generateNew = true) {
     let key = window.localStorage.getItem(GUEST_KEY);
     if (key) return key;
-
     if (generateNew) {
       key =
         "devdao_guest_user_" +

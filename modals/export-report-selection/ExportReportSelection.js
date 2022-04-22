@@ -6,10 +6,11 @@ import {
   hideCanvas,
   showAlert,
 } from "../../redux/actions";
-import "./style.scss";
 import { FROM_YEAR } from "../../utils/Constant";
 import Checkbox from "../../components/check-box/Checkbox";
 import { downloadReport } from "../../utils/Thunk";
+
+import "./style.scss";
 
 const mapStateToProps = (state) => {
   return {

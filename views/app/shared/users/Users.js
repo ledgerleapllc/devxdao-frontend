@@ -4,17 +4,17 @@ import * as Icon from "react-feather";
 import { downloadCSVUsers, getUsersByAdmin } from "../../../../utils/Thunk";
 import { GlobalRelativeCanvasComponent } from "../../../../components";
 import {
-  hideCanvas,
   setAdminUserTableStatus,
   showAlert,
   showCanvas,
+  hideCanvas,
 } from "../../../../redux/actions";
 import { withRouter } from "react-router-dom";
 import { Checkbox } from "../../../../components";
-
-import "./users.scss";
 import DatePicker from "react-date-picker/dist/entry.nostyle";
 import { DECIMALS } from "../../../../utils/Constant";
+
+import "./users.scss";
 
 // eslint-disable-next-line no-undef
 const moment = require("moment");

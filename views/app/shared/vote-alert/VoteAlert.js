@@ -7,6 +7,7 @@ import InformalDoneView from "./InformalDone";
 import FormalView from "./Formal";
 import FormalDoneView from "./FormalDone";
 import qs from "qs";
+
 import "./vote-alert.scss";
 
 // eslint-disable-next-line no-undef

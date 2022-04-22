@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { removeActiveModal } from "../../redux/actions";
+
 import "./style.scss";
 
 const mapStateToProps = (state) => {

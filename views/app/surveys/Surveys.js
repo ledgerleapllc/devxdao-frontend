@@ -2,12 +2,13 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { Fade } from "react-reveal";
-import "./surveys.scss";
 import ActiveSurveyTab from "./components/tabs/active-survey-tab";
 import WinnersTab from "./components/tabs/winners-tab";
 import DownvotedTab from "./components/tabs/downvoted-tab";
 import RFPSurveysTab from "./components/tabs/rfp-surveys-tab";
 import CompletedSurveyTab from "./components/tabs/completed-survey-tab";
+
+import "./surveys.scss";
 
 const mapStateToProps = (state) => {
   return {

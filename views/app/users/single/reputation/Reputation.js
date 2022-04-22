@@ -4,9 +4,9 @@ import { withRouter } from "react-router-dom";
 import { Fade } from "react-reveal";
 import { getReputationByUser } from "../../../../../utils/Thunk";
 import { GlobalRelativeCanvasComponent } from "../../../../../components";
+import { DECIMALS } from "../../../../../utils/Constant";
 
 import "./reputation.scss";
-import { DECIMALS } from "../../../../../utils/Constant";
 
 // eslint-disable-next-line no-undef
 const moment = require("moment");

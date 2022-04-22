@@ -2,7 +2,6 @@ import { Fade } from "react-reveal";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
-import "./notifications.scss";
 import { AlternateEmail, Message, Reply } from "@material-ui/icons";
 import { Heart } from "react-feather";
 import {
@@ -10,6 +9,8 @@ import {
   seeAllDiscourseNotifications,
 } from "../../../redux/actions";
 import API from "../../../utils/API";
+
+import "./notifications.scss";
 
 const mapStateToProps = (state) => {
   return {

@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect, withRouter } from "react-router-dom";
 import { Fade } from "react-reveal";
-import "./milestones.scss";
 import MilestonesInReview from "./components/MilestonesInReview";
 import AllMilestones from "./components/AllMilestones";
 import Helper from "../../../utils/Helper";
@@ -16,7 +15,9 @@ import {
 import { Autocomplete } from "@material-ui/lab";
 import { TextField } from "@material-ui/core";
 import moment from "moment";
-import { hideCanvas, showAlert, showCanvas } from "../../../redux/actions";
+import { showCanvas, hideCanvas, showAlert } from "../../../redux/actions";
+
+import "./milestones.scss";
 
 const mapStateToProps = (state) => {
   return {

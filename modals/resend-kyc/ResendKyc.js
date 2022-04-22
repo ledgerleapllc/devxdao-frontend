@@ -7,6 +7,7 @@ import {
   setActiveModal,
 } from "../../redux/actions";
 import { sendKycKangaroo } from "../../utils/Thunk";
+
 import "./style.scss";
 
 const mapStateToProps = (state) => {

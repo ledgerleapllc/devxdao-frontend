@@ -12,6 +12,7 @@ import { getMilestoneDetail, togglePaidMilestone } from "../../../utils/Thunk";
 import ActivityLogs from "./components/ActivityLogs";
 import { showAlert } from "../../../redux/actions";
 import moment from "moment";
+
 import "./style.scss";
 
 const mapStateToProps = (state) => {

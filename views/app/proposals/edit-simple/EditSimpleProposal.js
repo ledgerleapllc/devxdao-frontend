@@ -10,7 +10,7 @@ import {
   updateSimpleProposalShared,
   uploadFile,
 } from "../../../../utils/Thunk";
-import { hideCanvas, showAlert, showCanvas } from "../../../../redux/actions";
+import { showCanvas, hideCanvas, showAlert } from "../../../../redux/actions";
 
 import "./edit-simple-proposal.scss";
 

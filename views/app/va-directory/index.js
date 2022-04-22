@@ -3,7 +3,9 @@ import { connect } from "react-redux";
 import { Redirect, withRouter } from "react-router-dom";
 import { Fade } from "react-reveal";
 import VATables from "./components/VATables";
+
 import "./style.scss";
+
 const mapStateToProps = (state) => {
   return {
     authUser: state.global.authUser,

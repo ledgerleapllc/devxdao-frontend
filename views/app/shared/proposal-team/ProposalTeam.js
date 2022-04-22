@@ -3,10 +3,10 @@ import { connect } from "react-redux";
 import * as Icon from "react-feather";
 import { COUNTRYLIST } from "../../../../utils/Constant";
 import { showAlert } from "../../../../redux/actions";
-
-import "./proposal-team.scss";
 import { Checkbox } from "../../../../components";
 import { Fade } from "react-reveal";
+
+import "./proposal-team.scss";
 
 const mapStateToProps = () => {
   return {};

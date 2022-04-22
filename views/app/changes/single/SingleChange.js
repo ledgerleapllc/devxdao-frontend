@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { hideCanvas, showCanvas } from "../../../../redux/actions";
+import { showCanvas, hideCanvas } from "../../../../redux/actions";
 import { getProposalChangeById } from "../../../../utils/Thunk";
 import SingleProposalDetailView from "../../shared/single-proposal-detail/SingleProposalDetail";
 import SingleChangeDetailView from "../../shared/single-change-detail/SingleChangeDetail";

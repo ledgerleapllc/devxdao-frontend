@@ -4,8 +4,9 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { GlobalRelativeCanvasComponent } from "../../../../../../components";
-import { hideCanvas, showCanvas } from "../../../../../../redux/actions";
+import { showCanvas, hideCanvas } from "../../../../../../redux/actions";
 import { getLosers, approveDownVote } from "../../../../../../utils/Thunk";
+
 import "./style.scss";
 
 const mapStateToProps = (state) => {

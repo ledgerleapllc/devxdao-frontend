@@ -3,11 +3,11 @@ import { connect } from "react-redux";
 import * as Icon from "react-feather";
 import {
   removeActiveModal,
-  hideCanvas,
   setAdminActiveProposalTableStatus,
   setAdminPendingProposalTableStatus,
   setDOSReviewData,
   showCanvas,
+  hideCanvas,
 } from "../../redux/actions";
 import { approveProposalPayment, denyProposalPayment } from "../../utils/Thunk";
 

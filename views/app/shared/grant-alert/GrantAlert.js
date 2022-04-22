@@ -4,6 +4,7 @@ import { withRouter } from "react-router-dom";
 import { Fade } from "react-reveal";
 import { getMyPaymentProposals } from "../../../../utils/Thunk";
 import { Link } from "react-router-dom";
+
 import "./grant-alert.scss";
 
 const mapStateToProps = (state) => {

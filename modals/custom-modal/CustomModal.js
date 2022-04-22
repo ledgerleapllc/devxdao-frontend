@@ -36,6 +36,7 @@ import {
   checkMasterPassword,
 } from "../../utils/Thunk";
 import GrantLogsTable from "./grant-logs";
+
 import "./custom-modal.scss";
 
 // eslint-disable-next-line no-undef

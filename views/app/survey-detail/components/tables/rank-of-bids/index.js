@@ -9,6 +9,7 @@ import {
 } from "../../../../../../redux/actions";
 import Helper from "../../../../../../utils/Helper";
 import { getSurveyDetail } from "../../../../../../utils/Thunk";
+
 import "./style.scss";
 
 const mapStateToProps = (state) => {

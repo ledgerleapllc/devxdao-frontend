@@ -1,7 +1,6 @@
 import moment from "moment";
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import "./draft-proposals.scss";
 import { Link } from "react-router-dom";
 import { GlobalRelativeCanvasComponent } from "../../../../components";
 import {
@@ -14,6 +13,8 @@ import {
   showAlert,
   showCanvas,
 } from "../../../../redux/actions";
+
+import "./draft-proposals.scss";
 
 const mapStateToProps = (state) => {
   return {

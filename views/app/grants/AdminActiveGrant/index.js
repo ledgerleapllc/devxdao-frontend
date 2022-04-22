@@ -15,10 +15,11 @@ import {
   hideCanvas,
   showAlert,
 } from "../../../../redux/actions";
-
-import "./admin-active-grant.scss";
 import { Link } from "react-router-dom";
 import { Tooltip } from "@material-ui/core";
+
+import "./admin-active-grant.scss";
+
 // eslint-disable-next-line no-undef
 const moment = require("moment");
 

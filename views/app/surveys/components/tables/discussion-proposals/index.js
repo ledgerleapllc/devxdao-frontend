@@ -6,9 +6,10 @@ import {
   SwitchButton,
 } from "../../../../../../components";
 import { getActiveDiscussions } from "../../../../../../utils/Thunk";
-import "./style.scss";
 import { Link } from "react-router-dom";
 import { Tooltip } from "@material-ui/core";
+
+import "./style.scss";
 
 const mapStateToProps = (state) => {
   return {

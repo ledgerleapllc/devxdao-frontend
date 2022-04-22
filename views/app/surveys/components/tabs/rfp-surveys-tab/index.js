@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { Fade } from "react-reveal";
-import "./style.scss";
 import ActiveRFPSurveysTable from "../../tables/active-rfp-surveys";
 import CompletedRFPSurveysTable from "../../tables/completed-rfp-surveys";
+
+import "./style.scss";
 
 const mapStateToProps = (state) => {
   return {

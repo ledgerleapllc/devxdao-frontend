@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { GlobalRelativeCanvasComponent } from "../../../../../components";
 import Helper from "../../../../../utils/Helper";
 import { getAllReviewMilestones } from "../../../../../utils/Thunk";
+
 import "./milestones-in-review.scss";
 
 const mapStateToProps = (state) => {
