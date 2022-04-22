@@ -3,11 +3,11 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { Fade } from "react-reveal";
 import Helper from "../../../../utils/Helper";
-import { hideCanvas, saveUser, showCanvas } from "../../../../redux/actions";
+import { showCanvas, hideCanvas, saveUser } from "../../../../redux/actions";
 import { Link } from "react-router-dom";
+import { dismissNewMemberAlert } from "../../../../utils/Thunk";
 
 import "./new-grant-alert.scss";
-import { dismissNewMemberAlert } from "../../../../utils/Thunk";
 
 const mapStateToProps = (state) => {
   return {

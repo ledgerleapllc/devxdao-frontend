@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { Fade } from "react-reveal";
-import "./surveys.scss";
 import ActiveUserSurveyTab from "./components/tabs/active-user-survey-tab";
 import CompletedUserSurveyTab from "./components/tabs/completed-user-survey-tab";
+
+import "./surveys.scss";
 
 const mapStateToProps = (state) => {
   return {

@@ -3,6 +3,7 @@ import API from "../../../../utils/API";
 import Discourse from "../../../../utils/Discourse";
 import SinglePost from "../single-post/SinglePost";
 import WritePost from "../write-post/WritePost";
+
 import "../../topics/discourse.scss";
 
 class TopicPosts extends Component {

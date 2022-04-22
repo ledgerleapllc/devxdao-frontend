@@ -9,9 +9,10 @@ import {
   downloadCSVMyRep,
   postRepDailyCsv,
 } from "../../../utils/Thunk";
-import "./reputation.scss";
 import { DECIMALS } from "../../../utils/Constant";
-import { hideCanvas, showAlert, showCanvas } from "../../../redux/actions";
+import { showCanvas, hideCanvas, showAlert } from "../../../redux/actions";
+
+import "./reputation.scss";
 
 // eslint-disable-next-line no-undef
 const moment = require("moment");

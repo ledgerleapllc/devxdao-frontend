@@ -28,13 +28,14 @@ import {
   setCustomModalData,
   saveDraftBeforeLogout,
 } from "../../../../redux/actions";
-
-import "./proposal-final-form.scss";
 import {
   createProposalDraft,
   uploadDraftFile,
   checkMentor,
 } from "../../../../utils/Thunk";
+
+import "./proposal-final-form.scss";
+
 const Scroll = require("react-scroll");
 
 const mapStateToProps = (state) => {

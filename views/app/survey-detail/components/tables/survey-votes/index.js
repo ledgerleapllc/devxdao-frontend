@@ -7,15 +7,16 @@ import {
   getSurveyVotes,
   downloadCurrentVoteByProposal,
 } from "../../../../../../utils/Thunk";
-import "./style.scss";
 import { Link } from "react-router-dom";
 import {
-  hideCanvas,
   setActiveModal,
   showAlert,
   showCanvas,
+  hideCanvas,
 } from "../../../../../../redux/actions";
 import Helper from "../../../../../../utils/Helper";
+
+import "./style.scss";
 
 const mapStateToProps = (state) => {
   return {

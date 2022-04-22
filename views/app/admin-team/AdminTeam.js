@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { Redirect, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import "./admin-team.scss";
 import TeamTable from "./components/TeamTable";
 import { Fade } from "react-reveal";
 import { setActiveModal } from "../../../redux/actions";
+
+import "./admin-team.scss";
 
 const mapStateToProps = (state) => {
   return {

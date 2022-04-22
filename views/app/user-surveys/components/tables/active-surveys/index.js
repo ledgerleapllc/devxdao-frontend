@@ -8,6 +8,7 @@ import {
   setActiveModal,
 } from "../../../../../../redux/actions";
 import { getUserSurveys } from "../../../../../../utils/Thunk";
+
 import "./style.scss";
 
 const mapStateToProps = (state) => {

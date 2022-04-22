@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect, withRouter } from "react-router";
 import { LineChart, PieChart } from "../../../components";
-import { hideCanvas, showCanvas, setActiveModal } from "../../../redux/actions";
+import { showCanvas, hideCanvas, setActiveModal } from "../../../redux/actions";
 import {
   getReportOnboarding,
   getReportReputation,
@@ -10,8 +10,10 @@ import {
 } from "../../../utils/Thunk";
 import OnboardingStats from "./components/onboarding-stats";
 import ReputationStats from "./components/reputation-stats";
-import "./style.scss";
 import { FROM_YEAR } from "../../../utils/Constant";
+
+import "./style.scss";
+
 const mapStateToProps = (state) => {
   return {
     authUser: state.global.authUser,

@@ -4,9 +4,10 @@ import { Fade } from "react-reveal";
 import { Link, withRouter } from "react-router-dom";
 import { hideCanvas, setActiveModal, showCanvas } from "../../../redux/actions";
 import qs from "qs";
-import "./style.scss";
 import moment from "moment";
 import { approveComplianceReview } from "../../../utils/Thunk";
+
+import "./style.scss";
 
 const mapStateToProps = () => {
   return {};

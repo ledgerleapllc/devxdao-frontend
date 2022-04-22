@@ -4,10 +4,11 @@ import { connect } from "react-redux";
 import { GlobalRelativeCanvasComponent } from "../../../../../components";
 import Helper from "../../../../../utils/Helper";
 import { getAllPublicProposalsShared } from "../../../../../utils/Thunk";
-import "./public-proposal-table.scss";
 import { withRouter } from "react-router-dom";
 import * as Icon from "react-feather";
 import { PROPOSAL_TYPES } from "../../../../../utils/enum";
+
+import "./public-proposal-table.scss";
 
 const mapStateToProps = () => {
   return {};

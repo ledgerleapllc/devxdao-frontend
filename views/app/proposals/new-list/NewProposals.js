@@ -6,7 +6,6 @@ import * as Icon from "react-feather";
 import Tooltip from "@material-ui/core/Tooltip";
 import { GlobalRelativeCanvasComponent } from "../../../../components";
 import {
-  hideCanvas,
   setActiveModal,
   setAdminActiveProposalTableStatus,
   setAdminPendingProposalTableStatus,
@@ -15,12 +14,13 @@ import {
   setEditProposalData,
   setReviewProposal,
   showCanvas,
+  hideCanvas,
 } from "../../../../redux/actions";
 import Helper from "../../../../utils/Helper";
 import { approveProposal, getPendingProposals } from "../../../../utils/Thunk";
+import { PROPOSAL_TYPES } from "../../../../utils/enum";
 
 import "./new-proposals.scss";
-import { PROPOSAL_TYPES } from "../../../../utils/enum";
 
 // eslint-disable-next-line no-undef
 const moment = require("moment");

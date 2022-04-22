@@ -6,6 +6,7 @@ import { GlobalRelativeCanvasComponent } from "../../../../../../components";
 import { forceReloadActiveSurveyTable } from "../../../../../../redux/actions";
 import { DEFAULT_API_RECORDS } from "../../../../../../utils/Constant";
 import { getUserSurveys } from "../../../../../../utils/Thunk";
+
 import "./style.scss";
 
 const mapStateToProps = (state) => {

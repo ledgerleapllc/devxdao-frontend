@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { Fade } from "react-reveal";
 import MessagesView from "../shared/messages/Messages";
+
 import "./messages.scss";
 
 const mapStateToProps = (state) => {

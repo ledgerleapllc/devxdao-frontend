@@ -3,9 +3,9 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { Fade } from "react-reveal";
 import DiscussionsView from "../shared/discussions/Discussions";
+import { setActiveModal } from "../../../redux/actions";
 
 import "./discussions.scss";
-import { setActiveModal } from "../../../redux/actions";
 
 const mapStateToProps = (state) => {
   return {

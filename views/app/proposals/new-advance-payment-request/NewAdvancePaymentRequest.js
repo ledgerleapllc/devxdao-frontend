@@ -13,14 +13,15 @@ import {
   submitPaymentProposal,
   uploadFile,
 } from "../../../../utils/Thunk";
-import { hideCanvas, showAlert, showCanvas } from "../../../../redux/actions";
+import { showCanvas, hideCanvas, showAlert } from "../../../../redux/actions";
 import {
   PageHeaderComponent,
   InputMoney,
   Checkbox,
 } from "../../../../components";
-import "./new-advance-payment-request.scss";
 import Helper from "../../../../utils/Helper";
+
+import "./new-advance-payment-request.scss";
 
 const NewAdvancePaymentRequest = () => {
   const history = useHistory();

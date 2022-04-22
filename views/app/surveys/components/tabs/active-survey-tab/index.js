@@ -4,12 +4,13 @@ import { withRouter } from "react-router-dom";
 import { Fade } from "react-reveal";
 import ActiveSurveysTable from "../../tables/active-surveys";
 import DiscussionProposalsTable from "../../tables/discussion-proposals";
-import "./style.scss";
 import { getSurveys } from "../../../../../../utils/Thunk";
 import {
   forceReloadGuardStartSurvey,
   showAlert,
 } from "../../../../../../redux/actions";
+
+import "./style.scss";
 
 const mapStateToProps = (state) => {
   return {

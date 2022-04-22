@@ -6,9 +6,9 @@ import DatePicker from "react-date-picker/dist/entry.nostyle";
 import * as Icon from "react-feather";
 import Helper from "../../../../utils/Helper";
 import { showAlert } from "../../../../redux/actions";
+import { Fade } from "react-reveal";
 
 import "./proposal-milestone.scss";
-import { Fade } from "react-reveal";
 
 const mapStateToProps = () => {
   return {};

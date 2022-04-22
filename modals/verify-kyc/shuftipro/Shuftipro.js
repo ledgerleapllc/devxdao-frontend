@@ -1,6 +1,7 @@
 /* eslint-disable no-undef */
 import React, { Component } from "react";
 import { connect } from "react-redux";
+
 import "./shuftipro.scss";
 
 const mapStateToProps = (state) => {

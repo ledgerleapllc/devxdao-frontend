@@ -10,17 +10,17 @@ import {
   downloadCompletedVotes,
 } from "../../../../utils/Thunk";
 import {
-  hideCanvas,
   setActiveModal,
   setCompletedVotesTableStatus,
   setCustomModalData,
   showAlert,
   showCanvas,
+  hideCanvas,
 } from "../../../../redux/actions";
-
-import "./completed-votes.scss";
 import Helper from "../../../../utils/Helper";
 import { BALLOT_TYPES } from "../../../../utils/enum";
+
+import "./completed-votes.scss";
 
 // eslint-disable-next-line no-undef
 const moment = require("moment");

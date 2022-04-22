@@ -21,9 +21,9 @@ import {
 } from "../../../utils/Thunk";
 import Helper from "../../../utils/Helper";
 // import SponsorCodesView from "./SponsorCodes";
+import { FORUM_REGEX } from "../../../utils/Constant";
 
 import "./settings.scss";
-import { FORUM_REGEX } from "../../../utils/Constant";
 
 const mapStateToProps = (state) => {
   return {

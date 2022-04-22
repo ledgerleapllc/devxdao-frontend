@@ -10,6 +10,7 @@ import {
   showCanvas,
 } from "../../redux/actions";
 import { resetKYC } from "../../utils/Thunk";
+
 import "./reset-kyc.scss";
 
 const mapStateToProps = (state) => {

@@ -28,8 +28,9 @@ import ProposalsView from "./proposals/Proposals";
 import VotesView from "./votes/Votes";
 import ReputationView from "./reputation/Reputation";
 import ProposalMentorView from "./proposal-mentor";
-import "./single-user.scss";
 import { DECIMALS } from "../../../../utils/Constant";
+
+import "./single-user.scss";
 
 // eslint-disable-next-line no-undef
 const moment = require("moment");

@@ -5,6 +5,7 @@ import { GlobalRelativeCanvasComponent } from "../../../../../components";
 import { DECIMALS } from "../../../../../utils/Constant";
 import Helper from "../../../../../utils/Helper";
 import { getVADirectory } from "../../../../../utils/Thunk";
+
 import "./va-directory.scss";
 
 const mapStateToProps = (state) => {

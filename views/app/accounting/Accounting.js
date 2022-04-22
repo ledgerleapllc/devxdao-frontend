@@ -2,17 +2,18 @@ import React, { Component } from "react";
 import { Redirect, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import Helper from "../../../utils/Helper";
-import "./accounting.scss";
 import {
   downloadCSVAccounting,
   getMetrics,
   downloadAllRep,
   downloadAllVotes,
 } from "../../../utils/Thunk";
-import { hideCanvas, showAlert, showCanvas } from "../../../redux/actions";
+import { showCanvas, hideCanvas, showAlert } from "../../../redux/actions";
 import DatePicker from "react-date-picker/dist/entry.nostyle";
 import DosFeeTable from "./components/DosFeeTable";
 import moment from "moment";
+
+import "./accounting.scss";
 
 const mapStateToProps = (state) => {
   return {

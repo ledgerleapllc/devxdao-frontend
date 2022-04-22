@@ -3,7 +3,7 @@ import * as Icon from "react-feather";
 import Dropzone from "react-dropzone";
 import moment from "moment";
 import { Fade } from "react-reveal";
-import { hideCanvas, showAlert, showCanvas } from "../../../../redux/actions";
+import { showCanvas, hideCanvas, showAlert } from "../../../../redux/actions";
 import {
   BasicDatePicker,
   PageHeaderComponent,
@@ -13,9 +13,10 @@ import { submitAdminGrantProposal, uploadFile } from "../../../../utils/Thunk";
 import { Controller, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import "./new-admin-grant-proposal.scss";
 import { useHistory } from "react-router";
 import { useDispatch } from "react-redux";
+
+import "./new-admin-grant-proposal.scss";
 
 const schema = yup.object().shape({
   title: yup.string().required(),

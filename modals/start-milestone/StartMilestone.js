@@ -8,6 +8,7 @@ import {
   showCanvas,
 } from "../../redux/actions";
 import { denyReviewMilestone } from "../../utils/Thunk";
+
 import "./start-milestone.scss";
 
 const mapStateToProps = () => {

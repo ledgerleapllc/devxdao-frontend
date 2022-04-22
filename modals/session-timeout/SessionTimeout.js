@@ -6,8 +6,9 @@ import {
   saveDraftBeforeLogout,
   saveUser,
 } from "../../redux/actions";
-import "./style.scss";
 import Helper from "../../utils/Helper";
+
+import "./style.scss";
 
 const mapStateToProps = () => {
   return {};

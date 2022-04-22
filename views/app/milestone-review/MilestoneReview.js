@@ -12,10 +12,11 @@ import {
   approveReviewMilestone,
   getReviewMilestoneDetail,
 } from "../../../utils/Thunk";
-import "./milestone-review.scss";
 import { PageHeaderComponent } from "../../../components";
 import Dropzone from "react-dropzone";
 import * as Icon from "react-feather";
+
+import "./milestone-review.scss";
 
 const mapStateToProps = (state) => {
   return {
