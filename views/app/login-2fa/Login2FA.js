@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { Fade } from "react-reveal";
 import { hideCanvas, showAlert, showCanvas } from "../../../redux/actions";
 import { checkLogin2FA } from "../../../utils/Thunk";
-
+/* test comment */
 import "./login-2fa.scss";
 
 const mapStateToProps = (state) => {
