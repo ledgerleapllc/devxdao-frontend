@@ -71,7 +71,7 @@ class Discussions extends Component {
     if (!this.$elem) return;
     if (
       this.$elem.scrollTop + this.$elem.clientHeight >=
-      this.$elem.scrollHeight
+      this.$elem.scrollHeight - 10
     )
       this.runNextPage();
   };
@@ -100,7 +100,6 @@ class Discussions extends Component {
   runNextPage() {
     const { calling, loading, finished, page_id } = this.state;
     if (calling || loading || finished) return;
-
     this.setState({ page_id: page_id + 1 }, () => {
       this.getProposals(false);
     });
