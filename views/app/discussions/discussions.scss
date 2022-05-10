@@ -1,7 +1,10 @@
 #app-discussions-page {
+  display: flex;
+  flex-direction: column;
   height: 100%;
   #app-discussions-section {
-    height: 100%;
+    min-height: 0;
+    flex: 1;
   }
   ul#app-discussions-pageHeader {
     list-style: none;

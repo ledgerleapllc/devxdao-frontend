@@ -232,6 +232,7 @@ export default function AuthAppRoutes() {
             exact
           />
           <CacheRoute
+            className="view-page"
             path="/app/discussions"
             component={DiscussionsView}
             exact
