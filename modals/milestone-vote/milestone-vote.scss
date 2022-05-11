@@ -6,13 +6,31 @@
   position: relative;
   padding: 90px 50px;
   margin: 160px auto;
-  .multiple-selected-top {
+  @media screen and (max-width: 767px) {
+    .pc {
+      display: none !important;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    .mobile {
+      display: none !important;
+    }
+  }
+  .multiple-selected-top.pc {
     position: absolute;
     top: 25px;
     left: 50%;
     transform: translateX(-50%);
   }
+  .multiple-selected-top.mobile {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 20px;
+  }
   .multiple-selected-bottom {
+    width: 100%;
+    text-align: center;
     position: absolute;
     bottom: 25px;
     left: 50%;
@@ -53,7 +71,7 @@
 
   @media all and (max-width: 767px) {
     margin: 100px auto;
-    padding: 30px 15px;
+    padding: 70px 15px 70px 15px;
 
     h2 {
       margin-top: 50px;

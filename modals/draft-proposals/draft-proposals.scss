@@ -18,12 +18,8 @@
     margin-left: -5px;
     margin-right: -5px;
     display: flex;
-
-    a {
-      flex: 0 0 calc(50% - 10px) !important;
-      width: calc(50% - 10px) !important;
-      margin: 0 5px !important;
-    }
+    flex-direction: column;
+    align-items: center;
   }
 
   @media all and (max-width: 767px) {

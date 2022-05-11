@@ -525,7 +525,7 @@ class Sidebar extends Component {
     const { authUser } = this.props;
     if (authUser.is_member || authUser.is_participant) {
       return (
-        <div className="text-center mt-4 mb-5">
+        <div className="d-none d-lg-block text-center mt-4 mb-5">
           <a
             id="get-help-btn"
             className="btn btn-primary-outline small"

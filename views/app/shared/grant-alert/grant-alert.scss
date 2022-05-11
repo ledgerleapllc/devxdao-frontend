@@ -32,17 +32,25 @@
     }
 
     > div {
-      margin: 20px auto;
       text-align: center;
+      padding: 0;
     }
 
     .btn {
       width: 100%;
     }
+    .actions {
+      padding-top: 10px;
+      width: 100% !important;
+      align-items: center;
+      button, a {
+        width: 100px;
+      }
+    }
   }
   .actions {
-    flex: 0 !important;
-    width: 100px !important;
+    flex: 0;
+    width: 100px;
     padding-right: 0 !important;
     button, a {
       padding: 10px 12px;

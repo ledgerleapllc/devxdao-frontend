@@ -35,17 +35,20 @@ class DraftProposals extends Component {
           <label>Close Window</label>
         </div>
 
-        <h5 className="text-center mb-4">
+        <h5 className="text-center mt-5 mb-4">
           Would you like to continue a prior grant application or start a new
           application?
         </h5>
         <DraftProposalsTable />
         <div className="mt-4" id="draft-proposals-modal__buttons">
-          <a className="btn btn-primary-outline" onClick={this.hideModal}>
-            Cancel
-          </a>
           <a className="btn btn-primary" onClick={this.newGrant}>
             Start a new grant instead
+          </a>
+          <a
+            className="color-primary text-underline mt-2"
+            onClick={this.hideModal}
+          >
+            Cancel
           </a>
         </div>
       </div>

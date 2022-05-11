@@ -175,7 +175,6 @@ class SingleProposalDetail extends Component {
     if (editionMode) {
       // Save
       let { proposal, editionField, editionValue } = this.state;
-      console.log(editionValue);
       const proposalTemp = { ...proposal };
       let whatSection = "";
       let changeTo = "";
@@ -210,13 +209,11 @@ class SingleProposalDetail extends Component {
               formData,
               () => {},
               (res) => {
-                console.log(proposalTemp);
                 this.props.dispatch(
                   getSingleProposal(
                     proposalTemp.id,
                     () => {},
                     (res1) => {
-                      console.log(res1);
                       proposalTemp.files = res1.proposal.files;
                       if (res.success) {
                         this.setState({

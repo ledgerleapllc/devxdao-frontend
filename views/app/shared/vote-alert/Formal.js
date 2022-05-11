@@ -254,11 +254,12 @@ class Formal extends Component {
   renderForm() {
     const { stakeAmount } = this.state;
     const { proposal, vote, informalVote, authUser } = this.props;
-
     let voted = false;
+    let votedInfo;
     if (proposal.voteResults && proposal.voteResults.length) {
       for (let i in proposal.voteResults) {
         if (proposal.voteResults[i].vote_id == vote.id) {
+          votedInfo = proposal.voteResults[i];
           voted = true;
           break;
         }
@@ -279,6 +280,7 @@ class Formal extends Component {
         proposal.votes[proposal.votes.length - 1].status == "active" &&
         proposal.votes[proposal.votes.length - 1].type == "formal";
     }
+
     if (+authUser.id === +proposal.user_id) {
       return (
         <form>
@@ -286,6 +288,25 @@ class Formal extends Component {
             <label className="mb-2">Active loosely coupled vote</label>
             <br />
             <b>{`You are not able to vote in this ballot vote because this is your own proposal. You cannot vote for your own proposal.`}</b>
+          </div>
+        </form>
+      );
+    }
+    if (voted) {
+      return (
+        <form>
+          <div className="ml-3" id="app-spd-informal-process-body">
+            <label className="mb-2">ALREADY VOTED</label>
+            <br />
+            <b>
+              {`You already voted on this on ${moment(votedInfo.created_at)
+                .local()
+                .format("M/D/YYYY h:mm A")} and staked ${parseFloat(
+                votedInfo.value
+              )?.toFixed?.(3)}
+              `}
+            </b>
+            <b className="text-uppercase">{votedInfo.type}.</b>
           </div>
         </form>
       );
@@ -538,8 +559,8 @@ class Formal extends Component {
             </div>
           </div>
         </div>
-        {this.renderVoteInfo()}
         {this.renderForm()}
+        {this.renderVoteInfo()}
         {vote.content_type === "milestone" && data?.milestone_check_list && (
           <Card className="mt-3 mw-100" isAutoExpand>
             <CardHeader>

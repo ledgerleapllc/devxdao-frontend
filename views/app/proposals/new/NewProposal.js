@@ -146,12 +146,9 @@ class NewProposal extends Component {
 
     return (
       <div id="app-new-proposal-page">
-        <div className="d-flex" style={{ marginTop: "50px" }}>
+        <div className="new-proposal-header">
           <PageHeaderComponent title="New Proposal" link="/app/proposals" />
-          <div
-            className="ml-3 d-flex align-items-center"
-            style={{ marginBottom: "20px" }}
-          >
+          <div className="new-proposal-header-tools">
             <button
               className="mr-2 btn btn-primary less-small"
               onClick={this.saveDraft}

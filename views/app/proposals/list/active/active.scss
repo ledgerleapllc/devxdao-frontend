@@ -1,5 +1,20 @@
 #app-active-proposals-section {
   overflow: unset;
+  @media screen and (max-width: 600px) {
+    .status-pc {
+      display: none;
+    }
+  }
+  @media screen and (min-width: 601px) {
+    .status-mobile {
+      display: none;
+    }
+  }
+  .infinite-header {
+    @media screen and (max-width: 600px) {
+      padding: 0 20px;
+    }
+  }
   .infinite-content {
     height: 450px;
     min-height: 450px;
@@ -70,6 +85,9 @@
       li {
         cursor: pointer;
         padding: 0 30px 0 80px;
+        @media screen and (max-width: 600px) {
+          padding: 0 20px;
+        }
         
         * {
           cursor: pointer;

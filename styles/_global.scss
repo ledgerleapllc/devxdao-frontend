@@ -110,7 +110,9 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
+.text-no-wrap {
+  white-space: nowrap;
+}
 .text-pre-wrap {
   white-space: pre-wrap;
   overflow-wrap: anywhere;

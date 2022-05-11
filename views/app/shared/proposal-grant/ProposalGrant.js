@@ -125,11 +125,14 @@ class ProposalGrant extends Component {
               ) : (
                 <Icon.Square color="#9B64E6" />
               )}
-            </div>
-            <div className="c-checkbox-itemContent">
-              <label className="d-block" onClick={() => this.toggle(index)}>
+              <label
+                className="pl-2 d-block"
+                onClick={() => this.toggle(index)}
+              >
                 {grant}
               </label>
+            </div>
+            <div className="c-checkbox-itemContent">
               <div className="c-checkbox-itemContentInner">
                 <input
                   type="text"
@@ -142,11 +145,13 @@ class ProposalGrant extends Component {
                 <input
                   type="text"
                   value={Helper.formatPercentage(percentage)}
-                  placeholder=""
+                  placeholder="Percentage kept by OP"
                   className="grant-percentage"
                   onChange={(e) => this.inputPercentage(e, index)}
                 />
-                <label>Percentage kept by OP</label>
+                <label className="grant-percentage-label">
+                  Percentage kept by OP
+                </label>
               </div>
             </div>
           </div>
@@ -164,10 +169,15 @@ class ProposalGrant extends Component {
               ) : (
                 <Icon.Square color="#9B64E6" />
               )}
+              <label
+                className="pl-2 d-block"
+                onClick={() => this.toggle(index)}
+              >
+                {grant}
+              </label>
             </div>
             <div className="c-checkbox-itemContent">
               <div className="c-checkbox-itemOther">
-                <label onClick={() => this.toggle(index)}>{grant}</label>
                 <input
                   type="text"
                   placeholder="Enter use of funds"
@@ -187,10 +197,13 @@ class ProposalGrant extends Component {
                 <input
                   type="text"
                   value={Helper.formatPercentage(percentage)}
+                  placeholder="Percentage kept by OP"
                   className="grant-percentage"
                   onChange={(e) => this.inputPercentage(e, index)}
                 />
-                <label>Percentage kept by OP</label>
+                <label className="grant-percentage-label">
+                  Percentage kept by OP
+                </label>
               </div>
             </div>
           </div>
