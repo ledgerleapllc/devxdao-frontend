@@ -438,7 +438,7 @@ class Users extends Component {
             Users Table&nbsp;&nbsp;
             <Icon.Info size={16} />
           </label>
-          <div className="pt-4 align-items-center d-flex w-100">
+          <div className="pt-4 align-items-center flex-column flex-sm-row d-flex w-100">
             <div className="align-items-end tool-box d-flex tool-1">
               <Checkbox
                 text="Filter V%"
@@ -490,7 +490,7 @@ class Users extends Component {
                 </>
               )}
             </div>
-            <div className="tool-box d-flex tool-2 justify-content-end align-items-end h-100">
+            <div className="tool-box d-flex flex-column flex-sm-row tool-2 justify-content-end align-items-end h-100">
               <Checkbox
                 text="Show only VAs"
                 onChange={(val) => this.changeVA(val)}

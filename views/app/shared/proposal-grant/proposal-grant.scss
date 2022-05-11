@@ -1,11 +1,13 @@
 #proposal-grant-section {
   .c-checkbox-item {
     display: flex;
+    flex-direction: column;
     // align-items: center;
     margin-bottom: 20px;
 
     .c-checkbox-itemSymbol {
-      width: 40px;
+      // width: 40px;
+      display: flex;
       cursor: pointer;
     }
 
@@ -25,6 +27,9 @@
         margin-right: 1rem;
         width: 80px !important;
         flex: 0 0 80px;
+        &::placeholder {
+          opacity: 0;
+        }
       }
     }
 
@@ -48,11 +53,26 @@
   @media all and (max-width: 767px) {
     .c-checkbox-item {
       flex-wrap: wrap;
-      
+      .c-checkbox-itemContent {
+        .c-checkbox-itemContentInner {
+          display: flex;
+          flex-direction: column;
+        }
+      }
       input[type="text"] {
-        width: 100%;
+        width: 100% !important;
         flex: auto;
         margin-top: 10px;
+        &.grant-percentage {
+          width: 100% !important;
+          flex: unset;
+          &::placeholder {
+            opacity: 1;
+          }
+        }
+      }
+      .grant-percentage-label {
+        display: none;
       }
 
       &.other {

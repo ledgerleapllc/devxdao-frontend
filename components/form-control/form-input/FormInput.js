@@ -30,7 +30,6 @@ export default function FormInput({
         className={className}
         placeholder={placeholder || ""}
         autoComplete="off"
-        autoSave="off"
         onChange={onChangeHandler}
         {...props}
       />
@@ -45,7 +44,6 @@ export default function FormInput({
       className={className}
       placeholder={placeholder || ""}
       autoComplete="off"
-      autoSave="off"
       {...props}
       onChange={onChangeHandler}
     />

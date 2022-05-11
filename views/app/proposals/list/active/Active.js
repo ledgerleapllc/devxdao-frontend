@@ -352,6 +352,9 @@ class ActiveProposals extends Component {
       items.push(
         <li key={`proposal_${item.id}`}>
           <div className="infinite-row">
+            <div className="c-col-3 c-cols status-mobile">
+              {this.renderStatus(item)}
+            </div>
             <div className="c-col-0 c-cols" onClick={() => this.clickRow(item)}>
               <label className="font-size-14 d-block">{item.id}</label>
             </div>
@@ -372,7 +375,9 @@ class ActiveProposals extends Component {
                 {PROPOSAL_TYPES[item.type]}
               </label>
             </div>
-            <div className="c-col-3 c-cols">{this.renderStatus(item)}</div>
+            <div className="c-col-3 c-cols status-pc">
+              {this.renderStatus(item)}
+            </div>
             <div className="c-col-4 c-cols" onClick={() => this.clickRow(item)}>
               <div className="c-image-wrap">
                 <div>
@@ -429,6 +434,9 @@ class ActiveProposals extends Component {
     return (
       <div className="infinite-header">
         <div className="infinite-headerInner">
+          <div className="c-col-3 c-cols status-mobile">
+            <label className="font-size-14">Status</label>
+          </div>
           <div
             className="c-col-0 c-cols"
             onClick={() => this.clickHeader("proposal.id")}
@@ -450,7 +458,7 @@ class ActiveProposals extends Component {
             <label className="font-size-14">Type</label>
             {this.renderTriangle("proposal.type")}
           </div>
-          <div className="c-col-3 c-cols">
+          <div className="c-col-3 c-cols status-pc">
             <label className="font-size-14">Status</label>
           </div>
           <div

@@ -383,7 +383,7 @@ class Reputation extends Component {
 
     const totalV = parseFloat(staked) + parseFloat(rep);
 
-    return totalV?.toFixed?.(DECIMALS);
+    return totalV?.toFixed?.(2);
   }
 
   render() {
@@ -396,24 +396,29 @@ class Reputation extends Component {
       <div id="app-reputation-page">
         <div className="d-flex justify-content-between">
           <h3>
-            My Available Reputation: <Icon.Droplet />{" "}
-            <span>{rep?.toFixed?.(DECIMALS)}</span>
+            My Available Reputation:
+            <span className="text-no-wrap">
+              <Icon.Droplet />
+              {rep?.toFixed?.(2)}
+            </span>
           </h3>
-          <Checkbox
-            value={this.state.daily_email}
-            onChange={(e) => this.toggleDailyEmail(e)}
-            text="Daily CSV email"
-          />
+          <div className={"d-none d-sm-block"}>
+            <Checkbox
+              value={this.state.daily_email}
+              onChange={(e) => this.toggleDailyEmail(e)}
+              text="Daily CSV email"
+            />
+          </div>
         </div>
         <label className="d-block mb-0">
           Total: <span>{this.renderTotal()}</span>
         </label>
         <label className="d-block mb-0">
-          Staked: <span>{staked?.toFixed?.(DECIMALS)}</span>
+          Staked: <span>{staked?.toFixed?.(2)}</span>
         </label>
         <label className="d-block">
           Minted Pending:
-          <span>{rep_pending?.toFixed?.(DECIMALS)}</span>
+          <span>{rep_pending?.toFixed?.(2)}</span>
         </label>
         <Fade distance={"20px"} bottom duration={300} delay={600}>
           <section id="app-reputation-section" className="app-infinite-box">

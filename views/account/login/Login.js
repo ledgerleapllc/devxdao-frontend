@@ -118,11 +118,13 @@ class Login extends Component {
               />
 
               <FormInputComponent
+                id="current-password"
                 placeholder="Password"
                 type="password"
                 required={true}
                 onChange={this.inputPassword}
-                name="password"
+                name="current-password"
+                autoComplete="current-password"
                 value={password}
               />
 

@@ -4,6 +4,9 @@
     padding: 0;
   }
   flex: 1;
+  @media screen and (max-width: 600px) {
+    width: 100%;
+  }
   min-height: fit-content;
   position: relative;
   display: flex;
@@ -201,7 +204,9 @@
   }
 
   #c-submit-status {
-    padding-left: 20px;
+    @media screen and (min-width: 601px) {
+      padding-left: 20px;
+    }
     font-size: 15px;
     position: -webkit-sticky;
     position: sticky;

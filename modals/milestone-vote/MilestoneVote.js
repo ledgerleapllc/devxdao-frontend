@@ -207,7 +207,7 @@ class MilestoneVote extends Component {
     return (
       <div id="milestone-vote-modal">
         {submittingMilestones?.length && (
-          <span className="multiple-selected-top">
+          <span className="multiple-selected-top pc">
             Milestone submission {submissionIndex + 1} of{" "}
             {submittingMilestones.length} selected
           </span>
@@ -216,6 +216,13 @@ class MilestoneVote extends Component {
           <Icon.X />
           <label>Close Window</label>
         </div>
+
+        {submittingMilestones?.length && (
+          <span className="multiple-selected-top mobile">
+            Milestone submission {submissionIndex + 1} of{" "}
+            {submittingMilestones.length} selected
+          </span>
+        )}
 
         <h3>
           You are submitting milestone#{index + 1} for {proposal.title}

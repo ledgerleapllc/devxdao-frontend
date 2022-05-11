@@ -214,6 +214,9 @@ const GrantItem = ({ item, clickRow }) => {
               {expand && <Icon.ChevronDown />}
             </label>
           </div>
+          <div className="c-col-4 c-cols status-mobile">
+            {renderStatus(item)}
+          </div>
           <div className="c-col-2 c-cols">
             <label
               className="font-size-14 font-weight-700"
@@ -230,7 +233,7 @@ const GrantItem = ({ item, clickRow }) => {
               {item.proposal.title}
             </label>
           </div>
-          <div className="c-col-4 c-cols">{renderStatus(item)}</div>
+          <div className="c-col-4 c-cols status-pc">{renderStatus(item)}</div>
           <div className="c-col-5 c-cols">
             <label className="font-size-14">
               {moment(item.created_at).local().format("M/D/YYYY")}{" "}
@@ -562,6 +565,13 @@ class MemberGrant extends Component {
       <div className="infinite-header">
         <div className="infinite-headerInner">
           <div className="c-col-1 c-cols" />
+          <div
+            className="c-col-4 c-cols status-mobile"
+            onClick={() => this.clickHeader("final_grant.status")}
+          >
+            <label className="font-size-14">Status</label>
+            {this.renderTriangle("final_grant.status")}
+          </div>
           <div className="c-col-2 c-cols">
             <label className="font-size-14">#</label>
           </div>
@@ -569,7 +579,7 @@ class MemberGrant extends Component {
             <label className="font-size-14">Title</label>
           </div>
           <div
-            className="c-col-4 c-cols"
+            className="c-col-4 c-cols status-pc"
             onClick={() => this.clickHeader("final_grant.status")}
           >
             <label className="font-size-14">Status</label>
