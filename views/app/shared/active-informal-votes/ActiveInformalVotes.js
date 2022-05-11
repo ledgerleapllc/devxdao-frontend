@@ -253,6 +253,13 @@ class ActiveInformalVotes extends Component {
       html = (
         <Fragment>
           <div
+            className="c-col-4 c-cols my-votes-mobile"
+            onClick={() => this.clickHeader("vote_result_type")}
+          >
+            <label className="font-size-14">My Vote</label>
+            {this.renderTriangle("vote_result_type")}
+          </div>
+          <div
             className="c-col-0 c-cols"
             onClick={() => this.clickHeader("proposal.id")}
           >
@@ -277,7 +284,7 @@ class ActiveInformalVotes extends Component {
             <label className="font-size-14">Euros</label>
           </div>
           <div
-            className="c-col-4 c-cols"
+            className="c-col-4 c-cols my-votes-pc"
             onClick={() => this.clickHeader("vote_result_type")}
           >
             <label className="font-size-14">My Vote</label>
@@ -467,6 +474,9 @@ class ActiveInformalVotes extends Component {
         items.push(
           <li key={`vote_${index}`} onClick={() => this.clickRow(vote)}>
             <div className="infinite-row">
+              <div className="c-col-4 c-cols my-votes-mobile">
+                {this.renderMyVote(vote)}
+              </div>
               <div className="c-col-0 c-cols">
                 <label className="font-size-14 d-block">
                   {vote.proposalId}
@@ -485,7 +495,9 @@ class ActiveInformalVotes extends Component {
               <div className="c-col-3 c-cols">
                 {Helper.formatPrice(vote.euros || 0)}
               </div>
-              <div className="c-col-4 c-cols">{this.renderMyVote(vote)}</div>
+              <div className="c-col-4 c-cols my-votes-pc">
+                {this.renderMyVote(vote)}
+              </div>
               <div className="c-col-5 c-cols">{this.renderRep(vote)}</div>
               <div className="c-col-6 c-cols">
                 <div className="vote-clock-wrap">

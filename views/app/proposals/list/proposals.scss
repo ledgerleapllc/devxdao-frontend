@@ -40,11 +40,15 @@
 
   #app-proposals-page__buttons {
     display: flex;
+    flex-flow: wrap;
     align-items: center;  
     margin-bottom: 10px;
     
-    .btn-primary {
-      margin-right: 20px;
+    @media all and (max-width: 600px) {
+      .btn {
+        margin: 5px 0;
+        width: calc(50% - 15px);
+      }
     }
   }
 }

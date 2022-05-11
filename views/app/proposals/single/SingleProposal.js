@@ -465,10 +465,19 @@ class SingleProposal extends Component {
           </div>
           {attestationData.related_to_proposal ? (
             <div className="app-simple-section topic-reads-chart">
-              <CircularProgressbar
-                value={attestationData.attestation_rate || 0}
-                text={`${attestationData.attestation_rate?.toFixed(2) || 0}%`}
-              />
+              <div className="d-flex flex-column w-100">
+                <label className="pl-4 d-sm-none pb-2">
+                  <b>Attestation</b>
+                </label>
+                <div className="mx-auto">
+                  <CircularProgressbar
+                    value={attestationData.attestation_rate || 0}
+                    text={`${
+                      attestationData.attestation_rate?.toFixed(2) || 0
+                    }%`}
+                  />
+                </div>
+              </div>
             </div>
           ) : (
             ""

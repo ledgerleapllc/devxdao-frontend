@@ -14,6 +14,7 @@ import { setActiveModal, setAttestationData } from "../../../redux/actions";
 import { Flag } from "react-feather";
 import TopicAttestationCard from "../shared/topic-attestation-card/TopicAttestationCard";
 import { CircularProgressbar } from "react-circular-progressbar";
+import classNames from "classnames";
 
 const mapStateToProps = (state) => {
   return {
@@ -67,64 +68,75 @@ class TopicDetail extends Component {
     );
   };
 
+  renderActions(className = "pc") {
+    const { topic } = this.state;
+    if (!topic || !topic.id) return null;
+    const { authUser, history, attestationData } = this.props;
+
+    return (
+      <div
+        className={classNames(
+          "fd-page-actions ml-auto",
+          `fd-page-actions-${className}`
+        )}
+      >
+        <button
+          onClick={() => this.viewAttestion()}
+          className="btn btn-primary btn-fluid less-small"
+        >
+          View attestation
+        </button>
+        {topic.details.can_edit ? (
+          <button
+            onClick={() => history.push(`/app/topics/${topic.id}/edit`)}
+            className="btn btn-primary btn-fluid less-small"
+          >
+            Edit Topic Title
+          </button>
+        ) : (
+          ""
+        )}
+        {attestationData.related_to_proposal ? (
+          <button
+            onClick={this.handleProposal}
+            className="btn btn-primary btn-fluid less-small"
+          >
+            Proposal Detail
+          </button>
+        ) : (
+          ""
+        )}
+        {(authUser.is_member || authUser.is_admin || authUser.is_super_admin) &&
+        attestationData.related_to_proposal ? (
+          <button
+            onClick={this.handleFlag}
+            className="btn btn-primary btn-fluid less-small"
+          >
+            Flag Topic
+          </button>
+        ) : (
+          ""
+        )}
+        {topic.flags_count > 0 ? (
+          <div className="total-flag-count">
+            <Flag />
+            <span>{topic.flags_count}</span>
+          </div>
+        ) : (
+          ""
+        )}
+      </div>
+    );
+  }
+
   // Render Header
   renderHeader() {
     const { topic } = this.state;
     if (!topic || !topic.id) return null;
 
-    const { authUser, history, attestationData } = this.props;
-
     return (
       <PageHeaderComponent title={topic.title}>
-        <div className="fd-page-actions ml-auto">
-          <button
-            onClick={() => this.viewAttestion()}
-            className="btn btn-primary btn-fluid less-small"
-          >
-            View attestation
-          </button>
-          {topic.details.can_edit ? (
-            <button
-              onClick={() => history.push(`/app/topics/${topic.id}/edit`)}
-              className="btn btn-primary btn-fluid less-small"
-            >
-              Edit Topic Title
-            </button>
-          ) : (
-            ""
-          )}
-          {attestationData.related_to_proposal ? (
-            <button
-              onClick={this.handleProposal}
-              className="btn btn-primary btn-fluid less-small"
-            >
-              Proposal Detail
-            </button>
-          ) : (
-            ""
-          )}
-          {(authUser.is_member ||
-            authUser.is_admin ||
-            authUser.is_super_admin) &&
-          attestationData.related_to_proposal ? (
-            <button
-              onClick={this.handleFlag}
-              className="btn btn-primary btn-fluid less-small"
-            >
-              Flag Topic
-            </button>
-          ) : (
-            ""
-          )}
-          {topic.flags_count > 0 ? (
-            <div className="total-flag-count">
-              <Flag />
-              <span>{topic.flags_count}</span>
-            </div>
-          ) : (
-            ""
-          )}
-        </div>
+        {this.renderActions("pc")}
       </PageHeaderComponent>
     );
   }
@@ -141,6 +153,7 @@ class TopicDetail extends Component {
       <section id="app-topic-detail-page" className="discourse">
         {this.renderHeader()}
         <div className="fd-topic-container">
+          {this.renderActions("mobile")}
           <div className="fd-topic-posts">
             <Card isAutoExpand={true}>
               <CardHeader>

@@ -94,49 +94,49 @@ class Proposals extends Component {
             id="app-proposals-page__buttons"
             className="mb-5 align-items-start"
           >
-            <div className="d-flex gap-5 align-items-center flex-column mr-2">
+            <div>
               <button
-                className="btn btn-primary btn-fluid mx-0"
+                className="btn btn-primary btn-fluid mr-2"
                 onClick={() => this.createGrantProposal()}
               >
                 <img src="/tabs/plus.png" alt="" />
                 New Grant Proposal
               </button>
-              <a
-                className="mt-2 text-underline"
-                style={{ color: "inherit", cursor: "pointer" }}
-                onClick={() => this.openDraftProposal()}
-              >
-                Load a saved proposal
-              </a>
+              {authUser.is_member ? (
+                <Link
+                  to="/app/simple-proposal/new"
+                  className="btn btn-primary-outline btn-fluid mr-2"
+                >
+                  <Icon.Plus />
+                  New Simple Proposal
+                </Link>
+              ) : null}
+              {authUser.is_member ? (
+                <Link
+                  to="/app/admin-grant-proposal/new"
+                  className="btn btn-primary-outline btn-fluid mr-2"
+                >
+                  <Icon.Plus />
+                  Admin Grant Proposal
+                </Link>
+              ) : null}
+              {/* {authUser.is_member && authUser.grant_proposal ? (
+                <Link
+                  to="/app/advance-payment-request/new"
+                  className="btn btn-primary-outline btn-fluid"
+                >
+                  <Icon.Plus />
+                  Advance payment request
+                </Link>
+              ) : null} */}
             </div>
-            {authUser.is_member ? (
-              <Link
-                to="/app/simple-proposal/new"
-                className="btn btn-primary-outline btn-fluid mr-2"
-              >
-                <Icon.Plus />
-                New Simple Proposal
-              </Link>
-            ) : null}
-            {authUser.is_member ? (
-              <Link
-                to="/app/admin-grant-proposal/new"
-                className="btn btn-primary-outline btn-fluid mr-2"
-              >
-                <Icon.Plus />
-                Admin Grant Proposal
-              </Link>
-            ) : null}
-            {/* {authUser.is_member && authUser.grant_proposal ? (
-              <Link
-                to="/app/advance-payment-request/new"
-                className="btn btn-primary-outline btn-fluid"
-              >
-                <Icon.Plus />
-                Advance payment request
-              </Link>
-            ) : null} */}
+            <a
+              className="mt-2 text-underline"
+              style={{ color: "inherit", cursor: "pointer" }}
+              onClick={() => this.openDraftProposal()}
+            >
+              Load a saved proposal
+            </a>
           </div>
         </Fade>
       );

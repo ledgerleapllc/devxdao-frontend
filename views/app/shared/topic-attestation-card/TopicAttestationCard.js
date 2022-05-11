@@ -82,24 +82,6 @@ class TopicAttestationCard extends Component {
     return <span className="text">Topic is attestated by you.</span>;
   }
 
-  notInDiscussionContent() {
-    return (
-      <>
-        <span className="text">
-          I attest and certify that I have read this grant and the entire body
-          of comments in the thread. Based on my knowledge of the facts
-          stipulated therein, I am ready to vote on this particular matter.
-        </span>
-        <button
-          className="btn btn-primary btn-fulid less-small"
-          disabled={true}
-        >
-          Topic is not in discussion
-        </button>
-      </>
-    );
-  }
-
   render() {
     const { authUser, attestationData } = this.props;
 
@@ -120,9 +102,7 @@ class TopicAttestationCard extends Component {
                 ? this.isAttestatedContent()
                 : this.attestationContent()}
             </>
-          ) : (
-            this.notInDiscussionContent()
-          )}
+          ) : null}
         </div>
       </div>
     );

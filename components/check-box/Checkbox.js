@@ -1,7 +1,14 @@
 import React, { useEffect, useState } from "react";
 import * as Icon from "react-feather";
+import classNames from "classnames";
 
-export default function Checkbox({ value, text, onChange, readOnly }) {
+export default function Checkbox({
+  className,
+  value,
+  text,
+  onChange,
+  readOnly,
+}) {
   const [val, setVal] = useState();
 
   const toggleCheck = () => {
@@ -16,7 +23,7 @@ export default function Checkbox({ value, text, onChange, readOnly }) {
   }, [value]);
 
   return (
-    <div className="c-form-check d-flex align-items-center">
+    <div className={classNames("c-form-check d-flex", className)}>
       <span onClick={() => toggleCheck()}>
         {val ? (
           <Icon.CheckSquare color="#9B64E6" />
