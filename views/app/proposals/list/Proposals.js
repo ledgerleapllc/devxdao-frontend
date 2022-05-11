@@ -94,7 +94,7 @@ class Proposals extends Component {
             id="app-proposals-page__buttons"
             className="mb-5 align-items-start"
           >
-            <div>
+            <div className="new-proposal-container">
               <button
                 className="btn btn-primary btn-fluid mr-2"
                 onClick={() => this.createGrantProposal()}
