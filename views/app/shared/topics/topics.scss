@@ -1,6 +1,10 @@
 #app-topics-section {
   max-height: 80vh;
-
+  .infinite-header {
+    @media screen and (max-width: 600px) {
+      padding: 0 20px;
+    }
+  }
   .c-col-0 {
     width: 6%;
     flex: 0 0 6%;
@@ -47,7 +51,9 @@
       li {
         cursor: pointer;
         padding: 0 30px 0 80px;
-
+        @media screen and (max-width: 600px) {
+          padding: 0 20px;
+        }
         * {
           cursor: pointer;
         }

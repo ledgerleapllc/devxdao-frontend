@@ -51,6 +51,11 @@
       .btn {
         margin: 5px !important;
         width: calc(50% - 10px);
+        height: 150px;
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
       }
     }
   }
