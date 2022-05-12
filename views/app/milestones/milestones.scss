@@ -1,4 +1,10 @@
 .milestones-page {
+  @media screen and (max-width: 600px) {
+    .statistic-container {
+      display: flex;
+      flex-direction: column;
+    }
+  }
   .react-date-picker__wrapper {
     border: 1px solid #3F196E !important;
     padding-bottom: 8px;

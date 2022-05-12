@@ -217,8 +217,8 @@ class Milestones extends Component {
                 </div>
               </div>
             </div>
-            <div className="app-infinite-search-wrap py-0">
-              <div>
+            <div className="app-infinite-search-wrap statistic-container py-0">
+              <div className="">
                 <table className="total-table">
                   <tbody>
                     <tr>
