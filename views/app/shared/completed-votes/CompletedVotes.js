@@ -229,6 +229,9 @@ class CompletedVotes extends Component {
       // Voting Associate
       html = (
         <Fragment>
+          <div className="c-col-5 c-cols my-votes-mobile">
+            <label className="font-size-14">My Vote</label>
+          </div>
           <div
             className="c-col-0 c-cols"
             onClick={() => this.clickHeader("proposal.id")}
@@ -260,7 +263,7 @@ class CompletedVotes extends Component {
           <div className="c-col-4 c-cols">
             <label className="font-size-14">Euros</label>
           </div>
-          <div className="c-col-5 c-cols">
+          <div className="c-col-5 c-cols my-votes-pc">
             <label className="font-size-14">My Vote</label>
           </div>
           <div className="c-col-6 c-cols">
@@ -464,6 +467,12 @@ class CompletedVotes extends Component {
           <li key={`vote_${index}`}>
             <div className="infinite-row">
               <div
+                className="c-col-5 c-cols my-votes-mobile"
+                onClick={() => this.clickRow(vote)}
+              >
+                {this.renderMyVote(vote)}
+              </div>
+              <div
                 className="c-col-0 c-cols"
                 onClick={() => this.clickRow(vote)}
               >
@@ -502,7 +511,7 @@ class CompletedVotes extends Component {
                 {Helper.formatPrice(vote.euros || 0)}
               </div>
               <div
-                className="c-col-5 c-cols"
+                className="c-col-5 c-cols my-votes-pc"
                 onClick={() => this.clickRow(vote)}
               >
                 {this.renderMyVote(vote)}
