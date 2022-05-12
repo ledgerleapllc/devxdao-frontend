@@ -2,9 +2,20 @@
   ul {
     list-style: none;
   }
+  .infinite-contentInner {
+    min-width: 700px;
+  }
+  .infinite-header {
+    @media screen and (max-width: 600px) {
+      padding: 0 20px;
+    }
+  }
   .infinite-body {
     padding-left: 80px;
     padding-right: 30px;
+    @media screen and (max-width: 600px) {
+      padding: 0 20px;
+    }
   }
   #infinite-no-result {
     width: 100%;
