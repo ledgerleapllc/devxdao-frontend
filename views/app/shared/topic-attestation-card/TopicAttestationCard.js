@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { setAttestationData, showAlert } from "../../../../redux/actions";
 import API from "../../../../utils/API";
-
+import { clearCache } from "react-router-cache-route";
 import "./circular-progressbar.scss";
 import "./topic-attestation-card.scss";
 
@@ -41,6 +41,7 @@ class TopicAttestationCard extends Component {
     API.readTopic(topic.id).then((res) => {
       if (res?.failed) {
         this.props.dispatch(showAlert(res.message));
+        clearCache();
         return;
       }
 
