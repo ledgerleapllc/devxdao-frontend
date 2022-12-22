@@ -505,6 +505,16 @@ class CustomModal extends Component {
       return;
     }
 
+    const fileSize = file.size;
+    if (fileSize > 10000000) {
+      this.props.dispatch(
+        showAlert(
+          "The file you are trying to upload is too large. Max file size: 10MB."
+        )
+      );
+      return;
+    }
+
     const formData = new FormData();
     formData.append("file", file);
 
