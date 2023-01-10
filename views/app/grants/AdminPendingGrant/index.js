@@ -307,6 +307,7 @@ class AdminPendingGrant extends Component {
         <a onClick={() => this.showSignDialog(item)}>
           {signedCount}/{TOTAL_SIGN_COUNT}
         </a>
+        {/*
         <a
           className="mt-2 d-block font-size-14 text-underline"
           onClick={() => this.remind(item)}
@@ -314,6 +315,8 @@ class AdminPendingGrant extends Component {
         >
           Remind
         </a>
+        */}
+        {/*
         <a
           className="mt-2 d-block font-size-14 text-underline"
           onClick={() => this.resend(item)}
@@ -321,6 +324,7 @@ class AdminPendingGrant extends Component {
         >
           Resend
         </a>
+        */}
       </>
     );
   }
